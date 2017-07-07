@@ -1,0 +1,269 @@
+.fff{
+    background:#FFFFFF;
+}
+.c3{
+    color:#333;
+}
+.cred{
+    color:#FF4243;
+}
+.order{
+    display: flex;
+    flex-direction:column;
+    top:0;
+    width: 100%;
+    background: #EEEFF3;
+}
+.address{
+    display: flex;
+    flex-direction: row;
+}
+.order_title{
+    display: flex;
+    justify-content: center;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    background: #FFFFFF;
+}
+.order_titleCity{
+    flex:1;
+    padding:0 0.3rem;
+    /*background: url("../images/arrow-down.png") no-repeat 1.2rem center;*/
+    -webkit-background-size: 0.3rem;
+    background-size: 0.3rem;
+    composes: f26 from '../Util/base.css';
+}
+.order_titleName{
+    flex: 4;
+    margin-left: -0.6rem;
+    composes: f36 tc from '../Util/base.css';
+}
+.order_titleLocal{
+    flex:1;
+}
+.order_img{
+    height:0.54rem;
+    width:0.54rem;
+    float: right;
+    margin-top: 0.15rem;
+    margin-right: 0.3rem;
+}
+.map{
+   display: none;
+}
+.sentAddress{
+    position: relative;
+    height: 0.84rem;
+    line-height:0.84rem;
+    padding-left: 0.7rem;
+    /*background: url(../images/address-05.png) no-repeat 0.3rem center;*/
+    background-size: 0.3rem;
+    color: #333333;
+    composes:f30 from '../Util/base.css';
+}
+.sentAddress_tip{
+    display: inline-block;
+    float: left;
+}
+.sentAddress_detail{
+    display: inline-block;
+    width:66%;
+    white-space:nowrap;
+    overflow: hidden;
+}
+.btn_right{
+    position: absolute;
+    top: 0.27rem;
+    right:0.3rem;
+    height:0.3rem;
+    width:0.18rem;
+}
+.line{
+    width:100%;
+    height:0.04rem;
+}
+.mainPic{
+    width:100%;
+    height: 2.4rem;
+}
+.barrelled{
+    margin-top: 0.3rem;
+    height: 4.2rem;
+    background: #FFFFFF;
+}
+.barrelled_title{
+    height: 0.8rem;
+    line-height: 0.8rem;
+    composes:c3;
+    composes:f32 tc from '../Util/base.css';
+}
+.barrelled_pic{
+    width:100%;
+    height: 3.4rem;
+}
+.recommend{
+    margin: 0.2rem 0;
+    height:3.9rem;
+    display: flex;
+}
+.water_ticket{
+    width: 4.36rem;
+    padding-bottom: 0.4rem;
+    background: #FFFFFF;
+}
+.water_coupon{
+    margin:0.36rem 0 0.1rem 0.3rem;
+    color: #333333;
+    composes:f32 from '../Util/base.css';
+}
+.water_coupon_sub{
+    margin:0 0 0.3rem 0.3rem;
+    color:#999999;
+    composes:f26 from '../Util/base.css';
+}
+.coupon_pic{
+    display: flex;
+    width: 100%;
+    height:2rem;
+    /*background: url(../images/goods_ticket_bg.png) no-repeat center center;*/
+    background-size: 3.76rem 1.7rem;
+}
+.pail{
+    width: 0.5rem;
+    height: 0.9rem;
+    margin-top: 0.65rem;
+    margin-left: 0.5rem;
+}
+.ticket_text{
+    margin-top: 0.6rem;
+    margin-left: 0.35rem;
+    text-align: center;
+}
+.ticket_title{
+    color:#e6d15e;
+    composes:f36 from '../Util/base.css';
+}
+.ticket_subTitle{
+    composes:f24 from '../Util/base.css';
+}
+.ticket_scope{
+    color: #ffffff;
+    font-size: 0.16rem;
+    margin-top: 1.3rem;
+}
+.other{
+    width: 3.08rem;
+    margin-left:0.06rem;
+    background: #FFFFFF;
+}
+.other_pic{
+
+}
+.productList{
+    background: #EEEFF3;
+}
+.product_type{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top:0.19rem;
+    padding-bottom:0.19rem;
+    margin-bottom: 0.03rem;
+    height: 0.6rem;
+    line-height:0.6rem;
+    composes: fff;
+    composes: f30 from '../Util/base.css';
+}
+.product_type_item{
+    display: flex;
+    flex:1;
+    border-left:0.01rem solid #E3E3E3;
+    margin-left: -0.02rem;
+    justify-content:center;
+}
+.type_item_title{
+    float: left;
+    padding:0 0.1rem;
+}
+.type_item_icon{
+    float: left;
+    height: 0.35rem;
+    margin-top: 0.15rem;
+}
+.related{
+    height:0.8rem;
+    line-height:0.8rem;
+    margin-bottom: 0.02rem;
+    background: #FFFFFF;
+    composes:f32 tc from '../Util/base.css';
+}
+.row_product_list{
+    display: flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+    margin-right: -0.1rem;
+    margin-bottom: 1.3rem;
+}
+.row_productList_item{
+    width: 3.73rem;
+    height: 5.3rem;
+    overflow: hidden;
+    margin-right: 0.04rem;
+    margin-bottom: 0.04rem;
+    composes: fff;
+}
+.row_item_pic_box{
+    height:3.73rem;
+    overflow: hidden;
+    composes: fff;
+    composes: w tc from '../Util/base.css';
+}
+.row_item_pic{
+    composes:w h from '../Util/base.css';
+}
+.row_item_detail{
+    height: 0.9rem;
+}
+.row_item_title{
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0.2rem;
+    margin:0.02rem 0 0.05rem 0;
+    width:85%;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+    color:#333333;
+    composes: f32 from '../Util/base.css';
+}
+.row_item_price{
+    padding-left: 0.2rem;
+    composes: cred;
+    composes: f32 from '../Util/base.css';
+}
+.row_price_unit{
+    composes:f24 from '../Util/base.css';
+}
+.row_item_extra{
+    margin:0.05rem 0 0.05rem 0;
+    padding-left: 0.2rem;
+}
+.row_item_extra_sort{
+    margin-right: 0.2rem;
+}
+.item_sort_pic{
+    float: left;
+    height: 0.3rem;
+    margin-top: 0.05rem;
+}
+.row_item_extra_sold{
+    color: #999999;
+    composes:f26 from '../Util/base.css';
+}
+.row_item_cart{
+    float:right;
+    margin-right: 0.24rem;
+    width:0.4rem;
+    height:0.4rem;
+}

@@ -1,0 +1,52 @@
+.nav_bar{
+    display: flex;
+    flex-direction: row;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:0.8rem;
+}
+.nav_bar a{
+    flex:1;
+    text-align: center;
+}
+.home{
+    background:url('../images/footer_nav_home.png') no-repeat center;
+    -webkit-background-size:0.48rem;
+    background-size:0.48rem;
+}
+.home_active{
+    background:url('../images/footer_nav_home_active.png') no-repeat center;
+    -webkit-background-size:0.48rem;
+    background-size:0.48rem;
+}
+.my{
+    background:url('../images/footer_nav_my.png') no-repeat center;
+    -webkit-background-size:0.48rem;
+    background-size:0.48rem;
+}
+.my_active{
+    background:url('../images/footer_nav_my_active.png') no-repeat center;
+    -webkit-background-size:0.48rem;
+    background-size:0.48rem;
+}
+.shoppingCart{
+    background:url('../images/footer_nav_shoppingcart.png') no-repeat center;
+    -webkit-background-size:0.48rem;
+    background-size:0.48rem;
+}
+.shoppingCart_active{
+    background:url('../images/footer_nav_shoppingcart_active.png') no-repeat center;
+    -webkit-background-size:0.48rem;
+    background-size:0.48rem;
+}
+.station{
+    background:url('../images/footer_nav_station.png') no-repeat center;
+    -webkit-background-size:0.48rem;
+    background-size:0.48rem;
+}
+.station_active{
+    background:url('../images/footer_nav_station_active.png') no-repeat center;
+    -webkit-background-size:0.48rem;
+    background-size:0.48rem;
+}
