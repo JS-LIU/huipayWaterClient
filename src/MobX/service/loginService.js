@@ -2,8 +2,6 @@
  * Created by LDQ on 2017/7/4.
  */
 
-import {observable} from "mobx";
-
 
 let loginService = {};
 loginService.clientList = [];

@@ -10,12 +10,13 @@ import _h from '../../Util/HB';
 import loginService from '../service/loginService';
 class Login{
     @observable loginInfo = {};
-    @observable access_token;
-    @observable access_token_secret;
-    @observable head_img = "";
-    @observable nick_name = "汇贝送水客户";
+    @observable accessToken;
+    @observable accessTokenSecret;
+    @observable headImg = "";
+    @observable nickName = "汇贝送水客户";
     @observable sex = "男";
-    @observable user_id;
+    @observable userId;
+    @observable phoneNum;
 
 
     constructor(){
@@ -76,23 +77,29 @@ class Login{
             let Md5Key = Md5Data.data;
 
             this.login(accessInfo,account_num,pwd,Md5Key).then(function(data){
-                console.log(data);
-                self.loginInfo = data;
-                loginService.trigger('loginSucc',this.postDataAccessInfo);
+                console.log('Login--clientLogin-获取用户信息成功：',data);
+                self.useId = data.user_id;
+                self.accessToken = data.token.access_token;
+                self.accessTokenSecret = data.token.access_token_secret;
+                self.phoneNum = data.phone_num;
+                self.sex = data.sex;
+                self.nickName = data.nick_name;
+
+                loginService.trigger('loginSucc',self.postDataAccessInfo);
             });
 
         });
     }
     @computed get postDataAccessInfo(){
-
+        let self = this;
         return {
-            access_token: this.access_token,
-            account_num: this.account_num,
-            app_key: this.appKey,
-            loginType: this.loginType,
-            os: this.os,
-            signature:hex_md5(this.appSecret + '&' +  this.access_token_secret),
-            version: this.version
+            access_token: self.accessToken,
+            account_num: self.account_num,
+            app_key: self.appKey,
+            loginType: self.loginType,
+            os: self.os,
+            signature:hex_md5(self.appSecret + '&' +  self.accessTokenSecret),
+            version: self.version
         }
     }
 }
