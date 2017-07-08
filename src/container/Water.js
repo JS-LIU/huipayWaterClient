@@ -8,8 +8,11 @@ import {Link} from 'react-router-dom';
 
 import waterStyle from '../css/waterStyle.css';
 
+//  todo 临时登录
 @inject (['login'])
+//  todo 放到locationService的职责链中
 @inject (['autoMap'])
+@inject (['addressList'])
 
 @observer
 
@@ -18,8 +21,10 @@ class Water extends Component{
         super(props);
     }
     componentWillMount(){
+        this.props.addressList.getAddressList();
         this.props.login.clientLogin("18801233565",'111111','phonenum');
         this.props.autoMap.currentLocationInfo();
+
     }
     render(){
         return(

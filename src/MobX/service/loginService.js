@@ -4,10 +4,10 @@
 
 
 let loginService = {};
-loginService.clientList = [];
+loginService.clientList = {};
 loginService.listen = function(key,fn){
     if(!this.clientList[key]){
-        this.clientList[key] = fn;
+        this.clientList[key] = [];
     }
     this.clientList[key].push(fn);
 };

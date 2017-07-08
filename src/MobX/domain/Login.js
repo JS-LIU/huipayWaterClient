@@ -78,7 +78,7 @@ class Login{
 
             this.login(accessInfo,account_num,pwd,Md5Key).then(function(data){
                 console.log('Login--clientLogin-获取用户信息成功：',data);
-                self.useId = data.user_id;
+                self.userId = data.user_id;
                 self.accessToken = data.token.access_token;
                 self.accessTokenSecret = data.token.access_token_secret;
                 self.phoneNum = data.phone_num;
@@ -93,13 +93,16 @@ class Login{
     @computed get postDataAccessInfo(){
         let self = this;
         return {
-            access_token: self.accessToken,
-            account_num: self.account_num,
-            app_key: self.appKey,
-            loginType: self.loginType,
-            os: self.os,
-            signature:hex_md5(self.appSecret + '&' +  self.accessTokenSecret),
-            version: self.version
+            accessInfo:{
+                access_token: self.accessToken,
+                account_num: self.account_num,
+                app_key: self.appKey,
+                loginType: self.loginType,
+                os: self.os,
+                signature:hex_md5(self.appSecret + '&' +  self.accessTokenSecret),
+                version: self.version
+            },
+            user_id:self.userId
         }
     }
 }

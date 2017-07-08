@@ -5,7 +5,7 @@
 import loginService from './loginService';
 import addressListService from './addressListService';
 
-let locationController = {
+let locationService = {
     activityLocation:getActivityLocation
 
 };
