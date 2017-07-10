@@ -114,16 +114,14 @@ HB.ajax = (function(){
                 }
             };
             this.ajax = function(type,url,data,bool){
-                return new Promise((resolve,reject)=>{
-                    $.ajax({
-                        type:type,
-                        url:url,
-                        data:data,
-                        contentType:'application/json; charset=utf-8',
-                        async:bool
-                    }).done(resolve).fail(reject);
+                return $.ajax({
+                    type:type,
+                    url:url,
+                    data:data,
+                    contentType:'application/json; charset=utf-8',
+                    async:bool
+                })
 
-                });
             }
         }
 
@@ -139,7 +137,14 @@ HB.ajax = (function(){
         save(entity_obj,data,bool=true){
             let url = this.getRealUrl(entity_obj);
             let type = "POST";
-            return this.ajax(type,url,JSON.stringify(data),bool);
+            if(!bool){
+                return this.ajax(type,url,JSON.stringify(data),false);
+            }else{
+                return new Promise((resolve,reject)=>{
+                    this.ajax(type,url,JSON.stringify(data),bool).done(resolve).fail(reject);
+                })
+            }
+
         }
     }
 

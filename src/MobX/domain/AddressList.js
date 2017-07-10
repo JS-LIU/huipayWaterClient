@@ -10,13 +10,15 @@ import loginService from '../service/loginService';
 class AddressList{
 
     @observable list;
+    @observable customAddressInfo;
+
 
     constructor(login){
         let self = this;
         self.login = login;
         self.addressList = function(postInfo){
             return _h.ajax.resource('/location/client/deliveryAddress/:action')
-                .save({action:"getAddressList"},postInfo)
+                .save({action:"getAddressList"},postInfo,false)
         }.before(function(postInfo,loginInfo){
             postInfo.accessInfo = loginInfo.accessInfo;
             postInfo.user_id = loginInfo.user_id;
@@ -37,12 +39,23 @@ class AddressList{
                 }
             };
             console.log(postInfo);
-            self.addressList(postInfo,loginInfo).then((list)=>{
+            self.addressList(postInfo,loginInfo).done((list)=>{
                 console.log(list);
-                self.list = list;
+                self.list = list.content;
             })
         });
-
+    }
+    @action selectedAddress(address){
+        this.customAddressInfo = address;
+    }
+    findDefault(){
+        let self = this;
+        function isDefault(addressInfo){
+            if(addressInfo.default){
+                return addressInfo;
+            }
+        }
+        return self.list.find(isDefault);
     }
 }
 module.exports = AddressList;

@@ -45,6 +45,7 @@ const App = ()=>(
 const login = new Login();
 const autoMap = new AutoMap();
 const addressList = new AddressList();
+
 const stores = {login,autoMap,addressList};
 
 ReactDom.render(
