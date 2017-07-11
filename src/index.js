@@ -3,14 +3,14 @@
  */
 const React = require('react');
 const ReactDom = require('react-dom');
-const {
-    BrowserRouter,
-    HashRouter,
+import {
+    BrowserRouter as Router,
+    Switch,
     Route,
     Redirect,
-    Link,
-    Switch
-} = require('react-router-dom');
+    Link
+} from 'react-router-dom'
+
 
 import { Provider } from 'mobx-react';
 import _h from '../src/Util/HB';
@@ -18,6 +18,8 @@ import _h from '../src/Util/HB';
 //  Views
 import Home from './components/Home';
 import Water from './container/Water';
+import CreateOrder from './container/CreateOrder';
+
 
 //  MobX
 import Login from './MobX/domain/Login';
@@ -31,14 +33,15 @@ _h.ui.setBaseFontSize(750,100);
 
 //  Router
 const App = ()=>(
-    <BrowserRouter >
-        <Home>
+    <Router >
+        <div>
             <Redirect to="/home"/>
             <Switch>
-                <Route path='/home' component={Water} />
+                <Route path='/home' component={Home} />
+                <Route path='/createOrder' component={CreateOrder} />
             </Switch>
-        </Home>
-    </BrowserRouter>
+        </div>
+    </Router>
 
 );
 

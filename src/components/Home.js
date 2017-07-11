@@ -4,6 +4,16 @@
 import React, {Component} from 'react';
 import View from './View';
 import Footer_nav from './Footer_nav';
+import Water from '../container/Water';
+import CreateOrder from '../container/CreateOrder'
+
+import {
+    BrowserRouter,
+    Switch,
+    Route,
+    Redirect,
+    Link
+} from 'react-router-dom'
 
 class Home extends Component{
     constructor(props){
@@ -13,8 +23,14 @@ class Home extends Component{
         return (
             <View>
                 {this.props.children}
+                <Redirect to='/home/water'/>
+                <div>
+                    <Route path="/home/water" component={Water}/>
+                    <Route path="/home/waterShopList" component={CreateOrder}/>
+                </div>
                 <Footer_nav/>
             </View>
+
         )
     }
 }

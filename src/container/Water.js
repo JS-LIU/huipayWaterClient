@@ -36,13 +36,14 @@ class Water extends Component{
     render(){
         return(
             <div className={waterStyle.order}>
-                <div id="container" className="map"></div>
+                <div id="container" className={waterStyle.map}></div>
                 <view className={waterStyle.address}>
                     <Link to="/" className={waterStyle.order_titleCity}>
                         <span id="city">北京</span>
                     </Link>
                     <span className={waterStyle.sentAddress_tip}>收货地址：</span>
                     <Link to="/AddressList" className={waterStyle.sentAddress_detail} id="mark">{this.props.autoMap.formattedAddress}</Link>
+                    <Link to='/createOrder'>确认订单</Link>
                 </view>
 
                 {/*<img src="src/images/line.png" className={waterStyle.line}/>*/}
