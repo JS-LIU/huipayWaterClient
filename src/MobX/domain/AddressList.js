@@ -5,7 +5,6 @@
 import {observable, computed,action} from "mobx";
 import _h from '../../Util/HB';
 
-import loginService from '../service/loginService';
 
 class AddressList{
 
@@ -19,31 +18,27 @@ class AddressList{
         self.addressList = function(postInfo){
             return _h.ajax.resource('/location/client/deliveryAddress/:action')
                 .save({action:"getAddressList"},postInfo,false)
-        }.before(function(postInfo,loginInfo){
-            postInfo.accessInfo = loginInfo.accessInfo;
-            postInfo.user_id = loginInfo.user_id;
-            console.log(postInfo);
+        }.before(function(postInfo){
+            postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
+            postInfo.user_id = self.login.postDataAccessInfo.user_id;
         });
     }
 
     @action getAddressList(pageNo,size = 5,sortProperties=[],direction = "DESC"){
         let self = this;
 
-        loginService.listen('loginSucc',function(loginInfo){
-            let postInfo = {
-                pageInfo:{
-                    direction:direction,
-                    pageNo:pageNo,
-                    size:size,
-                    sortProperties:[]
-                }
-            };
-            console.log(postInfo);
-            self.addressList(postInfo,loginInfo).done((list)=>{
-                console.log(list);
-                self.list = list.content;
-            })
-        });
+        let postInfo = {
+            pageInfo:{
+                direction:direction,
+                pageNo:pageNo,
+                size:size,
+                sortProperties:[]
+            }
+        };
+        self.addressList(postInfo).done((list)=>{
+            console.log('AddressList-action:getAddressList======',list);
+            self.list = list.content;
+        })
     }
     @action selectedAddress(address){
         this.customAddressInfo = address;

@@ -4,7 +4,7 @@
 const React = require('react');
 const ReactDom = require('react-dom');
 import {
-    BrowserRouter as Router,
+    BrowserRouter,
     Switch,
     Route,
     Redirect,
@@ -16,15 +16,14 @@ import { Provider } from 'mobx-react';
 import _h from '../src/Util/HB';
 
 //  Views
-import Home from './components/Home';
-import Water from './container/Water';
-import CreateOrder from './container/CreateOrder';
-
+import Shop from './container/Shop';
 
 //  MobX
 import Login from './MobX/domain/Login';
 import AutoMap from './MobX/domain/AutoMap';
 import AddressList from './MobX/domain/AddressList';
+import ActiveAddress from './MobX/domain/ActiveAddress';
+import ShopDetail from './MobX/domain/ShopDetail';
 
 //  resetFontSize
 _h.ui.setBaseFontSize(750,100);
@@ -33,23 +32,26 @@ _h.ui.setBaseFontSize(750,100);
 
 //  Router
 const App = ()=>(
-    <Router >
+    <BrowserRouter>
         <div>
-            <Redirect to="/home"/>
+            <Redirect to="/shop"/>
             <Switch>
-                <Route path='/home' component={Home} />
-                <Route path='/createOrder' component={CreateOrder} />
+                <Route path='/shop' component={Shop} />
             </Switch>
         </div>
-    </Router>
+    </BrowserRouter>
 
 );
 
 const login = new Login();
 const autoMap = new AutoMap();
-const addressList = new AddressList();
+const addressList = new AddressList(login);
+const shopDetail = new ShopDetail(login,1);
 
-const stores = {login,autoMap,addressList};
+
+const activeAddress = new ActiveAddress(addressList,autoMap);
+
+const stores = {login,autoMap,addressList,activeAddress,shopDetail};
 
 ReactDom.render(
     <Provider {...stores}>

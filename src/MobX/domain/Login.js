@@ -85,7 +85,6 @@ class Login{
                 self.sex = data.sex;
                 self.nickName = data.nick_name;
 
-                loginService.trigger('loginSucc',self.postDataAccessInfo);
             });
 
         });

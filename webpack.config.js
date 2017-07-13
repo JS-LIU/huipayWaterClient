@@ -46,7 +46,7 @@ module.exports = {
         host: 'localhost',
         proxy:{
             "**":{
-                target: 'http://192.168.1.242:9216/water/',
+                target: 'http://123.57.161.212:9216/water/',
                 secure: false,
                 bypass: function (req, res, proxyOptions) {
                     if (req.headers.accept.indexOf('html') !== -1) {

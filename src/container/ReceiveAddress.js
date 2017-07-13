@@ -4,16 +4,27 @@
 import React, {Component} from 'react';
 import View from '../components/View';
 
+import autoMapStyle from '../css/autoMapStyle.css';
+
+//  MobX
+import {observer,inject} from 'mobx-react';
+
+@inject (['activeAddress'])
 
 
-class ReceiveAddress extends Component{
+@observer class ReceiveAddress extends Component{
     constructor(props){
         super(props);
+    }
+    componentWillMount(){
+        this.props.activeAddress.getActivityLocation();
     }
     render(){
         return (
             <View>
-                收货地址
+                <span>地址：</span>
+                <div id="container" className={autoMapStyle.map_hide} />
+                <span>{this.props.activeAddress.currentAddressInfo.province}</span>
             </View>
         )
     }
