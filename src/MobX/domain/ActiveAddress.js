@@ -1,7 +1,7 @@
 /**
  * Created by LDQ on 2017/6/20.
  */
-import {observable, computed,action} from "mobx";
+import {observable, computed,action,autorun} from "mobx";
 import loginService from '../service/loginService';
 
 
@@ -37,34 +37,22 @@ let defaultAddress = function(addressList){
 
 let currentPosition = function(addressList,autoMap){
     autoMap.currentLocationInfo();
-    return {
-        province:autoMap.province,
-        city:autoMap.city,
-        district:autoMap.district,
-        township:autoMap.township,
-        street:autoMap.street,
-        streetNumber:autoMap.streetNumber,
-        lng:autoMap.lng,
-        lat:autoMap.lat,
-    }
+    return autoMap;
 };
 
 class ActiveAddress{
-    @observable currentAddressInfo = {};
+    // @observable currentAddressInfo = {};
 
     constructor(addressList,autoMap){
         this.addressList = addressList;
         this.autoMap = autoMap;
     }
-
-    @action getActivityLocation(){
+    @computed get activityLocation(){
         let self = this;
         let addressList = self.addressList;
         let autoMap = self.autoMap;
-        self.currentAddressInfo = customAddress.after(defaultAddress).after(currentPosition)(addressList,autoMap);
-        console.log(self.currentAddressInfo);
+        return customAddress.after(defaultAddress).after(currentPosition)(addressList,autoMap);
     }
-
 }
 
 

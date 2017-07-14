@@ -9,8 +9,6 @@ import {observer,inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
 
 
-import waterStyle from '../css/waterStyle.css';
-
 //  todo 临时登录
 @inject (['login'])
 
@@ -25,8 +23,8 @@ class Water extends Component{
     render(){
         return(
             <View>
-                <span>我是个还没实现的首页 我可以跳转到确认订单页面啊哈哈哈！</span>
-                <Link to='/createOrder'>确认订单</Link>
+                <span>微信登录 没有登录成功不会跳转页面 这里模拟一下</span>
+                <Link to='/shop'>店铺</Link>
             </View>
         )
     }

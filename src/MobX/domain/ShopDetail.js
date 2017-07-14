@@ -1,23 +1,25 @@
 /**
  * Created by LDQ on 2017/7/13.
  */
-import {observable, computed,action} from "mobx";
-import $ from 'jquery';
+import {observable, computed,action,autorun} from "mobx";
+import _h from '../../Util/HB';
+
 
 class ShopDetail{
-    constructor(login,shopId){
+    constructor(login){
         this.login = login;
-        this.shopId = shopId;
+        //  todo 获取shopId
+        this.shopId = 1;
+        let self = this;
+        autorun(()=>{
+            let url = '/merchant/client/shop/detail/' + self.shopId;
+            _h.ajax.resource(url).query({}).then((data)=>{
+                self.info = data;
+            });
+        })
     }
 
-    @computed get info(){
-        let self = this;
-        let shopInfo = {};
-        $.get('/merchant/client/shop/detail',{id:self.shopId},function(shopDetail){
-            console.log(shopDetail);
-            shopInfo = shopDetail;
-        });
-        return shopInfo;
-    }
+    @observable info = {};
+
 }
 module.exports = ShopDetail;

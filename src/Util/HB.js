@@ -129,7 +129,7 @@ HB.ajax = (function(){
 
             let url = this.getRealUrl(entity_obj);
             let type = 'GET';
-            var data = "";
+            var data = {};
             return this.ajax(type,url,data,bool);
         }
 

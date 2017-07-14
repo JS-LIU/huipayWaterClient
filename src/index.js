@@ -16,6 +16,7 @@ import { Provider } from 'mobx-react';
 import _h from '../src/Util/HB';
 
 //  Views
+import Water from './container/Water';
 import Shop from './container/Shop';
 
 //  MobX
@@ -24,6 +25,7 @@ import AutoMap from './MobX/domain/AutoMap';
 import AddressList from './MobX/domain/AddressList';
 import ActiveAddress from './MobX/domain/ActiveAddress';
 import ShopDetail from './MobX/domain/ShopDetail';
+import ProductList from './MobX/domain/ProductList';
 
 //  resetFontSize
 _h.ui.setBaseFontSize(750,100);
@@ -34,8 +36,9 @@ _h.ui.setBaseFontSize(750,100);
 const App = ()=>(
     <BrowserRouter>
         <div>
-            <Redirect to="/shop"/>
+            <Redirect to="/water"/>
             <Switch>
+                <Route path='/water' component={Water} />
                 <Route path='/shop' component={Shop} />
             </Switch>
         </div>
@@ -46,12 +49,12 @@ const App = ()=>(
 const login = new Login();
 const autoMap = new AutoMap();
 const addressList = new AddressList(login);
-const shopDetail = new ShopDetail(login,1);
-
-
+const shopDetail = new ShopDetail(login);
 const activeAddress = new ActiveAddress(addressList,autoMap);
+const productList = new ProductList(login);
 
-const stores = {login,autoMap,addressList,activeAddress,shopDetail};
+
+const stores = {login,autoMap,addressList,activeAddress,shopDetail,productList};
 
 ReactDom.render(
     <Provider {...stores}>
