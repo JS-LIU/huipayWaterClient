@@ -10,6 +10,7 @@ import View from '../components/View';
 import ProductTypes from './ProductTypes';
 
 @inject (['productList'])
+@inject (['shoppingCart'])
 @observer class ProductList extends Component{
     constructor(props){
         super(props);
@@ -17,11 +18,18 @@ import ProductTypes from './ProductTypes';
     componentWillMount(){
         this.props.productList.getList(0,6);
     }
+    addShoppingCart(item){
+        return ()=>{
+
+            console.log(item.productName);
+        }
+    }
     render(){
         let ProductNodes = this.props.productList.content.map((item,index)=>{
             return (
                 <li key={index}>
-                    {item.productName}
+                    <span>{item.productName}</span>
+                    <span onClick={this.addShoppingCart(item)}>==========加入购物车</span>
                 </li>
             )
         });
