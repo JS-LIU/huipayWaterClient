@@ -18,7 +18,7 @@ import _h from '../src/Util/HB';
 //  Views
 import Water from './container/Water';
 import Shop from './container/Shop';
-
+import ShoppingCartView from './container/ShoppingCartView'
 //  MobX
 import Login from './MobX/domain/Login';
 import AutoMap from './MobX/domain/AutoMap';
@@ -41,6 +41,7 @@ const App = ()=>(
             <Switch>
                 <Route path='/water' component={Water} />
                 <Route path='/shop' component={Shop} />
+                <Route path='/shoppingCart' component={ShoppingCartView}/>
             </Switch>
         </div>
     </BrowserRouter>

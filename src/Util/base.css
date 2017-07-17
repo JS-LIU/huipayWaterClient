@@ -22,6 +22,12 @@ body{
 .f5f5f5{
     background:#f5f5f5;
 }
+.bgColor{
+    background: #EEEFF3;
+}
+.bgColorF{
+    background: #FFFFFF;
+}
 /**设置默认字体**/
 body,button,input,select,textarea{
     font:12px/1.5'微软雅黑',tahoma,Srial,helvetica,sans-serif;
@@ -37,6 +43,9 @@ em{
 /**重置列表元素**/
 ul,ol{
     list-style:none;
+}
+li{
+    list-style-type: none;
 }
 /**重置超链接元素**/
 a{
@@ -72,6 +81,12 @@ table{
 a{
     display:block;
 }
+/*文字颜色*/
+.c333{color: #333333;}
+.c777{color: #777777;}
+.c999{color: #999999;}
+
+
 /*文字排版*/
 .f12{font-size:12px;}
 .f13{font-size:13px;}
@@ -80,6 +95,7 @@ a{
 .f20{font-size:0.2rem;}
 .f24{font-size:0.24rem;}
 .f26{font-size:0.26rem;}
+.f28{font-size:0.28rem;}
 .f30{font-size:0.3rem;}
 .f32{font-size:0.32rem;}
 .f34{font-size:0.34rem;}
@@ -144,14 +160,14 @@ a{
 .mt5{margin-top:5px;}
 .mt10{margin-top:10px;}
 .mt20{margin-top:20px;}
-.mt30{margin-top:30px;}
+.mt30{margin-top:0.3rem;}
 .mt50{margin-top:50px;}
 .mt100{margin-top:100px;}
 .mb5{margin-bottom:5px;}
 .mb10{margin-bottom:10px;}
 .mb15{margin-bottom:15px;}
 .mb20{margin-bottom:20px;}
-.mb30{margin-bottom:30px;}
+.mb30{margin-bottom:0.3rem;}
 .mb50{margin-bottom:50px;}
 .mb100{margin-bottom:100px;}
 .ml5{margin-left:5px;}
@@ -175,27 +191,28 @@ a{
 .pt10{padding-top:10px;}
 .pt15{padding-top:15px;}
 .pt20{padding-top:20px;}
-.pt30{padding-top:30px;}
+.pt30{padding-top:0.3rem;}
 .pt50{padding-top:50px;}
 .pt100{padding-top:100px;}
 .pb5{padding-bottom:5px;}
 .pb10{padding-bottom:10px;}
 .pb15{padding-bottom:15px;}
-.pb30{padding-bottom:30px;}
+.pb30{padding-bottom:0.3rem;}
 .pb50{padding-bottom:50px;}
 .pb100{padding-bottom:100px;}
 .pl5{padding-left:5px;}
 .pl10{padding-left:10px;}
 .pl12{padding-left:12px;}
 .pl15{padding-left:15px;}
-.pl30{padding-left:30px;}
-.pl50{padding-left:50px;}
+.pl30{padding-left:0.3rem;}
+.pl35{padding-left:0.35rem;}
+.pl40{padding-left:0.4rem;}
 .pl100{padding-left:100px;}
 .pr5{padding-right:5px;}
 .pr10{padding-right:10px;}
 .pr12{padding-right:12px;}
 .pr15{padding-right:15px;}
-.pr30{padding-right:30px;}
+.pr30{padding-right:0.3rem;}
 .pr50{padding-right:50px;}
 .pr100{padding-right:100px;}
 

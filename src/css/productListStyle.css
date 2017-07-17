@@ -1,0 +1,66 @@
+.row_product_list{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.row_productList_item{
+    width: 3.73rem;
+    height: 5.5rem;
+    overflow: hidden;
+    margin-bottom: 0.04rem;
+    composes: bgColorF from '../Util/base.css';
+}
+.row_item_pic_box{
+    height:3.73rem;
+    overflow: hidden;
+    composes: w tc bgColorF from '../Util/base.css';
+}
+.row_item_pic{
+    composes:w h from '../Util/base.css';
+}
+.row_item_title{
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0.3rem;
+    margin:0.16rem 0 0.05rem 0;
+    width:85%;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+    color:#333333;
+    composes: f32 from '../Util/base.css';
+}
+.row_item_price{
+    padding-left: 0.3rem;
+    color:#FF4243;
+    composes: f32 from '../Util/base.css';
+}
+.row_price_unit{
+    composes:f24 from '../Util/base.css';
+}
+.row_item_extra{
+    margin:0.05rem 0 0.05rem 0;
+    padding-left: 0.3rem;
+}
+.row_item_extra_sort{
+    margin-right: 0.2rem;
+}
+.item_sort_pic{
+    float: left;
+    height: 0.3rem;
+    margin-top: 0.05rem;
+}
+.row_item_extra_sold{
+    color: #999999;
+    composes:f26 from '../Util/base.css';
+}
+.row_item_cart{
+    float:right;
+    display: inline-block;
+    margin-right: 0.24rem;
+    margin-top: -0.1rem;
+    background: url("../images/list_commom_icon_shopping-cart@2x.png") no-repeat center center;
+    background-size: 0.4rem auto;
+    width:0.4rem;
+    height:0.4rem;
+}

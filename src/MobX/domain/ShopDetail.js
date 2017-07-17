@@ -19,7 +19,7 @@ class ShopDetail{
         })
     }
 
-    @observable info = {};
+    @observable info = {baseInfoModule:{}};
 
 }
 module.exports = ShopDetail;

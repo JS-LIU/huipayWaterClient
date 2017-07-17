@@ -6,16 +6,20 @@ import React, {Component} from 'react';
 //  components
 import View from '../components/View';
 
-
+import productTypeStyle from '../css/productTypeStyle.css';
 class ProductTypes extends Component{
     constructor(props){
         super(props);
     }
     render(){
         return (
-            <View>
-                分类
-            </View>
+            <ul className ={productTypeStyle.product_type}>
+                <li className={productTypeStyle.type_nodes}>推荐</li>
+                <li className={productTypeStyle.type_nodes}>销量</li>
+                <li className={productTypeStyle.type_nodes_price}>
+                    <p className={productTypeStyle.price_sort}>价格</p>
+                </li>
+            </ul>
         )
     }
 }

@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import View from '../components/View';
 
 import autoMapStyle from '../css/autoMapStyle.css';
-
+import activeAddressStyle from '../css/activeAddressStyle.css';
 //  MobX
 import {observer,inject} from 'mobx-react';
 
@@ -17,11 +17,15 @@ import {observer,inject} from 'mobx-react';
     }
     render(){
         return (
-            <View>
-                <span>收货地址：</span>
+            <View className={activeAddressStyle.headLocation}>
+                <span className={activeAddressStyle.profile}>收货地址：</span>
                 <div id="container" className={autoMapStyle.map_hide} />
-                <span>{this.props.activeAddress.activityLocation.province}</span>
+                <span className={activeAddressStyle.detail_address}>{this.props.activeAddress.activityLocation.township}
+                    {this.props.activeAddress.activityLocation.street}
+                    {this.props.activeAddress.activityLocation.streetNumber}
+                </span>
             </View>
+
         )
     }
 }

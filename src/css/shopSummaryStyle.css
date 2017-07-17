@@ -1,0 +1,41 @@
+.waterStore{
+    display: flex;
+    align-items:center;
+    height:2.1rem;
+    padding:0 0.3rem;
+    composes:bgColorF from '../Util/base.css';
+}
+.storePic{
+    width: 1.6rem;
+    height: 1.6rem;
+}
+.storeName{
+    margin:0.32rem 0 0.2rem 0.2rem;
+    width: 5.1rem;
+    line-height:0.5rem;
+    composes:f30 c333 from '../Util/base.css';
+}
+.shop_name{
+    composes:f32 from '../Util/base.css';
+}
+.month_sale{
+    display: flex;
+    background: url("../images/btn_right_arrow@2x.png") no-repeat right center;
+    background-size: 0.18rem 0.3rem;
+    composes:f24 c999 from '../Util/base.css';
+}
+.sale_num{
+    margin-left: 0.2rem;
+}
+.location{
+    display: flex;
+    background: url("../../src/images/address-05.png") no-repeat left center;
+    background-size: 0.3rem;
+    composes:f26 pl40 c999 from '../Util/base.css';
+}
+.shop_address{
+    flex: 2.5;
+}
+.shop_distance{
+    flex:1;
+}

@@ -1,0 +1,20 @@
+.headLocation{
+    display: flex;
+    height:0.84rem;
+    line-height: 0.84rem;
+    background:#EEEFF3 url("../images/line.png") no-repeat center bottom;
+    background-size:7.5rem 0.04rem;
+    composes:pl30 pr30 f30 c333 from '../Util/base.css';
+}
+.profile{
+    background: url("../images/address-05.png") no-repeat left center;
+    background-size: 0.24rem 0.29rem;
+    composes:pl35 from '../Util/base.css';
+}
+.detail_address{
+    flex:1;
+    overflow: hidden;
+    background: url("../images/btn_right_arrow@2x.png") no-repeat right center;
+    background-size: 0.18rem 0.3rem;
+    composes:pr30 from '../Util/base.css';
+}

@@ -1,0 +1,25 @@
+.product_type {
+    display: flex;
+    align-items: center;
+    height: 1rem;
+    border-bottom: 0.01rem solid #EEEFF3;
+    composes:bgColorF tc mt30 f30 c333 from '../Util/base.css';
+}
+.type_nodes{
+    flex:1;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    border-right: 0.01rem solid #EEEFF3;
+}
+.type_nodes_price{
+    display: flex;
+    justify-content: center;
+    border:none;
+    composes:type_nodes;
+}
+.price_sort{
+    width: 0.6rem;
+    padding-right: 0.2rem;
+    background: url("../images/list_btn_gray.png") no-repeat right center;
+    background-size: 0.16rem 0.2rem;
+}
