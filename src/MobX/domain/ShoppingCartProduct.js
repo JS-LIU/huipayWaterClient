@@ -13,6 +13,8 @@ class ShoppingCartProduct{
         this.saleShopId = productBasicInfo.saleShopId;
         this.purchaseProductType = productBasicInfo.purchaseProductType;
         this.productId = item.productId;
+        this.productName = item.productName;
+        this.spec = item.spec;
     }
     findSelf(productList){
         let self = this;

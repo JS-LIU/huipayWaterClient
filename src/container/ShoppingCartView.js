@@ -14,9 +14,23 @@ import View from '../components/View';
         super(props);
     }
     render(){
+        let productNodes = this.props.shoppingCart.cartList.map((item,index)=>{
+            return(
+                <li>
+                    <input type="checkbox"/>
+                    <span>{item.productName}</span>
+                    <span>===========</span>
+                    <span>+</span>
+                    <span>{item.count}</span>
+                    <span>-</span>
+                </li>
+            )
+        });
+
         return (
             <View>
                 购物车
+
             </View>
         )
     }
