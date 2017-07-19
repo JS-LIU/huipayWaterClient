@@ -8,7 +8,6 @@ import {observer,inject} from 'mobx-react';
 //  components
 import View from '../components/View';
 import ProductTypes from './ProductTypes';
-import ShoppingCartProduct from '../MobX/domain/ShoppingCartProduct';
 import productListStyle from '../css/productListStyle.css';
 
 
@@ -23,8 +22,7 @@ import productListStyle from '../css/productListStyle.css';
     }
     addShoppingCart(item){
         return ()=>{
-            let product = new ShoppingCartProduct(item);
-            this.props.shoppingCart.put(product);
+            this.props.shoppingCart.put(item);
         }
     }
     render(){

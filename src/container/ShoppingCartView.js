@@ -13,14 +13,27 @@ import View from '../components/View';
     constructor(props){
         super(props);
     }
+    increase(item){
+        return ()=>{
+            console.log("increase======",item);
+
+            // this.props.shoppingCart.increase();
+        }
+    }
+    check(item){
+        return ()=>{
+            item.check();
+            console.log('check=====',item);
+        }
+    }
     render(){
         let productNodes = this.props.shoppingCart.cartList.map((item,index)=>{
             return(
-                <li>
-                    <input type="checkbox"/>
+                <li key={index}>
+                    <input type="checkbox"  onChange={this.check(item)}/>
                     <span>{item.productName}</span>
                     <span>===========</span>
-                    <span>+</span>
+                    <span onClick={this.increase(item)}>+</span>
                     <span>{item.count}</span>
                     <span>-</span>
                 </li>
@@ -29,7 +42,7 @@ import View from '../components/View';
 
         return (
             <View>
-                购物车
+                {productNodes}
 
             </View>
         )

@@ -1,0 +1,53 @@
+.shop_ooter{
+    position: fixed;
+    display: flex;
+    bottom:0;
+    width:100%;
+    height: 1rem;
+    background: #FFFFFF;
+    composes:f24 from '../Util/base.css';
+}
+.serve{
+    flex:3;
+    display: flex;
+}
+.serve_mine{
+    flex:1;
+    background:#FFF url('../../src/images/tab_icon_me_d@2x.png') no-repeat center 0.2rem;
+    -webkit-background-size:0.36rem 0.36rem;
+    background-size:0.41rem 0.38rem;
+    padding-top: 0.6rem;
+    border-right: 0.01rem solid #EEEFF3;
+    composes: w tc from '../Util/base.css';
+}
+.server_cart{
+    flex:1;
+    position: relative;
+    background:#FFF url('../../src/images/tab_btn_shoppingcart_n.png') no-repeat center 0.15rem;
+    -webkit-background-size:0.48rem 0.48rem;
+    background-size:0.48rem 0.48rem;
+    padding-top: 0.6rem;
+    composes: w tc from '../Util/base.css';
+}
+.cart_num{
+    display: inline-block;
+    position: absolute;
+    top: 0.08rem;
+    right: 0.4rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    width: 0.3rem;
+    background: #FF4242;
+    color:#FFFFFF;
+    -webkit-border-radius: 0.15rem;
+    -moz-border-radius: 0.15rem;
+    border-radius: 0.15rem;
+    composes:tc from '../Util/base.css';
+}
+.settle{
+    flex:4;
+    background: #FF4243;
+    color: #ffffff;
+    line-height: 1rem;
+    composes:tc f34 from '../Util/base.css';
+}

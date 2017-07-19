@@ -1,11 +1,13 @@
 /**
  * Created by LDQ on 2017/7/15.
  */
+import {observable, computed,action,autorun} from "mobx";
+import shoppingCartService from '../service/shoppingCartService';
+
 class ShoppingCartProduct{
     constructor(item){
         let productBasicInfo = item.productBasicInfo;
 
-        this.count = 1;
         this.price = item.showPrice;
         this.distributeProductId = productBasicInfo.distributeProductId;
         this.selfProductId = productBasicInfo.selfProductId;
@@ -15,7 +17,11 @@ class ShoppingCartProduct{
         this.productId = item.productId;
         this.productName = item.productName;
         this.spec = item.spec;
+
+        this.count = 1;
+        this.checked = false;
     }
+
     findSelf(productList){
         let self = this;
         let findDistributeProductId = function(){
@@ -41,7 +47,15 @@ class ShoppingCartProduct{
             }
         };
         return findDistributeProductId.after(findSelfProductId)();
+    }
 
+    increase(step = 1){
+        this.count += step;
+        shoppingCartService.trigger('refresh');
+    }
+    check(){
+        this.checked = !this.checked;
+        shoppingCartService.trigger('refresh');
     }
 }
 module.exports = ShoppingCartProduct;
