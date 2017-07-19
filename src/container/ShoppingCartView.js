@@ -30,12 +30,11 @@ import View from '../components/View';
             item.check();
         }
     }
-
     render(){
         let productNodes = this.props.shoppingCart.cartList.map((item,index)=>{
             console.log(item);
             return(
-                <li key={index}>
+                <li key = {index}>
                     <input type="checkbox" checked={item.checked}  onChange={this.check(item)}/>
                     <span>{item.productName}</span>
                     <span>===========</span>

@@ -62,7 +62,6 @@ class ShoppingCart{
     @observable totalCount = 0;
     @observable totalPrice = 0;
     @observable isAllChecked = true;
-
     @action put(item){
 
         let self = this;
