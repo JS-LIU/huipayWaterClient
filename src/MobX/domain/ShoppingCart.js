@@ -14,25 +14,54 @@ class ShoppingCart{
         shoppingCartService.listen('refresh',()=>{
             self.total = 0;
             console.log("开始重新计算购物车");
-            for(let i = 0;i < self.cartList.length;i++){
-                console.log("商品++====",self.cartList[i]);
-                self.total += self.cartList[i].count;
-            }
+            let isChecked = function(product){
+                if(product.checked){
+                    return true;
+                }
+                return false;
+
+            };
+
+            self.productIterator(isChecked,[self.calcTotalCount,self.calcTotalPrice])
+
         })
     }
+    productIterator(condition,calcList){
+        let self = this;
+        self.totalCount = 0;
+        self.totalPrice = 0;
+        self.isAllChecked = true;
+
+        for(let i = 0,product;product = self.cartList[i++];){
+            if(condition(product)){
+                self.calcIterator(calcList,product);
+            }
+            if(!product.checked){
+                self.isAllChecked = false;
+            }
+        }
+    }
+    calcIterator(list,product){
+        let self = this;
+        let funcList = Array.prototype.shift.call(arguments);
+        for(let i = 0,calcFunc;calcFunc = funcList[i++];){
+            calcFunc.apply(self,arguments);
+        }
+    }
+
+    calcTotalCount(product){
+        let self = this;
+        self.totalCount += product.count;
+    }
+    calcTotalPrice(product){
+        let self = this;
+        self.totalPrice += (product.price * product.count);
+    }
+
     @observable cartList = [];
-    @observable total = 0;
-    //
-    // @computed get total(){
-    //     let totalNum = 0;
-    //     for(let i = 0 ;i < this.cartList.length;i++){
-    //         totalNum += this.cartList[i].count;
-    //     }
-    //
-    //     return totalNum;
-    // }
-
-
+    @observable totalCount = 0;
+    @observable totalPrice = 0;
+    @observable isAllChecked = true;
 
     @action put(item){
 
@@ -48,9 +77,16 @@ class ShoppingCart{
             self.cartList.push(product);
         }
         shoppingCartService.trigger('refresh');
-
     }
-
+    @action allCheck(){
+        let self = this;
+        self.isAllChecked = !self.isAllChecked;
+        for(let i = 0,product;product = self.cartList[i++];){
+            product.checked = self.isAllChecked;
+        }
+        console.log(self.cartList);
+        shoppingCartService.trigger('refresh');
+    }
 
 }
 

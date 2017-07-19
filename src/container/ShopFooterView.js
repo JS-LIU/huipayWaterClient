@@ -23,7 +23,7 @@ import shopFooterStyle from '../css/shopFooterStyle.css';
                 <View className={shopFooterStyle.serve}>
                     <div className={shopFooterStyle.serve_mine}>我的</div>
                     <Link to="/shoppingCart" className={shopFooterStyle.server_cart}>
-                        <span className={shopFooterStyle.cart_num}>{this.props.shoppingCart.total}</span>
+                        <span className={shopFooterStyle.cart_num}>{this.props.shoppingCart.totalCount}</span>
                         <span>购物车</span>
                     </Link>
                 </View>

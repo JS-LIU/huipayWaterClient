@@ -19,14 +19,14 @@ class ShoppingCartProduct{
         this.spec = item.spec;
 
         this.count = 1;
-        this.checked = false;
+        this.checked = true;
     }
 
     findSelf(productList){
         let self = this;
         let findDistributeProductId = function(){
             if(self.purchaseProductType === "distribute"){
-                return productList.find(function(item){
+                return productList.find((item)=>{
                     if(item.distributeProductId === self.distributeProductId){
                         return item;
                     }
@@ -53,6 +53,11 @@ class ShoppingCartProduct{
         this.count += step;
         shoppingCartService.trigger('refresh');
     }
+    reduce(step = 1){
+        this.count -= step;
+        shoppingCartService.trigger('refresh');
+    }
+
     check(){
         this.checked = !this.checked;
         shoppingCartService.trigger('refresh');

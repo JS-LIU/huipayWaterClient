@@ -3,6 +3,8 @@
  */
 //  react
 import React, {Component} from 'react';
+import ShoppingCartFootView from './ShoppingCartFooterView';
+
 //  MobX
 import {observer,inject} from 'mobx-react';
 //  components
@@ -15,27 +17,31 @@ import View from '../components/View';
     }
     increase(item){
         return ()=>{
-            console.log("increase======",item);
-
-            // this.props.shoppingCart.increase();
+            item.increase();
+        }
+    }
+    reduce(item){
+        return ()=>{
+            item.reduce();
         }
     }
     check(item){
         return ()=>{
             item.check();
-            console.log('check=====',item);
         }
     }
+
     render(){
         let productNodes = this.props.shoppingCart.cartList.map((item,index)=>{
+            console.log(item);
             return(
                 <li key={index}>
-                    <input type="checkbox"  onChange={this.check(item)}/>
+                    <input type="checkbox" checked={item.checked}  onChange={this.check(item)}/>
                     <span>{item.productName}</span>
                     <span>===========</span>
                     <span onClick={this.increase(item)}>+</span>
                     <span>{item.count}</span>
-                    <span>-</span>
+                    <span onClick={this.reduce(item)}>-</span>
                 </li>
             )
         });
@@ -43,7 +49,7 @@ import View from '../components/View';
         return (
             <View>
                 {productNodes}
-
+                <ShoppingCartFootView/>
             </View>
         )
     }
