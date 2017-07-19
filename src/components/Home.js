@@ -4,8 +4,8 @@
 import React, {Component} from 'react';
 import View from './View';
 import Footer_nav from './Footer_nav';
-import Water from '../container/Water';
-import CreateOrder from '../container/CreateOrder'
+import Water from '../container/WaterView';
+import CreateOrder from '../container/CreateOrderView'
 
 import {
     BrowserRouter,

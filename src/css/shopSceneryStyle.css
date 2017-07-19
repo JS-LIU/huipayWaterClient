@@ -1,0 +1,7 @@
+.scenery_box{
+    height:5.6rem;
+    composes:w from '../Util/base.css';
+}
+.scenery_pic{
+    composes:w h from '../Util/base.css';
+}

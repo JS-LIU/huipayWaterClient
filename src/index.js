@@ -16,8 +16,9 @@ import { Provider } from 'mobx-react';
 import _h from '../src/Util/HB';
 
 //  Views
-import Water from './container/Water';
-import Shop from './container/Shop';
+import WaterView from './container/WaterView';
+import ShopView from './container/ShopView';
+import ShopDetailView from './container/ShopDetailView';
 import ShoppingCartView from './container/ShoppingCartView'
 //  MobX
 import Login from './MobX/domain/Login';
@@ -39,8 +40,9 @@ const App = ()=>(
         <div>
             <Redirect to="/water"/>
             <Switch>
-                <Route path='/water' component={Water} />
-                <Route path='/shop' component={Shop} />
+                <Route path='/water' component={WaterView} />
+                <Route path='/shop' component={ShopView} />
+                <Route path='/shopDetail' component={ShopDetailView} />
                 <Route path='/shoppingCart' component={ShoppingCartView}/>
             </Switch>
         </div>

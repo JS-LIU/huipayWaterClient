@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import View from '../components/View';
 
-class ShopRating extends Component{
+class ShopRatingView extends Component{
     constructor(props){
         super(props);
     }
@@ -13,4 +13,4 @@ class ShopRating extends Component{
         )
     }
 }
-module.exports = ShopRating;
+module.exports = ShopRatingView;

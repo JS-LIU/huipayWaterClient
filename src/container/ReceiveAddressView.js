@@ -11,7 +11,7 @@ import {observer,inject} from 'mobx-react';
 
 @inject (['activeAddress'])
 
-@observer class ReceiveAddress extends Component{
+@observer class ReceiveAddressView extends Component{
     constructor(props){
         super(props);
     }
@@ -29,4 +29,4 @@ import {observer,inject} from 'mobx-react';
         )
     }
 }
-module.exports = ReceiveAddress;
+module.exports = ReceiveAddressView;

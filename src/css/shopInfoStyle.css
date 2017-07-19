@@ -1,0 +1,78 @@
+.shop_abstract{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 0.94rem;
+    line-height: 0.94rem;
+    composes:f36 c333 bgColorF from '../Util/base.css';
+}
+.info_name{
+    composes:pl30 from '../Util/base.css';
+}
+.info_grade{
+    display: flex;
+    composes:pr30 f28 from '../Util/base.css';
+}
+.info_mark{
+    margin-left: 0.1rem;
+}
+.shop_specific{
+    composes:mt30 from '../Util/base.css';
+}
+.spec_item{
+    height: 1rem;
+    line-height: 1rem;
+    border-bottom: 0.01rem solid #EEEFF3;
+    composes:f30 c777  pr30 bgColorF from '../Util/base.css';
+}
+.spec_code{
+    background: #ffffff url("../../src/images/station-details_icon_qrcode.png") no-repeat 0.3rem center;
+    background-size:0.35rem;
+    composes:spec_item;
+}
+.code_left{
+    background: url("../../src/images/btn_right_arrow@2x.png") no-repeat right center;
+    background-size:0.18rem 0.3rem;
+    margin-left: 0.85rem;
+    composes:pr30 from '../Util/base.css';
+}
+.spec_address{
+    display: flex;
+    justify-content: space-between;
+    composes:spec_item
+}
+.address_left{
+    background: url("../../src/images/station-details_icon_location.png") no-repeat 0.3rem center;
+    background-size:0.33rem 0.42rem;
+    padding-left: 0.85rem;
+}
+.address_distance{
+    composes:pr30 from '../Util/base.css';
+}
+.spec_contact{
+    background: #ffffff url("../../src/images/station-details_icon_phone.png") no-repeat 0.3rem center;
+    background-size:0.35rem 0.33rem;
+    border-bottom: 0.01rem solid #EEEFF3;
+    composes:spec_item;
+}
+.contact_phone{
+    background: url("../../src/images/station-details_btn_phone.png") no-repeat right center;
+    background-size:0.32rem 0.3rem;
+    margin-left: 0.85rem;
+    composes:pr30 from '../Util/base.css';
+}
+.shop_distribute{
+    composes:mt30 from '../Util/base.css';
+}
+.distribute_time{
+    background: #ffffff url("../../src/images/station-details_icon_time.png") no-repeat 0.3rem center;
+    background-size:0.38rem;
+    padding-left: 0.85rem;
+    composes:spec_item;
+}
+.distribute_scope{
+    background: #ffffff url("../../src/images/scope_ delivery.png") no-repeat 0.3rem center;
+    background-size:0.38rem;
+    padding-left: 0.85rem;
+    composes:spec_item;
+}

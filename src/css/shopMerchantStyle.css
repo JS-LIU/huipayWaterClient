@@ -1,0 +1,23 @@
+.shop_merchant{
+    composes:mt30 bgColorF from '../Util/base.css';
+}
+.merchant_intro{
+    height: 1rem;
+    line-height: 1rem;
+    border-bottom: 0.01rem solid #EEEFF3;
+    composes:f32 c333 pl30 from '../Util/base.css';
+}
+.merchant_info{
+    line-height: 0.45rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin-bottom: 0.1rem;
+    composes:f28 c999 pl30 pr30 pt30 from '../Util/base.css';
+}
+.pull_down{
+    background: url("../../src/images/arrow-down.png") no-repeat center center;
+    background-size: 0.3rem;
+    height:0.6rem;
+}

@@ -13,7 +13,7 @@ import ShoppingCartProduct from '../MobX/domain/ShoppingCartProduct';
 import shopFooterStyle from '../css/shopFooterStyle.css';
 
 @inject (['shoppingCart'])
-@observer class ShopFooter extends Component{
+@observer class ShopFooterView extends Component{
     constructor(props){
         super(props);
     }
@@ -35,4 +35,4 @@ import shopFooterStyle from '../css/shopFooterStyle.css';
     }
 }
 
-module.exports = ShopFooter;
+module.exports = ShopFooterView;

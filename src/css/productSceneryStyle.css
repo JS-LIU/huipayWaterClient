@@ -1,0 +1,7 @@
+.product_scenery{
+    height:6.5rem;
+    composes:w from '../Util/base.css';
+}
+.scenery_pic{
+    composes:w h from '../Util/base.css';
+}

@@ -1,28 +1,25 @@
 /**
- * Created by LDQ on 2017/7/11.
+ * Created by LDQ on 2017/7/14.
  */
-
-//  react
 import React, {Component} from 'react';
-
-//  components
 import View from '../components/View';
-import ReceiveAddress from './ReceiveAddress';
 
 //  MobX
 import {observer,inject} from 'mobx-react';
 
-@observer class CreateOrder extends Component{
+@inject (['activeAddress'])
+
+@observer class TicketListView extends Component{
     constructor(props){
         super(props);
     }
     render(){
         return (
             <View>
-                <span>确认订单页面！</span>
-                <ReceiveAddress/>
+                <span>水票更优惠</span>
+
             </View>
         )
     }
 }
-module.exports = CreateOrder;
+module.exports = TicketListView;

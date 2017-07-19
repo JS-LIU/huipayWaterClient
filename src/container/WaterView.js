@@ -13,7 +13,7 @@ import {Link} from 'react-router-dom';
 @inject (['login'])
 
 @observer
-class Water extends Component{
+class WaterView extends Component{
     constructor(props){
         super(props);
     }
@@ -29,4 +29,4 @@ class Water extends Component{
         )
     }
 }
-module.exports = Water;
+module.exports = WaterView;

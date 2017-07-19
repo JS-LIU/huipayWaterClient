@@ -7,13 +7,12 @@ import React, {Component} from 'react';
 import {observer,inject} from 'mobx-react';
 //  components
 import View from '../components/View';
-import ProductTypes from './ProductTypes';
+import ProductTypesView from './ProductTypesView';
 import productListStyle from '../css/productListStyle.css';
-
 
 @inject (['productList'])
 @inject (['shoppingCart'])
-@observer class ProductList extends Component{
+@observer class ProductListView extends Component{
     constructor(props){
         super(props);
     }
@@ -50,7 +49,7 @@ import productListStyle from '../css/productListStyle.css';
         });
         return (
             <View>
-                <ProductTypes />
+                <ProductTypesView />
                 <View className = {productListStyle.row_product_list}>
                     {ProductNodes}
                 </View>
@@ -60,4 +59,4 @@ import productListStyle from '../css/productListStyle.css';
     }
 }
 
-module.exports = ProductList;
+module.exports = ProductListView;

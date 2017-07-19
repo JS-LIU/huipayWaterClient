@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 import View from '../components/View';
 
 import productTypeStyle from '../css/productTypeStyle.css';
-class ProductTypes extends Component{
+class ProductTypesView extends Component{
     constructor(props){
         super(props);
     }
@@ -24,4 +24,4 @@ class ProductTypes extends Component{
     }
 }
 
-module.exports = ProductTypes;
+module.exports = ProductTypesView;
