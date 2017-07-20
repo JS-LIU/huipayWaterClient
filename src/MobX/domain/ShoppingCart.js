@@ -2,7 +2,7 @@
  * Created by LDQ on 2017/7/12.
  */
 
-import {observable, computed,action} from "mobx";
+import {observable, computed,action,autorun} from "mobx";
 import ShoppingCartProduct from './ShoppingCartProduct';
 import shoppingCartService from '../service/shoppingCartService';
 
@@ -22,8 +22,11 @@ class ShoppingCart{
 
             };
 
-            self.productIterator(isChecked,[self.calcTotalCount,self.calcTotalPrice])
+            self.productIterator(isChecked,[self.calcTotalCount,self.calcTotalPrice]);
 
+            //  todo 强制刷新列表 不知道MobX observe如何强制刷新自己
+            self.cartList.push("1");
+            self.cartList.pop();
         })
     }
     productIterator(condition,calcList){
