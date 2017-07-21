@@ -5,6 +5,10 @@ import {observable, computed,action,autorun} from "mobx";
 import shoppingCartService from '../service/shoppingCartService';
 
 class ShoppingCartProduct{
+
+    @observable count = 1;
+    @observable checked = true;
+
     constructor(item){
         let productBasicInfo = item.productBasicInfo;
 
@@ -17,50 +21,17 @@ class ShoppingCartProduct{
         this.productId = item.productId;
         this.productName = item.productName;
         this.spec = item.spec;
-
-        this.count = 1;
-        this.checked = true;
-    }
-
-    findSelf(productList){
-        let self = this;
-        let findDistributeProductId = function(){
-            if(self.purchaseProductType === "distribute"){
-                return productList.find((item)=>{
-                    if(item.distributeProductId === self.distributeProductId){
-                        return item;
-                    }
-                })
-            }else{
-                return "nextSuccessor";
-            }
-        };
-        let findSelfProductId = function(){
-            if(self.purchaseProductType === "self_support"){
-                return productList.find(function(item){
-                    if(item.selfProductId === self.selfProductId){
-                        return item;
-                    }
-                })
-            }else{
-                return "nextSuccessor";
-            }
-        };
-        return findDistributeProductId.after(findSelfProductId)();
     }
 
     increase(step = 1){
         this.count += step;
-        shoppingCartService.trigger('refresh');
     }
     reduce(step = 1){
         this.count -= step;
-        shoppingCartService.trigger('refresh');
     }
 
     check(){
         this.checked = !this.checked;
-        shoppingCartService.trigger('refresh');
     }
 }
 module.exports = ShoppingCartProduct;
