@@ -1,7 +1,9 @@
 .row_product_list{
     display: flex;
-    flex-direction:row;
-    justify-content:space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 1rem;
 }
 .row_productList_item{
     width: 3.73rem;

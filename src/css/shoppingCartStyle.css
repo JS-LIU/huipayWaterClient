@@ -1,0 +1,91 @@
+.product_list{
+    min-height: 12.13rem;
+    padding-bottom: 1.2rem;
+    composes:bgColor from '../Util/base.css';
+}
+.list_items{
+    display: flex;
+    align-items: center;
+    composes:bgColorF pl30 pr30 from '../Util/base.css'
+}
+.product_no_checked{
+    height:0.5rem;
+    width:0.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline:none;
+    background: url("../../src/images/shoppingcart_choose_n.png") no-repeat center center;
+    background-size: 0.34rem;
+}
+.product_checked{
+    height:0.5rem;
+    width:0.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline:none;
+    background: url("../../src/images/shoppingcart_choose_s.png") no-repeat center center;
+    background-size: 0.34rem;
+}
+.product_checkbox{
+    width: 0.5rem;
+    height: 0.5rem;
+    visibility: hidden;
+}
+.product_info{
+    display: flex;
+    align-items: center;
+    margin-left: 0.2rem;
+    border-bottom: 0.01rem solid #EEEFF3;
+}
+.product_pic_box{
+    display: flex;
+    align-items: center;
+    height:1.5rem;
+    width: 1.5rem;
+    margin: 0.2rem 0.2rem 0.2rem 0;
+    border:0.01rem solid #eee;
+}
+.product_pic{
+    composes:w from '../Util/base.css';
+}
+.product_detail{
+    line-height: 0.45rem;
+    width: 2.7rem;
+    composes:f24 c333 from '../Util/base.css';
+}
+.product_name{
+    composes:f30 from '../Util/base.css';
+}
+.product_volume{
+    composes:c999 from '../Util/base.css';
+}
+.product_price{
+    color:#FF4243;
+}
+.product_sale{
+    composes:f30 from '../Util/base.css';
+}
+.plusminus{
+    display:flex;
+    margin-top: 1rem;
+    width: 1.7rem;
+    height:0.4rem;
+    border: 0.01rem solid #E3E3E3;
+}
+.cart_ctrl_reduce,
+.cart_ctrl_increase{
+    display: flex;
+    flex:1;
+    flex-direction: row;
+    justify-content: center;
+}
+.cart_ctrl_num{
+    display:flex;
+    flex:2;
+    flex-direction: row;
+    justify-content: center;
+    border-left:0.01rem solid #E3E3E3;;
+    border-right:0.01rem solid #E3E3E3;;
+}

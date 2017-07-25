@@ -9,7 +9,6 @@ import shoppingCartService from '../service/shoppingCartService';
 class ShoppingCart{
 
     @observable cartList = [];
-
     findProduct(targetProduct){
         let targetProductInfo = targetProduct.productBasicInfo;
 
@@ -50,39 +49,45 @@ class ShoppingCart{
             self.cartList.push(product);
         }
     }
+
     @action allCheck(){
-        let self = this;
-        self.isAllChecked = !self.isAllChecked;
-        for(let i = 0,product;product = self.cartList[i++];){
-            product.checked = self.isAllChecked;
+        if(this.isAllChecked){
+            for(let i =0,len = this.cartList.length;i < len; i++){
+                this.cartList[i].checked = false;
+            }
+        }else{
+            for(let i =0,len = this.cartList.length;i < len; i++){
+                this.cartList[i].checked = true;
+            }
         }
-        console.log(self.cartList);
+    }
+    @computed get isAllChecked(){
+        for(let i =0,len = this.cartList.length;i < len; i++){
+            if(!this.cartList[i].checked){
+                return false;
+            }
+        }
+        return true;
     }
     @computed get totalCount(){
         let count = 0;
-        let self = this;
-        for(let i =0,product;product = self.cartList[i++];){
-            count += product.count;
+        for(let i =0,len = this.cartList.length;i < len;i++){
+            if(this.cartList[i].checked){
+                count += this.cartList[i].count;
+            }
         }
         return count;
     }
     @computed get totalPrice(){
         let price = 0;
         let self = this;
-        for(let i =0,product;product = self.cartList[i++];){
-            price += (product.count * product.price);
+        for(let i =0,len = this.cartList.length;i < len; i++){
+            if(this.cartList[i].checked){
+                price += (this.cartList[i].count * this.cartList[i].price);
+            }
+
         }
         return price;
-    }
-    @computed get isAllChecked(){
-        let isAllChecked = true;
-        let self = this;
-        for(let i =0,product;product = self.cartList[i++];){
-            if(!product.checked){
-                return false;
-            }
-        }
-        return true;
     }
 }
 

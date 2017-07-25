@@ -1,0 +1,51 @@
+.cart_footer{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    padding-left: 0.3rem;
+    bottom:0;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    composes:bgColorF from '../Util/base.css';
+}
+.select_all_checked{
+    height:0.5rem;
+    width:0.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline:none;
+    background: url("../../src/images/shoppingcart_choose_s.png") no-repeat center center;
+    background-size: 0.34rem;
+}
+.select_all_no_checked{
+    height:0.5rem;
+    width:0.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline:none;
+    background: url("../../src/images/shoppingcart_choose_n.png") no-repeat center center;
+    background-size: 0.34rem;
+}
+.select_all{
+    margin-left: 0.2rem;
+}
+.product_sum{
+    margin-left: 0.3rem;
+    composes:f30 from '../Util/base.css';
+}
+.set_account{
+    position: fixed;
+    right:0;
+    width: 2.5rem;
+    height: 1rem;
+    background: #FF4243;
+    color: #FFFFFF;
+    composes:f32 tc from '../Util/base.css';
+}
+.product_amount{
+    margin-left: 0.1rem;
+    composes:f24 from '../Util/base.css';
+}

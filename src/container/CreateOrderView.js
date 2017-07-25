@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 
 //  components
 import View from '../components/View';
-import ReceiveAddressView from './ReceiveAddressView';
+import ConfirmReceiveAddressView from './ConfirmReceiveAddressView';
 
 //  MobX
 import {observer,inject} from 'mobx-react';
@@ -19,8 +19,7 @@ import {observer,inject} from 'mobx-react';
     render(){
         return (
             <View>
-                <span>确认订单页面！</span>
-                <ReceiveAddressView/>
+                <ConfirmReceiveAddressView/>
             </View>
         )
     }

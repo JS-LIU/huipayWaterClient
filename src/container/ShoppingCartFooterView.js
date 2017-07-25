@@ -3,10 +3,15 @@
  */
 //  react
 import React, {Component} from 'react';
+import {
+    Link
+} from 'react-router-dom'
 //  MobX
 import {observer,inject} from 'mobx-react';
 //  components
 import View from '../components/View';
+//css
+import shoppingCartFooterStyle from '../css/shoppingCartFooterStyle.css';
 
 @inject(['shoppingCart'])
 
@@ -20,12 +25,23 @@ import View from '../components/View';
     render() {
         return (
             <View>
-                <span>总数：</span>
-                <span>{this.props.shoppingCart.totalCount}</span>
-                <span>总价：</span>
-                <span>{this.props.shoppingCart.totalPrice}</span>
-                <span>全选：</span>
-                <input type="checkbox" checked={this.props.shoppingCart.isAllChecked} onChange={this.allCheck.bind(this)}/>
+                <div className={shoppingCartFooterStyle.cart_footer}>
+                    <input type="checkbox"
+                           checked={this.props.shoppingCart.isAllChecked}
+                           onChange={this.allCheck.bind(this)}
+                           className={this.props.shoppingCart.isAllChecked?shoppingCartFooterStyle.select_all_checked:shoppingCartFooterStyle.select_all_no_checked}/>
+                    <p className={shoppingCartFooterStyle.select_all}>全选</p>
+                    <p className={shoppingCartFooterStyle.product_sum}>
+                        <span>合计：￥</span>
+                        <span>{this.props.shoppingCart.totalPrice}</span>
+                    </p>
+                    <Link to="/createOrder" className={shoppingCartFooterStyle.set_account}>
+                        <span>去结算</span>
+                        <span className={shoppingCartFooterStyle.product_amount}>
+                            ({this.props.shoppingCart.totalCount})
+                        </span>
+                    </Link>
+                </div>
             </View>
         )
     }

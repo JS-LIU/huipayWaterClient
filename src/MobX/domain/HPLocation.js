@@ -11,13 +11,26 @@ class HPLocation{
         self.login = login;
 
         this.getProvinces = function(postInfo){
-            return _h.ajax().resource('/location/city/:action').save({action:"getCitys"},postInfo)
+            return _h.ajax.resource('/location/common/city/:action').save({action:"getCitys"},postInfo)
         }.before((postInfo)=>{
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
-            postInfo.userId = self.login.postDataAccessInfo.user_id;
         });
         this.getCities = function(){
 
         }
     }
+    getProvinceList(pageNo = 0,size = 100,sortProperties = [],direction = "DESC"){
+        let postData = {
+            pageInfo:{
+                direction:direction,
+                pageNo:pageNo,
+                size:size,
+                sortProperties:[]
+            }
+        };
+        this.getProvinces(postData).then((data)=>{
+            console.log('hpLocation======',data);
+        })
+    }
 }
+module.exports = HPLocation;

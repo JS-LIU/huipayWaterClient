@@ -20,9 +20,9 @@ import {observer,inject} from 'mobx-react';
             <View className={activeAddressStyle.headLocation}>
                 <span className={activeAddressStyle.profile}>收货地址：</span>
                 <div id="container" className={autoMapStyle.map_hide} />
-                <span className={activeAddressStyle.detail_address}>{this.props.activeAddress.activityLocation.township}
-                    {this.props.activeAddress.activityLocation.street}
-                    {this.props.activeAddress.activityLocation.streetNumber}
+                <span className={activeAddressStyle.detail_address}>{this.props.activeAddress.activityLocation.info.township}
+                    {this.props.activeAddress.activityLocation.info.street}
+                    {this.props.activeAddress.activityLocation.info.streetNumber}
                 </span>
             </View>
 

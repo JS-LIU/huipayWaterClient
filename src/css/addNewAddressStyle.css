@@ -1,0 +1,14 @@
+.add_new_address{
+    display: flex;
+    align-items: center;
+    background:#FFFFFF url("../../src/images/line.png") no-repeat center bottom;
+    background-size: 7.5rem 0.04rem;
+    height:2rem;
+}
+.address_detail{
+    background: url('../../src/images/address-05.png') no-repeat 0.3rem center;
+    background-size: 0.3rem;
+    font-size: 0.30rem;
+    padding-left: 0.7rem;
+    color: #333333;
+}

@@ -13,7 +13,6 @@ import TicketListView from './TicketListView';
 import ProductListView from './ProductListView';
 import ShopFooterView from './ShopFooterView';
 
-
 @observer class ShopView extends Component{
     constructor(props){
         super(props);

@@ -13,7 +13,11 @@ import loginService from '../service/loginService';
 let customAddress = function(addressList){
     let customAddressInfo = addressList.customAddressInfo;
     if(typeof customAddressInfo !== 'undefined'){
-        return customAddressInfo;
+        return {
+            info:customAddressInfo,
+            state:'customSelected'
+        };
+        // return customAddressInfo;
     }else{
         return 'nextSuccessor';
     }
@@ -29,7 +33,10 @@ let defaultAddress = function(addressList){
 
     let defaultAddressInfo = addressList.findDefault(list);
     if(typeof defaultAddressInfo !== 'undefined'){
-        return defaultAddressInfo
+        return {
+            state:"default",
+            info:defaultAddressInfo
+        }
     }else{
         return 'nextSuccessor';
     }
@@ -37,7 +44,11 @@ let defaultAddress = function(addressList){
 
 let currentPosition = function(addressList,autoMap){
     autoMap.currentLocationInfo();
-    return autoMap;
+
+    return {
+        state:"currentPos",
+        info:autoMap
+    }
 };
 
 class ActiveAddress{
@@ -47,10 +58,10 @@ class ActiveAddress{
         this.addressList = addressList;
         this.autoMap = autoMap;
     }
+
     @computed get activityLocation(){
-        let self = this;
-        let addressList = self.addressList;
-        let autoMap = self.autoMap;
+        let addressList = this.addressList;
+        let autoMap = this.autoMap;
         return customAddress.after(defaultAddress).after(currentPosition)(addressList,autoMap);
     }
 }

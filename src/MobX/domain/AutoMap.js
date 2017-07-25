@@ -19,9 +19,10 @@ class AutoMap{
         this.map = new AMap.Map('container', {
             resizeEnable: true
         });
+
     }
 
-    currentLocationInfo(){
+    @computed get currentLocationInfo(){
         let geolocation;
         let self = this;
         this.map.plugin('AMap.Geolocation', function() {
@@ -50,7 +51,7 @@ class AutoMap{
             self.formattedAddress = data.formattedAddress;
 
             console.log('============定位成功');
-
+            console.log(data);
             console.log("省："+data.addressComponent.province);
             console.log("市："+data.addressComponent.city);
             console.log("区："+data.addressComponent.district);
@@ -70,9 +71,11 @@ class AutoMap{
         function onError(data) {
             console.log('============定位失败');
         }
+        return {
+        }
     }
 
-    dragSiteSelection(){
+    @action dragSiteSelection(){
         let self = this;
         AMapUI.loadUI(['misc/PositionPicker'], function(PositionPicker) {
             let positionPicker = new PositionPicker({
@@ -106,7 +109,7 @@ class AutoMap{
 
         });
     }
-    autoComplete(){
+    @action autoComplete(str){
         let self = this;
         let auto = new AMap.Autocomplete({
             input: "tipinput"
@@ -135,7 +138,7 @@ class AutoMap{
             console.log("纬度："+poiInfo.location.getLat());
         }
     }
-    geocoder(lnglatXY){
+    @action geocoder(lnglatXY){
         let geocoder = new AMap.Geocoder({
             radius: 1000,
             extensions: "base"
