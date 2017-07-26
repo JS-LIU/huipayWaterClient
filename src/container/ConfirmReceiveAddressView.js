@@ -17,7 +17,7 @@ import {observer,inject} from 'mobx-react';
     render(){
         return (
             <View>
-                {this.props.activeAddress.activityLocation.state === "currentPos"?<CreateAddressView />:<ActiveAddressView />}
+                {this.props.activeAddress.address.state === "currentPos"?<CreateAddressView />:<ActiveAddressView />}
             </View>
         )
     }

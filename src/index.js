@@ -22,6 +22,9 @@ import ShopDetailView from './container/ShopDetailView';
 import ShoppingCartView from './container/ShoppingCartView';
 import CreateOrderView from './container/CreateOrderView';
 import InputAddressView from './container/InputAddressView';
+import AutoCompleteAddressView from './container/AutoCompleteAddressView';
+
+
 
 //  MobX
 import Login from './MobX/domain/Login';
@@ -50,6 +53,7 @@ const App = ()=>(
                 <Route path='/shoppingCart' component={ShoppingCartView}/>
                 <Route path="/createOrder" component={CreateOrderView}/>
                 <Route path="/inputAddress" component={InputAddressView}/>
+                <Route path="/autoCompleteAddress" component={AutoCompleteAddressView}/>
             </Switch>
         </div>
     </BrowserRouter>

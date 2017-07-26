@@ -1,30 +1,38 @@
 /**
  * Created by LDQ on 2017/6/20.
  */
-import {observable, computed,action} from "mobx";
+import {observable, computed,action,autorun} from "mobx";
 
 
 class AutoMap{
-    @observable province = "正在定位";
+    // @observable province = "正在定位";
+    // @observable city = "";
+    // @observable district = "";
+    // @observable township = "";
+    // @observable street = "";
+    // @observable streetNumber = "";
+    // @observable lng = "";
+    // @observable lat = "";
+    // @observable formattedAddress = "正在定位";
+    @observable showLocationInfo = {
+        longitude : "",
+        latitude : "",
+        pcode: "",
+        citycode:"",
+        districtcode:"",
+        receiveAddress : "正在定位",
+    };
     @observable city = "";
-    @observable district = "";
-    @observable township = "";
-    @observable street = "";
-    @observable streetNumber = "";
-    @observable lng = "";
-    @observable lat = "";
-    @observable formattedAddress = "正在定位";
 
     constructor(){
         this.map = new AMap.Map('container', {
             resizeEnable: true
         });
-
     }
-
-    @computed get currentLocationInfo(){
+    getCurrentLocation(){
         let geolocation;
         let self = this;
+        let pcode = "",citycode = '',districtcode = '',formattedAddress = '正在定位';
         this.map.plugin('AMap.Geolocation', function() {
             geolocation = new AMap.Geolocation({
                 enableHighAccuracy: true,               //是否使用高精度定位，默认:true
@@ -39,43 +47,55 @@ class AutoMap{
             AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
         });
         function onComplete(data) {
-            self.province = data.addressComponent.province;
-            self.city = data.addressComponent.city;
-            self.district = data.addressComponent.district;
-            self.township = data.addressComponent.township;
-            self.street = data.addressComponent.street;
-            self.streetNumber = data.addressComponent.streetNumber;
-            self.lng = data.position.getLng();
-            self.lat = data.position.getLat();
+            console.log('============定位成功',data);
 
-            self.formattedAddress = data.formattedAddress;
+            self.showLocationInfo.longitude = data.position.getLng();
+            self.showLocationInfo.latitude = data.position.getLat();
+            self.showLocationInfo.pcode = data.addressComponent.citycode.substring(0,2)+"0000";
+            self.showLocationInfo.citycode = data.addressComponent.citycode;
+            self.showLocationInfo.districtcode = data.addressComponent.adcode;
 
-            console.log('============定位成功');
-            console.log(data);
-            console.log("省："+data.addressComponent.province);
-            console.log("市："+data.addressComponent.city);
-            console.log("区："+data.addressComponent.district);
+            self.showLocationInfo.receiveAddress = data.formattedAddress;
 
-            // 乡镇+街道+门牌号 = 详细地址
-            console.log("乡镇："+data.addressComponent.township);
-            console.log("街道："+data.addressComponent.street);
-            console.log("门牌号："+data.addressComponent.streetNumber);
-
-            console.log(data.formattedAddress);
-
-            console.log("精度："+data.position.getLng());
-            console.log('纬度：' + data.position.getLat());
 
 
         }
         function onError(data) {
             console.log('============定位失败');
         }
-        return {
+    }
+    autoComplete(){
+        let self = this;
+        let autoOptions = {
+            input: "tipinput"
+        };
+        let auto = new AMap.Autocomplete(autoOptions);
+        let placeSearch = new AMap.PlaceSearch({
+            extensions:'all'
+        });
+        AMap.event.addListener(auto, "select", select);
+        function select(e) {
+
+            placeSearch.search(e.poi.name,function(status, result){
+                if (status === 'complete' && result.info === 'OK') {
+                    placeSearch_CallBack(result);
+                }
+            });
+        }
+        function placeSearch_CallBack(data){
+            let poiInfo = data.poiList.pois[0];
+            console.log(poiInfo);
+            self.showLocationInfo.longitude = poiInfo.location.getLng();
+            self.showLocationInfo.latitude = poiInfo.location.getLat();
+            self.showLocationInfo.pcode = poiInfo.pcode;
+            self.showLocationInfo.citycode = poiInfo.citycode;
+            self.showLocationInfo.districtcode = poiInfo.adcode;
+            self.showLocationInfo.receiveAddress = poiInfo.name;
+
+            self.city = poiInfo.pname;
         }
     }
-
-    @action dragSiteSelection(){
+    dragSiteSelection(){
         let self = this;
         AMapUI.loadUI(['misc/PositionPicker'], function(PositionPicker) {
             let positionPicker = new PositionPicker({
@@ -109,35 +129,7 @@ class AutoMap{
 
         });
     }
-    @action autoComplete(str){
-        let self = this;
-        let auto = new AMap.Autocomplete({
-            input: "tipinput"
-        });
-        let placeSearch = new AMap.PlaceSearch({
-            map: self.map,
-            extensions:'base'
-        });  //构造地点查询类
-        AMap.event.addListener(auto, "select", select);
-        function select(e) {
 
-            placeSearch.search(e.poi.name,function(status, result){
-                if (status === 'complete' && result.info === 'OK') {
-                    placeSearch_CallBack(result);
-                }
-            });
-        }
-        function placeSearch_CallBack(data){
-            let poiInfo = data.poiList.pois[0];
-            console.log("省："+poiInfo.pname);
-            console.log("市："+poiInfo.cityname);
-            console.log("区："+poiInfo.adname);
-            console.log("具体地址："+poiInfo.name);
-
-            console.log("经度："+poiInfo.location.getLng());
-            console.log("纬度："+poiInfo.location.getLat());
-        }
-    }
     @action geocoder(lnglatXY){
         let geocoder = new AMap.Geocoder({
             radius: 1000,

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import View from '../components/View';
-
+import {Link} from 'react-router-dom';
 
 //  MobX
 import {observer,inject} from 'mobx-react';
 
 
-@inject (['activeAddress'])
+@inject (['autoMap'])
 
 @observer class InputAddressView extends Component{
     constructor(props){
@@ -25,11 +25,11 @@ import {observer,inject} from 'mobx-react';
                 </li>
                 <li>
                     <span>所在区域：</span>
-                    <span></span>
+                    <Link to="/autoCompleteAddress">{this.props.autoMap.showLocationInfo.receiveAddress}</Link>
                 </li>
                 <li>
                     <span>详细地址：</span>
-                    <span></span>
+                    <input type="text" placeholder="填写具体地址(如：单元号/门牌号/楼层"/>
                 </li>
                 <li>
                     <span>==家==</span>

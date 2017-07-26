@@ -43,11 +43,11 @@ let defaultAddress = function(addressList){
 };
 
 let currentPosition = function(addressList,autoMap){
-    autoMap.currentLocationInfo();
+    autoMap.getCurrentLocation();
 
     return {
         state:"currentPos",
-        info:autoMap
+        info:autoMap.showLocationInfo
     }
 };
 
@@ -59,7 +59,7 @@ class ActiveAddress{
         this.autoMap = autoMap;
     }
 
-    @computed get activityLocation(){
+    @computed get address(){
         let addressList = this.addressList;
         let autoMap = this.autoMap;
         return customAddress.after(defaultAddress).after(currentPosition)(addressList,autoMap);
