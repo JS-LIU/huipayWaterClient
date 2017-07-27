@@ -1,0 +1,50 @@
+.auto_complete_address{
+    min-height: 13.33rem;
+    background: #EEEFF3;
+}
+.hand_input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0.94rem;
+}
+.hand_input_address{
+    display: flex;
+    align-items: center;
+    width: 92%;
+    height: 0.6rem;
+    background: #FFFFFF;
+}
+.auto_city{
+    padding-right: 0.2rem;
+    border-right: 0.01rem solid #EEEFF3;
+}
+.address_city{
+    height: 0.3rem;
+    line-height: 0.3rem;
+    background: url("../../src/images/arrow-down.png") no-repeat right center;
+    background-size: 0.3rem;
+    padding: 0 0.4rem 0 0.2rem;
+    composes: f26 from '../Util/base.css';
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #999;
+}
+.address_input{
+    flex:1;
+    outline: none;
+    margin: 0 0.2rem;
+    composes:h f24 from '../Util/base.css'
+}
+.address_node{
+    padding:0.2rem 0.3rem;
+    border-bottom:0.01rem solid #EEEFF3;
+    composes:bgColorF from '../Util/base.css';
+}
+.consignee_address{
+    composes:f30 c333 from '../Util/base.css';
+}
+.consignee_location{
+    composes:f24 c777 from '../Util/base.css';
+}

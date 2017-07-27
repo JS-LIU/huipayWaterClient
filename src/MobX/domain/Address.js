@@ -7,27 +7,32 @@ import _h from '../../Util/HB';
 class Address{
     constructor(login,autoMap,activeAddress){
         this.login = login;
-        this.activeAddress = activeAddress;
+        this.autoMap = autoMap;
         let self = this;
         this.createAddress = function(postData){
             return _h.ajax.resource("/location/client/deliveryAddress/:action")
-                .save({action:"createAddress"})
+                .save({action:"createAddress"},postData)
         }.before((postData)=>{
             postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
             postData.user_id = self.login.postDataAccessInfo.user_id;
         })
     }
 
-    @action create(pcode,citycode,districtcode,lat,lng,phoneNum,receiveAddress,receiveName){
+    @observable receiveAddressInfo = {
+        receiveName:'',
+        phoneNum:'',
+        specificAddress:''
+    };
+    @action create(){
         let postData = {
-            pcode:pcode,
-            citycode:citycode,
-            districtcode:districtcode,
-            latitude:lat,
-            longitude:lng,
-            phoneNum:phoneNum,
-            receiveAddress:receiveAddress,
-            receiveName:receiveName
+            pcode:this.autoMap.showLocationInfo.pcode,
+            citycode:this.autoMap.showLocationInfo.citycode,
+            districtcode:this.autoMap.showLocationInfo.districtcode,
+            latitude:this.autoMap.showLocationInfo.latitude,
+            longitude:this.autoMap.showLocationInfo.longitude,
+            phoneNum:this.receiveAddressInfo.phoneNum,
+            receiveAddress:this.autoMap.showLocationInfo.receiveAddress + this.receiveAddressInfo.specificAddress,
+            receiveName:this.receiveAddressInfo.receiveName
         };
         this.createAddress(postData).then((data)=>{
             console.log(data);

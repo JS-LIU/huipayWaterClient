@@ -58,8 +58,6 @@ class AutoMap{
 
             self.showLocationInfo.receiveAddress = data.formattedAddress;
 
-
-
         }
         function onError(data) {
             console.log('============定位失败');
@@ -74,32 +72,32 @@ class AutoMap{
                 self.searchAddressList = result.tips;
             }
         });
-
-        // let placeSearch = new AMap.PlaceSearch({
-        //     extensions:'all'
-        // });
-        // AMap.event.addListener(auto, "select", select);
-        // function select(e) {
-        //
-        //     placeSearch.search(e.poi.name,function(status, result){
-        //         if (status === 'complete' && result.info === 'OK') {
-        //             placeSearch_CallBack(result);
-        //         }
-        //     });
-        // }
-        // function placeSearch_CallBack(data){
-        //     let poiInfo = data.poiList.pois[0];
-        //     console.log(poiInfo);
-        //     self.showLocationInfo.longitude = poiInfo.location.getLng();
-        //     self.showLocationInfo.latitude = poiInfo.location.getLat();
-        //     self.showLocationInfo.pcode = poiInfo.pcode;
-        //     self.showLocationInfo.citycode = poiInfo.citycode;
-        //     self.showLocationInfo.districtcode = poiInfo.adcode;
-        //     self.showLocationInfo.receiveAddress = poiInfo.name;
-        //
-        //     self.city = poiInfo.pname;
-        // }
     }
+    @action searchAddressDetail(str){
+        let self = this;
+        let placeSearch = new AMap.PlaceSearch({
+            extensions:'all'
+        });
+
+        placeSearch.search(str,function(status, result){
+            if (status === 'complete' && result.info === 'OK') {
+                placeSearch_CallBack(result);
+            }
+        });
+        function placeSearch_CallBack(data){
+            let poiInfo = data.poiList.pois[0];
+            console.log(poiInfo);
+            self.showLocationInfo.longitude = poiInfo.location.getLng();
+            self.showLocationInfo.latitude = poiInfo.location.getLat();
+            self.showLocationInfo.pcode = poiInfo.pcode;
+            self.showLocationInfo.citycode = poiInfo.citycode;
+            self.showLocationInfo.districtcode = poiInfo.adcode;
+            self.showLocationInfo.receiveAddress = poiInfo.name;
+
+            self.city = poiInfo.cityname;
+        }
+    }
+
     dragSiteSelection(){
         let self = this;
         AMapUI.loadUI(['misc/PositionPicker'], function(PositionPicker) {

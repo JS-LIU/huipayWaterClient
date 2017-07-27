@@ -67,7 +67,7 @@ const shopDetail = new ShopDetail(login);
 const activeAddress = new ActiveAddress(addressList,autoMap);
 const productList = new ProductList(login);
 const shoppingCart = new ShoppingCart();
-const address = new Address(login);
+const address = new Address(login,autoMap);
 
 const stores = {login,autoMap,addressList,activeAddress,shopDetail,productList,shoppingCart,address};
 

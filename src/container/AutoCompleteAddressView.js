@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import View from '../components/View';
 import {Link} from 'react-router-dom';
-import autoMapStyle from '../css/autoMapStyle.css';
+
+import autoCompleteAddressStyle from '../css/autoCompleteAddressStyle.css';
 //  MobX
 import {observer,inject} from 'mobx-react';
 
@@ -12,23 +13,50 @@ import {observer,inject} from 'mobx-react';
         super(props);
         this.searchAddress = this.searchAddress.bind(this);
     }
-    componentDidMount(){
-
-    }
     searchAddress(){
         this.props.autoMap.autoComplete(this.refs.addressName.value);
+    }
+    choose(name){
+        return ()=>{
+            this.props.autoMap.searchAddressDetail(name);
+            this.refs.addressName.value = name;
+        }
     }
     render(){
         let addressNodes = this.props.autoMap.searchAddressList.map((item,index)=>{
             return (
-                <li key = {index}>{item.name}</li>
+                <li key={index}
+                    className={autoCompleteAddressStyle.address_node}
+                    onClick={this.choose(item.name)} >
+                    <Link to="/inputAddress">
+                        <p className={autoCompleteAddressStyle.consignee_address}>
+                            {item.name}
+                        </p>
+                        <p className={autoCompleteAddressStyle.consignee_location}>
+                            {item.district}
+                        </p>
+                    </Link>
+                </li>
             )
         });
         return (
-            <View>
-                <span>{this.props.autoMap.city}</span>
-                <input type="text" placeholder="输入搜索地址" ref="addressName" onKeyUp={this.searchAddress}/>
-                <ul>{addressNodes}</ul>
+            <View className={autoCompleteAddressStyle.auto_complete_address}>
+                <View className={autoCompleteAddressStyle.hand_input}>
+                    <View className={autoCompleteAddressStyle.hand_input_address}>
+                        <div className={autoCompleteAddressStyle.auto_city}>
+                            <p className={autoCompleteAddressStyle.address_city}>{this.props.autoMap.city}</p>
+                        </div>
+
+                        <input type="text"
+                               placeholder="输入搜索地址"
+                               ref="addressName"
+                               onKeyUp={this.searchAddress}
+                               className={autoCompleteAddressStyle.address_input}/>
+                    </View>
+                </View>
+                <ul>
+                    {addressNodes}
+                </ul>
             </View>
         )
     }
