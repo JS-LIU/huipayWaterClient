@@ -23,6 +23,7 @@ class AutoMap{
         receiveAddress : "正在定位",
     };
     @observable city = "";
+    @observable searchAddressList = [];
 
     constructor(){
         this.map = new AMap.Map('container', {
@@ -64,36 +65,40 @@ class AutoMap{
             console.log('============定位失败');
         }
     }
-    autoComplete(){
+    @action autoComplete(str){
         let self = this;
-        let autoOptions = {
-            input: "tipinput"
-        };
-        let auto = new AMap.Autocomplete(autoOptions);
-        let placeSearch = new AMap.PlaceSearch({
-            extensions:'all'
+        let auto = new AMap.Autocomplete();
+        auto.search(str, function(status, result){
+            if (status === 'complete' && result.info === 'OK') {
+                console.log(result);
+                self.searchAddressList = result.tips;
+            }
         });
-        AMap.event.addListener(auto, "select", select);
-        function select(e) {
 
-            placeSearch.search(e.poi.name,function(status, result){
-                if (status === 'complete' && result.info === 'OK') {
-                    placeSearch_CallBack(result);
-                }
-            });
-        }
-        function placeSearch_CallBack(data){
-            let poiInfo = data.poiList.pois[0];
-            console.log(poiInfo);
-            self.showLocationInfo.longitude = poiInfo.location.getLng();
-            self.showLocationInfo.latitude = poiInfo.location.getLat();
-            self.showLocationInfo.pcode = poiInfo.pcode;
-            self.showLocationInfo.citycode = poiInfo.citycode;
-            self.showLocationInfo.districtcode = poiInfo.adcode;
-            self.showLocationInfo.receiveAddress = poiInfo.name;
-
-            self.city = poiInfo.pname;
-        }
+        // let placeSearch = new AMap.PlaceSearch({
+        //     extensions:'all'
+        // });
+        // AMap.event.addListener(auto, "select", select);
+        // function select(e) {
+        //
+        //     placeSearch.search(e.poi.name,function(status, result){
+        //         if (status === 'complete' && result.info === 'OK') {
+        //             placeSearch_CallBack(result);
+        //         }
+        //     });
+        // }
+        // function placeSearch_CallBack(data){
+        //     let poiInfo = data.poiList.pois[0];
+        //     console.log(poiInfo);
+        //     self.showLocationInfo.longitude = poiInfo.location.getLng();
+        //     self.showLocationInfo.latitude = poiInfo.location.getLat();
+        //     self.showLocationInfo.pcode = poiInfo.pcode;
+        //     self.showLocationInfo.citycode = poiInfo.citycode;
+        //     self.showLocationInfo.districtcode = poiInfo.adcode;
+        //     self.showLocationInfo.receiveAddress = poiInfo.name;
+        //
+        //     self.city = poiInfo.pname;
+        // }
     }
     dragSiteSelection(){
         let self = this;
