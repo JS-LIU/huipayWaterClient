@@ -5,7 +5,7 @@ import {observable, computed,action,autorun} from "mobx";
 import _h from '../../Util/HB';
 
 class Address{
-    constructor(login,autoMap,activeAddress){
+    constructor(login,autoMap){
         this.login = login;
         this.autoMap = autoMap;
         let self = this;
@@ -15,7 +15,15 @@ class Address{
         }.before((postData)=>{
             postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
             postData.user_id = self.login.postDataAccessInfo.user_id;
-        })
+        });
+
+        this.removeAddress = function(postData){
+            return _h.ajax.resource("/location/client/deliveryAddress/:action")
+                .save({action:"deleteAddress"},postData)
+        }.before(((postData)=>{
+            postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
+        }))
+
     }
 
     @observable receiveAddressInfo = {
@@ -38,8 +46,13 @@ class Address{
             console.log(data);
         })
     }
-    @action remove(){
-
+    @action remove(item){
+        let deliveryAddressId = item.id;
+        this.removeAddress({
+            deliveryAddressId:deliveryAddressId
+        }).then((data)=>{
+            console.log(data);
+        })
     }
     edit(){
 

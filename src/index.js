@@ -23,7 +23,7 @@ import ShoppingCartView from './container/ShoppingCartView';
 import CreateOrderView from './container/CreateOrderView';
 import InputAddressView from './container/InputAddressView';
 import AutoCompleteAddressView from './container/AutoCompleteAddressView';
-
+import ReceiveAddressListView from './container/ReceiveAddressListView';
 
 
 //  MobX
@@ -54,6 +54,7 @@ const App = ()=>(
                 <Route path="/createOrder" component={CreateOrderView}/>
                 <Route path="/inputAddress" component={InputAddressView}/>
                 <Route path="/autoCompleteAddress" component={AutoCompleteAddressView}/>
+                <Route path="/receiveAddressList" component={ReceiveAddressListView}/>
             </Switch>
         </div>
     </BrowserRouter>
@@ -62,14 +63,13 @@ const App = ()=>(
 
 const login = new Login();
 const autoMap = new AutoMap();
-const addressList = new AddressList(login);
+const addressList = new AddressList(login,autoMap);
 const shopDetail = new ShopDetail(login);
 const activeAddress = new ActiveAddress(addressList,autoMap);
 const productList = new ProductList(login);
 const shoppingCart = new ShoppingCart();
-const address = new Address(login,autoMap);
 
-const stores = {login,autoMap,addressList,activeAddress,shopDetail,productList,shoppingCart,address};
+const stores = {login,autoMap,addressList,activeAddress,shopDetail,productList,shoppingCart};
 
 ReactDom.render(
     <Provider {...stores}>

@@ -2,6 +2,7 @@
  * Created by LDQ on 2017/7/11.
  */
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import View from '../components/View';
 
 import autoMapStyle from '../css/autoMapStyle.css';
@@ -18,11 +19,13 @@ import {observer,inject} from 'mobx-react';
     render(){
         return (
             <View className={activeAddressStyle.headLocation}>
-                <span className={activeAddressStyle.profile}>收货地址：</span>
-                <div id="container" className={autoMapStyle.map_hide} />
-                <span className={activeAddressStyle.detail_address}>
-                    {this.props.activeAddress.address.info.receiveAddress}
-                </span>
+                <Link to="/receiveAddressList">
+                    <span className={activeAddressStyle.profile}>收货地址：</span>
+                    <div id="container" className={autoMapStyle.map_hide} />
+                    <span className={activeAddressStyle.detail_address}>
+                        {this.props.activeAddress.address.info.receiveAddress}
+                    </span>
+                </Link>
             </View>
 
         )

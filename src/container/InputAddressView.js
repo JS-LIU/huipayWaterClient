@@ -7,7 +7,7 @@ import {observer,inject} from 'mobx-react';
 import inputAddressStyle from '../css/inputAddressStyle.css';
 
 @inject (['autoMap'])
-@inject (['address'])
+@inject (['addressList'])
 
 @observer class InputAddressView extends Component{
     constructor(props){
@@ -17,21 +17,21 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
         this.setSpecificAddress = this.setSpecificAddress.bind(this);
     }
     componentDidMount(){
-        this.refs.myName.value = this.props.address.receiveAddressInfo.receiveName;
-        this.refs.myPhoneNum.value =  this.props.address.receiveAddressInfo.phoneNum;
-        this.refs.specificAddress.value = this.props.address.receiveAddressInfo.specificAddress;
+        this.refs.myName.value = this.props.addressList.inputInfo.receiveName;
+        this.refs.myPhoneNum.value =  this.props.addressList.inputInfo.phoneNum;
+        this.refs.specificAddress.value = this.props.addressList.inputInfo.specificAddress;
     }
     setName(){
-        this.props.address.receiveAddressInfo.receiveName = this.refs.myName.value;
+        this.props.addressList.inputInfo.receiveName = this.refs.myName.value;
     }
     setPhoneNum(){
-        this.props.address.receiveAddressInfo.phoneNum = this.refs.myPhoneNum.value;
+        this.props.addressList.inputInfo.phoneNum = this.refs.myPhoneNum.value;
     }
     setSpecificAddress(){
-        this.props.address.receiveAddressInfo.specificAddress = this.refs.specificAddress.value;
+        this.props.addressList.inputInfo.specificAddress = this.refs.specificAddress.value;
     }
     createAddress(){
-        this.props.address.create();
+        this.props.addressList.create();
     }
     render(){
         return (
