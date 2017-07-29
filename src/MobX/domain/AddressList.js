@@ -42,7 +42,15 @@ class ReceiveAddress{
         }.before(((postData)=>{
             postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
         }));
-        this.setDefault = function(postData){
+        this.editAddress = function(postData){
+            return _h.ajax.resource("/location/client/deliveryAddress/:action")
+                .save({action:"updataAddress"},postData)
+        }.before(((postData)=>{
+            postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
+            postData.user_id = self.login.postDataAccessInfo.user_id;
+            postData.userType = "client";
+        }));
+        this.setDefaultAddress = function(postData){
             return _h.ajax.resource("/location/client/deliveryAddress/:action")
                 .save({action:"setDefaultAddress"},postData)
         }.before(((postData)=>{
@@ -64,11 +72,11 @@ class ReceiveAddress{
             }
         };
         self.addressList(postInfo).done((list)=>{
-            console.log('AddressList-action:getAddressList======',list);
             self.list = list.content;
         })
     }
-    @action selectedAddress(address){
+    @action selected(address){
+        console.log(address);
         this.customAddressInfo = address;
     }
     @action create(){
@@ -78,9 +86,9 @@ class ReceiveAddress{
             districtcode:this.autoMap.showLocationInfo.districtcode,
             latitude:this.autoMap.showLocationInfo.latitude,
             longitude:this.autoMap.showLocationInfo.longitude,
-            phoneNum:this.receiveAddressInfo.phoneNum,
+            phoneNum:this.inputInfo.phoneNum,
             receiveAddress:this.autoMap.showLocationInfo.receiveAddress + this.inputInfo.specificAddress,
-            receiveName:this.receiveAddressInfo.receiveName
+            receiveName:this.inputInfo.receiveName
         };
         this.createAddress(postData).then((data)=>{
             console.log(data);
@@ -96,15 +104,26 @@ class ReceiveAddress{
         })
 
     }
-    @action edit(){
-
+    @action edit(item){
+        let postData = {
+            pcode:this.autoMap.showLocationInfo.pcode,
+            citycode:this.autoMap.showLocationInfo.citycode,
+            districtcode:this.autoMap.showLocationInfo.districtcode,
+            latitude:this.autoMap.showLocationInfo.latitude,
+            longitude:this.autoMap.showLocationInfo.longitude,
+            phoneNum:this.inputInfo.phoneNum,
+            receiveAddress:this.autoMap.showLocationInfo.receiveAddress + this.inputInfo.specificAddress,
+            receiveName:this.inputInfo.receiveName,
+            deliveryAddressId:item.id
+        };
+        this.editAddress(postData).then((data)=>{
+            console.log(data);
+        })
     }
     @action setDefault(item){
-        let index = this.findEqualAddressId(item);
-        this.list[index].default = !item.default;
-
-        if(!item.default){
-            this.setDefault({
+        item.default = !item.default;
+        if(item.default){
+            this.setDefaultAddress({
                 addressId:item.id,
                 default:true
             }).then((data)=>{

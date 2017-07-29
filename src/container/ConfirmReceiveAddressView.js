@@ -38,14 +38,27 @@ import {observer,inject} from 'mobx-react';
     }
 }
 
-class ActiveAddressView extends Component{
+@inject(['activeAddress'])
+@observer class ActiveAddressView extends Component{
     constructor(props){
         super(props);
     }
     render(){
         return (
-            <Link to='/AddressList'>
-                后台返回的字段和格式呵呵呵
+            <Link to={{pathname:'/receiveAddressList',state:{from:'createOrder'}}} >
+                <ul>
+                    <li>
+                        <span>收货人：</span>
+                        <span>{this.props.activeAddress.address.info.receiveName}</span>
+                    </li>
+                    <li>
+                        <span>{this.props.activeAddress.address.info.phoneNum}</span>
+                    </li>
+                    <li>
+                        <span>送货地址：</span>
+                        <span>{this.props.activeAddress.address.info.receiveAddress}</span>
+                    </li>
+                </ul>
             </Link>
         )
     }

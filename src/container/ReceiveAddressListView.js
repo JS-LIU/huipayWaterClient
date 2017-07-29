@@ -16,7 +16,7 @@ import {observer,inject} from 'mobx-react';
     }
     edit(item){
         return ()=>{
-            this.props.addressList.inputInfo.receiveName = item.name;
+            this.props.addressList.inputInfo.receiveName = item.receiveName;
             this.props.addressList.inputInfo.phoneNum = item.phoneNum;
             this.props.addressList.inputInfo.specificAddress = "";
         }
@@ -29,17 +29,25 @@ import {observer,inject} from 'mobx-react';
     }
     setDefault(item){
         return ()=>{
+            console.log('setDefaultClick');
             this.props.addressList.setDefault(item);
+        }
+    }
+    choose(item){
+        return ()=>{
+            this.props.addressList.selected(item)
         }
     }
     render(){
         let addressNodes = this.props.addressList.list.map((item,index)=>{
             return (
-                <li key = {index}>
-                    <span>{item.receiveName}</span>
-                    <span>{item.phoneNum}</span>
-                    <span>{item.receiveAddress}</span>
-                    <input type="radio" onChange={this.setDefault(item)}/>
+                <li key = {index} >
+                    {/*<Link to="/createOrder" >*/}
+                        <span>{item.receiveName}</span>
+                        <span>{item.phoneNum}</span>
+                        <span >{item.receiveAddress}</span>
+                        <input type="radio" onChange={this.setDefault(item)} name="address"/>
+                    {/*</Link>*/}
                     <Link to = {{pathname:'/inputAddress',state:{action:'edit'}}} onClick={this.edit(item)}> ====编辑=====</Link>
                     <span onClick={this.remove(item)}>====删除=====</span>
                 </li>
