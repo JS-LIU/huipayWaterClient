@@ -1,19 +1,38 @@
 /**
  * Created by LDQ on 2017/6/29.
  */
-import {observable, computed} from "mobx";
+import {observable, computed,action,autorun} from "mobx";
+import _h from '../../Util/HB';
 
 class Order {
-    @observable price = 0;
-    @observable amount = 1;
 
-    constructor(price,amount) {
-        this.price = price;
-        this.amount = amount;
+    constructor(login) {
+        this.login = login;
+        this.settleOrder = function(postInfo){
+            return _h.ajax.resource('/order/client/order/:action')
+                .save({action:"settleOrderInfo"},postInfo)
+        }.before(function(postInfo){
+            postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
+            postInfo.user_id = self.login.postDataAccessInfo.user_id;
+        });
+    }
+    @observable settleList = [];
+    @observable settleInfo = {
+        list:[{
+            productList:[]
+        }],
+        totalPrice:0,
+        totalProductCount:0
+    };
+    @action getSettleOrder(list){
+        let postInfo = {
+            list:[]
+        };
+
+        this.settleOrder(postInfo).then((data)=>{
+            this.settleInfo = data;
+        })
     }
 
-    @computed get total() {
-        return this.price * this.amount;
-    }
 }
 module.exports = Order;

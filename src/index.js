@@ -12,6 +12,7 @@ import {
 } from 'react-router-dom'
 
 
+
 import { Provider } from 'mobx-react';
 import _h from '../src/Util/HB';
 
@@ -24,7 +25,7 @@ import CreateOrderView from './container/CreateOrderView';
 import InputAddressView from './container/InputAddressView';
 import AutoCompleteAddressView from './container/AutoCompleteAddressView';
 import ReceiveAddressListView from './container/ReceiveAddressListView';
-
+import ProductDetailView from './container/ProductDetailView';
 
 //  MobX
 import Login from './MobX/domain/Login';
@@ -34,7 +35,7 @@ import ActiveAddress from './MobX/domain/ActiveAddress';
 import ShopDetail from './MobX/domain/ShopDetail';
 import ProductList from './MobX/domain/ProductList';
 import ShoppingCart from './MobX/domain/ShoppingCart';
-import Address from './MobX/domain/Address';
+import ProductDetail from './MobX/domain/ProductDetail';
 
 //  resetFontSize
 _h.ui.setBaseFontSize(750,100);
@@ -55,6 +56,7 @@ const App = ()=>(
                 <Route path="/inputAddress" component={InputAddressView}/>
                 <Route path="/autoCompleteAddress" component={AutoCompleteAddressView}/>
                 <Route path="/receiveAddressList" component={ReceiveAddressListView}/>
+                <Route path="/productDetail" component={ProductDetailView}/>
             </Switch>
         </div>
     </BrowserRouter>
@@ -68,8 +70,9 @@ const shopDetail = new ShopDetail(login);
 const activeAddress = new ActiveAddress(addressList,autoMap);
 const productList = new ProductList(login);
 const shoppingCart = new ShoppingCart();
+const productDetail = new ProductDetail(login);
 
-const stores = {login,autoMap,addressList,activeAddress,shopDetail,productList,shoppingCart};
+const stores = {login,autoMap,addressList,activeAddress,shopDetail,productList,shoppingCart,productDetail};
 
 ReactDom.render(
     <Provider {...stores}>

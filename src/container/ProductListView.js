@@ -3,6 +3,8 @@
  */
 //  react
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+
 //  MobX
 import {observer,inject} from 'mobx-react';
 //  components
@@ -28,21 +30,22 @@ import productListStyle from '../css/productListStyle.css';
         let ProductNodes = this.props.productList.content.map((item,index)=>{
             return (
                 <li className={productListStyle.row_productList_item} key={index}>
-                    <div className={productListStyle.row_item_pic_box}>
+                    <Link to={{pathname:'/productDetail',state:{productInfo:item.productBasicInfo}}} className={productListStyle.row_item_pic_box}>
                         <img src={item.icon} alt="商品图片" className={productListStyle.row_item_pic} />
-                    </div>
+                    </Link>
                     <p className={productListStyle.row_item_title}>{item.productName}</p >
                     <p className={productListStyle.row_item_price}>
                         <span className={productListStyle.row_price_unit}>￥</span>
                         <span>{item.showPrice}</span>
                     </p >
-                    <div className={productListStyle.row_item_extra}>
-                        <span className={productListStyle.row_item_extra_sold}>
-                            <span>已售：</span>
-                            <span>{item.soldNumber}</span>
-                        </span>
+                    <View className={productListStyle.row_item_extra}>
+                    <span className={productListStyle.row_item_extra_sold}>
+                        <span>已售：</span>
+                        <span>{item.soldNumber}</span>
+                    </span>
                         <span className={productListStyle.row_item_cart} onClick={this.addShoppingCart(item)}/>
-                    </div>
+                    </View>
+
                 </li>
 
             )
