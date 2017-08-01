@@ -72,6 +72,11 @@ import specificationStyle from '../css/specificationStyle.css';
                 </View>
 
                 <View>
+                    <Link to="my">我的</Link>
+                    <Link to="shoppingCart">
+                        <span>{this.props.shoppingCart.totalCount}</span>
+                        <span>购物车</span>
+                    </Link>
                     <span>加入购物车</span>
                     <span onClick = {this.showSpec}>立即购买</span>
                 </View>
@@ -85,7 +90,6 @@ import specificationStyle from '../css/specificationStyle.css';
                     </ul>
                     <Link to="/createOrder" onClick = {this.getSettleOrder}>确定</Link>
                 </div>
-
             </View>
         )
     }

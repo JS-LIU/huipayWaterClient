@@ -31,7 +31,6 @@ import {observer,inject} from 'mobx-react';
 }
 
 @inject(['order'])
-
 @observer class OrderListView extends Component{
     constructor(props){
         super(props);
