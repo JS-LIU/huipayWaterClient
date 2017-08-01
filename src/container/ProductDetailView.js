@@ -8,9 +8,13 @@ import {observer,inject} from 'mobx-react';
 //  components
 import View from '../components/View';
 import {Link} from 'react-router-dom';
+import specificationStyle from '../css/specificationStyle.css';
+
+
 @inject(['shoppingCart'])
 @inject(['productDetail'])
 @inject(['shopDetail'])
+@inject(['order'])
 
 @observer class ProductDetailView extends Component{
     constructor(props){
@@ -35,7 +39,7 @@ import {Link} from 'react-router-dom';
         this.props.productDetail.closeSpecOperator();
     }
     getSettleOrder(){
-
+        this.props.order.getSettleOrder(this.props.productDetail.info)
     }
     render(){
         return (
@@ -71,7 +75,7 @@ import {Link} from 'react-router-dom';
                     <span>加入购物车</span>
                     <span onClick = {this.showSpec}>立即购买</span>
                 </View>
-                <View>
+                <div className={this.props.productDetail.isShowSpec?specificationStyle.show_spec:specificationStyle.hide_spec}>
                     <View onClick = {this.closeSpec}>close</View>
                     <ul>
                         <li>
@@ -80,7 +84,7 @@ import {Link} from 'react-router-dom';
                         </li>
                     </ul>
                     <Link to="/createOrder" onClick = {this.getSettleOrder}>确定</Link>
-                </View>
+                </div>
 
             </View>
         )

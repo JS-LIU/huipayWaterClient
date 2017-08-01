@@ -36,6 +36,7 @@ import ShopDetail from './MobX/domain/ShopDetail';
 import ProductList from './MobX/domain/ProductList';
 import ShoppingCart from './MobX/domain/ShoppingCart';
 import ProductDetail from './MobX/domain/ProductDetail';
+import Order from './MobX/domain/Order';
 
 //  resetFontSize
 _h.ui.setBaseFontSize(750,100);
@@ -71,8 +72,10 @@ const activeAddress = new ActiveAddress(addressList,autoMap);
 const productList = new ProductList(login);
 const shoppingCart = new ShoppingCart();
 const productDetail = new ProductDetail(login);
+const order = new Order(login);
 
-const stores = {login,autoMap,addressList,activeAddress,shopDetail,productList,shoppingCart,productDetail};
+
+const stores = {login,autoMap,addressList,activeAddress,shopDetail,productList,shoppingCart,productDetail,order};
 
 ReactDom.render(
     <Provider {...stores}>
