@@ -17,9 +17,10 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     render(){
+        let currentUrl = this.props.current;
         return (
             <View className={activeAddressStyle.headLocation}>
-                <Link to="/receiveAddressList">
+                <Link to={{pathname:'/receiveAddressList',state:{from:currentUrl}}}>
                     <span className={activeAddressStyle.profile}>收货地址：</span>
                     <div id="container" className={autoMapStyle.map_hide} />
                     <span className={activeAddressStyle.detail_address}>

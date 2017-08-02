@@ -20,7 +20,7 @@ import ShopFooterView from './ShopFooterView';
     render(){
         return (
             <View style={shopStyle}>
-                <ReceiveAddressView />
+                <ReceiveAddressView current={this.props.location.pathname}/>
                 <ShopSummaryView />
                 <TicketListView />
                 <ProductListView />

@@ -25,7 +25,7 @@ class ReceiveAddress{
                 .save({action:"getAddressList"},postInfo,false)
         }.before(function(postInfo){
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
-            postInfo.user_id = self.login.postDataAccessInfo.user_id;
+            postInfo.userId = self.login.postDataAccessInfo.user_id;
         });
 
         this.createAddress = function(postData){
@@ -33,7 +33,7 @@ class ReceiveAddress{
                 .save({action:"createAddress"},postData)
         }.before((postData)=>{
             postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
-            postData.user_id = self.login.postDataAccessInfo.user_id;
+            postData.userId = self.login.postDataAccessInfo.user_id;
         });
 
         this.removeAddress = function(postData){
@@ -47,7 +47,7 @@ class ReceiveAddress{
                 .save({action:"updataAddress"},postData)
         }.before(((postData)=>{
             postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
-            postData.user_id = self.login.postDataAccessInfo.user_id;
+            postData.userId = self.login.postDataAccessInfo.user_id;
             postData.userType = "client";
         }));
         this.setDefaultAddress = function(postData){
@@ -55,7 +55,7 @@ class ReceiveAddress{
                 .save({action:"setDefaultAddress"},postData)
         }.before(((postData)=>{
             postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
-            postData.user_id = self.login.postDataAccessInfo.user_id;
+            postData.userId = self.login.postDataAccessInfo.user_id;
         }))
 
     }
@@ -99,7 +99,7 @@ class ReceiveAddress{
         this.removeAddress({
             deliveryAddressId:deliveryAddressId
         }).then((data)=>{
-            let index = this.findEqualAddressId(item);
+            let index = this.findEqualAddressId(item).index;
             this.list.splice(index,1);
         })
 
@@ -121,14 +121,23 @@ class ReceiveAddress{
         })
     }
     @action setDefault(item){
-        item.default = !item.default;
-        if(item.default){
-            this.setDefaultAddress({
-                addressId:item.id,
-                default:true
-            }).then((data)=>{
-                console.log(data);
-            });
+
+        this.setAllAddressDefault(item);
+        this.setDefaultAddress({
+            addressId:item.id,
+            default:item.default
+        }).then((data)=>{
+            console.log(data);
+        });
+
+    }
+    setAllAddressDefault(item){
+        for(let i =0;i < this.list.length;i++){
+            if(this.list[i].id === item.id){
+                this.list[i].default = !item.default;
+            }else{
+                this.list[i].default = false;
+            }
 
         }
     }
@@ -138,7 +147,10 @@ class ReceiveAddress{
                 return item
             }
         };
-        return this.list.findIndex(isEqualId);
+        return {
+            index:this.list.findIndex(isEqualId),
+            address:this.list.find(isEqualId)
+        }
     }
     findDefault(){
         let self = this;

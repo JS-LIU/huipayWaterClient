@@ -1,0 +1,147 @@
+.receive_address_list{
+    min-height: 13.33rem;
+    composes:bgColor from '../Util/base.css';
+}
+.address_list{
+    padding-bottom: 1.3rem;
+}
+.address_nodes{
+    padding-bottom: 0.1rem;
+    composes:bgColorF mb30 from '../Util/base.css';
+}
+.receiver_info{
+    padding-top: 0.2rem;
+    composes:bgColorF pl30 pr30 mb30  from '../Util/base.css';
+}
+.receiver_info{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.1rem;
+    composes:f30 c333 from '../Util/base.css';
+}
+.telephone{
+    margin-left: 0.5rem;
+}
+.address_label{
+    color: #4dc0ff;
+    padding: 0 0.15rem;
+    margin-left: 0.5rem;
+    border-radius: 0.05rem;
+    border: 0.01rem solid #4dc0ff;
+    composes:f24 from '../Util/base.css';
+}
+.location{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    line-height: 0.5rem;
+    composes:pl30 pr30 from '../Util/base.css';
+}
+.operate{
+    display:flex;
+    justify-content: space-between;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    padding-left: 0.2rem;
+    composes:pr30 f24 from '../Util/base.css';
+}
+.operate_default{
+    display: flex;
+    align-items: center;
+}
+.address_checked{
+    height:0.5rem;
+    width:0.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline:none;
+    background: url("../../src/images/shoppingcart_choose_s.png") no-repeat center center;
+    background-size: 0.34rem;
+}
+.address_no_checked{
+    height:0.5rem;
+    width:0.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline:none;
+    background: url("../../src/images/shoppingcart_choose_n.png") no-repeat center center;
+    background-size: 0.34rem;
+}
+.operate_amend{
+    display: flex;
+}
+.operate_edit{
+    background: url("../../src/images/address_btn_edit@2x.png") no-repeat left center;
+    background-size: 0.35rem;
+    padding-left: 0.5rem;
+}
+.operate_delete{
+    background: url("../../src/images/address_btn_delete@2x.png") no-repeat left center;
+    background-size: 0.35rem;
+    padding-left: 0.45rem;
+    margin-left: 0.38rem;
+}
+.address_btn{
+    position: fixed;
+    bottom: 0.5rem;
+    margin: 0 0.3rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    border-radius: 0.1rem;
+    width: 92%;
+    color: #ffffff;
+    background: #4dc0ff;
+    composes:tc f36 from '../Util/base.css';
+}
+.dialog{
+    position: fixed;
+    bottom: 0;
+    z-index: 11;
+    composes: bgColorF from '../Util/base.css';
+}
+.delete_dialog_body{
+    position:fixed;
+    bottom:1.5rem;
+    margin:0 calc((100% - 6.9rem)/2);
+    width: 6.9rem;
+    height:1.94rem;
+    background:#FFF;
+    -webkit-border-radius: 0.1rem;
+    -moz-border-radius: 0.1rem;
+    border-radius: 0.1rem;
+}
+.dialog_body_text{
+    height: 0.94rem;
+    line-height: 0.94rem;
+    border-bottom: 0.01rem solid #EEEFF3;
+    composes:f28 c666 tc from '../Util/base.css';
+}
+.dialog_body_delete{
+    height: 1rem;
+    line-height: 1rem;
+    color: #FF4243;
+    composes:f36  tc from '../Util/base.css';
+}
+.dialog_cancel{
+    position:fixed;
+    bottom: 0.2rem;
+    margin:0 calc((100% - 6.9rem)/2);
+    height: 1.16rem;
+    line-height: 1.16rem;
+    width: 6.9rem;
+    color: #4dc0ff;
+    -webkit-border-radius: 0.1rem;
+    -moz-border-radius: 0.1rem;
+    border-radius: 0.1rem;
+    composes:f36 tc bgColorF from '../Util/base.css';
+}
+.dialog_mask{
+    position: fixed;
+    z-index: 9;
+    background: #000;
+    opacity: 0.3;
+    bottom: 0;
+    composes: w h from '../Util/base.css';
+}
