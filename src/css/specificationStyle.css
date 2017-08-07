@@ -1,5 +1,59 @@
 .show_spec{
     display: block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 0.01rem solid #eeeff3;
+    box-shadow: 0px -3px 20px #eeeff3;
+    background: #ffffff;
+}
+.close{
+    text-align: right;
+    padding-right: 0.3rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    composes:f30 from '../Util/base.css'
+}
+.choose_num{
+    height: 1.5rem;
+    line-height: 1.2rem;
+}
+.choose_num_operate{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.3rem;
+    font-size: 0.30rem;
+    color: #333333;
+}
+.operate_num{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.num_reduce{
+    border: 0.01rem solid #888888;
+}
+.product_num{
+    border-top:0.01rem solid #888888;
+    border-bottom: 0.01rem solid #888888;
+}
+.num_increase{
+    border: 0.01rem solid #888888;
+}
+.operate_num span{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    width: 0.5rem;
+    display: block;
+    text-align: center;
+}
+.sure{
+    height: 0.88rem;
+    line-height: 0.88rem;
+    font-size: 0.36rem;
+    text-align: center;
+    color: #ffffff;
+    background:#FF4243;
 }
 .hide_spec{
     display: none;

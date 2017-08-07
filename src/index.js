@@ -11,8 +11,6 @@ import {
     Link
 } from 'react-router-dom'
 
-
-
 import { Provider } from 'mobx-react';
 import _h from '../src/Util/HB';
 
@@ -64,15 +62,17 @@ const App = ()=>(
 
 );
 
-const login = new Login();
 const autoMap = new AutoMap();
+const login = new Login();
+
 const addressList = new AddressList(login,autoMap);
 const shopDetail = new ShopDetail(login);
 const activeAddress = new ActiveAddress(addressList,autoMap);
 const productList = new ProductList(login);
-const shoppingCart = new ShoppingCart();
 const productDetail = new ProductDetail(login);
 const order = new Order(login);
+const shoppingCart = new ShoppingCart();
+
 
 
 const stores = {login,autoMap,addressList,activeAddress,shopDetail,productList,shoppingCart,productDetail,order};
@@ -81,8 +81,6 @@ ReactDom.render(
     <Provider {...stores}>
         <div>
             <App />
-            {/*<TodoListView todoList={todoList} />*/}
-            {/*<TimerView timeState = {timeState}/>*/}
         </div>
     </Provider>,
     document.getElementById('root')

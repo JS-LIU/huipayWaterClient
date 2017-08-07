@@ -17,4 +17,6 @@
     background: url("../images/btn_right_arrow@2x.png") no-repeat right center;
     background-size: 0.18rem 0.3rem;
     composes:pr30 from '../Util/base.css';
+    text-overflow: ellipsis;
+    white-space:nowrap;
 }

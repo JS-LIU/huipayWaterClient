@@ -1,4 +1,4 @@
-.shop_ooter{
+.product_detail_footer{
     position: fixed;
     display: flex;
     bottom:0;
@@ -10,6 +10,7 @@
 .serve{
     flex:3;
     display: flex;
+    border-top: 0.01rem solid #E3E3E3;
 }
 .serve_mine{
     flex:1;
@@ -20,7 +21,7 @@
     border-right: 0.01rem solid #EEEFF3;
     composes: w tc from '../Util/base.css';
 }
-.server_cart{
+.serve_cart{
     flex:1;
     position: relative;
     background:#FFF url('../../src/images/tab_btn_shoppingcart_n.png') no-repeat center 0.15rem;
@@ -46,11 +47,16 @@
 }
 .settle{
     flex:4;
+    display: flex;
     background: #FF4243;
     color: #ffffff;
     line-height: 1rem;
     composes:tc f34 from '../Util/base.css';
 }
+.add_cart{
+    flex:1;
+    background:#ffba26;
+}
 .purchase{
-    color:#FFF;
+    flex: 1;
 }

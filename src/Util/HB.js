@@ -95,19 +95,21 @@ HB.ajax = (function(){
         constructor(templateUrl){
 
             //  分割字符串
-            this.templateUrlArr = templateUrl.split('/');
+            let templateUrlArr = templateUrl.split('/');
+
             this.getRealUrl = function(entity_obj){
-                this.templateUrlArr.map((item,i)=>{
+                let url = [...templateUrlArr];
+                templateUrlArr.map((item,i)=>{
                     if(item[0] === ":"){
-                        this.replaceItem(entity_obj,item,i)
+                        this.replaceItem(url,entity_obj,item,i)
                     }
                 });
-                return this.templateUrlArr.join('/');
+                return url.join('/');
             };
-            this.replaceItem = function(entity_obj,item,index){
+            this.replaceItem = function(url,entity_obj,item,index){
                 for(let prop in entity_obj){
                     if(prop === item.slice(1)){
-                        this.templateUrlArr[index] = entity_obj[prop];
+                        url[index] = entity_obj[prop];
                     }else{
                         entity_obj = "";
                     }

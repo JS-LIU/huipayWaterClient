@@ -18,13 +18,16 @@ class Order {
             postInfo.clientType = "web";
         });
     }
-    @observable settleInfo = {
+    @observable _settleInfo = {
         list:[{
             productList:[]
         }],
         totalPrice:0,
         totalProductCount:0
     };
+    @computed get settleInfo(){
+        return this._settleInfo;
+    }
     @action getSettleOrder(list){
         let settleList = this.toSettleList(list);
 
@@ -33,13 +36,26 @@ class Order {
         };
 
         this.settleOrder(postInfo).then((data)=>{
-            this.settleInfo = data;
+            this._settleInfo = data;
         })
     }
     toSettleList(product){
-        if(Array.isArray(product)){
-            //  todo 购物车结算
 
+        if(Array.isArray(product)){
+            let productList = [];
+            for(let i = 0,len = product.length;i < len;i++){
+                productList.push({
+                    count:product[i].count,
+                    distributeProductId:product[i].distributeProductId,
+                    selfProductId:product[i].selfProductId,
+                    purchaseProductType:product[i].purchaseProductType
+                })
+            }
+            return [{
+                provideShopId:product[0].provideShopId,
+                saleShopId:product[0].saleShopId,
+                productList:productList
+            }]
 
         }else{
             let basicInfo = product.showProduct.productBasicInfo;

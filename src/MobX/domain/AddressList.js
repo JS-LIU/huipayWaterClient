@@ -9,6 +9,13 @@ import _h from '../../Util/HB';
 class ReceiveAddress{
 
     @observable list = [];
+    @computed get hasList(){
+        if(this.list.length > 0){
+            return true;
+        }
+        return false;
+    }
+
     @observable customAddressInfo;
     @observable inputInfo = {
         receiveName:'',

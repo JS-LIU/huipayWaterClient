@@ -1,0 +1,73 @@
+.product_info{
+
+}
+.info_intro{
+    height:2rem;
+    padding-left: 0.3rem;
+    border-bottom: 0.01rem solid #eeeeee;
+    composes:bgColorF from '../Util/base.css';
+}
+.brand_name{
+    padding:0.22rem 0 0.12rem 0;
+    composes:f32 c333 from '../Util/base.css';
+}
+.sub_brand{
+    margin-bottom: 0.1rem;
+    color:#999999;
+    composes:f30 from '../Util/base.css';
+}
+.price{
+    color: #777777;
+    composes:f26 from '../Util/base.css';
+}
+.price_Unit{
+    color: #ff4342;
+    composes:f26 from '../Util/base.css';
+}
+.price_num{
+    color: #ff4342;
+    margin-right:0.2rem;
+    composes:f34 from '../Util/base.css';
+}
+.original_price{
+    text-decoration: line-through;
+}
+.sale{
+    float: right;
+    margin-top: 0.08rem;
+    margin-right: 0.3rem;
+}
+.promote{
+    display: flex;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    padding-left: 0.3rem;
+    margin: 0.3rem 0;
+    border-bottom: 0.01rem solid #eeeff3;
+    composes:f32 bgColorF from '../Util/base.css';
+}
+.promote_title{
+    color: #999999;
+    margin-right: 0.1rem;
+    composes:f32 from '../Util/base.css';
+}
+.capacity{
+    width:5.8rem;
+    background: url("../../src/images/btn_right_arrow@2x.png") no-repeat right center;
+    background-size: 0.18rem 0.3rem;
+}
+.service{
+    margin-bottom: 0.3rem;
+}
+.pledge{
+    display: flex;
+    line-height: 0.5rem;
+    margin-top: -0.29rem;
+    padding:0.2rem 0.3rem;
+    border-bottom: 0.01rem solid #EEEFF3;
+    composes:f26 bgColorF from '../Util/base.css';
+}
+.service_describe{
+    width:5.8rem;
+    composes:c333 from '../Util/base.css';
+}

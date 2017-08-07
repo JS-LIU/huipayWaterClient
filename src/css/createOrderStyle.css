@@ -1,0 +1,94 @@
+.bb{border-bottom: 0.01rem solid #EEEFF3}
+.shop_nodes_list{
+    margin-top: 0.3rem;
+    padding-bottom:1rem;
+}
+.shop_nodes{
+    composes:bgColorF from '../Util/base.css';
+}
+.product_nodes{
+    display: flex;
+    align-items: center;
+    composes:bb;
+}
+.product_pic_box{
+    display: flex;
+    align-items: center;
+    height:1.4rem;
+    width: 1.4rem;
+    margin: 0.2rem 0.3rem;
+    border:0.01rem solid #eee;
+}
+.product_pic{
+    composes:w h from '../Util/base.css';
+}
+.product_detail{
+    margin-top: 0.1rem;
+    margin-left: -0.1rem;
+    line-height: 0.4rem;
+    composes:f26 c333 from '../Util/base.css';
+}
+.product_name{
+    composes:f30 from '../Util/base.css';
+}
+.product_volume{
+    composes:c999 from '../Util/base.css';
+}
+.product_sale{
+    composes:f30 from '../Util/base.css';
+}
+.charge{
+    display: flex;
+    justify-content:space-between;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    composes:bb;
+    composes:pl30 pr30 c333 from '../Util/base.css';
+}
+.charge_title{
+    composes:c777 from '../Util/base.css';
+}
+.purpose{
+    background: url("../../src/images/btn_right_arrow@2x.png") no-repeat right center;
+    background-size: 0.18rem 0.3rem;
+    padding-right: 0.3rem;
+}
+.cost{
+    height: 0.7rem;
+    line-height: 0.7rem;
+    composes:pl30 pr30 c333 from '../Util/base.css';
+}
+.cost_descript{
+    float: right;
+}
+.cost_unit{
+    color:#FF4243;
+    composes:f24 from '../Util/base.css';
+}
+.const_money{
+    color:#FF4243;
+    composes:f30 from '../Util/base.css';
+}
+.confirm_footer{
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    bottom:0;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    composes:bgColorF pl30 from '../Util/base.css';
+}
+.statistics{
+    composes:f28 from '../Util/base.css';
+}
+.payable{
+    margin-left:0.3rem;
+}
+.submit_order{
+    width: 3rem;
+    background: #FF4243;
+    color: #ffffff;
+    composes: tc f36 from '../Util/base.css';
+}

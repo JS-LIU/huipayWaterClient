@@ -22,16 +22,18 @@ import {observer,inject} from 'mobx-react';
         )
     }
 }
-
+@inject(['addressList'])
 @observer class CreateAddressView extends Component{
     constructor(props){
         super(props);
     }
     render(){
+        let hasList = this.props.addressList.hasList;
+        let url = hasList?'/receiveAddressList':'/inputAddress';
         return (
-            <Link to={{pathname:'/inputAddress',state:{action:'create'}}} className={addNewAddressStyle.add_new_address}>
+            <Link to={{pathname:url,state:{action:'create',from:'/createOrder'}}} className={addNewAddressStyle.add_new_address}>
                 <p className={addNewAddressStyle.address_detail}>
-                    新增地址
+                    {hasList?'选择':'新增'}地址
                 </p >
             </Link>
         )
@@ -45,18 +47,15 @@ import {observer,inject} from 'mobx-react';
     }
     render(){
         return (
-            <Link to={{pathname:'/receiveAddressList',state:{from:'createOrder'}}} >
-                <ul>
-                    <li>
-                        <span>收货人：</span>
-                        <span>{this.props.activeAddress.address.info.receiveName}</span>
+            <Link to={{pathname:'/receiveAddressList',state:{from:'/createOrder'}}} >
+                <ul className={addNewAddressStyle.delivery_message}>
+                    <li className={addNewAddressStyle.delivery_person}>
+                        <span className={addNewAddressStyle.consignee}>收货人：{this.props.activeAddress.address.info.receiveName}</span>
+                        <span className={addNewAddressStyle.connect}>{this.props.activeAddress.address.info.phoneNum}</span>
                     </li>
-                    <li>
-                        <span>{this.props.activeAddress.address.info.phoneNum}</span>
-                    </li>
-                    <li>
+                    <li className={addNewAddressStyle.delivery_address}>
                         <span>送货地址：</span>
-                        <span>{this.props.activeAddress.address.info.receiveAddress}</span>
+                        <span className={addNewAddressStyle.address}>{this.props.activeAddress.address.info.receiveAddress}</span>
                     </li>
                 </ul>
             </Link>

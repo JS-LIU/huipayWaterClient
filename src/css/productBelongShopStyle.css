@@ -1,0 +1,69 @@
+.water_store{
+    padding:0.1rem 0;
+    composes:bgColorF from '../Util/base.css';
+}
+.store_basic{
+    display: flex;
+    padding:0 0.3rem;
+    composes:bgColorF from '../Util/base.css';
+}
+.store_pic{
+    width:1rem;
+    height: 1rem;
+}
+.store_pic{
+    margin-top:0.3rem;
+}
+.store_name{
+    margin:0.32rem 0 0.2rem 0.2rem;
+    width: 4rem;
+    line-height:0.5rem;
+    composes:f30 from '../Util/base.css';
+}
+.shop_rating_level{
+    display: flex;
+}
+.judge_num{
+    margin-left: 0.1rem;
+    font-size: 0.24rem;
+}
+.enter_store_btn{
+    padding:0 0.2rem;
+    margin:0.5rem 0;
+    height:0.6rem;
+    line-height:0.6rem;
+    border-radius: 0.05rem;
+    border: 0.01rem solid #4dc0ff;
+    color: #4dc0ff;
+    composes:f30 tc from '../Util/base.css';
+}
+.store_detail{
+    display: flex;
+}
+.chunk{
+    flex:1;
+    composes:tc from '../Util/base.css';
+}
+.chunk p{
+    width: 100%;
+}
+.amount{
+    composes:f32 c333 from '../Util/base.css';
+}
+.describe{
+    color: #999999;
+    composes:f26 from '../Util/base.css';
+}
+.upward_pull{
+    margin-top: 0.3rem;
+    border-top: 0.01rem solid #E3E3E3;
+    width:100%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    composes:f30 tc bgColorF c333 from '../Util/base.css';
+}
+.pull_detail{
+    background: url("../../src/images/arrow-up.png") no-repeat right center;
+    background-size:0.3rem;
+    padding-right: 0.5rem;
+}

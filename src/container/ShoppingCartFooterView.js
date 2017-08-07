@@ -14,13 +14,19 @@ import View from '../components/View';
 import shoppingCartFooterStyle from '../css/shoppingCartFooterStyle.css';
 
 @inject(['shoppingCart'])
-
+@inject(['order'])
 @observer class ShoppingCartFooterView extends Component {
     constructor(props) {
         super(props);
+        this.settle = this.settle.bind(this);
     }
     allCheck(){
         this.props.shoppingCart.allCheck();
+    }
+    settle(){
+        let checkedProductList = this.props.shoppingCart.checkedProductList;
+        this.props.order.getSettleOrder(checkedProductList);
+        this.props.shoppingCart.deleteProduct();
     }
     render() {
         return (
@@ -35,7 +41,9 @@ import shoppingCartFooterStyle from '../css/shoppingCartFooterStyle.css';
                         <span>合计：￥</span>
                         <span>{this.props.shoppingCart.totalPrice}</span>
                     </p>
-                    <Link to="/createOrder" className={shoppingCartFooterStyle.set_account}>
+                    <Link to="/createOrder"
+                          className={shoppingCartFooterStyle.set_account}
+                          onClick={this.settle}>
                         <span>去结算</span>
                         <span className={shoppingCartFooterStyle.product_amount}>
                             ({this.props.shoppingCart.totalCount})

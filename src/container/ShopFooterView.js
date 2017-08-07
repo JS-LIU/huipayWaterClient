@@ -9,13 +9,19 @@ import {Link} from 'react-router-dom';
 import {observer,inject} from 'mobx-react';
 //  components
 import View from '../components/View';
-import ShoppingCartProduct from '../MobX/domain/ShoppingCartProduct';
 import shopFooterStyle from '../css/shopFooterStyle.css';
 
 @inject (['shoppingCart'])
+@inject (['order'])
 @observer class ShopFooterView extends Component{
     constructor(props){
         super(props);
+        this.settle = this.settle.bind(this);
+    }
+    settle(){
+        let checkedProductList = this.props.shoppingCart.checkedProductList;
+        this.props.order.getSettleOrder(checkedProductList);
+        this.props.shoppingCart.deleteProduct();
     }
     render(){
         return (
@@ -28,7 +34,9 @@ import shopFooterStyle from '../css/shopFooterStyle.css';
                     </Link>
                 </View>
                 <View className={shopFooterStyle.settle}>
-                    <div className={shopFooterStyle.purchase}>去结算</div>
+                    <Link to="/createOrder"
+                          onClick={this.settle}
+                          className={shopFooterStyle.purchase}>去结算</Link>
                 </View>
             </View>
         )

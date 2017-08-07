@@ -12,3 +12,32 @@
     padding-left: 0.7rem;
     color: #333333;
 }
+.delivery_message{
+    background: #ffffff url("../../src/images/line.png") no-repeat center bottom;
+    background-size: 7.5rem 0.04rem;
+    composes: pt30 from '../Util/base.css';
+}
+.delivery_person{
+    margin-left: 0.7rem;
+    composes:pr30 from '../Util/base.css';
+}
+.consignee{
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+.delivery_address{
+    height: 0.8rem;
+    background: url("../../src/images/address-05.png") no-repeat left top;
+    background-size: 0.3rem;
+    margin: 0.2rem 0 0 0.3rem;
+    composes: pl40 from '../Util/base.css';
+}
+.delivery_address span{
+    display: inline-block;
+    float: left;
+    height:1rem;
+}
+.address{
+    width:73%;
+    composes:f26 from '../Util/base.css';
+}
