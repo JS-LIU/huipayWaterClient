@@ -17,27 +17,29 @@ import productInfoStyle from '../css/productInfoStyle.css';
 import productBelongShopStyle from '../css/productBelongShopStyle.css';
 import productDetailFooterStyle from '../css/productDetailFooterStyle.css';
 
-
+@inject(['order'])
 @inject(['shoppingCart'])
 @inject(['productDetail'])
 @inject(['shopDetail'])
-@inject(['order'])
+
 
 @observer class ProductDetailView extends Component{
     constructor(props){
         super(props);
         this.showSpec = this.showSpec.bind(this);
         this.closeSpec = this.closeSpec.bind(this);
+        this.addShoppingCart = this.addShoppingCart.bind(this);
         this.getSettleOrder = this.getSettleOrder.bind(this);
+        this.increase = this.increase.bind(this);
+        this.reduce = this.reduce.bind(this);
     }
     componentWillMount(){
         let productInfo = this.props.location.state.productInfo;
         this.props.productDetail.getInfo(productInfo);
     }
-    addShoppingCart(item){
-        return ()=>{
-            this.props.shoppingCart.put(item);
-        }
+    addShoppingCart(){
+        let product = this.props.productDetail.info.showProduct;
+        this.props.shoppingCart.put(product);
     }
     showSpec(){
         this.props.productDetail.showSpecOperator();
@@ -45,15 +47,24 @@ import productDetailFooterStyle from '../css/productDetailFooterStyle.css';
     closeSpec(){
         this.props.productDetail.closeSpecOperator();
     }
-    getSettleOrder(){
-        this.props.order.getSettleOrder(this.props.productDetail.info)
+    increase(){
+        console.log('increase');
+        this.props.productDetail.increaseProductCount();
     }
+    reduce(){
+        this.props.productDetail.reduceProductCount();
+    }
+    getSettleOrder(){
+        this.props.order.getSettleOrder(this.props.productDetail.info);
+        this.props.productDetail.closeSpecOperator();
+    }
+
     render(){
         return (
             <View style={productDetailStyle}>
                 <ReceiveAddressView />
                 <View className={productSceneryStyle.product_scenery}>
-                    <img src={this.props.productDetail.info.detailImages[0]} alt=""
+                    <img src="" alt=""
                          className={productSceneryStyle.scenery_pic}/>
                 </View>
 
@@ -108,19 +119,21 @@ import productDetailFooterStyle from '../css/productDetailFooterStyle.css';
                         </Link>
                     </View>
                     <View className={productDetailFooterStyle.settle}>
-                        <div className={productDetailFooterStyle.add_cart}>加入购物车</div>
+                        <div onClick={this.addShoppingCart} className={productDetailFooterStyle.add_cart}>加入购物车</div>
                         <div onClick = {this.showSpec} className={productDetailFooterStyle.purchase}>立即购买</div>
                     </View>
                 </View>
                 <View className={this.props.productDetail.isShowSpec?specificationStyle.show_spec:specificationStyle.hide_spec}>
-                    <View onClick = {this.closeSpec} className={specificationStyle.close}>x</View>
+                    <div onClick={this.closeSpec} className={specificationStyle.close}>x</div>
                     <ul className={specificationStyle.choose_num}>
                         <li className={specificationStyle.choose_num_operate}>
                             <span className={specificationStyle.operate_title}>选择数量</span>
                             <p className={specificationStyle.operate_num}>
-                                <span className={specificationStyle.num_reduce}>-</span>
-                                <span className={specificationStyle.product_num}>1</span>
-                                <span className={specificationStyle.num_increase}>+</span>
+                                <span onClick={this.reduce} className={specificationStyle.num_reduce}>-</span>
+                                <span className={specificationStyle.product_num}>
+                                    {this.props.productDetail.info.count}
+                                </span>
+                                <span onClick={this.increase} className={specificationStyle.num_increase}>+</span>
                             </p>
                         </li>
                     </ul>

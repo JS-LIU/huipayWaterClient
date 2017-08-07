@@ -5,11 +5,16 @@ import {observable, computed,action,autorun} from "mobx";
 import _h from '../../Util/HB';
 
 class ProductDetail {
-    @observable info = {
+    @observable _info = {
         detailImages:[],
         showProduct:{},
         salesPromotionModel:{},
+        count:1
     };
+    @computed get info(){
+        return this._info;
+    }
+
     @observable isShowSpec = false;
     constructor(login) {
         this.login = login;
@@ -24,7 +29,7 @@ class ProductDetail {
             postInfo.user_id = self.login.postDataAccessInfo.user_id;
         });
     }
-    getInfo(product){
+    @action getInfo(product){
         let postData = {
             distributeProductId:product.distributeProductId,
             purchaseProductType:product.purchaseProductType,
@@ -32,12 +37,11 @@ class ProductDetail {
         };
 
         this.productInfo(postData).then((data)=>{
-            console.log(data);
-            this.info = data;
+            Object.assign(this._info,data)
         });
     }
-    addSpec(prop){
-        return Object.assign(this.info,prop);
+    resetSpec(prop){
+        Object.assign(this._info,prop);
     }
 
     @action closeSpecOperator(){
@@ -45,16 +49,14 @@ class ProductDetail {
     }
     @action showSpecOperator(){
         this.isShowSpec = true;
-
         //  设置属性
-        this.addSpec({count:1});
+        this.resetSpec({count:1});
     }
-
-    @action increase(step = 1){
-        this.info.count += step;
+    @action increaseProductCount(step = 1){
+        this._info.count += step;
     }
-    @action reduce(step = 1){
-        this.info.count -= step;
+    @action reduceProductCount(step = 1){
+        this._info.count -= step;
     }
 
 }
