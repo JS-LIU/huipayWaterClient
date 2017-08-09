@@ -7,21 +7,23 @@ import React, {Component} from 'react';
 import {observer,inject} from 'mobx-react';
 //  components
 import View from '../components/View';
+import Carousel from '../components/Carousel';
 import {Link} from 'react-router-dom';
 import ShopRatingView from './ShopRatingView';
 import ReceiveAddressView from './ReceiveAddressView';
 
 import specificationStyle from '../css/specificationStyle.css';
-import productSceneryStyle from '../css/productSceneryStyle.css';
 import productInfoStyle from '../css/productInfoStyle.css';
 import productBelongShopStyle from '../css/productBelongShopStyle.css';
 import productDetailFooterStyle from '../css/productDetailFooterStyle.css';
+
+import pic1 from '../images/1.png';
+import pic2 from '../images/2.png';
 
 @inject(['order'])
 @inject(['shoppingCart'])
 @inject(['productDetail'])
 @inject(['shopDetail'])
-
 
 @observer class ProductDetailView extends Component{
     constructor(props){
@@ -58,15 +60,22 @@ import productDetailFooterStyle from '../css/productDetailFooterStyle.css';
         this.props.productDetail.closeSpecOperator();
     }
     render(){
+        let window_w = document.body.clientWidth;
         return (
             <View style={productDetailStyle}>
                 <ReceiveAddressView />
+                <Carousel className={productInfoStyle.product_pic_box}
+                          auto={true}
+                          list={[{img:pic1},{img:pic2}]}
+                          style={{window:window_w+'px'}}/>
 
                 <View className={productInfoStyle.info_intro}>
                     <p className={productInfoStyle.brand_name}>
                         {this.props.productDetail.info.showProduct.productName}
                     </p>
-                    <p className={productInfoStyle.sub_brand}>{this.props.productDetail.info.salesPromotionModel.content}!</p>
+                    <p className={productInfoStyle.sub_brand}>
+                        {this.props.productDetail.info.salesPromotionModel.content}
+                    </p>
                     <p className={productInfoStyle.price}>
                         <span className={productInfoStyle.price_Unit}>￥</span>
                         <span className={productInfoStyle.price_num}>{this.props.productDetail.info.showProduct.showPrice}</span>

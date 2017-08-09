@@ -1,6 +1,10 @@
 .product_info{
 
 }
+.product_pic_box{
+    height:5.6rem;
+    overflow: hidden;
+}
 .info_intro{
     height:2rem;
     padding-left: 0.3rem;
