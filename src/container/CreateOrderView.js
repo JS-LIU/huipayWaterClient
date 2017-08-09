@@ -16,10 +16,17 @@ import createOrderStyle from '../css/createOrderStyle.css';
 import {observer,inject} from 'mobx-react';
 
 
-
+@inject (['historyPath'])
 @observer class CreateOrderView extends Component{
     constructor(props){
         super(props);
+    }
+    componentWillMount(){
+        //  当前地址
+        let pathname = this.props.location.pathname;
+        //  推入历史
+        this.props.historyPath.put(pathname);
+
     }
     render(){
         return (

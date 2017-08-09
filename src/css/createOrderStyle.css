@@ -20,7 +20,7 @@
     border:0.01rem solid #eee;
 }
 .product_pic{
-    composes:w h from '../Util/base.css';
+    composes:w from '../Util/base.css';
 }
 .product_detail{
     margin-top: 0.1rem;

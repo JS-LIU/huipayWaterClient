@@ -12,6 +12,8 @@ import View from '../components/View';
 import ProductTypesView from './ProductTypesView';
 import productListStyle from '../css/productListStyle.css';
 
+import Button from '../components/Button';
+
 @inject (['productList'])
 @inject (['shoppingCart'])
 @observer class ProductListView extends Component{
@@ -29,33 +31,34 @@ import productListStyle from '../css/productListStyle.css';
     render(){
         let ProductNodes = this.props.productList.content.map((item,index)=>{
             return (
-                <li className={productListStyle.row_productList_item} key={index}>
-                    <Link to={{pathname:'/productDetail',state:{productInfo:item.productBasicInfo}}} className={productListStyle.row_item_pic_box}>
-                        <img src={item.icon} alt="商品图片" className={productListStyle.row_item_pic} />
+                <li className={productListStyle.product} key={index}>
+                    <Link to={{pathname:'/productDetail',state:{productInfo:item.productBasicInfo}}}
+                          className={productListStyle.product_pic_protector}>
+                        <img src={item.icon} alt="商品图片" className={productListStyle.product_pic} />
                     </Link>
-                    <p className={productListStyle.row_item_title}>{item.productName}</p >
-                    <p className={productListStyle.row_item_price}>
-                        <span className={productListStyle.row_price_unit}>￥</span>
-                        <span>{item.showPrice}</span>
-                    </p >
-                    <View className={productListStyle.row_item_extra}>
-                    <span className={productListStyle.row_item_extra_sold}>
-                        <span>已售：</span>
-                        <span>{item.soldNumber}</span>
-                    </span>
-                        <span className={productListStyle.row_item_cart} onClick={this.addShoppingCart(item)}/>
-                    </View>
-
+                    <ul className={productListStyle.product_info}>
+                        <li className={productListStyle.product_title}>
+                            {item.productName}
+                        </li>
+                        <li className={productListStyle.product_price}>
+                            <span className={productListStyle.price_icon}>￥</span>
+                            <span>{item.showPrice}</span>
+                        </li>
+                        <li className={productListStyle.product_sold}>
+                            <span>已售：</span>
+                            <span>{item.soldNumber}</span>
+                        </li>
+                    </ul>
+                    <Button className={productListStyle.shopping_cart_icon} onClick={this.addShoppingCart(item)} />
                 </li>
-
             )
         });
         return (
             <View>
                 <ProductTypesView />
-                <View className = {productListStyle.row_product_list}>
+                <ul className = {productListStyle.product_list}>
                     {ProductNodes}
-                </View>
+                </ul>
 
             </View>
         )

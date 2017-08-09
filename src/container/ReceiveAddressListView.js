@@ -6,13 +6,18 @@ import {Link} from 'react-router-dom';
 import {observer,inject} from 'mobx-react';
 import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
 @inject (['addressList'])
-
+@inject (['historyPath'])
 @observer class ReceiveAddressListView extends Component{
     constructor(props){
         super(props);
     }
     componentWillMount(){
         this.props.addressList.getAddressList();
+        //  当前地址
+        let pathname = this.props.location.pathname;
+        //  推入历史
+        this.props.historyPath.put(pathname);
+
     }
     edit(item){
         return ()=>{
@@ -43,15 +48,13 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
     }
     render(){
         /**
-         * fromUrl:从哪个页面跳转过来的
          * 有可能从['/shop','productDetail','/createOrder']跳转过来
          */
-        let fromUrl = this.props.location.state.from;
-
+        let returnUrl = this.props.historyPath.nearest(['/shop','productDetail','/createOrder']);
         let addressNodes = this.props.addressList.list.map((item,index)=>{
             return (
                 <li className={receiveAddressListStyle.address_nodes} key={index}>
-                    <Link to={fromUrl} onClick = {this.choose(item)}>
+                    <Link to={{pathname:returnUrl}} onClick = {this.choose(item)}>
                         <View className={receiveAddressListStyle.receiver_info}>
                             <p className={receiveAddressListStyle.consignee}>{item.receiveName}</p >
                             <p className={receiveAddressListStyle.telephone}>{item.phoneNum}</p >

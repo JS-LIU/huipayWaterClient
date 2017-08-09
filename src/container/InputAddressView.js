@@ -8,6 +8,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
 
 @inject (['autoMap'])
 @inject (['addressList'])
+@inject (['historyPath'])
 
 @observer class InputAddressView extends Component{
     constructor(props){
@@ -15,6 +16,13 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
         this.setName = this.setName.bind(this);
         this.setPhoneNum = this.setPhoneNum.bind(this);
         this.setSpecificAddress = this.setSpecificAddress.bind(this);
+    }
+    componentWillMount(){
+        //  当前地址
+        let pathname = this.props.location.pathname;
+        //  推入历史
+        this.props.historyPath.put(pathname);
+
     }
     componentDidMount(){
         this.refs.myName.value = this.props.addressList.inputInfo.receiveName;
@@ -76,7 +84,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                         <p className={inputAddressStyle.label_choose}>学校</p>
                     </li>
                 </ul>
-                <div className={inputAddressStyle.save_new_address} onClick={this.createAddress.bind(this)}>保存</div>
+                <Link to="/receiveAddressList" className={inputAddressStyle.save_new_address} onClick={this.createAddress.bind(this)}>保存</Link>
             </View>
         )
     }

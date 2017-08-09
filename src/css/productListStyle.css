@@ -1,68 +1,63 @@
-.row_product_list{
+.product_list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     padding-bottom: 1rem;
 }
-.row_productList_item{
-    width: 3.73rem;
-    height: 5.5rem;
+.product{
+    position:relative;
+    width: calc(50% - 0.02rem);
+    height: 5.3rem;
     overflow: hidden;
     margin-bottom: 0.04rem;
     composes: bgColorF from '../Util/base.css';
 }
-.row_item_pic_box{
+.product_pic_protector{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     height:3.73rem;
     overflow: hidden;
     composes: w tc bgColorF from '../Util/base.css';
 }
-.row_item_pic{
-    composes:w h from '../Util/base.css';
+
+.product_pic{
+    composes:w from '../Util/base.css';
 }
-.row_item_title{
+.product_info{
+    display:flex;
     flex-direction: column;
-    justify-content: center;
+    height:1.57rem;
     padding-left: 0.3rem;
-    margin:0.16rem 0 0.05rem 0;
-    width:85%;
+}
+.product_title{
+    min-height:0.5rem;
+    line-height: 0.5rem;
     text-overflow: ellipsis;
     white-space:nowrap;
     overflow: hidden;
     color:#333333;
     composes: f32 from '../Util/base.css';
 }
-.row_item_price{
-    padding-left: 0.3rem;
+.product_price{
     color:#FF4243;
     composes: f32 from '../Util/base.css';
 }
-.row_price_unit{
+.price_icon{
     composes:f24 from '../Util/base.css';
 }
-.row_item_extra{
-    margin:0.05rem 0 0.05rem 0;
-    padding-left: 0.3rem;
-}
-.row_item_extra_sort{
-    margin-right: 0.2rem;
-}
-.item_sort_pic{
-    float: left;
-    height: 0.3rem;
-    margin-top: 0.05rem;
-}
-.row_item_extra_sold{
+.product_sold{
     color: #999999;
     composes:f26 from '../Util/base.css';
 }
-.row_item_cart{
-    float:right;
-    display: inline-block;
-    margin-right: 0.24rem;
-    margin-top: -0.1rem;
-    background: url("../images/list_commom_icon_shopping-cart@2x.png") no-repeat center center;
+
+.shopping_cart_icon{
+    position: absolute;
+    bottom:0;
+    right:0;
+    background: url("../images/list_commom_icon_shopping-cart@2x.png") no-repeat left top;
     background-size: 0.4rem auto;
-    width:0.4rem;
-    height:0.4rem;
+    width:0.8rem;
+    height:0.8rem;
 }

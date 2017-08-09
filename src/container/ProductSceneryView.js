@@ -4,13 +4,11 @@
 
 //  react
 import React, {Component} from 'react';
-//  MobX
-import {observer,inject} from 'mobx-react';
 //  components
 import View from '../components/View';
 import productSceneryStyle from '../css/productSceneryStyle.css'
 
-@observer class ProductSceneryView extends Component{
+class ProductSceneryView extends Component{
     constructor(props){
         super(props);
     }

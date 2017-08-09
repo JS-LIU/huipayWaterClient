@@ -48,7 +48,6 @@ import productDetailFooterStyle from '../css/productDetailFooterStyle.css';
         this.props.productDetail.closeSpecOperator();
     }
     increase(){
-        console.log('increase');
         this.props.productDetail.increaseProductCount();
     }
     reduce(){
@@ -58,15 +57,10 @@ import productDetailFooterStyle from '../css/productDetailFooterStyle.css';
         this.props.order.getSettleOrder(this.props.productDetail.info);
         this.props.productDetail.closeSpecOperator();
     }
-
     render(){
         return (
             <View style={productDetailStyle}>
                 <ReceiveAddressView />
-                <View className={productSceneryStyle.product_scenery}>
-                    <img src="" alt=""
-                         className={productSceneryStyle.scenery_pic}/>
-                </View>
 
                 <View className={productInfoStyle.info_intro}>
                     <p className={productInfoStyle.brand_name}>

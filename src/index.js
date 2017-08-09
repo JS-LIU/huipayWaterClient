@@ -36,6 +36,9 @@ import ShoppingCart from './MobX/domain/ShoppingCart';
 import ProductDetail from './MobX/domain/ProductDetail';
 import Order from './MobX/domain/Order';
 
+//  RR辅助类
+import HistoryPath from './MobX/domain/HistoryPath';
+
 //  resetFontSize
 _h.ui.setBaseFontSize(750,100);
 
@@ -62,6 +65,7 @@ const App = ()=>(
 
 );
 
+const historyPath = new HistoryPath();
 const autoMap = new AutoMap();
 const login = new Login();
 
@@ -75,7 +79,18 @@ const shoppingCart = new ShoppingCart();
 
 
 
-const stores = {login,autoMap,addressList,activeAddress,shopDetail,productList,shoppingCart,productDetail,order};
+const stores = {
+    login,
+    autoMap,
+    addressList,
+    activeAddress,
+    shopDetail,
+    productList,
+    shoppingCart,
+    productDetail,
+    order,
+    historyPath
+};
 
 ReactDom.render(
     <Provider {...stores}>

@@ -20,22 +20,27 @@ import shopSummaryStyle from '../css/shopSummaryStyle.css';
     }
     render(){
         return (
-            <Link to="shopDetail" className={shopSummaryStyle.waterStore}>
-                <img src={this.props.shopDetail.info.baseInfoModel.imageUrl} className={shopSummaryStyle.storePic}/>
-                <View className={shopSummaryStyle.storeName}>
-                    <p className={shopSummaryStyle.shop_name}>{this.props.shopDetail.info.baseInfoModel.name}</p >
-                    <View className={shopSummaryStyle.month_sale}>
+            <Link to="shopDetail" className={shopSummaryStyle.water_shop}>
+                <View className={shopSummaryStyle.shop_pic_protector}>
+                    <img src={this.props.shopDetail.info.baseInfoModel.imageUrl} className={shopSummaryStyle.shop_pic}/>
+                </View>
+
+                <ul className={shopSummaryStyle.shop_info}>
+                    <li className={shopSummaryStyle.shop_name}>
+                        {this.props.shopDetail.info.baseInfoModel.name}
+                    </li >
+                    <li className={shopSummaryStyle.shop_sale_info}>
                         <ShopRatingView />
-                        <p className={shopSummaryStyle.sale_num}>
+                        <span className={shopSummaryStyle.sale_num}>
                             <span>月售：</span>
                             <span>{this.props.shopDetail.info.baseInfoModel.soldNumber}</span>
-                        </p >
-                    </View>
-                    <View className={shopSummaryStyle.location}>
+                        </span >
+                    </li>
+                    <li className={shopSummaryStyle.address_info}>
                         <p className={shopSummaryStyle.shop_address}>{this.props.shopDetail.info.baseInfoModel.address}</p >
                         <p className={shopSummaryStyle.shop_distance}>{this.props.shopDetail.info.baseInfoModel.distance}km</p >
-                    </View>
-                </View>
+                    </li>
+                </ul>
             </Link>
         )
     }
