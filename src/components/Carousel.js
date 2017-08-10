@@ -13,7 +13,7 @@ class Carousel extends React.Component {
     }
     autoMove(width,max){
         let time = 5000;
-        setInterval(()=>{
+        this.timer = setInterval(()=>{
             let currentX = this.state.carouselListStyle.transform.match(/translateX\((.*)\)/)[1];
             let nextX = Math.abs(parseFloat(currentX) - width);
             let carouselListStyle;
@@ -65,6 +65,9 @@ class Carousel extends React.Component {
             carouselListStyle:carouselListStyle
         });
         this.autoMove(window_w,bigWidth);
+    }
+    componentWillUnmount(){
+        clearInterval(this.timer);
     }
     render() {
         let window_w = document.body.clientWidth;
