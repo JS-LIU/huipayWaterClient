@@ -375,7 +375,7 @@ HB.CSS3 = (function () {
         css3PropsVal = css3PropsVal.replace(/\)/g, ",");
 
         for(let i = 0; i < css3PropsVal.length;i++){
-            if(css3PropsVal[i] != ","){
+            if(css3PropsVal[i] !== ","){
                 prop += css3PropsVal[i];
             }else{
                 propArr[propArrIndex] = prop;

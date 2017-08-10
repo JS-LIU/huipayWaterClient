@@ -60,14 +60,11 @@ import pic2 from '../images/2.png';
         this.props.productDetail.closeSpecOperator();
     }
     render(){
-        let window_w = document.body.clientWidth;
         return (
             <View style={productDetailStyle}>
                 <ReceiveAddressView />
                 <Carousel className={productInfoStyle.product_pic_box}
-                          auto={true}
-                          list={[{img:pic1},{img:pic2}]}
-                          style={{window:window_w+'px'}}/>
+                          list={[{img:pic1},{img:pic2}]}/>
 
                 <View className={productInfoStyle.info_intro}>
                     <p className={productInfoStyle.brand_name}>
