@@ -28,7 +28,7 @@ import {observer,inject} from 'mobx-react';
                 <li key={index}
                     className={autoCompleteAddressStyle.address_node}
                     onClick={this.choose(item.name)} >
-                    <Link to="/inputAddress">
+                    <Link to="/inputAddress" replace>
                         <p className={autoCompleteAddressStyle.consignee_address}>
                             {item.name}
                         </p>

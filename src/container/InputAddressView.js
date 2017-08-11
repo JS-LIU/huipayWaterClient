@@ -66,7 +66,11 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                     </li>
                     <li className={inputAddressStyle.address_info_area}>
                         <span className={inputAddressStyle.info_desc_area}>所在区域：</span>
-                        <Link to="/autoCompleteAddress" className={inputAddressStyle.area_choose}>{this.props.autoMap.showLocationInfo.receiveAddress}</Link>
+                        <Link to="/autoCompleteAddress"
+                              replace
+                              className={inputAddressStyle.area_choose}>
+                            {this.props.autoMap.showLocationInfo.receiveAddress}
+                        </Link>
                     </li>
                     <li className={inputAddressStyle.address_info}>
                         <span className={inputAddressStyle.info_desc}>详细地址：</span>
@@ -84,7 +88,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                         <p className={inputAddressStyle.label_choose}>学校</p>
                     </li>
                 </ul>
-                <Link to="/receiveAddressList" className={inputAddressStyle.save_new_address} onClick={this.createAddress.bind(this)}>保存</Link>
+                <Link to="/receiveAddressList" replace className={inputAddressStyle.save_new_address} onClick={this.createAddress.bind(this)}>保存</Link>
             </View>
         )
     }
