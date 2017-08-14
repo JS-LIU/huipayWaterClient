@@ -25,6 +25,7 @@ class WaterView extends Component{
             <View>
                 <span>微信登录 没有登录成功不会跳转页面 这里模拟一下</span>
                 <Link to='/shop'>店铺</Link>
+                <Link to="/typeProductView">test has type's product list view</Link>
             </View>
         )
     }
