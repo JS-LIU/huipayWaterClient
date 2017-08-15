@@ -36,6 +36,7 @@ import ProductList from './MobX/domain/ProductList';
 import ShoppingCart from './MobX/domain/ShoppingCart';
 import ProductDetail from './MobX/domain/ProductDetail';
 import Order from './MobX/domain/Order';
+import ProductList_mock from './MobX/domain/ProductList_mock';
 
 //  RR辅助类
 import HistoryPath from './MobX/domain/HistoryPath';
@@ -78,7 +79,7 @@ const productList = new ProductList(login);
 const productDetail = new ProductDetail(login);
 const order = new Order(login);
 const shoppingCart = new ShoppingCart();
-
+const productList_mock = new ProductList_mock(1.01);
 
 
 const stores = {
@@ -91,7 +92,8 @@ const stores = {
     shoppingCart,
     productDetail,
     order,
-    historyPath
+    historyPath,
+    productList_mock
 };
 
 ReactDom.render(
