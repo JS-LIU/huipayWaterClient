@@ -1,0 +1,55 @@
+.order_list{
+
+}
+.order_list_header{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height:0.7rem;
+    line-height:0.7rem;
+    padding-right:0.3rem;
+    border-bottom:0.01rem solid #E2E2E2;
+}
+.order_list_header_order_text{
+    font-size:0.32rem;
+    background:#FFF url('../images/me_icon_order.png') no-repeat 0.3rem center;
+    -webkit-background-size: 0.35rem;
+    background-size: 0.35rem;
+    padding-left:0.8rem;
+    color:#333;
+}
+.order_list_header_more{
+    font-size: 0.24rem;
+    color:#999;
+    padding-right:0.35rem;
+    background:#FFF url('../images/btn_right_arrow@2x.png') no-repeat right center;
+    -webkit-background-size: 0.18rem;
+    background-size: 0.18rem;
+}
+.order_types{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height:1.3rem;
+    border-bottom:0.01rem solid #E2E2E2;
+}
+.wait_pay{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.wait_pay_icon{
+    padding-top:0.49rem;
+    background:#FFF url("../images/me_order_pending-payment.png") no-repeat center top;
+    -webkit-background-size: 0.33rem;
+    background-size: 0.33rem;
+    font-size:0.24rem;
+}
+
+.wait_receive{
+
+}
+.wait_comment{
+
+}
+

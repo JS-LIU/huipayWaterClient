@@ -25,6 +25,7 @@ import AutoCompleteAddressView from './container/AutoCompleteAddressView';
 import ReceiveAddressListView from './container/ReceiveAddressListView';
 import ProductDetailView from './container/ProductDetailView';
 import TypeProductListView from './container/TypeProductListView';
+import MyView from './container/MyView';
 
 //  MobX
 import Login from './MobX/domain/Login';
@@ -62,6 +63,7 @@ const App = ()=>(
                 <Route path="/receiveAddressList" component={ReceiveAddressListView}/>
                 <Route path="/productDetail" component={ProductDetailView}/>
                 <Route path="/typeProductView" component={TypeProductListView}/>
+                <Route path="/my" component={MyView}/>
             </Switch>
         </div>
     </BrowserRouter>
