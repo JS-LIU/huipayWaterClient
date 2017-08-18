@@ -42,8 +42,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin() // Enable HMR
     ],
     devServer: {
-        port: 7777,
-        host: 'localhost',
+        host: "0.0.0.0",
+        disableHostCheck: true,
         proxy:{
             "**":{
                 target: 'http://123.57.161.212:9216/water/',

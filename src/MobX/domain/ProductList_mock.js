@@ -39,52 +39,65 @@ class ProductList_mock{
     @computed get productType(){
         return this._productType.list;
     };
-
+    @computed get maxScroll(){
+        let minH = parseFloat(document.body.clientHeight);
+        let maxH = this._productList.list.length * this.productHeight * (this.rem2pxRate);
+        console.log('maxH',maxH);
+        return maxH - minH;
+    }
     //  自动切换 todo 如果是new ProductType() 需要跟着一起挪
     @action autoSelectedType(scrollTop){
-        if(!this.customerSelected){
-            function scrollTopLessThanHeight(item){
-                return scrollTop < item;
-            }
-            let index = this.productListHeightList.findIndex(scrollTopLessThanHeight);
+        function scrollTopLessThanHeight(item){
+            return scrollTop < item;
+        }
+        let index = this.productListHeightList.findIndex(scrollTopLessThanHeight);
 
-            for(let i = 0,len = this._productType.list.length;i < len;i++){
-                this._productType.list[i].select = false;
+        for(let i = 0,len = this._productType.list.length;i < len;i++){
+            this._productType.list[i].select = false;
+        }
+        //   -1 因为productListHeightList 多插入了一个开头的0
+        // this._productType.list[index - 1].select = true;
+        if(scrollTop >= this.maxScroll){
+            let customerSelectedIndex = this.customerSelectedIndex;
+            console.log(customerSelectedIndex);
+            if(customerSelectedIndex){
+                this._productType.list[customerSelectedIndex].select = true;
+            }else{
+                this._productType.list[index - 1].select = true;
             }
-            //   -1 因为productListHeightList 多插入了一个开头的0
+            this.customerSelectedIndex = false;
+        }else{
             this._productType.list[index - 1].select = true;
         }
-
     }
 
+
     @action selectedType(dom,type) {
-
-        this.customerSelected = true;
-
         function isEqual(item) {
             return item.id === type.id;
         }
 
         let index = this._productType.list.findIndex(isEqual);
-
+        this.customerSelectedIndex = index;
         this.setProductListScrollTop(dom, index);
     }
-
-    setProductListScrollTop(dom,index){
+    setProductListScrollTop(dom){
 
         //  浏览器渲染好像有误差 小数点部分会被四舍五入 + 1来拟补
         let key = 1;
-        dom.scrollTop = this.productListHeightList[index]+key;
+        dom.scrollTop = this.productListHeightList[this.customerSelectedIndex]+key;
+
         // let minH = parseFloat(document.body.clientHeight);
         // let maxH = this._productList.list.length * this.productHeight * this.rem2pxRate;
         // let maxScroll = maxH - minH;
         for(let i = 0,len = this._productType.list.length;i < len;i++){
             this._productType.list[i].select = false
         }
-        this._productType.list[index].select = true;
-        setTimeout(()=>{
-            this.customerSelected = false;
-        },5);
+
+        this._productType.list[this.customerSelectedIndex].select = true;
+        // setTimeout(()=>{
+        //     this.customerSelected = false;
+        // },5);
 
         // if(this.productListHeightList[index]+key > maxScroll){
         //     for(let i = 0,len = this._productType.list.length;i < len;i++){
@@ -99,7 +112,7 @@ class ProductList_mock{
     constructor(productHeight,typeHeight){
         this.rem2pxRate = 0;
         this.productHeight = productHeight;
-        this.customerSelected = false;
+        this.customerSelectedIndex = false;
         let self = this;
 
         this.rem2px =()=>{
