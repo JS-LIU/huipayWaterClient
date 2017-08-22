@@ -26,7 +26,15 @@
     flex:1;
     overflow: auto;
 }
+.product_type_item_right{
+    height:0.3rem;
+    line-height: 0.3rem;
+    border-bottom:0.01rem solid #E2E2E2;
+}
 .product_list_item{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
     height:1rem;
     line-height: 1rem;
     border-bottom:0.01rem solid #E2E2E2;

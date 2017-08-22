@@ -251,14 +251,20 @@ HB.ui = (function(){
         head.appendChild(st);
         return defaultFontSize
     };
-    const parseRem = function(px){
-        return px / 100;
+    const parsePx = function(){
+        let d = window.document.createElement('div');
+        d.style.width = '1rem';
+        d.style.display = "none";
+        let head = window.document.getElementsByTagName('head')[0];
+        head.appendChild(d);
+        let rate = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+        d.remove();
+        return rate;
     };
-
     return {
         scrollToTheBottom:scrollToTheBottom,
         setBaseFontSize:setBaseFontSize,
-        parseRem:parseRem
+        parsePx:parsePx
     }
 })();
 
