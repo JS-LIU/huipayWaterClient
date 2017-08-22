@@ -1,25 +1,29 @@
 import {observable, computed,action,autorun} from "mobx";
 
 class ShopShoppingCart_mock{
-    constructor(productList){
-        this._list = productList;
+    @action getList(list){
+        this._list = list;
     }
     @observable _list = [];
     @computed get list(){
         let list = [];
         for(let i = 0;i < this._list.length;i++){
-            for(let j = 0;j < this._list.productList.length;j++){
-                if(this._list[i].productList[j].count > 0){
-                    let isHas = function(item){
-                        return this._list[i].productList[j].id === item.id;
+            for(let j = 0;j < this._list[i].productList.length;j++){
+                //  如果 商品数量大于0 应该在购物车中可以找到
+                if(this._list[i].productList[j].info.count > 0){
+                    let product = false;
+
+                    let equalId = (item)=>{
+                        return item.info.id === this._list[i].productList[j].info.id
+
                     };
-                    let product = list.find(isHas);
+                    product = list.find(equalId);
+                    //  购物车中的商品不能重复
                     if(!product){
-                        list.push(product)
+                        list.push(this._list[i].productList[j]);
                     }
                 }
             }
-
         }
         return list;
     }

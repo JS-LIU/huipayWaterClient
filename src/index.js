@@ -84,7 +84,7 @@ const order = new Order(login);
 const shoppingCart = new ShoppingCart();
 const productType_mock = new ProductType_mock(rem2pxRate,1.01);
 const productList_mock = new ProductList_mock(productType_mock,rem2pxRate,1.01,0.31);
-const shopShoppingCart = new ShopShoppingCart_mock(productList_mock);
+const shopShoppingCart = new ShopShoppingCart_mock();
 
 const stores = {
     login,

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import View from '../components/View';
+import ShopShoppingCartView from './ShopShoppingCartView';
 
 import typeProductListStyle from '../css/typeProductListStyle.css';
-import ShopShoppingCartView from './ShopShoppingCartView';
 import {observer,inject} from 'mobx-react';
 
 @inject(['productList_mock'])
@@ -97,12 +97,16 @@ import {observer,inject} from 'mobx-react';
     constructor(props){
         super(props);
     }
+    add(){
+        this.props.product.add()
+    }
+
     render(){
         return (
             <span>
                 <span>-</span>
                 <span>{this.props.product.info.count}</span>
-                <span>+</span>
+                <span onClick={this.add.bind(this)}>+</span>
             </span>
         )
     }

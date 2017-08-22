@@ -2,16 +2,21 @@ import {observable, computed,action,autorun} from "mobx";
 
 class ShopProduct {
     constructor(product) {
-        this.info = product;
+        this._info = product;
+    }
+    @observable _info = {};
+    @computed get info(){
+        return this._info;
     }
 
-    add(step = 1, max = this.product.storeNum) {
+
+    @action add(step = 1, max = this._info.storeNum) {
         if ( this.info.count < max) {
             this.info.count += step;
         }
 
     }
-    reduce(step = 1, min = 0) {
+    @action reduce(step = 1, min = 0) {
         if (this.info.count > min) {
             this.info.count -= step;
         }

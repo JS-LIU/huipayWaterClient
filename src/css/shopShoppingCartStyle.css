@@ -1,0 +1,11 @@
+.shoppingCart{
+    position: fixed;
+    width:100%;
+    bottom:0;
+}
+.product{
+    height:1rem;
+    line-height: 1rem;
+    text-align: center;
+    border-bottom:0.01rem solid #E2E2E2;
+}
