@@ -2,74 +2,6 @@ import {observable, computed,action,autorun} from "mobx";
 import _h from '../../Util/HB';
 import ShopProduct from './ShopProduct';
 import TicketProduct from './TicketProduct';
-import ShopShoppingCart_mock from './ShopShoppingCart_mock';
-
-let mockProductList = {
-    list: [{
-            name: '农夫山泉',
-            id: 1,
-            sale: 2, //  月售
-            introduce: '喝完就死 不信你试试', //   介绍
-            tag: [{ id: 1, name: '醇香奶茶' }, { id: 2, name: '鲜果献茶' }], // 分类   merchant -> entity -> ProductCatory
-            category: [{ id: 1, name: '热销' }, { id: 2, name: '最难喝' }], //  标签
-            count: 2, //  购物车中数量 可以是0
-            price: 25, //  单价
-            storeNum: 99, // 库存
-            shopId: 1,
-        },
-        {
-            name: '怡宝',
-            id: 2,
-            sale: 2, //  月售
-            introduce: '喝完就死 不信你试试', //   介绍
-            tag: [{ id: 1, name: '醇香奶茶' }, { id: 3, name: '纯黑奶茶' }], // 分类   merchant -> entity -> ProductCatory
-            category: [{ id: 1, name: '热销' }, { id: 3, name: '好喝' }], //  标签
-            count: 0, //  购物车中数量 可以是0
-            price: 25, //  单价
-            storeNum: 99, // 库存
-            shopId: 1,
-        },
-        {
-            name: 'xx水票',
-            id: 3,
-            sale: 2, //  月售
-            introduce: '喝完就死 不信你试试', //   介绍
-            tag: [{ id: 4, name: '水票' }], // 分类   merchant -> entity -> ProductCatory
-            category: [{ id: 1, name: '热销' }, { id: 3, name: '好喝' }], //  标签
-            price: 20, //  单价 一张水票的价钱
-            shopId: 1,
-            storeNum: 99, // 库存
-            sellStrategy: [{ id: 1, name: '买1送100', price: 20 }, { id: 2, name: '买2送1', price: 40 }], //  水票类型
-            userSelectedStrategy: { id: 1, name: '买10送100', price: 40 }, //  用户选择的类型，在【商品列表中】需要有所有的规格的展示，而在【购物车中】，需要用户选择的规格的展示，所以这个接口可以返回null
-            count: 1, // 一种该规格的产品 或者0
-        },
-        {
-            name: 'xx水票',
-            id: 4,
-            sale: 2, //  月售
-            introduce: '喝完就死 不信你试试', //   介绍
-            tag: [{ id: 4, name: '水票' }], // 分类   merchant -> entity -> ProductCatory
-            category: [{ id: 1, name: '热销' }, { id: 3, name: '好喝' }], //  标签
-            price: 20, //  单价 一张水票的价钱
-            shopId: 1,
-            storeNum: 99, // 库存
-            sellStrategy: [{ id: 1, name: '买1送100', price: 20 }, { id: 2, name: '买2送1', price: 40 }], //  水票类型
-            userSelectedStrategy: null, //  用户选择的类型，在【商品列表中】需要有所有的规格的展示，而在【购物车中】，需要用户选择的规格的展示，所以这个接口可以返回null
-            count: 0, // 用户没有选择该产品
-        }
-    ]
-};
-
-
-let mockProductType = {
-    shopId: 1,
-    list: [{ id: 1, name: '醇香奶茶' }, { id: 2, name: '鲜果献茶' }, { id: 3, name: '纯黑奶茶' }, { id: 4, name: '水票' }]
-};
-
-
-
-
-
 
 class ProductList_mock{
 
@@ -144,48 +76,44 @@ class ProductList_mock{
     //     // }
     // }
 
-    constructor(typeList,rem2pxRate,productHeight,typeHeight){
-        this.typeList = typeList.list;
+    constructor(ProductType,rem2pxRate,productHeight,typeHeight){
+        this.productType = new ProductType();
+        this.productType.getList();
+
         this.rem2pxRate = rem2pxRate;
         this.productHeight = productHeight;
         this.typeHeight = typeHeight;
 
         this.customerSelectedIndex = false;
     }
-
     @action getProductList(){
-        this._list = mockProductList.list;
+        _h.ajax.resource('src/Data/productList.json').query({})
+            .then((products)=>{
+                console.log('products:',products);
+                this._list = products.list;
+        });
     }
 
     @observable _list = [];
-    sortByType() {
-        let list = [];
-        for (let i = 0; i < this.typeList.length; i++) {
 
-            //  添加productList属性
-            let type = Object.assign({}, this.typeList[i], {
-                productList: []
-            });
-            list.push(type);
+    sortByType(){
+        let sortList = [...this.productType.list];
+        console.log('sortList:',sortList);
+        for(let i = 0,typeLen = sortList.length; i < typeLen;i++){
+            for(let j = 0,listLen = this._list.length; j < listLen;j++){
+                let equalTypeId = function(tag){
+                    return sortList[i].id === tag.id;
+                };
 
-            for (let j = 0; j < this._list.length; j++) {
-                //  每个商品可能有几种类型
-                for (let k = 0; k < this._list[j].tag.length; k++) {
-                    if (this._list[j].tag[k].id === this.typeList[i].id) {
-                        let shopProduct = new ShopProduct(this._list[j]);
-                        //  水票
-                        if (this._list[j].tag[k].id === '4') {
-                            shopProduct = new TicketProduct(shopProduct);
-                        }
-
-                        list[i].productList.push(shopProduct);
-
-                    }
+                let product = this._list[j].tag.find(equalTypeId);
+                if(product){
+                    sortList[i].productList.push(product);
                 }
             }
         }
-        return list;
+        return sortList;
     }
+
     @computed get list(){
         return this.sortByType();
     }

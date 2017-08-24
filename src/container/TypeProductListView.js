@@ -1,20 +1,23 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import View from '../components/View';
-import ShopShoppingCartView from './ShopShoppingCartView';
-
-import typeProductListStyle from '../css/typeProductListStyle.css';
 import {observer,inject} from 'mobx-react';
+import {Link} from 'react-router-dom';
+
+import View from '../components/View';
+import _h from '../Util/HB';
+import ShopShoppingCartView from './ShopShoppingCartView';
+import typeProductListStyle from '../css/typeProductListStyle.css';
+import ProductList_mock from '../MobX/domain/ProductList_mock';
+import ProductType_mock from '../MobX/domain/ProductType_mock';
 
 @inject(['productList_mock'])
+// @inject(['productType_mock'])
 
 @observer class TypeProductListView extends Component{
     constructor(props){
         super(props);
     }
     componentWillMount(){
-
-        this.props.productList_mock.getProductList();
+        this.props.productList.getProductList();
     }
     cutType(e){
         //  todo react onScroll 的属性detail返回值始终为0
@@ -100,11 +103,13 @@ import {observer,inject} from 'mobx-react';
     add(){
         this.props.product.add()
     }
-
+    reduce(){
+        this.props.product.reduce()
+    }
     render(){
         return (
             <span>
-                <span>-</span>
+                <span onClick={this.reduce.bind(this)}>-</span>
                 <span>{this.props.product.info.count}</span>
                 <span onClick={this.add.bind(this)}>+</span>
             </span>

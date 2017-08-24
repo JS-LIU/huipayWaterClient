@@ -1,16 +1,27 @@
 import {observable, computed,action,autorun} from "mobx";
-let mockProductType = {
-    shopId: 1,
-    list: [{ id: 1, name: '醇香奶茶' }, { id: 2, name: '鲜果献茶' }, { id: 3, name: '纯黑奶茶' }, { id: 4, name: '水票' }]
-};
+import _h from '../../Util/HB';
+
 class ProductType_mock{
     constructor(rem2pxRate,typeHeight){
         this.typeHeight = typeHeight;
         this.rem2pxRate = rem2pxRate;
         this.customerSelectedIndex = false;
     }
-    @computed get list(){
-        return mockProductType.list
+    getList(){
+        _h.ajax.resource('src/Data/productType.json').query({})
+            .then((type)=>{
+                console.log('type:',type);
+                this._list = type.list;
+            });
     }
+
+    @observable _list = [];
+    @computed get list(){
+        return this.addProp({productList:[]});
+    }
+    addProp(prop){
+        return Object.assign({},this._list,prop);
+    }
+
 }
 module.exports = ProductType_mock;

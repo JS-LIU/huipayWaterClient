@@ -1,0 +1,146 @@
+{
+  "list": [
+    {
+      "name": "农夫山泉",
+      "id": 1,
+      "sale": 2,
+      "introduce": "喝完就死 不信你试试",
+      "tag": [
+        {
+          "id": 1,
+          "name": "醇香奶茶"
+        },
+        {
+          "id": 2,
+          "name": "鲜果献茶"
+        }
+      ],
+      "category": [
+        {
+          "id": 1,
+          "name": "热销"
+        },
+        {
+          "id": 2,
+          "name": "最难喝"
+        }
+      ],
+      "count": 2,
+      "price": 25,
+      "storeNum": 99,
+      "shopId": 1
+    },
+    {
+      "name": "怡宝",
+      "id": 2,
+      "sale": 2,
+      "introduce": "喝完就死 不信你试试",
+      "tag": [
+        {
+          "id": 1,
+          "name": "醇香奶茶"
+        },
+        {
+          "id": 3,
+          "name": "纯黑奶茶"
+        }
+      ],
+      "category": [
+        {
+          "id": 1,
+          "name": "热销"
+        },
+        {
+          "id": 3,
+          "name": "好喝"
+        }
+      ],
+      "count": 0,
+      "price": 25,
+      "storeNum": 99,
+      "shopId": 1
+    },
+    {
+      "name": "xx水票",
+      "id": 3,
+      "sale": 2,
+      "introduce": "喝完就死 不信你试试",
+      "tag": [
+        {
+          "id": 4,
+          "name": "水票"
+        }
+      ],
+      "category": [
+        {
+          "id": 1,
+          "name": "热销"
+        },
+        {
+          "id": 3,
+          "name": "好喝"
+        }
+      ],
+      "price": 20,
+      "shopId": 1,
+      "storeNum": 99,
+      "sellStrategy": [
+        {
+          "id": 1,
+          "name": "买1送100",
+          "price": 20
+        },
+        {
+          "id": 2,
+          "name": "买2送1",
+          "price": 40
+        }
+      ],
+      "userSelectedStrategy": {
+        "id": 1,
+        "name": "买10送100",
+        "price": 40
+      },
+      "count": 1
+    },
+    {
+      "name": "xx水票",
+      "id": 4,
+      "sale": 2,
+      "introduce": "喝完就死 不信你试试",
+      "tag": [
+        {
+          "id": 4,
+          "name": "水票"
+        }
+      ],
+      "category": [
+        {
+          "id": 1,
+          "name": "热销"
+        },
+        {
+          "id": 3,
+          "name": "好喝"
+        }
+      ],
+      "price": 20,
+      "shopId": 1,
+      "storeNum": 99,
+      "sellStrategy": [
+        {
+          "id": 1,
+          "name": "买1送100",
+          "price": 20
+        },
+        {
+          "id": 2,
+          "name": "买2送1",
+          "price": 40
+        }
+      ],
+      "userSelectedStrategy": null,
+      "count": 0
+    }
+  ]
+}

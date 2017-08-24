@@ -15,14 +15,24 @@ import shopShoppingCartStyle from '../css/shopShoppingCartStyle.css';
     componentWillMount(){
         this.props.shopShoppingCart.getList(this.props.productList);
     }
+    add(item){
+        return ()=>{
+            item.add();
+        }
+    }
+    reduce(item){
+        return ()=>{
+            item.reduce();
+        }
+    }
     render(){
         let productNodes = this.props.shopShoppingCart.list.map((item,index)=>{
             return (
                 <li key={index} className={shopShoppingCartStyle.product}>
                     <span>{item.info.name}</span>
-                    <span>-</span>
+                    <span onClick={this.reduce(item)}>-</span>
                     <span>{item.info.count}</span>
-                    <span>+</span>
+                    <span onClick={this.add(item)}>+</span>
                 </li>
             )
         });
