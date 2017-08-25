@@ -6,8 +6,6 @@ import View from '../components/View';
 import _h from '../Util/HB';
 import ShopShoppingCartView from './ShopShoppingCartView';
 import typeProductListStyle from '../css/typeProductListStyle.css';
-import ProductList_mock from '../MobX/domain/ProductList_mock';
-import ProductType_mock from '../MobX/domain/ProductType_mock';
 
 @inject(['productList_mock'])
 // @inject(['productType_mock'])
@@ -17,7 +15,7 @@ import ProductType_mock from '../MobX/domain/ProductType_mock';
         super(props);
     }
     componentWillMount(){
-        this.props.productList.getProductList();
+        this.props.productList_mock.getProductList();
     }
     cutType(e){
         //  todo react onScroll 的属性detail返回值始终为0

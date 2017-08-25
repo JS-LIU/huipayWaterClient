@@ -2,7 +2,7 @@ import {observable, computed,action,autorun} from "mobx";
 import _h from '../../Util/HB';
 import ShopProduct from './ShopProduct';
 import TicketProduct from './TicketProduct';
-
+import ProductType_mock from './ProductType_mock';
 class ProductList_mock{
 
     // @computed get productType(){
@@ -76,8 +76,8 @@ class ProductList_mock{
     //     // }
     // }
 
-    constructor(ProductType,rem2pxRate,productHeight,typeHeight){
-        this.productType = new ProductType();
+    constructor(rem2pxRate,productHeight,typeHeight){
+        this.productType = new ProductType_mock(rem2pxRate,1.01);
         this.productType.getList();
 
         this.rem2pxRate = rem2pxRate;
@@ -89,30 +89,37 @@ class ProductList_mock{
     @action getProductList(){
         _h.ajax.resource('src/Data/productList.json').query({})
             .then((products)=>{
-                console.log('products:',products);
                 this._list = products.list;
         });
     }
 
     @observable _list = [];
-
+    createProduct(product){
+        let shopProduct = new ShopProduct(product);
+        if(product.tag.id === 4){
+            shopProduct = new TicketProduct(shopProduct);
+        }
+        return shopProduct;
+    }
     sortByType(){
         let sortList = [...this.productType.list];
-        console.log('sortList:',sortList);
         for(let i = 0,typeLen = sortList.length; i < typeLen;i++){
             for(let j = 0,listLen = this._list.length; j < listLen;j++){
                 let equalTypeId = function(tag){
                     return sortList[i].id === tag.id;
                 };
 
-                let product = this._list[j].tag.find(equalTypeId);
-                if(product){
+                let hasProduct = this._list[j].tag.find(equalTypeId);
+                if(hasProduct){
+                    let product = this.createProduct(this._list[j]);
                     sortList[i].productList.push(product);
                 }
             }
         }
         return sortList;
     }
+
+
 
     @computed get list(){
         return this.sortByType();

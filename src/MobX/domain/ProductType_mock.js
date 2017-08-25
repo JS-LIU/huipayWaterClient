@@ -10,17 +10,19 @@ class ProductType_mock{
     getList(){
         _h.ajax.resource('src/Data/productType.json').query({})
             .then((type)=>{
-                console.log('type:',type);
                 this._list = type.list;
             });
     }
 
     @observable _list = [];
     @computed get list(){
-        return this.addProp({productList:[]});
-    }
-    addProp(prop){
-        return Object.assign({},this._list,prop);
+        for(let i = 0,len = this._list.length;i < len;i++){
+            Object.assign(this._list[i],{
+                productList:[]
+            })
+        }
+
+        return this._list;
     }
 
 }

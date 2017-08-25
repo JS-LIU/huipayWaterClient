@@ -5,7 +5,6 @@ import {observer,inject} from 'mobx-react';
 import shopShoppingCartStyle from '../css/shopShoppingCartStyle.css';
 
 
-
 @inject(['shopShoppingCart'])
 
 @observer class ShopShoppingCartView extends Component{
@@ -13,6 +12,7 @@ import shopShoppingCartStyle from '../css/shopShoppingCartStyle.css';
         super(props)
     }
     componentWillMount(){
+        console.log('productList:',this.props.productList);
         this.props.shopShoppingCart.getList(this.props.productList);
     }
     add(item){
