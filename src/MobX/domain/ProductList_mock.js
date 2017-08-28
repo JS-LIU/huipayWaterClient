@@ -85,6 +85,14 @@ class ProductList_mock{
         this.typeHeight = typeHeight;
 
         this.customerSelectedIndex = false;
+
+        this.createProduct = function(product){
+            let shopProduct = new ShopProduct(product);
+            if(product.tag.id === 4){
+                shopProduct = new TicketProduct(shopProduct);
+            }
+            return shopProduct;
+        }
     }
     @action getProductList(){
         _h.ajax.resource('src/Data/productList.json').query({})
@@ -94,35 +102,46 @@ class ProductList_mock{
     }
 
     @observable _list = [];
-    createProduct(product){
-        let shopProduct = new ShopProduct(product);
-        if(product.tag.id === 4){
-            shopProduct = new TicketProduct(shopProduct);
+    @computed get list(){
+        let list = [];
+        for(let i = 0,len = this._list.length;i < len;i++){
+            let product = this.createProduct(this._list[i]);
+            list.push(product);
         }
-        return shopProduct;
+        return list;
+    }
+    @computed get productList(){
+        return this.sortByType();
+    }
+
+    @observable _shoppingCartList = [];
+    @computed get shoppingCartList(){
+        let list = [...this.list];
+        let shoppingCartList = [];
+        for(let i = 0,len = list.length;i < len;i++){
+            //  如果 商品数量大于0 应该在购物车中可以找到
+            if(list[i].info.count > 0){
+                shoppingCartList.push(list[i])
+            }
+        }
+        return shoppingCartList;
     }
     sortByType(){
         let sortList = [...this.productType.list];
+        let list = [...this.list];
         for(let i = 0,typeLen = sortList.length; i < typeLen;i++){
-            for(let j = 0,listLen = this._list.length; j < listLen;j++){
+            for(let j = 0,listLen = list.length; j < listLen;j++){
                 let equalTypeId = function(tag){
                     return sortList[i].id === tag.id;
                 };
 
-                let hasProduct = this._list[j].tag.find(equalTypeId);
-                if(hasProduct){
-                    let product = this.createProduct(this._list[j]);
-                    sortList[i].productList.push(product);
+                let tag = list[j].info.tag.find(equalTypeId);
+                if(tag){
+                    sortList[i].productList.push(list[j]);
                 }
             }
         }
         return sortList;
-    }
-
-
-
-    @computed get list(){
-        return this.sortByType();
     }
 
     //  商品列每种类型的高度

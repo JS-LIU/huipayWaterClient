@@ -3,17 +3,18 @@ import {Link} from 'react-router-dom';
 import View from '../components/View';
 import {observer,inject} from 'mobx-react';
 import shopShoppingCartStyle from '../css/shopShoppingCartStyle.css';
+import ShopShoppingCart_mock from '../MobX/domain/ShopShoppingCart_mock';
 
 
-@inject(['shopShoppingCart'])
+@inject(['productList_mock'])
 
 @observer class ShopShoppingCartView extends Component{
     constructor(props){
-        super(props)
+        super(props);
     }
     componentWillMount(){
-        console.log('productList:',this.props.productList);
-        this.props.shopShoppingCart.getList(this.props.productList);
+        // console.log('productList:',this.props.productList);
+        // this.props.shopShoppingCart.getList(this.props.productList);
     }
     add(item){
         return ()=>{
@@ -26,7 +27,7 @@ import shopShoppingCartStyle from '../css/shopShoppingCartStyle.css';
         }
     }
     render(){
-        let productNodes = this.props.shopShoppingCart.list.map((item,index)=>{
+        let productNodes = this.props.productList_mock.shoppingCartList.map((item,index)=>{
             return (
                 <li key={index} className={shopShoppingCartStyle.product}>
                     <span>{item.info.name}</span>

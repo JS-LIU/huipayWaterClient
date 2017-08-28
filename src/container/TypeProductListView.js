@@ -42,7 +42,7 @@ import typeProductListStyle from '../css/typeProductListStyle.css';
         //         </li>
         //     )
         // });
-        let productTypeRightNodes = this.props.productList_mock.list.map((type,index)=>{
+        let productTypeRightNodes = this.props.productList_mock.productList.map((type,index)=>{
             let productNodes = type.productList.map((product,j)=>{
                 return (
                     <li key={j} className={typeProductListStyle.product_list_item}>
@@ -75,7 +75,7 @@ import typeProductListStyle from '../css/typeProductListStyle.css';
                     </ul>
                 </View>
 
-                <ShopShoppingCartView productList={this.props.productList_mock.list}/>
+                <ShopShoppingCartView />
             </View>
         )
     }
