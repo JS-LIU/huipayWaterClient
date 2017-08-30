@@ -1,0 +1,6052 @@
+[
+  {
+    "description": "大家喜欢吃，才叫真好吃。",
+    "is_selected": true,
+    "icon_url": "5da3872d782f707b4c82ce4607c73d1ajpeg",
+    "name": "热销",
+    "foods": [
+      {
+        "rating": 4.5,
+        "is_featured": 1,
+        "virtual_food_id": 1257760544,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiancao4hao（yutou+hongdou+zhenzhu）",
+        "display_times": [],
+        "attrs": [],
+        "description": "仙草4号：芋头+红豆+珍珠；冰品底料是仙草冰沙和仙草冻；(备注：1.烧仙草为热的汤状物，凉后会结冻，只需加热即可恢复原来的汤状；2.仙草（冰）=仙草冻+仙草冰沙，不建议顾客去冰即去除仙草冰沙,以免去冰后口感不佳，若只要仙草冻不要冰沙味道微苦，仙草冰沙有加入红糖；3.仙草系列不做减糖或无糖。)",
+        "month_sales": 18,
+        "rating_count": 2,
+        "tips": "2评价 月售18份",
+        "image_path": "d91f4c4db0053bd96d32c7270a5772d9jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [
+          {
+            "icon_name": "招牌",
+            "icon_color": "ec9c68"
+          }
+        ],
+        "item_id": "200000059146797413",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "仙草4号（芋头+红豆+珍珠）",
+        "satisfy_count": 2,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087732069",
+            "name": "仙草4号（芋头+红豆+珍珠）",
+            "virtual_food_id": 1257760544,
+            "pinyin_name": "xiancao4hao（yutou+hongdou+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261609113,
+            "packing_fee": 1,
+            "recent_rating": 5,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 12,
+            "is_essential": false,
+            "item_id": "200000059146797413",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9988
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063087733093",
+            "name": "仙草4号（芋头+红豆+珍珠）",
+            "virtual_food_id": 1257760544,
+            "pinyin_name": "xiancao4hao（yutou+hongdou+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261609114,
+            "packing_fee": 1,
+            "recent_rating": 4,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 6,
+            "is_essential": false,
+            "item_id": "200000059146797413",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9994
+          }
+        ],
+        "category_id": 1229856720
+      },
+      {
+        "rating": 0,
+        "is_featured": 1,
+        "virtual_food_id": 1257760537,
+        "restaurant_id": 257922,
+        "pinyin_name": "yuyuan4hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "精选新鲜芋头，削皮，擦丝，蒸煮。再加入精心配比的多种淀粉，使用台湾传统手工制作的芋圆，再搭配芋头+红豆+珍珠；热品汤底为香甜红豆汤，冰品底料是淋有蜜糖的碎冰，吃一口冰爽香甜。芋圆4号是芋圆系列中的主打产品。",
+        "month_sales": 11,
+        "rating_count": 0,
+        "tips": "0评价 月售11份",
+        "image_path": "ddfc5b902a5ffd0f1a40bcb86f79163cjpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [
+          {
+            "icon_name": "招牌",
+            "icon_color": "ec9c68"
+          }
+        ],
+        "item_id": "200000059146790245",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芋圆4号",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087719781",
+            "name": "芋圆4号",
+            "virtual_food_id": 1257760537,
+            "pinyin_name": "yuyuan4hao",
+            "restaurant_id": 257922,
+            "food_id": 1261609101,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 6,
+            "is_essential": false,
+            "item_id": "200000059146790245",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9994
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063087720805",
+            "name": "芋圆4号",
+            "virtual_food_id": 1257760537,
+            "pinyin_name": "yuyuan4hao",
+            "restaurant_id": 257922,
+            "food_id": 1261609102,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 5,
+            "is_essential": false,
+            "item_id": "200000059146790245",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9995
+          }
+        ],
+        "category_id": 1229842221
+      },
+      {
+        "rating": 4,
+        "is_featured": 1,
+        "virtual_food_id": 1257756802,
+        "restaurant_id": 257922,
+        "pinyin_name": "zhaopaishaoxiancao（re）",
+        "display_times": [],
+        "attrs": [],
+        "description": "招牌烧仙草：小芋圆+花豆+珍珠+烧仙草；烧仙草是汤状，因路途颠簸原因造成碎冻状属于正常现象，只需重新加热即可。（备注：只能做热的）",
+        "month_sales": 4,
+        "rating_count": 1,
+        "tips": "1评价 月售4份",
+        "image_path": "0a917a437d2784b49658b6126a5d428cjpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [
+          {
+            "icon_name": "招牌",
+            "icon_color": "ec9c68"
+          }
+        ],
+        "item_id": "200000059142965605",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "招牌烧仙草（热）",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063081943397",
+            "name": "招牌烧仙草（热）",
+            "virtual_food_id": 1257756802,
+            "pinyin_name": "zhaopaishaoxiancao（re）",
+            "restaurant_id": 257922,
+            "food_id": 1261603460,
+            "packing_fee": 1,
+            "recent_rating": 4,
+            "promotion_stock": -1,
+            "price": 22,
+            "sold_out": false,
+            "recent_popularity": 4,
+            "is_essential": false,
+            "item_id": "200000059142965605",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 9996
+          }
+        ],
+        "category_id": 1229856720
+      },
+      {
+        "rating": 0,
+        "is_featured": 1,
+        "virtual_food_id": 1257760568,
+        "restaurant_id": 257922,
+        "pinyin_name": "dongguacha",
+        "display_times": [],
+        "attrs": [],
+        "description": "冬瓜茶：红糖加冬瓜炒制，做成冬瓜砖，敲碎后煮制（备注：只有冰的，因为热的冬瓜茶非常之不好喝，完全没有炒制冬瓜茶的香气，就是一杯普通的的红糖水；冬瓜砖是固定糖度，不能无糖或半塘）",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "b8414abc071c35eb206a72b6aee847fajpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "去冰"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [
+          {
+            "icon_name": "招牌",
+            "icon_color": "ec9c68"
+          }
+        ],
+        "item_id": "200000059146821989",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "冬瓜茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087767909",
+            "name": "冬瓜茶",
+            "virtual_food_id": 1257760568,
+            "pinyin_name": "dongguacha",
+            "restaurant_id": 257922,
+            "food_id": 1261609148,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 10,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146821989",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063087768933",
+            "name": "冬瓜茶",
+            "virtual_food_id": 1257760568,
+            "pinyin_name": "dongguacha",
+            "restaurant_id": 257922,
+            "food_id": 1261609149,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 10,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146821989",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "去冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      }
+    ],
+    "activity": null,
+    "type": 2,
+    "id": -1,
+    "is_activity": null
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "手工芋圆系列",
+    "foods": [
+      {
+        "rating": 4,
+        "is_featured": 0,
+        "virtual_food_id": 1257752558,
+        "restaurant_id": 257922,
+        "pinyin_name": "yuyuan1hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "芋圆1号：精选新鲜芋头，削皮，擦丝，蒸煮。再加入精心配比的多种淀粉，使用台湾传统手工制作的芋圆，再搭配绿豆+莲子+珍珠。热品底汤为香甜红豆汤，冰品底料是淋有蜜糖的碎冰，吃一口冰爽香甜。",
+        "month_sales": 1,
+        "rating_count": 1,
+        "tips": "1评价 月售1份",
+        "image_path": "a4464e1a431431317a369fbf581c846ejpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138619749",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芋圆1号",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071657317",
+            "name": "芋圆1号",
+            "virtual_food_id": 1257752558,
+            "pinyin_name": "yuyuan1hao",
+            "restaurant_id": 257922,
+            "food_id": 1261593415,
+            "packing_fee": 1,
+            "recent_rating": 4,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059138619749",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071658341",
+            "name": "芋圆1号",
+            "virtual_food_id": 1257752558,
+            "pinyin_name": "yuyuan1hao",
+            "restaurant_id": 257922,
+            "food_id": 1261593416,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138619749",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842221
+      },
+      {
+        "rating": 4,
+        "is_featured": 0,
+        "virtual_food_id": 1257756798,
+        "restaurant_id": 257922,
+        "pinyin_name": "yuyuan2hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "精选新鲜芋头，削皮，擦丝，蒸煮。再加入精心配比的多种淀粉，使用台湾传统手工制作的芋圆，再搭配地瓜+薏仁+珍珠；热品汤底为香甜红豆汤，冰品底料是淋有蜜糖的碎冰，吃一口冰爽香甜。（注：本产品含有薏仁，孕妇不宜食用）",
+        "month_sales": 2,
+        "rating_count": 1,
+        "tips": "1评价 月售2份",
+        "image_path": "42c84e7ed11ec558f50fd6328cf5508bjpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059142961509",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芋圆2号",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063081937253",
+            "name": "芋圆2号",
+            "virtual_food_id": 1257756798,
+            "pinyin_name": "yuyuan2hao",
+            "restaurant_id": 257922,
+            "food_id": 1261603454,
+            "packing_fee": 1,
+            "recent_rating": 4,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059142961509",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063081938277",
+            "name": "芋圆2号",
+            "virtual_food_id": 1257756798,
+            "pinyin_name": "yuyuan2hao",
+            "restaurant_id": 257922,
+            "food_id": 1261603455,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059142961509",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          }
+        ],
+        "category_id": 1229842221
+      },
+      {
+        "rating": 5,
+        "is_featured": 0,
+        "virtual_food_id": 1257760535,
+        "restaurant_id": 257922,
+        "pinyin_name": "yuyuan3hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "精选新鲜芋头，削皮，擦丝，蒸煮。再加入精心配比的多种淀粉，使用台湾传统手工制作的芋圆，再搭配花生+红豆+珍珠；热品汤底为香甜红豆汤，冰品底料是淋有蜜糖的碎冰，吃一口冰爽香甜。",
+        "month_sales": 3,
+        "rating_count": 1,
+        "tips": "1评价 月售3份",
+        "image_path": "f2774a5a8123e49f9c411951fc06d551jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059146788197",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芋圆3号",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087716709",
+            "name": "芋圆3号",
+            "virtual_food_id": 1257760535,
+            "pinyin_name": "yuyuan3hao",
+            "restaurant_id": 257922,
+            "food_id": 1261609098,
+            "packing_fee": 1,
+            "recent_rating": 5,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059146788197",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063087717733",
+            "name": "芋圆3号",
+            "virtual_food_id": 1257760535,
+            "pinyin_name": "yuyuan3hao",
+            "restaurant_id": 257922,
+            "food_id": 1261609099,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 2,
+            "is_essential": false,
+            "item_id": "200000059146788197",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9998
+          }
+        ],
+        "category_id": 1229842221
+      },
+      {
+        "rating": 0,
+        "is_featured": 1,
+        "virtual_food_id": 1257760537,
+        "restaurant_id": 257922,
+        "pinyin_name": "yuyuan4hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "精选新鲜芋头，削皮，擦丝，蒸煮。再加入精心配比的多种淀粉，使用台湾传统手工制作的芋圆，再搭配芋头+红豆+珍珠；热品汤底为香甜红豆汤，冰品底料是淋有蜜糖的碎冰，吃一口冰爽香甜。芋圆4号是芋圆系列中的主打产品。",
+        "month_sales": 11,
+        "rating_count": 0,
+        "tips": "0评价 月售11份",
+        "image_path": "ddfc5b902a5ffd0f1a40bcb86f79163cjpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [
+          {
+            "icon_name": "招牌",
+            "icon_color": "ec9c68"
+          }
+        ],
+        "item_id": "200000059146790245",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芋圆4号",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087719781",
+            "name": "芋圆4号",
+            "virtual_food_id": 1257760537,
+            "pinyin_name": "yuyuan4hao",
+            "restaurant_id": 257922,
+            "food_id": 1261609101,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 6,
+            "is_essential": false,
+            "item_id": "200000059146790245",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9994
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063087720805",
+            "name": "芋圆4号",
+            "virtual_food_id": 1257760537,
+            "pinyin_name": "yuyuan4hao",
+            "restaurant_id": 257922,
+            "food_id": 1261609102,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 5,
+            "is_essential": false,
+            "item_id": "200000059146790245",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9995
+          }
+        ],
+        "category_id": 1229842221
+      },
+      {
+        "rating": 5,
+        "is_featured": 0,
+        "virtual_food_id": 1257765090,
+        "restaurant_id": 257922,
+        "pinyin_name": "yuyuan5hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "精选新鲜芋头，削皮，擦丝，蒸煮。再加入精心配比的多种淀粉，使用台湾传统手工制作的芋圆，再搭配花豆+黑粉粿+珍珠；热品汤底为香甜红豆汤，冰品底料是淋有蜜糖的碎冰，吃一口冰爽香甜。",
+        "month_sales": 2,
+        "rating_count": 1,
+        "tips": "1评价 月售2份",
+        "image_path": "31636fbf498dad9d2829773133dcb1b2jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151452517",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芋圆5号",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085194597",
+            "name": "芋圆5号",
+            "virtual_food_id": 1257765090,
+            "pinyin_name": "yuyuan5hao",
+            "restaurant_id": 257922,
+            "food_id": 1261606635,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059151452517",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085195621",
+            "name": "芋圆5号",
+            "virtual_food_id": 1257765090,
+            "pinyin_name": "yuyuan5hao",
+            "restaurant_id": 257922,
+            "food_id": 1261606636,
+            "packing_fee": 1,
+            "recent_rating": 5,
+            "promotion_stock": -1,
+            "price": 23,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059151452517",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          }
+        ],
+        "category_id": 1229842221
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229842221,
+    "is_activity": false
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "滑嫩仙草系列",
+    "foods": [
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765091,
+        "restaurant_id": 257922,
+        "pinyin_name": "xianyuxianzhaopaibing",
+        "display_times": [],
+        "attrs": [],
+        "description": "鲜芋仙招牌：仙草冰沙+仙草冻+芋圆；(备注：1.仙草（冰）=仙草冻+仙草冰沙，不建议顾客去冰即去除仙草冰沙,以免去冰后口感不佳，若只要仙草冻不要冰沙味道微苦，仙草冰沙有加入红糖；2.仙草系列不做减糖或无糖)",
+        "month_sales": 2,
+        "rating_count": 0,
+        "tips": "0评价 月售2份",
+        "image_path": "4a98c11b6d691e8da0d32c777696fafbjpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151453541",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "鲜芋仙招牌冰",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085196645",
+            "name": "鲜芋仙招牌冰",
+            "virtual_food_id": 1257765091,
+            "pinyin_name": "xianyuxianzhaopaibing",
+            "restaurant_id": 257922,
+            "food_id": 1261606637,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 2,
+            "is_essential": false,
+            "item_id": "200000059151453541",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 9998
+          }
+        ],
+        "category_id": 1229856720
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257760541,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiancao1hao（lu:dou+lianzi+zhenzhu）",
+        "display_times": [],
+        "attrs": [],
+        "description": "仙草1号：莲子+绿豆+珍珠；冰品底料是仙草冰沙和仙草冻；(备注：1.烧仙草为热的汤状物，凉后会结冻，只需加热即可恢复原来的汤状；2.仙草（冰）=仙草冻+仙草冰沙，不建议顾客去冰即去除仙草冰沙,以免去冰后口感不佳，若只要仙草冻不要冰沙味道微苦，仙草冰沙有加入红糖；3.仙草系列不做减糖或无糖。)",
+        "month_sales": 1,
+        "rating_count": 0,
+        "tips": "0评价 月售1份",
+        "image_path": "10056eea040ea32cbc17c508964c3493jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059146794341",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "仙草1号（绿豆+莲子+珍珠）",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087725925",
+            "name": "仙草1号（绿豆+莲子+珍珠）",
+            "virtual_food_id": 1257760541,
+            "pinyin_name": "xiancao1hao（lu:dou+lianzi+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261609107,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059146794341",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063087726949",
+            "name": "仙草1号（绿豆+莲子+珍珠）",
+            "virtual_food_id": 1257760541,
+            "pinyin_name": "xiancao1hao（lu:dou+lianzi+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261609108,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146794341",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229856720
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257760543,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiancao2hao（digua+yiren+zhenzhu）",
+        "display_times": [],
+        "attrs": [],
+        "description": "仙草2号：地瓜+薏仁+珍珠；冰品底料是仙草冰沙和仙草冻；(备注：1.烧仙草为热的汤状物，凉后会结冻，只需加热即可恢复原来的汤状；2.仙草（冰）=仙草冻+仙草冰沙，不建议顾客去冰即去除仙草冰沙,以免去冰后口感不佳，若只要仙草冻不要冰沙味道微苦，仙草冰沙有加入红糖；3.仙草系列不做减糖或无糖。（本产品含有薏仁，孕妇不宜食用）",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "c6167295a6391927fcebb7c06a64d0d9jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059146796389",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "仙草2号（地瓜+薏仁+珍珠）",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087728997",
+            "name": "仙草2号（地瓜+薏仁+珍珠）",
+            "virtual_food_id": 1257760543,
+            "pinyin_name": "xiancao2hao（digua+yiren+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261609110,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146796389",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063087730021",
+            "name": "仙草2号（地瓜+薏仁+珍珠）",
+            "virtual_food_id": 1257760543,
+            "pinyin_name": "xiancao2hao（digua+yiren+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261609111,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146796389",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229856720
+      },
+      {
+        "rating": 5,
+        "is_featured": 0,
+        "virtual_food_id": 1257752568,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiancao3hao（hongdou+huasheng+zhenzhu）",
+        "display_times": [],
+        "attrs": [],
+        "description": "仙草3号：花生+红豆+珍珠；冰品底料是仙草冰沙和仙草冻；(备注：1.烧仙草为热的汤状物，凉后会结冻，只需加热即可恢复原来的汤状；2.仙草（冰）=仙草冻+仙草冰沙，不建议顾客去冰即去除仙草冰沙,以免去冰后口感不佳，若只要仙草冻不要冰沙味道微苦，仙草冰沙有加入红糖；3.仙草系列不做减糖或无糖。)",
+        "month_sales": 1,
+        "rating_count": 1,
+        "tips": "1评价 月售1份",
+        "image_path": "3d8256011b10f240d6387aa9f98af659jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138629989",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "仙草3号（红豆+花生+珍珠）",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071670629",
+            "name": "仙草3号（红豆+花生+珍珠）",
+            "virtual_food_id": 1257752568,
+            "pinyin_name": "xiancao3hao（hongdou+huasheng+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261593428,
+            "packing_fee": 1,
+            "recent_rating": 5,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059138629989",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071671653",
+            "name": "仙草3号（红豆+花生+珍珠）",
+            "virtual_food_id": 1257752568,
+            "pinyin_name": "xiancao3hao（hongdou+huasheng+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261593429,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138629989",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229856720
+      },
+      {
+        "rating": 4.5,
+        "is_featured": 1,
+        "virtual_food_id": 1257760544,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiancao4hao（yutou+hongdou+zhenzhu）",
+        "display_times": [],
+        "attrs": [],
+        "description": "仙草4号：芋头+红豆+珍珠；冰品底料是仙草冰沙和仙草冻；(备注：1.烧仙草为热的汤状物，凉后会结冻，只需加热即可恢复原来的汤状；2.仙草（冰）=仙草冻+仙草冰沙，不建议顾客去冰即去除仙草冰沙,以免去冰后口感不佳，若只要仙草冻不要冰沙味道微苦，仙草冰沙有加入红糖；3.仙草系列不做减糖或无糖。)",
+        "month_sales": 18,
+        "rating_count": 2,
+        "tips": "2评价 月售18份",
+        "image_path": "d91f4c4db0053bd96d32c7270a5772d9jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [
+          {
+            "icon_name": "招牌",
+            "icon_color": "ec9c68"
+          }
+        ],
+        "item_id": "200000059146797413",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "仙草4号（芋头+红豆+珍珠）",
+        "satisfy_count": 2,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087732069",
+            "name": "仙草4号（芋头+红豆+珍珠）",
+            "virtual_food_id": 1257760544,
+            "pinyin_name": "xiancao4hao（yutou+hongdou+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261609113,
+            "packing_fee": 1,
+            "recent_rating": 5,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 12,
+            "is_essential": false,
+            "item_id": "200000059146797413",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9988
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063087733093",
+            "name": "仙草4号（芋头+红豆+珍珠）",
+            "virtual_food_id": 1257760544,
+            "pinyin_name": "xiancao4hao（yutou+hongdou+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261609114,
+            "packing_fee": 1,
+            "recent_rating": 4,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 6,
+            "is_essential": false,
+            "item_id": "200000059146797413",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9994
+          }
+        ],
+        "category_id": 1229856720
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752575,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiancao5hao（huadou+fenguo+zhenzhu）",
+        "display_times": [],
+        "attrs": [],
+        "description": "仙草5号：花豆+黑粉粿+珍珠；冰品底料是仙草冰沙和仙草冻；备注：1.烧仙草为热的汤状物，凉后会结冻，只需加热即可恢复原来的汤状；2.仙草（冰）=仙草冻+仙草冰沙，不建议顾客去冰即去除仙草冰沙,以免去冰后口感不佳，若只要仙草冻不要冰沙味道微苦，仙草冰沙有加入红糖；3.仙草系列不做减糖或无糖。",
+        "month_sales": 1,
+        "rating_count": 0,
+        "tips": "0评价 月售1份",
+        "image_path": "31636fbf498dad9d2829773133dcb1b2jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138637157",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "仙草5号（花豆+粉粿+珍珠）",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071680869",
+            "name": "仙草5号（花豆+粉粿+珍珠）",
+            "virtual_food_id": 1257752575,
+            "pinyin_name": "xiancao5hao（huadou+fenguo+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261593438,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059138637157",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071681893",
+            "name": "仙草5号（花豆+粉粿+珍珠）",
+            "virtual_food_id": 1257752575,
+            "pinyin_name": "xiancao5hao（huadou+fenguo+zhenzhu）",
+            "restaurant_id": 257922,
+            "food_id": 1261593439,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138637157",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229856720
+      },
+      {
+        "rating": 4,
+        "is_featured": 1,
+        "virtual_food_id": 1257756802,
+        "restaurant_id": 257922,
+        "pinyin_name": "zhaopaishaoxiancao（re）",
+        "display_times": [],
+        "attrs": [],
+        "description": "招牌烧仙草：小芋圆+花豆+珍珠+烧仙草；烧仙草是汤状，因路途颠簸原因造成碎冻状属于正常现象，只需重新加热即可。（备注：只能做热的）",
+        "month_sales": 4,
+        "rating_count": 1,
+        "tips": "1评价 月售4份",
+        "image_path": "0a917a437d2784b49658b6126a5d428cjpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [
+          {
+            "icon_name": "招牌",
+            "icon_color": "ec9c68"
+          }
+        ],
+        "item_id": "200000059142965605",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "招牌烧仙草（热）",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063081943397",
+            "name": "招牌烧仙草（热）",
+            "virtual_food_id": 1257756802,
+            "pinyin_name": "zhaopaishaoxiancao（re）",
+            "restaurant_id": 257922,
+            "food_id": 1261603460,
+            "packing_fee": 1,
+            "recent_rating": 4,
+            "promotion_stock": -1,
+            "price": 22,
+            "sold_out": false,
+            "recent_popularity": 4,
+            "is_essential": false,
+            "item_id": "200000059142965605",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 9996
+          }
+        ],
+        "category_id": 1229856720
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229856720,
+    "is_activity": false
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "清凉冰品系列",
+    "foods": [
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765110,
+        "restaurant_id": 257922,
+        "pinyin_name": "yutouniunaibing",
+        "display_times": [],
+        "attrs": [],
+        "description": "芋头牛奶冰：芋头口感绵密松软，奶香四溢，和冰爽的刨冰搭配在一起，别有一番滋味",
+        "month_sales": 2,
+        "rating_count": 0,
+        "tips": "0评价 月售2份",
+        "image_path": "0440150f08402e3b886edcfd3af97b67jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151472997",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芋头牛奶冰",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085224293",
+            "name": "芋头牛奶冰",
+            "virtual_food_id": 1257765110,
+            "pinyin_name": "yutouniunaibing",
+            "restaurant_id": 257922,
+            "food_id": 1261606664,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 2,
+            "is_essential": false,
+            "item_id": "200000059151472997",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 9998
+          }
+        ],
+        "category_id": 1229852220
+      },
+      {
+        "rating": 5,
+        "is_featured": 0,
+        "virtual_food_id": 1257765114,
+        "restaurant_id": 257922,
+        "pinyin_name": "xianyuxianbabaobing",
+        "display_times": [],
+        "attrs": [],
+        "description": "鲜芋仙八宝冰:红豆,绿豆,莲子,花豆,薏仁,花生，黑粉粿，芋圆。8种配料！您想要的一切都在这碗鲜芋仙八宝冰中，最后再淋上香浓的蜜糖，尽情地享受我们为您准备的这道美味佳肴吧！（本产品含有薏仁，孕妇不宜食用）",
+        "month_sales": 7,
+        "rating_count": 1,
+        "tips": "1评价 月售7份",
+        "image_path": "056421e06b1e734e0b708e0360bd71a1jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151477093",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "鲜芋仙八宝冰",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085229413",
+            "name": "鲜芋仙八宝冰",
+            "virtual_food_id": 1257765114,
+            "pinyin_name": "xianyuxianbabaobing",
+            "restaurant_id": 257922,
+            "food_id": 1261606669,
+            "packing_fee": 1,
+            "recent_rating": 5,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 7,
+            "is_essential": false,
+            "item_id": "200000059151477093",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 9993
+          }
+        ],
+        "category_id": 1229852220
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752584,
+        "restaurant_id": 257922,
+        "pinyin_name": "hongdouniunaibing",
+        "display_times": [],
+        "attrs": [],
+        "description": "红豆牛奶冰:粒粒饱满红豆煮后软糯香甜，和新鲜牛奶一起淋在晶莹剔透的刨冰上面，吃一口冰爽彻底，回味奶香浓郁。",
+        "month_sales": 1,
+        "rating_count": 0,
+        "tips": "0评价 月售1份",
+        "image_path": "4c6b815a6c359f583bf5066eb593e105jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138646373",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "红豆牛奶冰",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071694181",
+            "name": "红豆牛奶冰",
+            "virtual_food_id": 1257752584,
+            "pinyin_name": "hongdouniunaibing",
+            "restaurant_id": 257922,
+            "food_id": 1261593451,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059138646373",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          }
+        ],
+        "category_id": 1229852220
+      },
+      {
+        "rating": 4,
+        "is_featured": 0,
+        "virtual_food_id": 1257752587,
+        "restaurant_id": 257922,
+        "pinyin_name": "heitangfenguobing",
+        "display_times": [],
+        "attrs": [],
+        "description": "黑糖粉粿冰：软Q滑顺的珍珠+红豆+芋圆，最后再加上几块黑糖粉粿。炎炎夏日，一定是您的优先选择。",
+        "month_sales": 2,
+        "rating_count": 1,
+        "tips": "1评价 月售2份",
+        "image_path": "8526fe8981270f67b6668e3337453474jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138649445",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "黑糖粉粿冰",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071701349",
+            "name": "黑糖粉粿冰",
+            "virtual_food_id": 1257752587,
+            "pinyin_name": "heitangfenguobing",
+            "restaurant_id": 257922,
+            "food_id": 1261593458,
+            "packing_fee": 1,
+            "recent_rating": 4,
+            "promotion_stock": -1,
+            "price": 25,
+            "sold_out": false,
+            "recent_popularity": 2,
+            "is_essential": false,
+            "item_id": "200000059138649445",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 9998
+          }
+        ],
+        "category_id": 1229852220
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229852220,
+    "is_activity": false
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "茶饮系列",
+    "foods": [
+      {
+        "rating": 5,
+        "is_featured": 0,
+        "virtual_food_id": 1257765125,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiaoyuyuandongguacha(bing )",
+        "display_times": [],
+        "attrs": [],
+        "description": "小芋圆冬瓜茶：Mini的小芋圆+清香的冬瓜茶（备注：只有冰的，因为热的冬瓜茶非常之不好喝，完全没有炒制冬瓜茶的香气，就是一杯普通的的红糖水；冬瓜砖是固定糖度，不能无糖或半塘）",
+        "month_sales": 2,
+        "rating_count": 1,
+        "tips": "1评价 月售2份",
+        "image_path": "f17004f10ed0d1aec3f3f86b95dc8223jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "去冰"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151488357",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "小芋圆冬瓜茶(冰 )",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085246821",
+            "name": "小芋圆冬瓜茶(冰 )",
+            "virtual_food_id": 1257765125,
+            "pinyin_name": "xiaoyuyuandongguacha(bing )",
+            "restaurant_id": 257922,
+            "food_id": 1261606686,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151488357",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085247845",
+            "name": "小芋圆冬瓜茶(冰 )",
+            "virtual_food_id": 1257765125,
+            "pinyin_name": "xiaoyuyuandongguacha(bing )",
+            "restaurant_id": 257922,
+            "food_id": 1261606687,
+            "packing_fee": 1,
+            "recent_rating": 5,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 2,
+            "is_essential": false,
+            "item_id": "200000059151488357",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "去冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9998
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765127,
+        "restaurant_id": 257922,
+        "pinyin_name": "dongguaxiancaodong",
+        "display_times": [],
+        "attrs": [],
+        "description": "冬瓜仙草冻：鲜嫩的仙草冻，搭配香味四溢的冬瓜茶。爽口的仙草冻和清香的冬瓜茶给你带来双重享受，让你唇齿留香。（注：只有冰的，因为热的冬瓜茶没有炒制冬瓜的迷人香气；冬瓜茶是固定糖度，不能无糖或者半糖；含仙草冻的产品只能做冰的，因为仙草冻遇热融化，变成汤状）",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "5be577f81ec66dbdc84c7a78dcccf8e3jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "去冰"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151490405",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "冬瓜仙草冻",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085249893",
+            "name": "冬瓜仙草冻",
+            "virtual_food_id": 1257765127,
+            "pinyin_name": "dongguaxiancaodong",
+            "restaurant_id": 257922,
+            "food_id": 1261606689,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151490405",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085250917",
+            "name": "冬瓜仙草冻",
+            "virtual_food_id": 1257765127,
+            "pinyin_name": "dongguaxiancaodong",
+            "restaurant_id": 257922,
+            "food_id": 1261606690,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151490405",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "去冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 4,
+        "is_featured": 0,
+        "virtual_food_id": 1257765130,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiancaodongnaicha",
+        "display_times": [],
+        "attrs": [],
+        "description": "仙草冻奶茶：仙草冻+古味红茶+奶茶（注：含仙草冻的产品只能做冰的，因为仙草冻遇热融化，变成汤状）",
+        "month_sales": 4,
+        "rating_count": 1,
+        "tips": "1评价 月售4份",
+        "image_path": "97dec50c19631647a352c8802fc365aajpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "去冰"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151493477",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "仙草冻奶茶",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085256037",
+            "name": "仙草冻奶茶",
+            "virtual_food_id": 1257765130,
+            "pinyin_name": "xiancaodongnaicha",
+            "restaurant_id": 257922,
+            "food_id": 1261606695,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059151493477",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085257061",
+            "name": "仙草冻奶茶",
+            "virtual_food_id": 1257765130,
+            "pinyin_name": "xiancaodongnaicha",
+            "restaurant_id": 257922,
+            "food_id": 1261606696,
+            "packing_fee": 1,
+            "recent_rating": 4,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 3,
+            "is_essential": false,
+            "item_id": "200000059151493477",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "去冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9997
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257756809,
+        "restaurant_id": 257922,
+        "pinyin_name": "dongguaxiannaicha",
+        "display_times": [],
+        "attrs": [],
+        "description": "冬瓜鲜奶茶：清香的冬瓜茶加入新鲜牛奶，口感醇厚又有冬瓜茶的清爽。（注：只有冰的，因为热的非常之不好喝，完全冬瓜茶没有炒制冬瓜的香气就是一杯普通的的红糖水；冬瓜茶是固定糖度，不能无糖或者半糖）",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "07fddc89ec99a2b4730a2f4dca42a930jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "去冰"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059142972773",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "冬瓜鲜奶茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063081954661",
+            "name": "冬瓜鲜奶茶",
+            "virtual_food_id": 1257756809,
+            "pinyin_name": "dongguaxiannaicha",
+            "restaurant_id": 257922,
+            "food_id": 1261603471,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059142972773",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063081955685",
+            "name": "冬瓜鲜奶茶",
+            "virtual_food_id": 1257756809,
+            "pinyin_name": "dongguaxiannaicha",
+            "restaurant_id": 257922,
+            "food_id": 1261603472,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059142972773",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "去冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257756814,
+        "restaurant_id": 257922,
+        "pinyin_name": "dongguaningmengcha",
+        "display_times": [],
+        "attrs": [],
+        "description": "冬瓜柠檬茶：清香的冬瓜茶加入新鲜的柠檬汁，酸酸甜甜，清香爽口。（注：只有冰的，因为热的冬瓜茶没有炒制冬瓜的迷人香气；冬瓜茶是固定糖度，不能无糖或者半糖）",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "d4fb16fab488bddf832dd4d30c3c8e47jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "去冰"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059142977893",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "冬瓜柠檬茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063081961829",
+            "name": "冬瓜柠檬茶",
+            "virtual_food_id": 1257756814,
+            "pinyin_name": "dongguaningmengcha",
+            "restaurant_id": 257922,
+            "food_id": 1261603478,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059142977893",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063081962853",
+            "name": "冬瓜柠檬茶",
+            "virtual_food_id": 1257756814,
+            "pinyin_name": "dongguaningmengcha",
+            "restaurant_id": 257922,
+            "food_id": 1261603479,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059142977893",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "去冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 4,
+        "is_featured": 0,
+        "virtual_food_id": 1257765137,
+        "restaurant_id": 257922,
+        "pinyin_name": "huangjinyouzicha",
+        "display_times": [],
+        "attrs": [],
+        "description": "黄金柚子茶：美味的柚子酱冲泡，柚子味浓郁，清香甜美。",
+        "month_sales": 1,
+        "rating_count": 1,
+        "tips": "1评价 月售1份",
+        "image_path": "779013103394a01484c0bdcf0ea13d4ejpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151500645",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "黄金柚子茶",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085267301",
+            "name": "黄金柚子茶",
+            "virtual_food_id": 1257765137,
+            "pinyin_name": "huangjinyouzicha",
+            "restaurant_id": 257922,
+            "food_id": 1261606706,
+            "packing_fee": 1,
+            "recent_rating": 4,
+            "promotion_stock": -1,
+            "price": 14,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059151500645",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085268325",
+            "name": "黄金柚子茶",
+            "virtual_food_id": 1257765137,
+            "pinyin_name": "huangjinyouzicha",
+            "restaurant_id": 257922,
+            "food_id": 1261606707,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 14,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151500645",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 1,
+        "virtual_food_id": 1257760568,
+        "restaurant_id": 257922,
+        "pinyin_name": "dongguacha",
+        "display_times": [],
+        "attrs": [],
+        "description": "冬瓜茶：红糖加冬瓜炒制，做成冬瓜砖，敲碎后煮制（备注：只有冰的，因为热的冬瓜茶非常之不好喝，完全没有炒制冬瓜茶的香气，就是一杯普通的的红糖水；冬瓜砖是固定糖度，不能无糖或半塘）",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "b8414abc071c35eb206a72b6aee847fajpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "去冰"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [
+          {
+            "icon_name": "招牌",
+            "icon_color": "ec9c68"
+          }
+        ],
+        "item_id": "200000059146821989",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "冬瓜茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087767909",
+            "name": "冬瓜茶",
+            "virtual_food_id": 1257760568,
+            "pinyin_name": "dongguacha",
+            "restaurant_id": 257922,
+            "food_id": 1261609148,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 10,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146821989",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063087768933",
+            "name": "冬瓜茶",
+            "virtual_food_id": 1257760568,
+            "pinyin_name": "dongguacha",
+            "restaurant_id": 257922,
+            "food_id": 1261609149,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 10,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146821989",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "去冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765145,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiancaoxiannaicha",
+        "display_times": [],
+        "attrs": [],
+        "description": "仙草鲜奶茶：仙草干茶配以新鲜的牛奶，口感顺滑。（注：仙草干茶属于弱碱性饮品，由于酸碱值的原因加入牛奶后会出现一些絮状物，不是坏掉了哦!)",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "2d8a4f1a1f8e177ba7e15718a0079cccjpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151508837",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "仙草鲜奶茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085281637",
+            "name": "仙草鲜奶茶",
+            "virtual_food_id": 1257765145,
+            "pinyin_name": "xiancaoxiannaicha",
+            "restaurant_id": 257922,
+            "food_id": 1261606720,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 14,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151508837",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085282661",
+            "name": "仙草鲜奶茶",
+            "virtual_food_id": 1257765145,
+            "pinyin_name": "xiancaoxiannaicha",
+            "restaurant_id": 257922,
+            "food_id": 1261606721,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 14,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151508837",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765148,
+        "restaurant_id": 257922,
+        "pinyin_name": "zhenzhuxiannailu:",
+        "display_times": [],
+        "attrs": [],
+        "description": "珍珠鲜奶绿：原叶泡制的绿茶加入新鲜的牛奶再搭配Q弹珍珠，绿茶的清香爽口和奶的醇香，再加上Q软的珍珠，给你大大的满足。",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "4e82c3e2b9b3d61fe1065b5a8cb7faffjpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151511909",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "珍珠鲜奶绿",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085286757",
+            "name": "珍珠鲜奶绿",
+            "virtual_food_id": 1257765148,
+            "pinyin_name": "zhenzhuxiannailu:",
+            "restaurant_id": 257922,
+            "food_id": 1261606725,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 14,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151511909",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085287781",
+            "name": "珍珠鲜奶绿",
+            "virtual_food_id": 1257765148,
+            "pinyin_name": "zhenzhuxiannailu:",
+            "restaurant_id": 257922,
+            "food_id": 1261606726,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 14,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151511909",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752619,
+        "restaurant_id": 257922,
+        "pinyin_name": "zhenzhuxiannaicha",
+        "display_times": [],
+        "attrs": [],
+        "description": "珍珠鲜奶茶：台湾红茶冲泡茶底加新鲜牛奶再搭配Q弹珍珠，红茶的甘润醇厚和奶的香醇，再加上Q软珍珠，多重口感，给你大大的满足（注：若要无糖或半糖请备注）",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "886b49851283fcfb553c690617494a3djpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138682213",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "珍珠鲜奶茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071745381",
+            "name": "珍珠鲜奶茶",
+            "virtual_food_id": 1257752619,
+            "pinyin_name": "zhenzhuxiannaicha",
+            "restaurant_id": 257922,
+            "food_id": 1261593501,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 14,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138682213",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071746405",
+            "name": "珍珠鲜奶茶",
+            "virtual_food_id": 1257752619,
+            "pinyin_name": "zhenzhuxiannaicha",
+            "restaurant_id": 257922,
+            "food_id": 1261593502,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 14,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138682213",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765156,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiancaoxiannaidong",
+        "display_times": [],
+        "attrs": [],
+        "description": "仙草鲜奶冻：鲜嫩的仙草冻，搭配上仙草干茶和鲜奶，既有牛奶的鲜香，又有仙草冻的滑嫩爽口，这一杯有吃又有喝！（注：含仙草冻的产品只能做冰的，因为仙草冻遇热融化，变成汤状）",
+        "month_sales": 1,
+        "rating_count": 0,
+        "tips": "0评价 月售1份",
+        "image_path": "a952ac85045960db2dbbfc95f213ce4ejpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151520101",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "仙草鲜奶冻",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085298021",
+            "name": "仙草鲜奶冻",
+            "virtual_food_id": 1257765156,
+            "pinyin_name": "xiancaoxiannaidong",
+            "restaurant_id": 257922,
+            "food_id": 1261606736,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059151520101",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085299045",
+            "name": "仙草鲜奶冻",
+            "virtual_food_id": 1257765156,
+            "pinyin_name": "xiancaoxiannaidong",
+            "restaurant_id": 257922,
+            "food_id": 1261606737,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151520101",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 4,
+        "is_featured": 0,
+        "virtual_food_id": 1257756821,
+        "restaurant_id": 257922,
+        "pinyin_name": "zhaopainailu:",
+        "display_times": [],
+        "attrs": [],
+        "description": "招牌奶绿：既有奶茶的醇香又有绿茶的清香。（注：若要无糖或半糖请备注）",
+        "month_sales": 3,
+        "rating_count": 1,
+        "tips": "1评价 月售3份",
+        "image_path": "3cc24e270b4941d3145d4fc5e833e41ejpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059142985061",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "招牌奶绿",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063081973093",
+            "name": "招牌奶绿",
+            "virtual_food_id": 1257756821,
+            "pinyin_name": "zhaopainailu:",
+            "restaurant_id": 257922,
+            "food_id": 1261603489,
+            "packing_fee": 1,
+            "recent_rating": 4,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 3,
+            "is_essential": false,
+            "item_id": "200000059142985061",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9997
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063081974117",
+            "name": "招牌奶绿",
+            "virtual_food_id": 1257756821,
+            "pinyin_name": "zhaopainailu:",
+            "restaurant_id": 257922,
+            "food_id": 1261603490,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059142985061",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752626,
+        "restaurant_id": 257922,
+        "pinyin_name": "zhaopainaicha",
+        "display_times": [],
+        "attrs": [],
+        "description": "招牌奶茶：精选的台湾红茶冲泡茶底制作的顺滑奶茶，非常香甜可口。（注：若要无糖或半糖请备注）",
+        "month_sales": 2,
+        "rating_count": 0,
+        "tips": "0评价 月售2份",
+        "image_path": "b75b75e04700de103087211f6f8935bdjpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138689381",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "招牌奶茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071755621",
+            "name": "招牌奶茶",
+            "virtual_food_id": 1257752626,
+            "pinyin_name": "zhaopainaicha",
+            "restaurant_id": 257922,
+            "food_id": 1261593511,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059138689381",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071756645",
+            "name": "招牌奶茶",
+            "virtual_food_id": 1257752626,
+            "pinyin_name": "zhaopainaicha",
+            "restaurant_id": 257922,
+            "food_id": 1261593512,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 12,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059138689381",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752633,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiancaogancha",
+        "display_times": [],
+        "attrs": [],
+        "description": "仙草干茶：仙草汁熬制，在这个夏季喝一些仙草茶再适合不过了。(固定糖度）",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "1d30ce7b00871ac60b05cb5af4d37192jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138696549",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "仙草干茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071766885",
+            "name": "仙草干茶",
+            "virtual_food_id": 1257752633,
+            "pinyin_name": "xiancaogancha",
+            "restaurant_id": 257922,
+            "food_id": 1261593522,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 10,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138696549",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071767909",
+            "name": "仙草干茶",
+            "virtual_food_id": 1257752633,
+            "pinyin_name": "xiancaogancha",
+            "restaurant_id": 257922,
+            "food_id": 1261593523,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 10,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138696549",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257760588,
+        "restaurant_id": 257922,
+        "pinyin_name": "zhaopailu:cha",
+        "display_times": [],
+        "attrs": [],
+        "description": "招牌绿茶：原叶泡制，用细滤网滤过，加入鲜芋仙蜜糖做出爽口的招牌绿茶。（若要无糖或半糖请备注）",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "0cc9f014860fe619dd51ca990f2017eejpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059146842469",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "招牌绿茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087795557",
+            "name": "招牌绿茶",
+            "virtual_food_id": 1257760588,
+            "pinyin_name": "zhaopailu:cha",
+            "restaurant_id": 257922,
+            "food_id": 1261609175,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 10,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146842469",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063087796581",
+            "name": "招牌绿茶",
+            "virtual_food_id": 1257760588,
+            "pinyin_name": "zhaopailu:cha",
+            "restaurant_id": 257922,
+            "food_id": 1261609176,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 10,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146842469",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765174,
+        "restaurant_id": 257922,
+        "pinyin_name": "zhaopaihongcha",
+        "display_times": [],
+        "attrs": [],
+        "description": "招牌红茶：原叶泡制，用细滤网滤过，加入鲜芋仙蜜糖做出甘润醇厚的招牌红茶。（若要无糖或半糖请备注）",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "0eb38db4d67fe73476dc666fdb54ac45jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冰",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151538533",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "招牌红茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085323621",
+            "name": "招牌红茶",
+            "virtual_food_id": 1257765174,
+            "pinyin_name": "zhaopaihongcha",
+            "restaurant_id": 257922,
+            "food_id": 1261606761,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 10,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151538533",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冰"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085324645",
+            "name": "招牌红茶",
+            "virtual_food_id": 1257765174,
+            "pinyin_name": "zhaopaihongcha",
+            "restaurant_id": 257922,
+            "food_id": 1261606762,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 10,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151538533",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752639,
+        "restaurant_id": 257922,
+        "pinyin_name": "xingrenzhenzhulu",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "02ed2a3f74d59774797e28de609876b5jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138702693",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "杏仁珍珠露",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071777125",
+            "name": "杏仁珍珠露",
+            "virtual_food_id": 1257752639,
+            "pinyin_name": "xingrenzhenzhulu",
+            "restaurant_id": 257922,
+            "food_id": 1261593532,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 15,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138702693",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765177,
+        "restaurant_id": 257922,
+        "pinyin_name": "yuanweixingrencha",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "b4169e2ad4bbe183ae04fcd484dcdc9ejpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151541605",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "原味杏仁茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085328741",
+            "name": "原味杏仁茶",
+            "virtual_food_id": 1257765177,
+            "pinyin_name": "yuanweixingrencha",
+            "restaurant_id": 257922,
+            "food_id": 1261606766,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 15,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151541605",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842230
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765181,
+        "restaurant_id": 257922,
+        "pinyin_name": "xingrenxiaoyuyuan",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "aa46b66e6717be68fb4ca646bd10df3djpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151545701",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "杏仁小芋圆",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085334885",
+            "name": "杏仁小芋圆",
+            "virtual_food_id": 1257765181,
+            "pinyin_name": "xingrenxiaoyuyuan",
+            "restaurant_id": 257922,
+            "food_id": 1261606772,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 17,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151545701",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842230
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229842230,
+    "is_activity": false
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "招牌点心",
+    "foods": [
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752660,
+        "restaurant_id": 257922,
+        "pinyin_name": "haitaisu",
+        "display_times": [],
+        "attrs": [],
+        "description": "海苔酥：原味海苔酥;辣味海苔酥;芥末海苔酥",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "443524fa33aa85a9f8ff71a3cf26d97ajpeg",
+        "specifications": [
+          {
+            "values": [
+              "原味",
+              "芥末味",
+              "辣味"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138724197",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "海苔酥",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071803749",
+            "name": "海苔酥",
+            "virtual_food_id": 1257752660,
+            "pinyin_name": "haitaisu",
+            "restaurant_id": 257922,
+            "food_id": 1261593558,
+            "packing_fee": 0,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 18,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138724197",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "原味"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071804773",
+            "name": "海苔酥",
+            "virtual_food_id": 1257752660,
+            "pinyin_name": "haitaisu",
+            "restaurant_id": 257922,
+            "food_id": 1261593559,
+            "packing_fee": 0,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 18,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138724197",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "芥末味"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071805797",
+            "name": "海苔酥",
+            "virtual_food_id": 1257752660,
+            "pinyin_name": "haitaisu",
+            "restaurant_id": 257922,
+            "food_id": 1261593560,
+            "packing_fee": 0,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 18,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138724197",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "辣味"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229856733
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752663,
+        "restaurant_id": 257922,
+        "pinyin_name": "shuangfupinpan",
+        "display_times": [],
+        "attrs": [],
+        "description": "双福拼盘：（花生+芝麻）糯球搭配Q弹的桂圆加桂花制作的水晶冻",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "81b1d28a522fe5cbe5c1b9987acbb7f0jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138727269",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "双福拼盘",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071810917",
+            "name": "双福拼盘",
+            "virtual_food_id": 1257752663,
+            "pinyin_name": "shuangfupinpan",
+            "restaurant_id": 257922,
+            "food_id": 1261593565,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 22,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138727269",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229856733
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752668,
+        "restaurant_id": 257922,
+        "pinyin_name": "binggaopinpan",
+        "display_times": [],
+        "attrs": [],
+        "description": "冰糕拼盘：红豆冰糕+绿豆冰糕+麻薯3块",
+        "month_sales": 1,
+        "rating_count": 0,
+        "tips": "0评价 月售1份",
+        "image_path": "a7316b164b9dd50e76ebb6e5bc8e6234jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138732389",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "冰糕拼盘",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071819109",
+            "name": "冰糕拼盘",
+            "virtual_food_id": 1257752668,
+            "pinyin_name": "binggaopinpan",
+            "restaurant_id": 257922,
+            "food_id": 1261593573,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 22,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059138732389",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          }
+        ],
+        "category_id": 1229856733
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765208,
+        "restaurant_id": 257922,
+        "pinyin_name": "taishimashu",
+        "display_times": [],
+        "attrs": [],
+        "description": "黑糖口味*4+原味*4",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "ff28caa4fb5fb4d132e4d78aba2efb12jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151573349",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "台式麻糬",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085379941",
+            "name": "台式麻糬",
+            "virtual_food_id": 1257765208,
+            "pinyin_name": "taishimashu",
+            "restaurant_id": 257922,
+            "food_id": 1261606816,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 22,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151573349",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229856733
+      },
+      {
+        "rating": 5,
+        "is_featured": 0,
+        "virtual_food_id": 1257765212,
+        "restaurant_id": 257922,
+        "pinyin_name": "jiaotangniunaibaomihua",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 1,
+        "rating_count": 1,
+        "tips": "1评价 月售1份",
+        "image_path": "2c4debc6001d89fa4750a4780945b8f0jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151577445",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "焦糖牛奶爆米花",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085384037",
+            "name": "焦糖牛奶爆米花",
+            "virtual_food_id": 1257765212,
+            "pinyin_name": "jiaotangniunaibaomihua",
+            "restaurant_id": 257922,
+            "food_id": 1261606820,
+            "packing_fee": 0,
+            "recent_rating": 5,
+            "promotion_stock": -1,
+            "price": 30,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059151577445",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          }
+        ],
+        "category_id": 1229856733
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229856733,
+    "is_activity": false
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "传统豆花系列",
+    "foods": [
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752688,
+        "restaurant_id": 257922,
+        "pinyin_name": "douhua1hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "豆花1号：浸泡，打浆，滤渣，煮滚，凝固......经过一道道复杂的工序，制作出滑嫩可口的豆花，再搭配上绿豆+莲子+珍珠，醇香美味。",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "ef429bcf054ab8a9b0473acc9ce47a06jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138752869",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "豆花1号",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071849829",
+            "name": "豆花1号",
+            "virtual_food_id": 1257752688,
+            "pinyin_name": "douhua1hao",
+            "restaurant_id": 257922,
+            "food_id": 1261593603,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138752869",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071851877",
+            "name": "豆花1号",
+            "virtual_food_id": 1257752688,
+            "pinyin_name": "douhua1hao",
+            "restaurant_id": 257922,
+            "food_id": 1261593605,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138752869",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842247
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765227,
+        "restaurant_id": 257922,
+        "pinyin_name": "douhua2hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "豆花2号：浸泡，打浆，滤渣，煮滚，凝固......经过一道道复杂的工序，制作出滑嫩可口的豆花，再搭配上地瓜+薏仁+珍珠，醇香美味。（薏仁排水除湿，孕妇禁食）",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "8387e2eb00b6f354b4f1dac9db21d956jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151592805",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "豆花2号",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085404517",
+            "name": "豆花2号",
+            "virtual_food_id": 1257765227,
+            "pinyin_name": "douhua2hao",
+            "restaurant_id": 257922,
+            "food_id": 1261606840,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151592805",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085405541",
+            "name": "豆花2号",
+            "virtual_food_id": 1257765227,
+            "pinyin_name": "douhua2hao",
+            "restaurant_id": 257922,
+            "food_id": 1261606841,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151592805",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229842247
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752693,
+        "restaurant_id": 257922,
+        "pinyin_name": "douhua3hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "豆花3号：浸泡，打浆，滤渣，煮滚，凝固......经过一道道复杂的工序，制作出滑嫩可口的豆花，再搭配上花生+红豆+珍珠，醇香美味。",
+        "month_sales": 1,
+        "rating_count": 0,
+        "tips": "0评价 月售1份",
+        "image_path": "d796e3dffefe8918698e40968e5496bfjpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138757989",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "豆花3号",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071858021",
+            "name": "豆花3号",
+            "virtual_food_id": 1257752693,
+            "pinyin_name": "douhua3hao",
+            "restaurant_id": 257922,
+            "food_id": 1261593611,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138757989",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071859045",
+            "name": "豆花3号",
+            "virtual_food_id": 1257752693,
+            "pinyin_name": "douhua3hao",
+            "restaurant_id": 257922,
+            "food_id": 1261593612,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059138757989",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          }
+        ],
+        "category_id": 1229842247
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257760636,
+        "restaurant_id": 257922,
+        "pinyin_name": "douhua4hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "豆花4号：浸泡，打浆，滤渣，煮滚，凝固......经过一道道复杂的工序，制作出滑嫩可口的豆花，再搭配上芋头+红豆+珍珠，醇香美味。",
+        "month_sales": 1,
+        "rating_count": 0,
+        "tips": "0评价 月售1份",
+        "image_path": "e9dc65ed3501368ee06ce37c4536bc07jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059146891621",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "豆花4号",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087862117",
+            "name": "豆花4号",
+            "virtual_food_id": 1257760636,
+            "pinyin_name": "douhua4hao",
+            "restaurant_id": 257922,
+            "food_id": 1261609240,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146891621",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063087863141",
+            "name": "豆花4号",
+            "virtual_food_id": 1257760636,
+            "pinyin_name": "douhua4hao",
+            "restaurant_id": 257922,
+            "food_id": 1261609241,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059146891621",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          }
+        ],
+        "category_id": 1229842247
+      },
+      {
+        "rating": 5,
+        "is_featured": 0,
+        "virtual_food_id": 1257765239,
+        "restaurant_id": 257922,
+        "pinyin_name": "douhua5hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "豆花5号：浸泡，打浆，滤渣，煮滚，凝固......经过一道道复杂的工序，制作出滑嫩可口的豆花，再搭配上花豆+黑粉粿+珍珠，醇香美味。",
+        "month_sales": 1,
+        "rating_count": 1,
+        "tips": "1评价 月售1份",
+        "image_path": "d74f605d7fc4f6bb6f30ebe908ea70d6jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151605093",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "豆花5号",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085421925",
+            "name": "豆花5号",
+            "virtual_food_id": 1257765239,
+            "pinyin_name": "douhua5hao",
+            "restaurant_id": 257922,
+            "food_id": 1261606857,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151605093",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085422949",
+            "name": "豆花5号",
+            "virtual_food_id": 1257765239,
+            "pinyin_name": "douhua5hao",
+            "restaurant_id": 257922,
+            "food_id": 1261606858,
+            "packing_fee": 1,
+            "recent_rating": 5,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059151605093",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          }
+        ],
+        "category_id": 1229842247
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229842247,
+    "is_activity": false
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "紫米粥系列",
+    "foods": [
+      {
+        "rating": 5,
+        "is_featured": 0,
+        "virtual_food_id": 1257752712,
+        "restaurant_id": 257922,
+        "pinyin_name": "zimizhouxiannai",
+        "display_times": [],
+        "attrs": [],
+        "description": "紫米粥鲜奶：精选粒粒天然紫米熬煮成粥，再加上新鲜纯牛奶，紫米特有的稻谷口感混合着奶香，软嫩香滑，香气浓郁！（注：杯装）",
+        "month_sales": 1,
+        "rating_count": 1,
+        "tips": "1评价 月售1份",
+        "image_path": "fa68c51bfa5c491653601d310d02f219jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138777445",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "紫米粥鲜奶",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071887717",
+            "name": "紫米粥鲜奶",
+            "virtual_food_id": 1257752712,
+            "pinyin_name": "zimizhouxiannai",
+            "restaurant_id": 257922,
+            "food_id": 1261593640,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138777445",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071888741",
+            "name": "紫米粥鲜奶",
+            "virtual_food_id": 1257752712,
+            "pinyin_name": "zimizhouxiannai",
+            "restaurant_id": 257922,
+            "food_id": 1261593641,
+            "packing_fee": 1,
+            "recent_rating": 5,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059138777445",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          }
+        ],
+        "category_id": 1229852236
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765270,
+        "restaurant_id": 257922,
+        "pinyin_name": "yuanweizimizhou",
+        "display_times": [],
+        "attrs": [],
+        "description": "原味紫米粥：精选粒粒天然紫米熬煮成粥，米香四溢，口感醇厚。",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "940dce2cff7d2aa2a045d022ec68b13cjpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151636837",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "原味紫米粥",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085464933",
+            "name": "原味紫米粥",
+            "virtual_food_id": 1257765270,
+            "pinyin_name": "yuanweizimizhou",
+            "restaurant_id": 257922,
+            "food_id": 1261606899,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 17,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151636837",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085465957",
+            "name": "原味紫米粥",
+            "virtual_food_id": 1257765270,
+            "pinyin_name": "yuanweizimizhou",
+            "restaurant_id": 257922,
+            "food_id": 1261606900,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 17,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151636837",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229852236
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765274,
+        "restaurant_id": 257922,
+        "pinyin_name": "zhenzhuzimizhou",
+        "display_times": [],
+        "attrs": [],
+        "description": "珍珠紫米粥：精选粒粒天然紫米熬煮成粥，搭配珍珠；既有紫米的香醇又有珍珠的Q弹可口。",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "9b7de6d236e9f7fcb2afccd0d5638979jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151640933",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "珍珠紫米粥",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085472101",
+            "name": "珍珠紫米粥",
+            "virtual_food_id": 1257765274,
+            "pinyin_name": "zhenzhuzimizhou",
+            "restaurant_id": 257922,
+            "food_id": 1261606906,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 18,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151640933",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085473125",
+            "name": "珍珠紫米粥",
+            "virtual_food_id": 1257765274,
+            "pinyin_name": "zhenzhuzimizhou",
+            "restaurant_id": 257922,
+            "food_id": 1261606907,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 18,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151640933",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229852236
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752721,
+        "restaurant_id": 257922,
+        "pinyin_name": "yexiangzimizhou",
+        "display_times": [],
+        "attrs": [],
+        "description": "椰香紫米粥：精选粒粒天然紫米熬煮成粥，搭配浓香的椰奶，椰奶的香味和紫米的香味自然融合，造就一碗香醇可口的椰香紫米粥",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "940dce2cff7d2aa2a045d022ec68b13cjpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138786661",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "椰香紫米粥",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071900005",
+            "name": "椰香紫米粥",
+            "virtual_food_id": 1257752721,
+            "pinyin_name": "yexiangzimizhou",
+            "restaurant_id": 257922,
+            "food_id": 1261593652,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 18,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138786661",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071901029",
+            "name": "椰香紫米粥",
+            "virtual_food_id": 1257752721,
+            "pinyin_name": "yexiangzimizhou",
+            "restaurant_id": 257922,
+            "food_id": 1261593653,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 18,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138786661",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229852236
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765279,
+        "restaurant_id": 257922,
+        "pinyin_name": "yuyuanzimizhou",
+        "display_times": [],
+        "attrs": [],
+        "description": "芋圆紫米粥：精选粒粒天然紫米熬煮成粥，配以台湾传统手工制作的美味芋圆，既有紫米的香醇又有芋圆的软糯可口",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "fdd41bdfeb8f0fb7e3c7c224249204b8jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151646053",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芋圆紫米粥",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085480293",
+            "name": "芋圆紫米粥",
+            "virtual_food_id": 1257765279,
+            "pinyin_name": "yuyuanzimizhou",
+            "restaurant_id": 257922,
+            "food_id": 1261606914,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151646053",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085481317",
+            "name": "芋圆紫米粥",
+            "virtual_food_id": 1257765279,
+            "pinyin_name": "yuyuanzimizhou",
+            "restaurant_id": 257922,
+            "food_id": 1261606915,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 20,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151646053",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          }
+        ],
+        "category_id": 1229852236
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229852236,
+    "is_activity": false
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "布丁系列",
+    "foods": [
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257756870,
+        "restaurant_id": 257922,
+        "pinyin_name": "zhenzhubuding",
+        "display_times": [],
+        "attrs": [],
+        "description": "珍珠布丁：Q弹顺滑的珍珠搭配美味的芒果布丁，再加以碎冰，冰凉爽口，Q弹顺滑。(布丁+冰糖水)",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "fe4e3c17efb5f266c026d76cc51a56b1jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059143035237",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "珍珠布丁",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063082041701",
+            "name": "珍珠布丁",
+            "virtual_food_id": 1257756870,
+            "pinyin_name": "zhenzhubuding",
+            "restaurant_id": 257922,
+            "food_id": 1261603556,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059143035237",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063082042725",
+            "name": "珍珠布丁",
+            "virtual_food_id": 1257756870,
+            "pinyin_name": "zhenzhubuding",
+            "restaurant_id": 257922,
+            "food_id": 1261603557,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059143035237",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229856743
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765287,
+        "restaurant_id": 257922,
+        "pinyin_name": "yuyuanbuding",
+        "display_times": [],
+        "attrs": [],
+        "description": "芋圆布丁：Q弹的芋圆搭配美味的鸡蛋布丁，再加以碎冰，冰凉爽口，Q弹顺滑。(布丁+冰糖水)",
+        "month_sales": 1,
+        "rating_count": 0,
+        "tips": "0评价 月售1份",
+        "image_path": "8f3bf8f111e2d3fa0fa5c1256e140bb3jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151654245",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芋圆布丁",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085492581",
+            "name": "芋圆布丁",
+            "virtual_food_id": 1257765287,
+            "pinyin_name": "yuyuanbuding",
+            "restaurant_id": 257922,
+            "food_id": 1261606926,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059151654245",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085494629",
+            "name": "芋圆布丁",
+            "virtual_food_id": 1257765287,
+            "pinyin_name": "yuyuanbuding",
+            "restaurant_id": 257922,
+            "food_id": 1261606928,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151654245",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229856743
+      },
+      {
+        "rating": 4,
+        "is_featured": 0,
+        "virtual_food_id": 1257752732,
+        "restaurant_id": 257922,
+        "pinyin_name": "hongdoubuding",
+        "display_times": [],
+        "attrs": [],
+        "description": "红豆布丁：香浓的新鲜奶酪布丁加入软糯香甜的红豆。(布丁+冰糖水)",
+        "month_sales": 1,
+        "rating_count": 1,
+        "tips": "1评价 月售1份",
+        "image_path": "60a17c99541a7e1fb871368c9f230681jpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138797925",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "红豆布丁",
+        "satisfy_count": 1,
+        "activity": null,
+        "satisfy_rate": 100,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071917413",
+            "name": "红豆布丁",
+            "virtual_food_id": 1257752732,
+            "pinyin_name": "hongdoubuding",
+            "restaurant_id": 257922,
+            "food_id": 1261593669,
+            "packing_fee": 1,
+            "recent_rating": 4,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 1,
+            "is_essential": false,
+            "item_id": "200000059138797925",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 9999
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071918437",
+            "name": "红豆布丁",
+            "virtual_food_id": 1257752732,
+            "pinyin_name": "hongdoubuding",
+            "restaurant_id": 257922,
+            "food_id": 1261593670,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138797925",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229856743
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765295,
+        "restaurant_id": 257922,
+        "pinyin_name": "zonghebuding",
+        "display_times": [],
+        "attrs": [],
+        "description": "综合布丁：鸡蛋布丁+奶酪布丁+芒果布丁，三种布丁融汇在一起。(布丁+冰糖水)",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "7add79425f5564f8f4f8744ab738debfjpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151662437",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "综合布丁",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085503845",
+            "name": "综合布丁",
+            "virtual_food_id": 1257765295,
+            "pinyin_name": "zonghebuding",
+            "restaurant_id": 257922,
+            "food_id": 1261606937,
+            "packing_fee": 0,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151662437",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063085504869",
+            "name": "综合布丁",
+            "virtual_food_id": 1257765295,
+            "pinyin_name": "zonghebuding",
+            "restaurant_id": 257922,
+            "food_id": 1261606938,
+            "packing_fee": 0,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151662437",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229856743
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752736,
+        "restaurant_id": 257922,
+        "pinyin_name": "mangguobuding",
+        "display_times": [],
+        "attrs": [],
+        "description": "芒果布丁：芒果口味布丁，加以碎冰，冰凉爽口。(布丁+冰糖水)",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "0791c4406f99665f78e1afc7c159d48djpeg",
+        "specifications": [
+          {
+            "values": [
+              "冷",
+              "热"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138802021",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芒果布丁",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071922533",
+            "name": "芒果布丁",
+            "virtual_food_id": 1257752736,
+            "pinyin_name": "mangguobuding",
+            "restaurant_id": 257922,
+            "food_id": 1261593674,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138802021",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063071923557",
+            "name": "芒果布丁",
+            "virtual_food_id": 1257752736,
+            "pinyin_name": "mangguobuding",
+            "restaurant_id": 257922,
+            "food_id": 1261593675,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138802021",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229856743
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257756875,
+        "restaurant_id": 257922,
+        "pinyin_name": "jidanbuding",
+        "display_times": [],
+        "attrs": [],
+        "description": "鸡蛋布丁：美味的鸡蛋布丁，冰凉爽口，Q弹滑顺。(布丁+冰糖水)",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "fb07e665e38dfd2eb770f8c0210ecd8fjpeg",
+        "specifications": [
+          {
+            "values": [
+              "热",
+              "冷"
+            ],
+            "name": "规格"
+          }
+        ],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059143040357",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "鸡蛋布丁",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063082050917",
+            "name": "鸡蛋布丁",
+            "virtual_food_id": 1257756875,
+            "pinyin_name": "jidanbuding",
+            "restaurant_id": 257922,
+            "food_id": 1261603565,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059143040357",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "热"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 10000
+          },
+          {
+            "original_price": null,
+            "sku_id": "200000063082051941",
+            "name": "鸡蛋布丁",
+            "virtual_food_id": 1257756875,
+            "pinyin_name": "jidanbuding",
+            "restaurant_id": 257922,
+            "food_id": 1261603566,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059143040357",
+            "checkout_mode": 1,
+            "specs": [
+              {
+                "name": "规格",
+                "value": "冷"
+              }
+            ],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229856743
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229856743,
+    "is_activity": false
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "古早凤梨系列",
+    "foods": [
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765185,
+        "restaurant_id": 257922,
+        "pinyin_name": "taiwanfenglibing",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "64068437ec8e3b8e7e4e8b334fcaedd7jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151549797",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "台湾凤梨冰",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085342053",
+            "name": "台湾凤梨冰",
+            "virtual_food_id": 1257765185,
+            "pinyin_name": "taiwanfenglibing",
+            "restaurant_id": 257922,
+            "food_id": 1261606779,
+            "packing_fee": 2,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 36,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151549797",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229847217
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257756837,
+        "restaurant_id": 257922,
+        "pinyin_name": "fengliniunaibing",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "cbd1d2a3456cd7416f655b0d64d23a2cjpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059143001445",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "凤梨牛奶冰",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063081995621",
+            "name": "凤梨牛奶冰",
+            "virtual_food_id": 1257756837,
+            "pinyin_name": "fengliniunaibing",
+            "restaurant_id": 257922,
+            "food_id": 1261603511,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 38,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059143001445",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229847217
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257756838,
+        "restaurant_id": 257922,
+        "pinyin_name": "guweifenglibingsha",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "27fea2df515be753637f6269491092b8jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059143002469",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "古味凤梨冰沙",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063081996645",
+            "name": "古味凤梨冰沙",
+            "virtual_food_id": 1257756838,
+            "pinyin_name": "guweifenglibingsha",
+            "restaurant_id": 257922,
+            "food_id": 1261603512,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 18,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059143002469",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229847217
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752654,
+        "restaurant_id": 257922,
+        "pinyin_name": "fengningdongguacha",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "2580701e13cfc71bf7ed53d3e3488b01jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138718053",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "风拧冬瓜茶",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071795557",
+            "name": "风拧冬瓜茶",
+            "virtual_food_id": 1257752654,
+            "pinyin_name": "fengningdongguacha",
+            "restaurant_id": 257922,
+            "food_id": 1261593550,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 16,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138718053",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229847217
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229847217,
+    "is_activity": false
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "全品烧系列（热）",
+    "foods": [
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257756849,
+        "restaurant_id": 257922,
+        "pinyin_name": "miguihongzaoshao",
+        "display_times": [],
+        "attrs": [],
+        "description": "桂圆红枣汤底+干桂花+芋圆+黄豆粉+鸡肉松+翡翠粉粿+黄豆粉麻薯+芋头",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "dc9f6e627361976c026ae946cbc639e8jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [
+          {
+            "icon_name": "新",
+            "icon_color": "5ec452"
+          }
+        ],
+        "item_id": "200000059143013733",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "秘桂红枣烧",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063082013029",
+            "name": "秘桂红枣烧",
+            "virtual_food_id": 1257756849,
+            "pinyin_name": "miguihongzaoshao",
+            "restaurant_id": 257922,
+            "food_id": 1261603528,
+            "packing_fee": 2,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 28,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059143013733",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842246
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257760632,
+        "restaurant_id": 257922,
+        "pinyin_name": "zijinyutoushao",
+        "display_times": [],
+        "attrs": [],
+        "description": "芋头汤底+干桂花+芋圆+黄豆粉+海苔酥+翡翠粉粿+黄豆粉麻薯+地瓜",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "5028df4721001fc3ee30de6abcd4cd87jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [
+          {
+            "icon_name": "新",
+            "icon_color": "5ec452"
+          }
+        ],
+        "item_id": "200000059146887525",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "紫金芋头烧",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087854949",
+            "name": "紫金芋头烧",
+            "virtual_food_id": 1257760632,
+            "pinyin_name": "zijinyutoushao",
+            "restaurant_id": 257922,
+            "food_id": 1261609233,
+            "packing_fee": 2,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 28,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146887525",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842246
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229842246,
+    "is_activity": false
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "花生玉浆系列",
+    "foods": [
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765252,
+        "restaurant_id": 257922,
+        "pinyin_name": "huashengyujiang1hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "花生汤底+绿豆+珍珠+芋圆+芝麻花生汤圆+地瓜汤圆+干桂花",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "0fca76a3304ea488e14f65ceaa3f54cajpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [
+          {
+            "icon_name": "新",
+            "icon_color": "5ec452"
+          }
+        ],
+        "item_id": "200000059151618405",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "花生玉浆1号",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085441381",
+            "name": "花生玉浆1号",
+            "virtual_food_id": 1257765252,
+            "pinyin_name": "huashengyujiang1hao",
+            "restaurant_id": 257922,
+            "food_id": 1261606876,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 22,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151618405",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842250
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752706,
+        "restaurant_id": 257922,
+        "pinyin_name": "huashengyujiang2hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "花生汤底+地瓜+珍珠+芋圆+芝麻花生汤圆+地瓜汤圆+干桂花",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "3ff4e2ecfdd8266b8c77253eafde2599jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138771301",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "花生玉浆2号",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071879525",
+            "name": "花生玉浆2号",
+            "virtual_food_id": 1257752706,
+            "pinyin_name": "huashengyujiang2hao",
+            "restaurant_id": 257922,
+            "food_id": 1261593632,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 22,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138771301",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842250
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257756858,
+        "restaurant_id": 257922,
+        "pinyin_name": "huashengyujiang3hao",
+        "display_times": [],
+        "attrs": [],
+        "description": "花生汤底+红豆+珍珠+芋圆+芝麻花生汤圆+地瓜汤圆+干桂花",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "be578b1a2deb805fa6b7affa7cc13506jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059143022949",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "花生玉浆3号",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063082025317",
+            "name": "花生玉浆3号",
+            "virtual_food_id": 1257756858,
+            "pinyin_name": "huashengyujiang3hao",
+            "restaurant_id": 257922,
+            "food_id": 1261603540,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 22,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059143022949",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842250
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229842250,
+    "is_activity": false
+  },
+  {
+    "description": "",
+    "is_selected": false,
+    "icon_url": "",
+    "name": "单独加料",
+    "foods": [
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752744,
+        "restaurant_id": 257922,
+        "pinyin_name": "yuyuan",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "6f0aa6d433b1e475a607cab2eb60b247jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138810213",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芋圆",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071935845",
+            "name": "芋圆",
+            "virtual_food_id": 1257752744,
+            "pinyin_name": "yuyuan",
+            "restaurant_id": 257922,
+            "food_id": 1261593687,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 3,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138810213",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752748,
+        "restaurant_id": 257922,
+        "pinyin_name": "xiaoyuyuan",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "e5689e5f5b3ca9f3bd3c3fa8deec9a2fjpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138814309",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "小芋圆",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071939941",
+            "name": "小芋圆",
+            "virtual_food_id": 1257752748,
+            "pinyin_name": "xiaoyuyuan",
+            "restaurant_id": 257922,
+            "food_id": 1261593691,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 3,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138814309",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765317,
+        "restaurant_id": 257922,
+        "pinyin_name": "yutou",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "e3c3539cfd7cc37ec3cd9ca63e672099jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151684965",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "芋头",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085532517",
+            "name": "芋头",
+            "virtual_food_id": 1257765317,
+            "pinyin_name": "yutou",
+            "restaurant_id": 257922,
+            "food_id": 1261606965,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 3,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151684965",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257760668,
+        "restaurant_id": 257922,
+        "pinyin_name": "digua",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "5a293e73e9984ee4819f04c201d91cc9jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059146924389",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "地瓜",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063087914341",
+            "name": "地瓜",
+            "virtual_food_id": 1257760668,
+            "pinyin_name": "digua",
+            "restaurant_id": 257922,
+            "food_id": 1261609291,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 3,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059146924389",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765324,
+        "restaurant_id": 257922,
+        "pinyin_name": "lianzi",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "a6927f57b21fc309420b71858697dc81jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151692133",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "莲子",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085542757",
+            "name": "莲子",
+            "virtual_food_id": 1257765324,
+            "pinyin_name": "lianzi",
+            "restaurant_id": 257922,
+            "food_id": 1261606975,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 3,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151692133",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752753,
+        "restaurant_id": 257922,
+        "pinyin_name": "hongdou",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "0e170965e59a54f9327f74128bcc0bfcjpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138819429",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "红豆",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071946085",
+            "name": "红豆",
+            "virtual_food_id": 1257752753,
+            "pinyin_name": "hongdou",
+            "restaurant_id": 257922,
+            "food_id": 1261593697,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 2,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138819429",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765330,
+        "restaurant_id": 257922,
+        "pinyin_name": "lu:dou",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "e6e52231a103d483018fd976402080b5jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151698277",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "绿豆",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085550949",
+            "name": "绿豆",
+            "virtual_food_id": 1257765330,
+            "pinyin_name": "lu:dou",
+            "restaurant_id": 257922,
+            "food_id": 1261606983,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 2,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151698277",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752760,
+        "restaurant_id": 257922,
+        "pinyin_name": "huadou",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "5c89408c56831266c0a40aad678fb4a5jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138826597",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "花豆",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071956325",
+            "name": "花豆",
+            "virtual_food_id": 1257752760,
+            "pinyin_name": "huadou",
+            "restaurant_id": 257922,
+            "food_id": 1261593707,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 2,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138826597",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765333,
+        "restaurant_id": 257922,
+        "pinyin_name": "huasheng",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "e0d7c481b6a38189220bb14bc1fa6a08jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151701349",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "花生",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085555045",
+            "name": "花生",
+            "virtual_food_id": 1257765333,
+            "pinyin_name": "huasheng",
+            "restaurant_id": 257922,
+            "food_id": 1261606987,
+            "packing_fee": 1,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 2,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151701349",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752764,
+        "restaurant_id": 257922,
+        "pinyin_name": "yiren",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "80fc60de8cbf25a5ae0b8681b2e7547fjpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138830693",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "薏仁",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071962469",
+            "name": "薏仁",
+            "virtual_food_id": 1257752764,
+            "pinyin_name": "yiren",
+            "restaurant_id": 257922,
+            "food_id": 1261593713,
+            "packing_fee": 2,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 2,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138830693",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752766,
+        "restaurant_id": 257922,
+        "pinyin_name": "heifenguo",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "3eac67fd675e383ef8e08aa839099404jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138832741",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "黑粉粿",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071964517",
+            "name": "黑粉粿",
+            "virtual_food_id": 1257752766,
+            "pinyin_name": "heifenguo",
+            "restaurant_id": 257922,
+            "food_id": 1261593715,
+            "packing_fee": 2,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 2,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138832741",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257752770,
+        "restaurant_id": 257922,
+        "pinyin_name": "naijingqiu",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "1a0b60590d3f7a0ab14cdae9eccf4a44jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059138836837",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "奶精球",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063071969637",
+            "name": "奶精球",
+            "virtual_food_id": 1257752770,
+            "pinyin_name": "naijingqiu",
+            "restaurant_id": 257922,
+            "food_id": 1261593720,
+            "packing_fee": 0,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 2,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059138836837",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      },
+      {
+        "rating": 0,
+        "is_featured": 0,
+        "virtual_food_id": 1257765346,
+        "restaurant_id": 257922,
+        "pinyin_name": "lianru",
+        "display_times": [],
+        "attrs": [],
+        "description": "",
+        "month_sales": 0,
+        "rating_count": 0,
+        "tips": "0评价 月售0份",
+        "image_path": "8239ef1a1391c373a19984896f831893jpeg",
+        "specifications": [],
+        "server_utc": 1503958462,
+        "is_essential": false,
+        "attributes": [],
+        "item_id": "200000059151714661",
+        "min_purchase": 1,
+        "limitation": {},
+        "name": "炼乳",
+        "satisfy_count": 0,
+        "activity": null,
+        "satisfy_rate": 0,
+        "specfoods": [
+          {
+            "original_price": null,
+            "sku_id": "200000063085571429",
+            "name": "炼乳",
+            "virtual_food_id": 1257765346,
+            "pinyin_name": "lianru",
+            "restaurant_id": 257922,
+            "food_id": 1261607003,
+            "packing_fee": 0,
+            "recent_rating": 0,
+            "promotion_stock": -1,
+            "price": 2,
+            "sold_out": false,
+            "recent_popularity": 0,
+            "is_essential": false,
+            "item_id": "200000059151714661",
+            "checkout_mode": 1,
+            "specs": [],
+            "partial_reduce_activity_id": null,
+            "stock": 0
+          }
+        ],
+        "category_id": 1229842260
+      }
+    ],
+    "activity": null,
+    "type": 1,
+    "id": 1229842260,
+    "is_activity": false
+  }
+]
