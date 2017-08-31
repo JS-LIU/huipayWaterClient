@@ -36,10 +36,9 @@ import ShopDetail from './MobX/domain/ShopDetail';
 import ProductList from './MobX/domain/ProductList';
 import ShoppingCart from './MobX/domain/ShoppingCart';
 import ProductDetail from './MobX/domain/ProductDetail';
+import ShoppingList from './MobX/domain/ShoppingList';
+
 import Order from './MobX/domain/Order';
-import ProductList_mock from './MobX/domain/ProductList_mock';
-import ProductType_mock from './MobX/domain/ProductType_mock';
-import ShopShoppingCart_mock from './MobX/domain/ShopShoppingCart_mock'
 //  RR辅助类
 import HistoryPath from './MobX/domain/HistoryPath';
 
@@ -82,9 +81,8 @@ const productList = new ProductList(login);
 const productDetail = new ProductDetail(login);
 const order = new Order(login);
 const shoppingCart = new ShoppingCart();
-// const productType_mock = new ProductType_mock(rem2pxRate,1.01);
-const productList_mock = new ProductList_mock(rem2pxRate,1.01,0.31);
-const shopShoppingCart = new ShopShoppingCart_mock(productList_mock);
+const shoppingList = new ShoppingList(rem2pxRate);
+
 
 const stores = {
     login,
@@ -97,8 +95,8 @@ const stores = {
     productDetail,
     order,
     historyPath,
-    productList_mock,
-    shopShoppingCart
+    shoppingList
+
 };
 
 ReactDom.render(

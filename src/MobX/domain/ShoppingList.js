@@ -68,12 +68,12 @@ class TypeList{
 
 class Type{
     constructor(type){
-        this._type = type;
+        this._info = type;
     }
 
-    @observable _type;
+    @observable _info;
 
-    @computed get type(){
+    @computed get info(){
 
     }
     @computed get selectCount(){
@@ -82,7 +82,7 @@ class Type{
 }
 class Product{
     constructor(product){
-        this._product = product;
+        this._info = product;
         let ajax = _h.ajax.resource('');
 
 
@@ -92,8 +92,8 @@ class Product{
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
         });
     }
-    @observable _product;
-    @computed get product(){
+    @observable _info;
+    @computed get info(){
         return {}
     }
 
@@ -102,11 +102,29 @@ class Product{
 
         });
 
-        this._product.count++;
+        this._info.count++;
+    }
+}
+
+class WaterTicket{
+    constructor(ticket){
+        this._info = ticket;
+    }
+    @observable _info;
+    @computed get info(){
+        let info = Object.assign({},this._info);
+        let list = [];
+        for(let i = 0,len = this._info.strategyList.length;i < len;i++){
+            let product = new Product(this._info.strategyList[i].info);
+            list.push(product);
+        }
+        info.strategyList = list;
+        return info;
     }
 }
 
 
+module.exports = ShoppingList;
 
 
 
