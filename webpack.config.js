@@ -44,23 +44,23 @@ module.exports = {
     devServer: {
         host: "0.0.0.0",
         disableHostCheck: true,
-        // proxy:{
-        //     "**":{
-        //         // target: 'http://123.57.161.212:9216/water/',
-        //         target: 'localhost:8080',
-        //         secure: false,
-        //         bypass: function (req, res, proxyOptions) {
-        //             if (req.headers.accept.indexOf('html') !== -1) {
-        //                 return '/index.html';
-        //             }
-        //             if (req.headers.accept.indexOf('css') !== -1) {
-        //                 return '/src/Util/base.css';
-        //             }
-        //             if (req.headers.accept.indexOf('images') !== -1) {
-        //                 return req.url;
-        //             }
-        //         }
-        //     }
-        // }
+        proxy:{
+            "**":{
+                target: 'http://123.57.161.212:9931/',
+                // target: 'localhost:8080',
+                secure: false,
+                bypass: function (req, res, proxyOptions) {
+                    if (req.headers.accept.indexOf('html') !== -1) {
+                        return '/index.html';
+                    }
+                    if (req.headers.accept.indexOf('css') !== -1) {
+                        return '/src/Util/base.css';
+                    }
+                    if (req.headers.accept.indexOf('images') !== -1) {
+                        return req.url;
+                    }
+                }
+            }
+        }
     }
 };

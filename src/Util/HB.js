@@ -165,15 +165,23 @@ HB.valid = (function(){
     * */
 
     function validNum(num,arr,str){
-        var newPhoneNum = [];
-        arr.map((item,i)=>{
-            var newNum = num.slice(0,item);
-            num = num.substr(item);
+        let myNum = num.split(str).join("");
+        let newPhoneNum = [];
+        for(let i = 0;i < arr.length;i++){
+            let newNum = myNum.slice(0,arr[i]);
             newPhoneNum.push(newNum);
-        });
-        newPhoneNum.push(num);
+            myNum = myNum.substr(arr[i]);
+        }
         return newPhoneNum.join(str).trim();
     }
+    function validPhoneNum(phoneNum){
+        if(phoneNum.length === 11){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 
     //  用途：将字符串中所有空格删除
     function trimAllBlank(str){
@@ -217,7 +225,8 @@ HB.valid = (function(){
         parseString:parseString,
         parseArr:parseArr,
         parseChinese:parseChinese,
-        parseDay:parseDay
+        parseDay:parseDay,
+        validPhoneNum:validPhoneNum
     }
 
 })();

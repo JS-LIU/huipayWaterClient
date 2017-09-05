@@ -5,11 +5,8 @@ import {observable, computed,action,autorun} from "mobx";
 import _h from '../../Util/HB';
 
 class ShoppingList{
-    constructor(rem2pxRate,productHeight,typeHeight,login){
-
+    constructor(rem2pxRate,login){
         this.rem2pxRate = rem2pxRate;
-        this.productHeight = productHeight;
-        this.typeHeight = typeHeight;
 
         this.customerSelectedIndex = false;
 

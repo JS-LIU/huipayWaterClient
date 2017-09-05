@@ -26,6 +26,7 @@ import ReceiveAddressListView from './container/ReceiveAddressListView';
 import ProductDetailView from './container/ProductDetailView';
 import TypeProductListView from './container/TypeProductListView';
 import MyView from './container/MyView';
+import LoginView from './container/LoginView';
 
 //  MobX
 import Login from './MobX/domain/Login';
@@ -51,8 +52,9 @@ let rem2pxRate = _h.ui.parsePx();
 const App = ()=>(
     <BrowserRouter>
         <div>
-            <Redirect to="/water"/>
+            <Redirect to="/login"/>
             <Switch>
+                <Route path='/login' component={LoginView} />
                 <Route path='/water' component={WaterView} />
                 <Route path='/shop' component={ShopView} />
                 <Route path='/shopDetail' component={ShopDetailView} />
@@ -81,7 +83,7 @@ const productList = new ProductList(login);
 const productDetail = new ProductDetail(login);
 const order = new Order(login);
 const shoppingCart = new ShoppingCart();
-const shoppingList = new ShoppingList(rem2pxRate);
+const shoppingList = new ShoppingList(rem2pxRate,login);
 
 
 const stores = {
