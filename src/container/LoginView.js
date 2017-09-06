@@ -28,7 +28,8 @@ import {observer,inject} from 'mobx-react';
         this.props.login.getCheckCode();
     }
     login(){
-        this.props.login.clientLogin();
+        let historyPath = this.props.history;
+        this.props.login.clientLogin(historyPath);
     }
     render(){
         return (
@@ -58,9 +59,9 @@ import {observer,inject} from 'mobx-react';
                         />
                     </li>
                 </ul>
-                <Link to="/shop" className={loginStyle.login_btn} onClick={this.login.bind(this)}>
+                <Button className={loginStyle.login_btn} onClick={this.login.bind(this)}>
                     <Text className={loginStyle.login_text}>登录</Text>
-                </Link>
+                </Button>
             </View>
         )
     }

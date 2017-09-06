@@ -122,7 +122,7 @@ class Login{
 
 
     //  手机号登录接口
-    @action clientLogin(){
+    @action clientLogin(history){
 
         // let accessInfo = this.setBaseAccessInfo(account_num ,loginType,os ,version);
         // this.getMd5Key(accessInfo).then((Md5Data)=>{
@@ -146,10 +146,15 @@ class Login{
             phoneNum:this._phoneNum
         };
         _h.ajax.resource('/login').save({},postData).then((loginInfo)=>{
+            console.log(loginInfo);
             this._access_secret = loginInfo.access_secret;
             this._access_token = loginInfo.access_token;
             this._isLogin = true;
-        }).catch(()=>{
+
+            //  页面跳转
+            history.replace('/shop');
+        }).catch((data)=>{
+            console.log(data);
             alert('验证码错误');
         })
     }

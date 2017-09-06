@@ -38,6 +38,8 @@ import ProductList from './MobX/domain/ProductList';
 import ShoppingCart from './MobX/domain/ShoppingCart';
 import ProductDetail from './MobX/domain/ProductDetail';
 import ShoppingList from './MobX/domain/ShoppingList';
+import ShopInfo from './MobX/domain/ShopInfo';
+
 
 import Order from './MobX/domain/Order';
 //  RR辅助类
@@ -75,15 +77,17 @@ const App = ()=>(
 const historyPath = new HistoryPath();
 const autoMap = new AutoMap();
 const login = new Login();
-
+const shoppingList = new ShoppingList(rem2pxRate,login);
+const shopInfo = new ShopInfo(login);
 const addressList = new AddressList(login,autoMap);
-const shopDetail = new ShopDetail(login);
 const activeAddress = new ActiveAddress(addressList,autoMap);
+
+
+// const shopDetail = new ShopDetail(login);
 const productList = new ProductList(login);
 const productDetail = new ProductDetail(login);
 const order = new Order(login);
 const shoppingCart = new ShoppingCart();
-const shoppingList = new ShoppingList(rem2pxRate,login);
 
 
 const stores = {
@@ -91,14 +95,13 @@ const stores = {
     autoMap,
     addressList,
     activeAddress,
-    shopDetail,
     productList,
     shoppingCart,
     productDetail,
     order,
     historyPath,
-    shoppingList
-
+    shoppingList,
+    shopInfo
 };
 
 ReactDom.render(

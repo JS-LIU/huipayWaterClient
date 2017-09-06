@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 //  components
 import View from '../components/View';
 import ReceiveAddressView from './ReceiveAddressView';
-
+import HeadShopInfoView from './HeadShopInfoView'
 
 import shopStyle from '../css/shopStyle.css';
 
@@ -19,13 +19,13 @@ class ShopView extends Component{
         super(props);
     }
     componentWillMount(){
-        this.props.shoppingList.getList();
+        this.props.shoppingList.getList(1);
     }
     render(){
         return (
-            <View className={shopStyle.wrap}>
+            <View>
                 <ReceiveAddressView current={this.props.location.pathname}/>
-
+                <HeadShopInfoView />
             </View>
         )
     }

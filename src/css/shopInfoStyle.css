@@ -76,3 +76,81 @@
     padding-left: 0.85rem;
     composes:spec_item;
 }
+
+
+
+.total_height{
+    height:2.1rem;
+}
+.head_bj{
+    composes: linear_blue_bg from '../Util/huipayWaterBase.css';
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height:1.86rem;
+}
+.protect_img{
+    margin:0.4rem 0 0 0.35rem;
+    height:1.68rem;
+    width:1.68rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-border-radius: 0.06rem;
+    -moz-border-radius: 0.06rem;
+    border-radius: 0.06rem;
+}
+.img{
+    width:100%;
+}
+
+.shop_detail_info{
+    margin:0.56rem 0 0 0.24rem;
+}
+.shop_name{
+    font-size:0.4rem;
+    color:#FFF;
+}
+.shop_address{
+    color:#FFF;
+    padding:0.18rem 0.3rem 0 0;
+    font-size:0.22rem;
+    background:url('../images/address-05.png') no-repeat left center;
+    -webkit-background-size: 0.24rem;
+    background-size: 0.24rem;
+}
+.shop_detail_distance{
+    padding-right:0.2rem;
+}
+
+.shop_distance{
+    color:#FFF;
+    font-size:0.22rem;
+}
+.shop_delivery_time{
+    color:#FFF;
+    font-size:0.22rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

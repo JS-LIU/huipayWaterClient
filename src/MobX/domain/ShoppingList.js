@@ -7,7 +7,7 @@ import _h from '../../Util/HB';
 class ShoppingList{
     constructor(rem2pxRate,login){
         this.rem2pxRate = rem2pxRate;
-
+        this.login = login;
         this.customerSelectedIndex = false;
 
         let self = this;
@@ -26,22 +26,13 @@ class ShoppingList{
         this.getProductList({
             shopId:shopId
         }).then((list)=>{
-            this._list = list;
-
-            let typeList = new TypeList(list);
-            let productList = new ProductList(list);
-
+            this._list = list.tagModelList;
         });
     }
 
     @observable _list;
-
-
-    //  切换 tag 的高度
-    @computed get cutTagHeight(){
-        let list = [0];
-
-        return list;
+    @computed get list(){
+        return new TypeList(this._list);
     }
 
 }
@@ -56,38 +47,84 @@ class TypeList{
     @computed get typeList(){
         let list = [];
         for(let i = 0,len = this._typeList.length; i < len;i++){
-            list.push(new Type(this._typeList[i]));
+            list.push(new TypeItem(this._typeList[i]));
         }
 
         return list;
     }
 }
 
-class Type{
+class TypeItem{
     constructor(type){
-        this._info = type;
+        this.id = type.id;
+        this.name = type.name;
+        this._selectCount = type.selectCount;
+
+        //  productList是一个 对象{}
+        this._productList = new ProductList(type.productList);
     }
-
-    @observable _info;
-
-    @computed get info(){
-
-    }
+    @observable _selectCount;
+    @observable _productList;
+    //  selectCount是【productList对象】的属性
     @computed get selectCount(){
+        return this.productList.totalCount();
+    }
+    @computed get productList(){
+        return this._productList;
+    }
+
+}
+class ProductList{
+    constructor(list){
+        this._list = list;
+    }
+    @observable _totalCount = 0;
+    @observable _list = [];
+
+    @computed get list(){
+        let list = [];
+        for(let i = 0;i < this._list.length;i++){
+            let product;
+            if(this._list[i].type === "waterTicket"){
+                product = new WaterTicket(this._list[i]);
+            }else{
+                product = new Product(this._list[i]);
+            }
+            list.push(product);
+        }
+        return list;
+    }
+    @computed get totalCount(){
         return 0;
     }
+    @computed get shoppingCart(){
+        let shoppingCart = [];
+        for(let i = 0;i < this.list.length;i++){
+            let isHasProduct = function(product){
+                if(product.productItemId === this.list[i].productItemId){
+                    return this.list[i];
+                }
+            };
+
+            let product = shoppingCart.find(isHasProduct);
+            if(!product){
+                shoppingCart.push(product);
+            }
+        }
+        return shoppingCart
+    }
+
+    //  切换type的高度
+    @computed get cutProductListHeight(){
+
+    }
+
 }
+
+
 class Product{
     constructor(product){
         this._info = product;
-        let ajax = _h.ajax.resource('');
-
-
-        this.increaseNum = function(postInfo){
-            return ajax.save({action:"productList"},postInfo)
-        }.before(function(postInfo){
-            postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
-        });
     }
     @observable _info;
     @computed get info(){
