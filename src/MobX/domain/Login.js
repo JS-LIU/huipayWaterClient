@@ -174,7 +174,10 @@ class Login{
     }
     //  设置电话号码
     @action setPhoneNum(phoneNum){
-        this._phoneNum = _h.valid.trimAllBlank(phoneNum);
+        let num = _h.valid.trimAllBlank(phoneNum);
+        if(num.length <= 11){
+            this._phoneNum = num;
+        }
     }
 
     //  是否可以点击获取验证码

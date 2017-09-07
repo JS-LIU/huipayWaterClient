@@ -88,6 +88,7 @@ const productList = new ProductList(login);
 const productDetail = new ProductDetail(login);
 const order = new Order(login);
 const shoppingCart = new ShoppingCart();
+// const addressOperator = new AddressOperator(autoMap,addressList);
 
 
 const stores = {

@@ -6,7 +6,7 @@ import {observable, computed,action,autorun} from "mobx";
 import _h from '../../Util/HB';
 
 class ShopInfo{
-    constructor(login){
+    constructor(login,activeAddress){
         this.login = login;
         this.shopInfo = function(postInfo){
             return _h.ajax.resource('/shopinfo')
@@ -14,10 +14,14 @@ class ShopInfo{
         }.before((postInfo)=>{
             postInfo.accessInfo = this.login.postDataAccessInfo.accessInfo;
         });
+        this.activeAddress = activeAddress;
     }
     @action getShopInfo(shopId){
         this.shopInfo({
-            shopId:shopId
+            shopId:shopId,
+            cityName: "北京",
+            latitude: 39.92868,
+            longtitude: 116.35091
         }).then((info)=>{
             this._info = info;
         })

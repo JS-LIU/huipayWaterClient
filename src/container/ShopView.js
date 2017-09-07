@@ -14,7 +14,7 @@ import shopStyle from '../css/shopStyle.css';
 import {observer,inject} from 'mobx-react';
 @inject(['shoppingList'])
 
-class ShopView extends Component{
+@observer class ShopView extends Component{
     constructor(props){
         super(props);
     }

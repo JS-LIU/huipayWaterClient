@@ -66,7 +66,7 @@ class ReceiveAddress{
         }))
 
     }
-    //  todo 这里可写成autorun 只在new 的时候获取一次 增删 做成本地操作
+
     @action getAddressList(pageNo = 0,size = 50,sortProperties=[],direction = "DESC"){
         let self = this;
 

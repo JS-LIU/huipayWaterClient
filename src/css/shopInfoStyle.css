@@ -82,6 +82,10 @@
 .total_height{
     height:2.1rem;
 }
+.shop_info{
+    display: flex;
+    flex-direction: row;
+}
 .head_bj{
     composes: linear_blue_bg from '../Util/huipayWaterBase.css';
     display: flex;
@@ -100,28 +104,36 @@
     -webkit-border-radius: 0.06rem;
     -moz-border-radius: 0.06rem;
     border-radius: 0.06rem;
+    background:#FFF;
+    -webkit-box-shadow: 0 0 0.15rem 0.05rem #e5e5e5;
+    -moz-box-shadow: 0 0 0.15rem 0.05rem #e5e5e5;
+    box-shadow: 0 0 0.15rem 0.05rem #e5e5e5;
 }
 .img{
     width:100%;
 }
 
 .shop_detail_info{
-    margin:0.56rem 0 0 0.24rem;
+    display: flex;
+    flex-direction: column;
+    margin:0.34rem 0 0 0.24rem;
 }
 .shop_name{
     font-size:0.4rem;
     color:#FFF;
 }
 .shop_address{
+    margin-top:0.18rem;
+    padding-left:0.3rem;
+    background:url('../images/location_white@2x.png') no-repeat left center;
+    -webkit-background-size: 0.19rem;
+    background-size: 0.19rem;
     color:#FFF;
-    padding:0.18rem 0.3rem 0 0;
     font-size:0.22rem;
-    background:url('../images/address-05.png') no-repeat left center;
-    -webkit-background-size: 0.24rem;
-    background-size: 0.24rem;
 }
 .shop_detail_distance{
     padding-right:0.2rem;
+    margin-top:1.14rem;
 }
 
 .shop_distance{

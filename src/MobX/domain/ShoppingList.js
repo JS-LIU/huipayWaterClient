@@ -31,15 +31,21 @@ class ShoppingList{
     }
 
     @observable _list;
+
+    //  只有未重复的product
+    @observable _recordProductList = [];
+
+
     @computed get list(){
-        return new TypeList(this._list);
+        return new TypeList(this._list,this._recordProductList);
     }
 
 }
 
 class TypeList{
-    constructor(list){
+    constructor(list,recordProductList){
         this._typeList = list;
+        this._recordProductList = recordProductList;
     }
 
     @observable _typeList;
@@ -47,7 +53,7 @@ class TypeList{
     @computed get typeList(){
         let list = [];
         for(let i = 0,len = this._typeList.length; i < len;i++){
-            list.push(new TypeItem(this._typeList[i]));
+            list.push(new TypeItem(this._typeList[i]),this._recordProductList);
         }
 
         return list;
@@ -55,13 +61,14 @@ class TypeList{
 }
 
 class TypeItem{
-    constructor(type){
+    constructor(type,recordProductList){
         this.id = type.id;
         this.name = type.name;
         this._selectCount = type.selectCount;
+        this._recordProductList = recordProductList;
 
         //  productList是一个 对象{}
-        this._productList = new ProductList(type.productList);
+        this._productList = new ProductList(type.productList,this._recordProductList);
     }
     @observable _selectCount;
     @observable _productList;
@@ -75,8 +82,48 @@ class TypeItem{
 
 }
 class ProductList{
-    constructor(list){
+    constructor(list,recordProductList){
         this._list = list;
+        this._recordProductList = recordProductList;
+
+        //  从recordProductList中 找是否有相同的商品
+        function findFromRecordProductList(product){
+            let recordProduct;
+            let isEqualProductItemId = function(productItem){
+                if(product.productItemId === productItem.productItemId){
+                    return productItem;
+                }
+            };
+            recordProduct = this._recordProductList.find(isEqualProductItemId);
+
+            return recordProduct;
+        }
+        this.findOrCreateProduct = (product)=>{
+
+            let newProduct;  //  水票商品/商品
+
+            let productItem; //  单个商品
+            let productItemModels = [];
+
+            //  遍历 商品
+            for(let i = 0;i < product.productItemModels.length;i++){
+                productItem = findFromRecordProductList(product.productItemModels[i]);
+
+                if(!productItem){
+                    productItem = new Product(product.type,product.imageUrl,product.productItemModels[i]);
+                    productItemModels.push(productItem);
+                    this._recordProductList.push(productItem);
+                }
+            }
+
+            if(product.type === "waterTicket"){
+                newProduct = new WaterTicket(product.name,product.type,product.imageUrl,productItemModels);
+            }else{
+                newProduct = productItem;
+            }
+            return newProduct;
+        }
+
     }
     @observable _totalCount = 0;
     @observable _list = [];
@@ -84,17 +131,13 @@ class ProductList{
     @computed get list(){
         let list = [];
         for(let i = 0;i < this._list.length;i++){
-            let product;
-            if(this._list[i].type === "waterTicket"){
-                product = new WaterTicket(this._list[i]);
-            }else{
-                product = new Product(this._list[i]);
-            }
+            let product = this.findOrCreateProduct(this.list[i]);
             list.push(product);
         }
         return list;
     }
     @computed get totalCount(){
+
         return 0;
     }
     @computed get shoppingCart(){
@@ -123,38 +166,59 @@ class ProductList{
 
 
 class Product{
-    constructor(product){
-        this._info = product;
+    constructor(productType,productImageUrl,itemModel){
+        this.imageUrl = productImageUrl;
+        this.type = productType;
+        this.name = itemModel.name;
+        this.productItemId = itemModel.productItemId;
+        this.originalPrice = itemModel.originalPrice;
+        this.currentPrice = itemModel.currentPrice;
+        this.saleMount = itemModel.saleMount;
+        this._selectCount = itemModel.selectCount;
     }
-    @observable _info;
-    @computed get info(){
-        return {}
+    @observable _selectCount;
+    @computed get selectCount(){
+        return this._selectCount;
     }
 
     @action increase(){
-        this.increaseNum().then(()=>{
-
-        });
-
-        this._info.count++;
+        this._selectCount++;
+    }
+    @action reduce(){
+        this._selectCount--;
     }
 }
 
 class WaterTicket{
-    constructor(ticket){
-        this._info = ticket;
+    constructor(productName,productType,productImageUrl,itemModel){
+        this.name = productName;
+        this.imageUrl = productImageUrl;
+        this.type = productType;
+        this._productItemModels = itemModel;
     }
-    @observable _info;
-    @computed get info(){
-        let info = Object.assign({},this._info);
-        let list = [];
-        for(let i = 0,len = this._info.strategyList.length;i < len;i++){
-            let product = new Product(this._info.strategyList[i].info);
-            list.push(product);
+    @observable _productItemModels = [];
+    @computed get productItemModels(){
+        return this._productItemModels;
+    }
+
+    @computed get selectCount(){
+        let count = 0;
+        for(let i = 0;i < this.productItemModels.length;i++){
+            count += this.productItemModels[i].selectCount;
         }
-        info.strategyList = list;
-        return info;
+        return count;
     }
+    @action showProductList(){
+        this._show = true;
+    }
+    @action closeProductList(){
+        this._show = false;
+    }
+    @observable _show = false;
+    @computed get show(){
+        return this._show;
+    }
+
 }
 
 

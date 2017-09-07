@@ -17,7 +17,7 @@ import {observer,inject} from 'mobx-react';
 @inject(['shopInfo'])
 
 
-class HeadShopInfoView extends Component{
+@observer class HeadShopInfoView extends Component{
     constructor(props){
         super(props);
     }
@@ -28,18 +28,18 @@ class HeadShopInfoView extends Component{
         return (
             <View className={shopInfoStyle.total_height}>
                 <ul className={shopInfoStyle.head_bj}>
-                    <li>
+                    <li className={shopInfoStyle.shop_info}>
                         <View className={shopInfoStyle.protect_img}>
                             <img src={this.props.shopInfo.info.imageUrl} alt="" className={shopInfoStyle.img}/>
                         </View>
-                    </li>
-                    <li className={shopInfoStyle.shop_detail_info}>
-                        <Text className={shopInfoStyle.shop_name}>{this.props.shopInfo.info.name}</Text>
-                        <Text>{this.props.shopInfo.info.address}</Text>
+                        <View className={shopInfoStyle.shop_detail_info}>
+                            <Text className={shopInfoStyle.shop_name}>{this.props.shopInfo.info.name}</Text>
+                            <Text className={shopInfoStyle.shop_address}>{this.props.shopInfo.info.address}</Text>
+                        </View>
                     </li>
                     <li className={shopInfoStyle.shop_detail_distance}>
-                        <Text className={shopInfoStyle.shop_distance}>{this.props.shopInfo.info.distance}</Text>
-                        <Text className={shopInfoStyle.shop_delivery_time}>{this.props.shopInfo.info.deliveryTime}</Text>
+                        <Text className={shopInfoStyle.shop_distance}>{this.props.shopInfo.info.distance}km | </Text>
+                        <Text className={shopInfoStyle.shop_delivery_time}>{this.props.shopInfo.info.deliveryTime}分钟</Text>
                     </li>
                 </ul>
             </View>

@@ -17,34 +17,33 @@ let customAddress = function(addressList){
             info:customAddressInfo,
             state:'customSelected'
         };
-        // return customAddressInfo;
     }else{
         return 'nextSuccessor';
     }
 };
 
-/**
- * 默认地址
- * @param addressList
- * @returns {*}
- */
-let defaultAddress = function(addressList){
-    let list = addressList.getAddressList(0,50);
-
-    let defaultAddressInfo = addressList.findDefault(list);
-    if(typeof defaultAddressInfo !== 'undefined'){
-        return {
-            state:"default",
-            info:defaultAddressInfo
-        }
-    }else{
-        return 'nextSuccessor';
-    }
-};
+// /**
+//  * 默认地址
+//  * @param addressList
+//  * @returns {*}
+//  */
+// let defaultAddress = function(addressList){
+//     let list = addressList.getAddressList(0,50);
+//
+//     let defaultAddressInfo = addressList.findDefault(list);
+//     if(typeof defaultAddressInfo !== 'undefined'){
+//         return {
+//             state:"default",
+//             info:defaultAddressInfo
+//         }
+//     }else{
+//         return 'nextSuccessor';
+//     }
+// };
 
 let currentPosition = function(addressList,autoMap){
     autoMap.getCurrentLocation();
-
+    console.log(autoMap.showLocationInfo);
     return {
         state:"currentPos",
         info:autoMap.showLocationInfo
@@ -62,7 +61,7 @@ class ActiveAddress{
     @computed get address(){
         let addressList = this.addressList;
         let autoMap = this.autoMap;
-        return customAddress.after(defaultAddress).after(currentPosition)(addressList,autoMap);
+        return customAddress.after(currentPosition)(addressList,autoMap);
     }
 }
 
