@@ -26,10 +26,63 @@ import {observer,inject} from 'mobx-react';
             <View>
                 <ReceiveAddressView current={this.props.location.pathname}/>
                 <HeadShopInfoView />
+                <View className={shopStyle.shopping_list}>
+                    <TypeList />
+                    <ProductList />
+                </View>
             </View>
         )
     }
 }
-
+@inject(['shoppingList'])
+@observer class TypeList extends Component{
+    constructor(props){
+        super(props);
+    }
+    render(){
+        let typeNodes = this.props.shoppingList.tagModelList.map((typeItem,index)=>{
+            return (
+                <li key={index}>
+                    {typeItem.name}
+                </li>
+            )
+        });
+        return (
+            <ul>
+                {typeNodes}
+            </ul>
+        )
+    }
+}
+@inject(['shoppingList'])
+@observer class ProductList extends Component{
+    constructor(props){
+        super(props);
+    }
+    render(){
+        let productNodes = this.props.shoppingList.tagModelList.map((typeItem,index)=>{
+            let productList = typeItem.productList.list.map((productItem,index)=>{
+                return (
+                    <li key={index}>
+                        {productItem.name}
+                    </li>
+                )
+            });
+            return (
+                <li key={index}>
+                    <Text>{typeItem.name}</Text>
+                    <ul>
+                        {productList}
+                    </ul>
+                </li>
+            )
+        });
+        return (
+            <View>
+                {productNodes}
+            </View>
+        )
+    }
+}
 
 module.exports = ShopView;

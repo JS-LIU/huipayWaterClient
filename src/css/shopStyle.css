@@ -1,3 +1,7 @@
 .wrap{
     composes: wrap from '../Util/huipayWaterBase.css';
 }
+.shopping_list{
+    display: flex;
+    flex-direction: row;
+}

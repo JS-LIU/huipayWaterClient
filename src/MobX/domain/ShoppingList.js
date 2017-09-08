@@ -26,38 +26,21 @@ class ShoppingList{
         this.getProductList({
             shopId:shopId
         }).then((list)=>{
-            this._list = list.tagModelList;
+            this._tagModelList = list.tagModelList;
         });
     }
 
-    @observable _list;
-
-    //  只有未重复的product
+    @observable _tagModelList = [];
     @observable _recordProductList = [];
 
-
-    @computed get list(){
-        return new TypeList(this._list,this._recordProductList);
-    }
-
-}
-
-class TypeList{
-    constructor(list,recordProductList){
-        this._typeList = list;
-        this._recordProductList = recordProductList;
-    }
-
-    @observable _typeList;
-
-    @computed get typeList(){
+    @computed get tagModelList(){
         let list = [];
-        for(let i = 0,len = this._typeList.length; i < len;i++){
-            list.push(new TypeItem(this._typeList[i]),this._recordProductList);
+        for(let i = 0,len = this._tagModelList.length; i < len;i++){
+            list.push(new TypeItem(this._tagModelList[i],this._recordProductList));
         }
-
         return list;
     }
+
 }
 
 class TypeItem{
@@ -66,12 +49,11 @@ class TypeItem{
         this.name = type.name;
         this._selectCount = type.selectCount;
         this._recordProductList = recordProductList;
-
         //  productList是一个 对象{}
         this._productList = new ProductList(type.productList,this._recordProductList);
     }
     @observable _selectCount;
-    @observable _productList;
+    @observable _productList = {};
     //  selectCount是【productList对象】的属性
     @computed get selectCount(){
         return this.productList.totalCount();
@@ -87,14 +69,14 @@ class ProductList{
         this._recordProductList = recordProductList;
 
         //  从recordProductList中 找是否有相同的商品
-        function findFromRecordProductList(product){
+        function findFromRecordProductList(product,recordProductList){
             let recordProduct;
             let isEqualProductItemId = function(productItem){
                 if(product.productItemId === productItem.productItemId){
                     return productItem;
                 }
             };
-            recordProduct = this._recordProductList.find(isEqualProductItemId);
+            recordProduct = recordProductList.find(isEqualProductItemId);
 
             return recordProduct;
         }
@@ -107,7 +89,7 @@ class ProductList{
 
             //  遍历 商品
             for(let i = 0;i < product.productItemModels.length;i++){
-                productItem = findFromRecordProductList(product.productItemModels[i]);
+                productItem = findFromRecordProductList(product.productItemModels[i],this._recordProductList);
 
                 if(!productItem){
                     productItem = new Product(product.type,product.imageUrl,product.productItemModels[i]);
@@ -131,7 +113,7 @@ class ProductList{
     @computed get list(){
         let list = [];
         for(let i = 0;i < this._list.length;i++){
-            let product = this.findOrCreateProduct(this.list[i]);
+            let product = this.findOrCreateProduct(this._list[i]);
             list.push(product);
         }
         return list;
