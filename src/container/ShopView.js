@@ -5,9 +5,10 @@
 import React, {Component} from 'react';
 //  components
 import View from '../components/View';
+import Text from '../components/Text';
+import Button from '../components/Button';
 import ReceiveAddressView from './ReceiveAddressView';
 import HeadShopInfoView from './HeadShopInfoView'
-
 import shopStyle from '../css/shopStyle.css';
 
 //  MobX
@@ -30,6 +31,7 @@ import {observer,inject} from 'mobx-react';
                     <TypeList />
                     <ProductList />
                 </View>
+                <ShoppingCart />
             </View>
         )
     }
@@ -59,12 +61,25 @@ import {observer,inject} from 'mobx-react';
     constructor(props){
         super(props);
     }
+    increase(productItem){
+        return ()=>{
+            productItem.increase();
+        }
+    }
+    reduce(productItem){
+        return()=>{
+            productItem.reduce();
+        }
+    }
     render(){
         let productNodes = this.props.shoppingList.tagModelList.map((typeItem,index)=>{
             let productList = typeItem.productList.list.map((productItem,index)=>{
                 return (
                     <li key={index}>
-                        {productItem.name}
+                        <Text>{productItem.name}</Text>
+                        <Button onClick={this.increase(productItem)}>+</Button>
+                        <Text>{productItem.selectCount}</Text>
+                        <Button onClick={this.reduce(productItem)}>-</Button>
                     </li>
                 )
             });
@@ -83,6 +98,42 @@ import {observer,inject} from 'mobx-react';
             </View>
         )
     }
+}
+
+@inject(['shoppingList'])
+@observer class ShoppingCart extends Component{
+    constructor(props){
+        super(props)
+    }
+    increase(productItem){
+        return()=>{
+            productItem.increase();
+        }
+    }
+    reduce(productItem){
+        return ()=>{
+            productItem.reduce();
+        }
+    }
+
+    render(){
+        let productNodes = this.props.shoppingList.shoppingCart.map((productItem,index)=>{
+            return (
+                <li key={index}>
+                    <Text>{productItem.name}</Text>
+                    <Button onClick={this.increase(productItem)}>+</Button>
+                    <Text>{productItem.selectCount}</Text>
+                    <Button onClick={this.reduce(productItem)}>-</Button>
+                </li>
+            )
+        });
+        return (
+            <ul className={shopStyle.shopping_cart}>
+                {productNodes}
+            </ul>
+        )
+    }
+
 }
 
 module.exports = ShopView;

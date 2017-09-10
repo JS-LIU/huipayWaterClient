@@ -4,12 +4,13 @@
 import {observable, computed,action,autorun} from "mobx";
 import _h from '../../Util/HB';
 
+
 class ShoppingList{
     constructor(rem2pxRate,login){
         this.rem2pxRate = rem2pxRate;
         this.login = login;
+        this._recordProductList = [];
         this.customerSelectedIndex = false;
-
         let self = this;
         //  请求 商品列表
         let ajax = _h.ajax.resource('/shop/shoppingcart/:action');
@@ -31,12 +32,47 @@ class ShoppingList{
     }
 
     @observable _tagModelList = [];
-    @observable _recordProductList = [];
 
     @computed get tagModelList(){
         let list = [];
         for(let i = 0,len = this._tagModelList.length; i < len;i++){
-            list.push(new TypeItem(this._tagModelList[i],this._recordProductList));
+            list.push(new TypeItem(this._tagModelList[i],this.noRepeatProductList));
+        }
+        return list;
+    }
+    @observable _noRepeatProductList;
+    @computed get noRepeatProductList(){
+        let list = [];
+        for(let i = 0;i < this._tagModelList.length;i++){       //  tag
+
+            let productList = this._tagModelList[i].productList;
+            for(let j = 0; j < productList.length;j++){         //  productList
+
+                let product = productList[j].productItemModels;
+                for(let k = 0;k < product.length;k++){          //  productItem
+                    let hasProductItem = function(productItem){
+                        if(productItem.productItemId === product[k].productItemId){
+                            return productItem;
+                        }
+                    };
+
+                    let productItem = list.find(hasProductItem);
+                    if(!productItem){
+                        productItem = new Product(productList[j].type,productList[j].imageUrl,product[k]);
+                        list.push(productItem);
+                    }
+                }
+            }
+        }
+        return list;
+    }
+
+    @computed get shoppingCart(){
+        let list = [];
+        for(let i = 0;i < this.noRepeatProductList.length;i++){
+            if(this.noRepeatProductList[i].selectCount > 0){
+                list.push(this.noRepeatProductList[i]);
+            }
         }
         return list;
     }
@@ -44,13 +80,12 @@ class ShoppingList{
 }
 
 class TypeItem{
-    constructor(type,recordProductList){
+    constructor(type,noRepeatProductList){
         this.id = type.id;
         this.name = type.name;
         this._selectCount = type.selectCount;
-        this._recordProductList = recordProductList;
         //  productList是一个 对象{}
-        this._productList = new ProductList(type.productList,this._recordProductList);
+        this._productList = new ProductList(type.productList,noRepeatProductList);
     }
     @observable _selectCount;
     @observable _productList = {};
@@ -64,46 +99,38 @@ class TypeItem{
 
 }
 class ProductList{
-    constructor(list,recordProductList){
+    constructor(list,noRepeatProductList){
         this._list = list;
-        this._recordProductList = recordProductList;
+        this.noRepeatProductList = noRepeatProductList;
 
         //  从recordProductList中 找是否有相同的商品
-        function findFromRecordProductList(product,recordProductList){
-            let recordProduct;
-            let isEqualProductItemId = function(productItem){
+        function findFromNoRepeatProductList(product){
+            let productItem;
+            let hasProductItem = function(productItem){
                 if(product.productItemId === productItem.productItemId){
                     return productItem;
                 }
             };
-            recordProduct = recordProductList.find(isEqualProductItemId);
+            productItem = noRepeatProductList.find(hasProductItem);
 
-            return recordProduct;
+            return productItem;
         }
-        this.findOrCreateProduct = (product)=>{
-
-            let newProduct;  //  水票商品/商品
+        this.findProduct = (product)=>{
 
             let productItem; //  单个商品
             let productItemModels = [];
 
             //  遍历 商品
             for(let i = 0;i < product.productItemModels.length;i++){
-                productItem = findFromRecordProductList(product.productItemModels[i],this._recordProductList);
-
-                if(!productItem){
-                    productItem = new Product(product.type,product.imageUrl,product.productItemModels[i]);
-                    productItemModels.push(productItem);
-                    this._recordProductList.push(productItem);
-                }
+                productItem = findFromNoRepeatProductList(product.productItemModels[i]);
+                productItemModels.push(productItem);
             }
 
             if(product.type === "waterTicket"){
-                newProduct = new WaterTicket(product.name,product.type,product.imageUrl,productItemModels);
-            }else{
-                newProduct = productItem;
+                productItem = new WaterTicket(product.name,product.type,product.imageUrl,productItemModels);
             }
-            return newProduct;
+            console.log(productItem);
+            return productItem;
         }
 
     }
@@ -113,7 +140,7 @@ class ProductList{
     @computed get list(){
         let list = [];
         for(let i = 0;i < this._list.length;i++){
-            let product = this.findOrCreateProduct(this._list[i]);
+            let product = this.findProduct(this._list[i]);
             list.push(product);
         }
         return list;
@@ -122,23 +149,6 @@ class ProductList{
 
         return 0;
     }
-    @computed get shoppingCart(){
-        let shoppingCart = [];
-        for(let i = 0;i < this.list.length;i++){
-            let isHasProduct = function(product){
-                if(product.productItemId === this.list[i].productItemId){
-                    return this.list[i];
-                }
-            };
-
-            let product = shoppingCart.find(isHasProduct);
-            if(!product){
-                shoppingCart.push(product);
-            }
-        }
-        return shoppingCart
-    }
-
     //  切换type的高度
     @computed get cutProductListHeight(){
 
