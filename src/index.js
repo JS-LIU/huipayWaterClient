@@ -37,7 +37,7 @@ import ShopDetail from './MobX/domain/ShopDetail';
 import ProductList from './MobX/domain/ProductList';
 import ShoppingCart from './MobX/domain/ShoppingCart';
 import ProductDetail from './MobX/domain/ProductDetail';
-import ShoppingList from './MobX/domain/ShoppingList';
+import ShoppingList from './MobX/domain/shop/ShoppingList';
 import ShopInfo from './MobX/domain/ShopInfo';
 
 
