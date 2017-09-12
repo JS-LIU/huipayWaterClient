@@ -4,7 +4,7 @@
 .shopping_list{
     display: flex;
     flex-direction: row;
-    margin-top:0.3rem;
+    overflow: auto;
 }
 
 .shopping_cart{
@@ -17,6 +17,18 @@
     display:flex;
     margin:0.3rem 0 0 0.4rem;
     composes: f22 from '../Util/huipayWaterBase.css';
+}
+.nav_link{
+    display:flex;
+    flex-direction: row;
+    height:0.8rem;
+    line-height:0.8rem;
+    font-size:0.32rem;
+    padding-left:0.3rem;
+    border-bottom:0.01rem solid #D7D7D7;
+}
+.nav_link_product_text{
+    margin-right:0.5rem;
 }
 .type_list{
     background:#F8F8F8;
@@ -33,26 +45,37 @@
     flex:1;
 }
 .type_title{
-    composes:f28 from '../Util/huipayWaterBase.css';
-    color:#666;
+    display:flex;
+    margin:-0.02rem 0 0 0.2rem;
     height:0.6rem;
     line-height:0.6rem;
     border-bottom:0.01rem solid #D7D7D7;
+    border-top:0.01rem solid #D7D7D7;
+    color:#666;
+    composes:f28 from '../Util/huipayWaterBase.css';
 }
 .water_ticket{
     display:flex;
     flex-direction: row;
-    height:1.41rem;
-    margin:0.24rem 0.2rem 0 0.24rem;
+    height:1.52rem;
+    margin:0.24rem 0.2rem 0;
     overflow: hidden;
 }
+.water_ticket_left_border_b{
+    background:url("../images/dianpu_shuipiao_bg_blue_left1@2x.png") no-repeat left center;
+    -webkit-background-size: auto 1.52rem;
+    background-size: auto 1.52rem;
+    flex:6;
+}
 .ticket_left{
-    background:#FFF url('../images/shuipiao_bg_left@2x.png') no-repeat left center;
-    -webkit-background-size: auto 1.41rem;
-    background-size: auto 1.41rem;
+    background:#FFF url('../images/dianpu_shuipiao_bg_left2@2x.png') no-repeat left center;
+    -webkit-background-size: auto 1.52rem;
+    background-size: auto 1.52rem;
     display:flex;
     flex-direction: row;
+    flex:397;
 }
+
 .water_ticket_img_product{
     width:1rem;
     height:1rem;
@@ -65,28 +88,122 @@
 .water_ticket_img{
     width:100%;
 }
+.water_ticket_name{
+    font-size:0.32rem;
+    font-weight: bold;
+}
 .ticket_right{
-    background:#FFF url("../images/shuipiao_bg_right@2x.png") no-repeat right center;
-    -webkit-background-size: auto 1.41rem;
-    background-size: auto 1.41rem;
     display:flex;
     flex-direction: column;
     justify-content: center;
+    flex:146;
+    align-items: center;
+    background:#FFF url("../images/dianpu_shuipiao_bg_right@2x.png") no-repeat right center;
+    -webkit-background-size: auto 1.52rem;
+    background-size: auto 1.52rem;
+    composes: tc from '../Util/base.css';
+}
+.select_product{
+    width:1rem;
+    height:0.4rem;
+    line-height:0.4rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    border-radius: 0.4rem;
+    color:#FFF;
+    composes: f24 from '../Util/huipayWaterBase.css';
+    composes: linear_blue_bg from '../Util/huipayWaterBase.css';
 }
 .product_item{
     display: flex;
     flex-direction: row;
-
 }
 .product_item_img_protect{
-    width:1.8rem;
-    height:1.8rem;
-    margin:0.3rem 0 0 0.2rem;
     display:flex;
     flex-direction: column;
     justify-content: center;
+    width:1.8rem;
+    height:1.8rem;
+    margin:0.3rem 0 0 0.2rem;
     overflow: hidden;
 }
 .product_item_img{
     width:100%;
+}
+.product_item_info{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex:1;
+    margin-left: 0.2rem;
+    padding:0.3rem 0;
+    height:1.8rem;
+    border-bottom:0.01rem solid #D7D7D7;
+}
+.product_item_name{
+    color:#333;
+    font-size:0.32rem;
+    margin-right:0.2rem;
+}
+.product_item_mount_sale{
+    margin-right:0.2rem;
+}
+.product_item_sale_title,.product_item_sale{
+    color:#666;
+    font-size:0.2rem;
+}
+.product_item_info_count{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right:0.2rem;
+}
+.rmb{
+    color:#ff4c2f;
+    font-size:0.2rem;
+}
+.price{
+    color:#ff4c2f;
+    font-size:0.3rem;
+}
+.product_item_ctrl{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width:1.65rem;
+    line-height:0.42rem;
+}
+.product_increase{
+    width:0.42rem;
+    height:0.42rem;
+    line-height:0.42rem;
+    composes: tc from '../Util/base.css';
+    background:#399cfe;
+    -webkit-border-radius: 0.42rem;
+    -moz-border-radius: 0.42rem;
+    border-radius: 0.42rem;
+    color:#FFF;
+    font-size:0.4rem;
+    margin-left:0.1rem;
+}
+.product_count{
+    margin-left:0.1rem;
+    width:0.55rem;
+    font-size:0.4rem;
+    composes: search_black from '../Util/huipayWaterBase.css';
+    composes: tc from '../Util/base.css';
+}
+.product_reduce{
+    width:0.38rem;
+    height:0.38rem;
+    line-height:0.38rem;
+    -webkit-border-radius: 0.38rem;
+    -moz-border-radius: 0.38rem;
+    border-radius: 0.38rem;
+    composes: tc from '../Util/base.css';
+    background:#fff;
+    border:0.02rem solid #399cfe;
+    color: #399cfe;
+    font-size:0.4rem;
 }
