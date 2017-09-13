@@ -3,8 +3,9 @@
  */
 import {observable, computed,action,autorun} from "mobx";
 class Product{
-    constructor(productType,productImageUrl,itemModel){
+    constructor(productName,productType,productImageUrl,itemModel){
         this.imageUrl = productImageUrl;
+        this.productName = productName;
         this.type = productType;
         this.name = itemModel.name;
         this.productItemId = itemModel.productItemId;

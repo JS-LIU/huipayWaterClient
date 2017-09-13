@@ -8,10 +8,82 @@
 }
 
 .shopping_cart{
+    display: flex;
+    flex-direction: column;
     position: fixed;
-    bottom: 0;
+    max-height:5.62rem;
+    bottom: 0.9rem;
     width:100%;
     background:#FFF;
+    z-index: 1;
+    overflow: hidden;
+}
+.shopping_cart_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height:0.9rem;
+    line-height:0.9rem;
+    border-bottom: 0.01rem solid #D7D7D7;
+}
+.shopping_cart_list{
+    flex:1;
+    max-height: 4.72rem;
+    overflow: auto;
+}
+.shopping_cart_product{
+    display: flex;
+    flex-direction: row;
+    padding:0.17rem 0;
+    margin-left: 0.25rem;
+    border-bottom:0.01rem solid #D7D7D7;
+}
+.shopping_cart_product_info{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.shopping_cart_product_name{
+    composes: f30 from '../Util/huipayWaterBase.css';
+    height:0.55rem;
+    line-height:0.55rem;
+    color:#333;
+}
+.shopping_cart_product_specification{
+    height:0.4rem;
+    line-height:0.4rem;
+    font-size:0.2rem;
+    color:#999;
+}
+.shopping_cart_product_price{
+    display: flex;
+    flex-direction: row;
+    height:0.5rem;
+    line-height:0.5rem;
+    color:#ff4c2f;
+}
+.shopping_cart_product_price_rmb{
+    font-size:0.2rem;
+}
+.shopping_cart_product_total_price{
+    font-size:0.3rem;
+    line-height:0.5rem;
+}
+.shopping_cart_title_text{
+    margin-left:0.3rem;
+    composes: f30 from '../Util/huipayWaterBase.css';
+    line-height:0.9rem;
+    color:#333;
+}
+.shopping_cart_clear_all{
+    margin-right:0.35rem;
+    padding-left:0.3rem;
+    color:#666;
+    composes: f24 from '../Util/huipayWaterBase.css';
+    line-height:0.9rem;
+    background:url("../images/garbage _can@2x.png") no-repeat left center;
+    -webkit-background-size: 0.26rem;
+    background-size: 0.26rem;
 }
 .notice{
     display:flex;
@@ -33,16 +105,37 @@
 .type_list{
     background:#F8F8F8;
     width:1.6rem;
+    padding-bottom:1.1rem;
 }
 .type_item{
+    position:relative;
     height:1.1rem;
     line-height:1.1rem;
     composes:tc from '../Util/base.css';
     composes:f28 from '../Util/huipayWaterBase.css';
     border-bottom:0.01rem solid #D7D7D7;
 }
+.product_list_total_count{
+    position: absolute;
+    top:0.07rem;
+    right:0.1rem;
+    width:0.26rem;
+    height:0.26rem;
+    line-height:0.26rem;
+    color:#FFF;
+    -webkit-border-radius: 0.26rem;
+    -moz-border-radius: 0.26rem;
+    border-radius: 0.26rem;
+    composes: linear_red_bg from '../Util/huipayWaterBase.css';
+    font-size:0.2rem;
+}
+.type_item_title{
+    composes:tc from '../Util/base.css';
+    composes:f28 from '../Util/huipayWaterBase.css';
+}
 .product_list{
     flex:1;
+    padding-bottom:1.1rem;
 }
 .type_title{
     display:flex;
@@ -206,4 +299,80 @@
     border:0.02rem solid #399cfe;
     color: #399cfe;
     font-size:0.4rem;
+}
+
+.shop_footer{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    height:0.9rem;
+    composes: search_black_bg from '../Util/huipayWaterBase.css';
+    z-index: 2;
+
+}
+.shopping_cart_info{
+    display: flex;
+    flex-direction: row;
+    position:relative;
+}
+.shopping_cart_btn{
+    position: relative;
+    bottom:0.3rem;
+    margin-left:0.3rem;
+    width:0.84rem;
+    height:0.84rem;
+    border:0.12rem solid #322E2D;
+    -webkit-border-radius: 0.84rem;
+    -moz-border-radius: 0.84rem;
+    border-radius: 0.84rem;
+    background:#333 url("../images/Shopping-Cart-xiangqing@2x.png") no-repeat center;
+    -webkit-background-size: 0.28rem;
+    background-size: 0.28rem;
+}
+.shopping_cart_total_count{
+    position:absolute;
+    top:-0.12rem;
+    right:-0.12rem;
+    width:0.36rem;
+    height:0.36rem;
+    line-height:0.36rem;
+    -webkit-border-radius: 0.36rem;
+    -moz-border-radius: 0.36rem;
+    border-radius: 0.36rem;
+    composes: linear_red_bg from '../Util/huipayWaterBase.css';
+    composes:tc from '../Util/base.css';
+    color:#FFF;
+    font-size:0.2rem;
+}
+.shopping_cart_info_total{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left:0.15rem;
+    line-height:0.9rem;
+    color:#FFF;
+}
+.shopping_cart_info_total_price{
+    line-height:0.9rem;
+    composes: f36 from '../Util/huipayWaterBase.css';
+}
+.shopping_cart_info_total_price_title{
+    line-height:0.9rem;
+    composes: f30 from '../Util/huipayWaterBase.css';
+}
+.shopping_cart_info_total_price_rmb{
+    line-height:0.9rem;
+    composes: f22 from '../Util/huipayWaterBase.css';
+}
+.confirm_order_btn{
+    width:2.22rem;
+    height:0.9rem;
+    line-height:0.9rem;
+    color:#FFF;
+    composes: tc from '../Util/base.css';
+    composes: linear_red_bg from '../Util/huipayWaterBase.css';
+    composes: f36 from '../Util/huipayWaterBase.css';
 }

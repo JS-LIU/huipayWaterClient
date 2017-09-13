@@ -52,7 +52,7 @@ class ShoppingList {
 
                     let productItem = list.find(hasProductItem);
                     if (!productItem) {
-                        productItem = new Product(productList[j].type, productList[j].imageUrl, product[k]);
+                        productItem = new Product(productList[j].name,productList[j].type, productList[j].imageUrl, product[k]);
                         list.push(productItem);
                     }
                 }
@@ -91,9 +91,16 @@ class ShoppingList {
     @computed get totalPrice(){
         let price = 0;
         for(let i = 0;i < this.shoppingCart.length;i++){
-            price += (this.shoppingCart[i].selectCount * this.shoppingCart[i].price);
+            price += (this.shoppingCart[i].selectCount * this.shoppingCart[i].currentPrice);
         }
         return price;
+    }
+    @observable _show = false;
+    @action showShoppingCart(){
+        this._show = !this._show;
+    }
+    @computed get show(){
+        return this._show;
     }
 }
 module.exports = ShoppingList;

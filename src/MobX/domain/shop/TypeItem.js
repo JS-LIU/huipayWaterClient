@@ -16,7 +16,7 @@ class TypeItem{
     @observable _productList = {};
     //  selectCount是【productList对象】的属性
     @computed get selectCount(){
-        return this.productList.totalCount();
+        return this.productList.totalCount;
     }
     @computed get productList(){
         return this._productList;

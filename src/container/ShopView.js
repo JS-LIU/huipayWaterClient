@@ -3,6 +3,7 @@
  */
 //  react
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 //  components
 import View from '../components/View';
 import Text from '../components/Text';
@@ -24,6 +25,7 @@ import {observer,inject} from 'mobx-react';
     componentWillMount(){
         this.props.shoppingList.getList(3);
     }
+
     render(){
         let clientHeight = document.body.clientHeight;
         let remRate = _h.ui.parsePx();
@@ -42,7 +44,8 @@ import {observer,inject} from 'mobx-react';
                     <TypeList />
                     <ProductList />
                 </View>
-                <ShoppingCart />
+                <ShopFooter />
+                {this.props.shoppingList.show?<ShoppingCart />:''}
             </View>
         )
     }
@@ -56,7 +59,8 @@ import {observer,inject} from 'mobx-react';
         let typeNodes = this.props.shoppingList.tagModelList.map((typeItem,index)=>{
             return (
                 <li key={index} className={shopStyle.type_item}>
-                    {typeItem.name}
+                    <View className={shopStyle.product_list_total_count}>{typeItem.selectCount}</View>
+                    <Text className={shopStyle.type_item_title}>{typeItem.name}</Text>
                 </li>
             )
         });
@@ -191,21 +195,63 @@ import {observer,inject} from 'mobx-react';
     render(){
         let productNodes = this.props.shoppingList.shoppingCart.map((productItem,index)=>{
             return (
-                <li key={index}>
-                    <Text>{productItem.name}</Text>
+                <li key={index} className={shopStyle.shopping_cart_product}>
+                    <View className={shopStyle.shopping_cart_product_info}>
+                        <Text className={shopStyle.shopping_cart_product_name}>{productItem.name}</Text>
+                        {productItem.type === "waterTicket"?<Text className={shopStyle.shopping_cart_product_specification}>{productItem.productName}</Text>:''}
+                        <View className={shopStyle.shopping_cart_product_price}>
+                            <Text>￥</Text>
+                            <Text className={shopStyle.shopping_cart_product_total_price}>{productItem.currentPrice}</Text>
+                        </View>
+                    </View>
                     <Button onClick={this.increase(productItem)}>+</Button>
                     <Text>{productItem.selectCount}</Text>
                     <Button onClick={this.reduce(productItem)}>-</Button>
                 </li>
             )
+
         });
         return (
-            <ul className={shopStyle.shopping_cart}>
-                {productNodes}
-            </ul>
+            <View className={shopStyle.shopping_cart}>
+                <ul className={shopStyle.shopping_cart_title}>
+                    <li className={shopStyle.shopping_cart_title_text}>已选商品</li>
+                    <li>
+                        <Button className={shopStyle.shopping_cart_clear_all}>清空</Button>
+                    </li>
+                </ul>
+                <ul className={shopStyle.shopping_cart_list}>
+                    {productNodes}
+                </ul>
+            </View>
+
         )
     }
-
 }
 
+@inject(['shoppingList'])
+@observer class ShopFooter extends Component{
+    constructor(props){
+        super(props);
+    }
+    showShoppingCart(){
+        this.props.shoppingList.showShoppingCart();
+    }
+    render(){
+        return (
+            <View className={shopStyle.shop_footer}>
+                <View className={shopStyle.shopping_cart_info}>
+                    <Button className={shopStyle.shopping_cart_btn} onClick={this.showShoppingCart.bind(this)}>
+                        <View className={shopStyle.shopping_cart_total_count}>{this.props.shoppingList.totalCount}</View>
+                    </Button>
+                    <ul className={shopStyle.shopping_cart_info_total}>
+                        <li className={shopStyle.shopping_cart_info_total_price_title}>共</li>
+                        <li className={shopStyle.shopping_cart_info_total_price_rmb}>￥</li>
+                        <li className={shopStyle.shopping_cart_info_total_price}>{this.props.shoppingList.totalPrice}</li>
+                    </ul>
+                </View>
+                <Link to='/confirmOrder' className={shopStyle.confirm_order_btn}>去结算</Link>
+            </View>
+        )
+    }
+}
 module.exports = ShopView;

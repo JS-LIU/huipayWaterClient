@@ -8,7 +8,10 @@
     background:#399cfe;
 }
 .nav_black{
-    color:#222;
+    background:#222;
+}
+.search_black_bg{
+    background:#333;
 }
 .search_black{
     color:#333;

@@ -51,8 +51,11 @@ class ProductList{
         return list;
     }
     @computed get totalCount(){
-
-        return 0;
+        let count = 0;
+        for(let i = 0;i < this.list.length;i++){
+            count += this.list[i].selectCount;
+        }
+        return count;
     }
     //  切换type的高度
     @computed get cutProductListHeight(){
