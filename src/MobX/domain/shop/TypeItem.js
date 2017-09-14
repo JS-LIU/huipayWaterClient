@@ -21,6 +21,8 @@ class TypeItem{
     @computed get productList(){
         return this._productList;
     }
+    @observable _selected = false;
+
 }
 
 module.exports = TypeItem;

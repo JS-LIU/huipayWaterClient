@@ -8,11 +8,11 @@ import {Link} from 'react-router-dom';
 import View from '../components/View';
 import Text from '../components/Text';
 import Button from '../components/Button';
+import ScrollView from '../components/ScrollView';
 import ReceiveAddressView from './ReceiveAddressView';
 import HeadShopInfoView from './HeadShopInfoView'
 import shopStyle from '../css/shopStyle.css';
 import _h from '../Util/HB';
-
 
 //  MobX
 import {observer,inject} from 'mobx-react';
@@ -23,9 +23,8 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     componentWillMount(){
-        this.props.shoppingList.getList(3);
+        this.props.shoppingList.getList(1);
     }
-
     render(){
         let clientHeight = document.body.clientHeight;
         let remRate = _h.ui.parsePx();
@@ -33,6 +32,7 @@ import {observer,inject} from 'mobx-react';
         let shoppingMaxHeight = clientHeight - 0.8 * remRate;
         return (
             <View style={{maxHeight:maxHeight + "px",overflow:"hidden"}}>
+                {this.props.shoppingList.show?<View className={shopStyle.shadow}/>:''}
                 <ReceiveAddressView current={this.props.location.pathname}/>
                 <HeadShopInfoView />
                 {/*<Text className={shopStyle.notice}>喜腾山泉品牌水票在本平台所有水站通用</Text>*/}
@@ -55,10 +55,18 @@ import {observer,inject} from 'mobx-react';
     constructor(props){
         super(props);
     }
+    selectedType(item){
+        return (e)=>{
+            e.preventDefault();
+            let moveDom = document.getElementById('productList');
+            console.log(moveDom);
+            this.props.shoppingList.selectedType(moveDom,item);
+        }
+    }
     render(){
         let typeNodes = this.props.shoppingList.tagModelList.map((typeItem,index)=>{
             return (
-                <li key={index} className={shopStyle.type_item}>
+                <li key={index} className={shopStyle.type_item} onClick={this.selectedType(typeItem)}>
                     <View className={shopStyle.product_list_total_count}>{typeItem.selectCount}</View>
                     <Text className={shopStyle.type_item_title}>{typeItem.name}</Text>
                 </li>
@@ -75,6 +83,10 @@ import {observer,inject} from 'mobx-react';
 @observer class ProductList extends Component{
     constructor(props){
         super(props);
+    }
+    cutType(e){
+        let scrollTop = e.target.scrollTop;
+        this.props.shoppingList.autoSelectedType(scrollTop);
     }
     render(){
         let clientHeight = document.body.clientHeight;
@@ -99,9 +111,13 @@ import {observer,inject} from 'mobx-react';
             )
         });
         return (
-            <View className={shopStyle.product_list} style={{maxHeight:maxHeight+'px',overflow:'auto'}}>
+            <ScrollView
+                id="productList"
+                className={shopStyle.product_list}
+                style={{maxHeight:maxHeight+'px'}}
+                onScrollCapture={this.cutType.bind(this)}>
                 {productNodes}
-            </View>
+            </ScrollView>
         )
     }
 }
@@ -160,11 +176,11 @@ import {observer,inject} from 'mobx-react';
                         </View>
                         <View className={shopStyle.product_item_ctrl}>
                             {this.props.productItem.selectCount > 0?
-                                <Button className={shopStyle.product_reduce} onClick={this.reduce(this.props.productItem)}>-</Button>:""}
+                                <Button className={shopStyle.product_reduce} onClick={this.reduce(this.props.productItem)} />:""}
                             {this.props.productItem.selectCount > 0?
                                 <Text className={shopStyle.product_count}>{this.props.productItem.selectCount}</Text>:""}
 
-                            <Button className={shopStyle.product_increase} onClick={this.increase(this.props.productItem)}>+</Button>
+                            <Button className={shopStyle.product_increase} onClick={this.increase(this.props.productItem)} />
                         </View>
                     </View>
                 </View>
@@ -204,9 +220,11 @@ import {observer,inject} from 'mobx-react';
                             <Text className={shopStyle.shopping_cart_product_total_price}>{productItem.currentPrice}</Text>
                         </View>
                     </View>
-                    <Button onClick={this.increase(productItem)}>+</Button>
-                    <Text>{productItem.selectCount}</Text>
-                    <Button onClick={this.reduce(productItem)}>-</Button>
+                    <View className={shopStyle.product_item_ctrl}>
+                        <Button className={shopStyle.product_reduce} onClick={this.reduce(productItem)} />
+                        <Text className={shopStyle.product_count}>{productItem.selectCount}</Text>
+                        <Button className={shopStyle.product_increase} onClick={this.increase(productItem)} />
+                    </View>
                 </li>
             )
 

@@ -57,10 +57,6 @@ class ProductList{
         }
         return count;
     }
-    //  切换type的高度
-    @computed get cutProductListHeight(){
-
-    }
 
 }
 module.exports = ProductList;

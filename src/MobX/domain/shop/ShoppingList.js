@@ -23,6 +23,9 @@ class ShoppingList {
         }.before(function (postInfo) {
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
         });
+        this.productItemHeight = this.rem2pxRate * 2.41;
+        this.waterTicketHeight = this.rem2pxRate * 1.76;
+        this.productListTitleHeight = this.rem2pxRate * 0.61;
     }
 
     @action getList(shopId) {
@@ -70,6 +73,91 @@ class ShoppingList {
         }
         return list;
     }
+
+    @computed get tagModelListHeight(){
+        let list = [0];
+        for(let i = 0;i < this.tagModelList.length;i++){
+            let startH = list[i];
+            let productList = this.tagModelList[i].productList.list;
+            for(let j = 0;j < productList.length;j++){
+                if(productList[j].type === "entityProduct"){
+                    startH += this.productItemHeight;
+                }else if(productList[j].type === "waterTicket"){
+                    startH += this.waterTicketHeight;
+                }
+            }
+            startH += this.productListTitleHeight;
+            console.log('startH==',startH);
+            list.push(startH);
+        }
+        return list;
+    }
+
+
+    @computed get maxScroll(){
+        let minH = parseFloat(document.body.clientHeight) - (this.rem2pxRate * 0.8);
+        let maxH = 0;
+        for(let i = 0;i < this.tagModelList.length;i++){
+            let productList = this.tagModelList[i].productList.list;
+            for(let j = 0;j < productList.length;j++){
+                if(productList[j].type === "entityProduct"){
+                    maxH += this.productItemHeight;
+                }else if(productList[j].type === "waterTicket"){
+                    maxH += this.waterTicketHeight;
+                }
+            }
+            maxH += this.productListTitleHeight;
+        }
+        return maxH - minH;
+    }
+    @action autoSelectedType(scrollTop){
+
+        //  从【tagModelListHeight】中定位到移动到哪个type了
+        function witchTypeItem(item){
+            return scrollTop < item;
+        }
+        let index = this.tagModelListHeight.findIndex(witchTypeItem);
+        for(let i = 0;i < this.tagModelList.length;i++){
+            this.tagModelList[i]._selected = false;
+        }
+        if(scrollTop >= this.maxScroll){
+            let customerSelectedIndex = this.customerSelectedIndex;
+            if(customerSelectedIndex){
+                this.tagModelList[customerSelectedIndex]._selected = true;
+            }else{
+                this.tagModelList[index - 1]._selected = true;
+            }
+            this.customerSelectedIndex = false;
+        }else{
+            this.tagModelList[index - 1]._selected = true;
+        }
+    }
+    @action selectedType(dom,type) {
+        function isEqualId(item) {
+            return item.id === type.id;
+        }
+
+        let index = this.tagModelList.findIndex(isEqualId);
+        this.customerSelectedIndex = index;
+        this.setProductListScrollTop(dom, index);
+    }
+    setProductListScrollTop(dom){
+
+        //  浏览器渲染好像有误差 小数点部分会被四舍五入 + 1来拟补
+        let key = 1;
+        dom.scrollTop = this.tagModelListHeight[this.customerSelectedIndex]+key;
+
+        for(let i = 0,len = this.tagModelList.length;i < len;i++){
+            this.tagModelList[i]._selected = false
+        }
+
+        this.tagModelList[this.customerSelectedIndex]._selected = true;
+    }
+
+
+
+
+
     //  购物车列表
     @computed get shoppingCart(){
         let list = [];
