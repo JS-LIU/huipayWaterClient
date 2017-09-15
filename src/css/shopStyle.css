@@ -118,6 +118,10 @@
     padding-bottom:1.1rem;
 }
 .type_item{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     position:relative;
     height:1.1rem;
     line-height:1.1rem;
@@ -140,7 +144,12 @@
     font-size:0.2rem;
 }
 .type_item_title{
-    composes:tc from '../Util/base.css';
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width:100%;
+    height:0.72rem;
+    line-height:0.72rem;
     composes:f28 from '../Util/huipayWaterBase.css';
 }
 .product_list{

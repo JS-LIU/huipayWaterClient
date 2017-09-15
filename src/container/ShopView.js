@@ -11,6 +11,8 @@ import Button from '../components/Button';
 import ScrollView from '../components/ScrollView';
 import ReceiveAddressView from './ReceiveAddressView';
 import HeadShopInfoView from './HeadShopInfoView'
+import ProductListDialogView from './ProductListDialogView';
+
 import shopStyle from '../css/shopStyle.css';
 import _h from '../Util/HB';
 
@@ -59,16 +61,15 @@ import {observer,inject} from 'mobx-react';
         return (e)=>{
             e.preventDefault();
             let moveDom = document.getElementById('productList');
-            console.log(moveDom);
             this.props.shoppingList.selectedType(moveDom,item);
         }
     }
     render(){
         let typeNodes = this.props.shoppingList.tagModelList.map((typeItem,index)=>{
             return (
-                <li key={index} className={shopStyle.type_item} onClick={this.selectedType(typeItem)}>
+                <li key={index} className={shopStyle.type_item} style={typeItem.selected?selectedBg:{}} onClick={this.selectedType(typeItem)}>
                     <View className={shopStyle.product_list_total_count}>{typeItem.selectCount}</View>
-                    <Text className={shopStyle.type_item_title}>{typeItem.name}</Text>
+                    <Text className={shopStyle.type_item_title} style={typeItem.selected?selectedColor:{}}>{typeItem.name}</Text>
                 </li>
             )
         });
@@ -139,6 +140,7 @@ import {observer,inject} from 'mobx-react';
                 <View className={shopStyle.ticket_right}>
                     <Button className={shopStyle.select_product}>选套餐</Button>
                 </View>
+                {this.props.productItem.show?<ProductListDialogView productItemModels={this.props.productItem.productItemModels}/>:""}
             </li>
         )
     }
@@ -187,7 +189,6 @@ import {observer,inject} from 'mobx-react';
             </li>
         )
     }
-
 }
 
 
@@ -273,3 +274,10 @@ import {observer,inject} from 'mobx-react';
     }
 }
 module.exports = ShopView;
+const selectedColor = {
+    color:"#399cfe",
+    borderLeft:"0.06rem solid #399cfe"
+};
+const selectedBg = {
+    background:"#FFF"
+};

@@ -32,6 +32,5 @@ class WaterTicket{
     @computed get show(){
         return this._show;
     }
-
 }
 module.exports = WaterTicket;

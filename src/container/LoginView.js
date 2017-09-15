@@ -37,7 +37,7 @@ import {observer,inject} from 'mobx-react';
                 <ul className={loginStyle.login}>
                     <li className={loginStyle.phone_number_list}>
                         <input
-                            type="text"
+                            type="tel"
                             className={loginStyle.input_box}
                             ref="phoneNum"
                             placeholder="手机号"

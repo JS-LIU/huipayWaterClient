@@ -69,7 +69,12 @@ class ShoppingList {
     @computed get tagModelList() {
         let list = [];
         for (let i = 0, len = this._tagModelList.length; i < len; i++) {
-            list.push(new TypeItem(this._tagModelList[i], this.noRepeatProductList));
+            if(i === 0){
+                list.push(new TypeItem(this._tagModelList[i], this.noRepeatProductList,true));
+            }else{
+                list.push(new TypeItem(this._tagModelList[i], this.noRepeatProductList,false));
+            }
+
         }
         return list;
     }
@@ -87,7 +92,6 @@ class ShoppingList {
                 }
             }
             startH += this.productListTitleHeight;
-            console.log('startH==',startH);
             list.push(startH);
         }
         return list;
@@ -117,6 +121,14 @@ class ShoppingList {
             return scrollTop < item;
         }
         let index = this.tagModelListHeight.findIndex(witchTypeItem);
+
+        //  iphone的滚动条 有自己的弹性 可以小于0 也可以大于最大
+        if(index < 1){
+            index = 1;
+        }else if(index > this.tagModelList.length - 2){
+            index = this.tagModelList.length - 2
+        }
+
         for(let i = 0;i < this.tagModelList.length;i++){
             this.tagModelList[i]._selected = false;
         }
@@ -158,7 +170,7 @@ class ShoppingList {
 
 
 
-    //  购物车列表
+    //  todo 拿出来 购物车列表
     @computed get shoppingCart(){
         let list = [];
         for(let i = 0;i < this.noRepeatProductList.length;i++){
