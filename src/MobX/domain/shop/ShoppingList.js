@@ -166,7 +166,13 @@ class ShoppingList {
         this.tagModelList[this.customerSelectedIndex]._selected = true;
     }
 
-
+    @observable _activeProductItem = {};
+    @computed get activeProductItem(){
+        return this._activeProductItem;
+    }
+    @action selectedProductItem(productItem){
+        return this._activeProductItem = productItem;
+    }
 
 
 

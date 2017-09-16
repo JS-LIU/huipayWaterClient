@@ -48,6 +48,7 @@ import {observer,inject} from 'mobx-react';
                 </View>
                 <ShopFooter />
                 {this.props.shoppingList.show?<ShoppingCart />:''}
+                {this.props.shoppingList.activeProductItem.show?<ProductListDialogView waterTicket={this.props.shoppingList.activeProductItem}/>:""}
             </View>
         )
     }
@@ -123,13 +124,15 @@ import {observer,inject} from 'mobx-react';
     }
 }
 
+
+@inject(['shoppingList'])
 @observer class WaterTicket extends Component{
     constructor(props){
         super(props);
     }
     selectedSpecification(){
         this.props.productItem.showProductList();
-
+        this.props.shoppingList.selectedProductItem(this.props.productItem);
         //  默认选中第一个
         this.props.productItem.productItemModels[0].selectedItem();
     }
@@ -146,7 +149,7 @@ import {observer,inject} from 'mobx-react';
                 <View className={shopStyle.ticket_right}>
                     <Button className={shopStyle.select_product} onClick={this.selectedSpecification.bind(this)}>选套餐</Button>
                 </View>
-                {this.props.productItem.show?<ProductListDialogView waterTicket={this.props.productItem}/>:""}
+
             </li>
         )
     }

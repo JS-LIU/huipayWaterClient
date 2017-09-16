@@ -40,7 +40,7 @@ import {observer,inject} from 'mobx-react';
             )
         });
         return (
-            <View className={productListDialogStyle.dialog_box}>
+            <View style={{position:"fixed",width:"100%",height:"100%",zIndex:"12"}}>
                 {this.props.waterTicket.show?<View className={productListDialogStyle.shadow} />:""}
                 <View className={productListDialogStyle.product_list_dialog}>
                     <View className={productListDialogStyle.header}>
