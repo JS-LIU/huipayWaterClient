@@ -127,6 +127,12 @@ import {observer,inject} from 'mobx-react';
     constructor(props){
         super(props);
     }
+    selectedSpecification(){
+        this.props.productItem.showProductList();
+
+        //  默认选中第一个
+        this.props.productItem.productItemModels[0].selectedItem();
+    }
     render(){
         return (
             <li className={shopStyle.water_ticket}>
@@ -138,9 +144,9 @@ import {observer,inject} from 'mobx-react';
                     <Text className={shopStyle.water_ticket_name}>{this.props.productItem.name}</Text>
                 </View>
                 <View className={shopStyle.ticket_right}>
-                    <Button className={shopStyle.select_product}>选套餐</Button>
+                    <Button className={shopStyle.select_product} onClick={this.selectedSpecification.bind(this)}>选套餐</Button>
                 </View>
-                {this.props.productItem.show?<ProductListDialogView productItemModels={this.props.productItem.productItemModels}/>:""}
+                {this.props.productItem.show?<ProductListDialogView waterTicket={this.props.productItem}/>:""}
             </li>
         )
     }

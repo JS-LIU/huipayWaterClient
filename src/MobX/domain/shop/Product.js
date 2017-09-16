@@ -25,5 +25,12 @@ class Product{
     @action reduce(){
         this._selectCount--;
     }
+    @observable _selected = false;
+    @action selectedItem(){
+        this._selected = true;
+    }
+    @computed get selected(){
+        return this._selected;
+    }
 }
 module.exports = Product;
