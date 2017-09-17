@@ -1,39 +1,15 @@
 /**
- * Created by LDQ on 2017/7/6.
+ * Created by LDQ on 2017/9/17
  */
-
 import {observable, computed,action,autorun} from "mobx";
-import _h from '../../Util/HB';
+import _h from '../../../Util/HB';
+import AddressList from './AddressList';
 
-
-class ReceiveAddress{
-
-    @observable list = [];
-    @computed get hasList(){
-        if(this.list.length > 0){
-            return true;
-        }
-        return false;
-    }
-
-    @observable customAddressInfo;
-    @observable inputInfo = {
-        receiveName:'',
-        phoneNum:'',
-        specificAddress:''
-    };
-
-    constructor(login,autoMap){
-        let self = this;
-        self.autoMap = autoMap;
-        self.login = login;
-        self.addressList = function(postInfo){
-            return _h.ajax.resource('/location/client/deliveryAddress/:action')
-                .save({action:"getAddressList"},postInfo,false)
-        }.before(function(postInfo){
-            postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
-            postInfo.userId = self.login.postDataAccessInfo.user_id;
-        });
+class AddressOperator{
+    constructor(autoMap,login){
+        this.autoMap = autoMap;
+        this.login = login;
+        this.addressList = new AddressList(login);
 
         this.createAddress = function(postData){
             return _h.ajax.resource("/location/client/deliveryAddress/:action")
@@ -57,34 +33,23 @@ class ReceiveAddress{
             postData.userId = self.login.postDataAccessInfo.user_id;
             postData.userType = "client";
         }));
-        this.setDefaultAddress = function(postData){
-            return _h.ajax.resource("/location/client/deliveryAddress/:action")
-                .save({action:"setDefaultAddress"},postData)
-        }.before(((postData)=>{
-            postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
-            postData.userId = self.login.postDataAccessInfo.user_id;
-        }))
-
     }
 
-    @action getAddressList(pageNo = 0,size = 50,sortProperties=[],direction = "DESC"){
-        let self = this;
-
-        let postInfo = {
-            pageInfo:{
-                direction:direction,
-                pageNo:pageNo,
-                size:size,
-                sortProperties:[]
-            }
-        };
-        self.addressList(postInfo).done((list)=>{
-            self.list = list.content;
-        })
+    //  地址列表
+    @observable _list = [];
+    @computed get list(){
+        return this._list;
     }
-    @action selected(address){
-        console.log(address);
-        this.customAddressInfo = address;
+    @action getList(){
+        this.addressList.getAddressList();
+        this.addressList.list = this._list;
+    }
+
+
+
+    @observable _inputInfo = {};
+    @action setInputInfo(addressInfo){
+        return this._inputInfo = addressInfo;
     }
     @action create(){
         let postData = {
@@ -127,27 +92,6 @@ class ReceiveAddress{
             console.log(data);
         })
     }
-    @action setDefault(item){
-
-        this.setAllAddressDefault(item);
-        this.setDefaultAddress({
-            addressId:item.id,
-            default:item.default
-        }).then((data)=>{
-            console.log(data);
-        });
-
-    }
-    setAllAddressDefault(item){
-        for(let i =0;i < this.list.length;i++){
-            if(this.list[i].id === item.id){
-                this.list[i].default = !item.default;
-            }else{
-                this.list[i].default = false;
-            }
-
-        }
-    }
     findEqualAddressId(address){
         let isEqualId = function(item){
             if(item.id === address.id){
@@ -159,14 +103,4 @@ class ReceiveAddress{
             address:this.list.find(isEqualId)
         }
     }
-    findDefault(){
-        let self = this;
-        function isDefault(addressInfo){
-            if(addressInfo.default){
-                return addressInfo;
-            }
-        }
-        return self.list.find(isDefault);
-    }
 }
-module.exports = ReceiveAddress;

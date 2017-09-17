@@ -13,11 +13,6 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
     }
     componentWillMount(){
         this.props.addressList.getAddressList();
-        //  当前地址
-        let pathname = this.props.location.pathname;
-        //  推入历史
-        this.props.historyPath.put(pathname);
-
     }
     edit(item){
         return ()=>{
@@ -32,29 +27,16 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
             this.props.addressList.remove(item);
         }
     }
-    setDefault(item){
-        return ()=>{
-            console.log('设置默认');
-            this.props.addressList.setDefault(item);
-        }
-    }
     choose(item){
         return ()=>{
             this.props.addressList.selected(item)
         }
     }
-    changeHandle(){
-        return;
-    }
     render(){
-        /**
-         * 有可能从['/shop','productDetail','/createOrder']跳转过来
-         */
-        let returnUrl = this.props.historyPath.nearest(['/shop','productDetail','/createOrder']);
         let addressNodes = this.props.addressList.list.map((item,index)=>{
             return (
                 <li className={receiveAddressListStyle.address_nodes} key={index}>
-                    <Link to={{pathname:returnUrl}} onClick = {this.choose(item)}>
+                    <Link to="/shop" onClick = {this.choose(item)}>
                         <View className={receiveAddressListStyle.receiver_info}>
                             <p className={receiveAddressListStyle.consignee}>{item.receiveName}</p >
                             <p className={receiveAddressListStyle.telephone}>{item.phoneNum}</p >
@@ -65,16 +47,6 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
                         </p >
                     </Link>
                     <View className={receiveAddressListStyle.operate}>
-                        <p
-                            className={receiveAddressListStyle.operate_default}
-                            onClick={this.setDefault(item)}>
-                            <input type="checkbox"
-                                   checked={item.default}
-                                   name="address"
-                                   onChange={this.changeHandle}
-                                   className={item.default?receiveAddressListStyle.address_checked:receiveAddressListStyle.address_no_checked}/>
-                            <span>默认地址</span>
-                        </p>
                         <p className={receiveAddressListStyle.operate_amend}>
                             <Link to = {{pathname:'/inputAddress',state:{action:'edit'}}}
                                   onClick={this.edit(item)}

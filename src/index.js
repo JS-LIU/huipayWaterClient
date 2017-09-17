@@ -27,18 +27,21 @@ import ProductDetailView from './container/ProductDetailView';
 import TypeProductListView from './container/TypeProductListView';
 import MyView from './container/MyView';
 import LoginView from './container/LoginView';
+import AddressListView from './container/AddressListView';
+
 
 //  MobX
 import Login from './MobX/domain/Login';
 import AutoMap from './MobX/domain/AutoMap';
-import AddressList from './MobX/domain/AddressList';
-import ActiveAddress from './MobX/domain/ActiveAddress';
+import AddressList from './MobX/domain/location/AddressList';
+import ActiveAddress from './MobX/domain/location/ActiveAddress';
+import ShoppingList from './MobX/domain/shop/ShoppingList';
+import ShopInfo from './MobX/domain/ShopInfo';
+
 import ShopDetail from './MobX/domain/ShopDetail';
 import ProductList from './MobX/domain/ProductList';
 import ShoppingCart from './MobX/domain/ShoppingCart';
 import ProductDetail from './MobX/domain/ProductDetail';
-import ShoppingList from './MobX/domain/shop/ShoppingList';
-import ShopInfo from './MobX/domain/ShopInfo';
 
 
 import Order from './MobX/domain/Order';
@@ -68,6 +71,7 @@ const App = ()=>(
                 <Route path="/productDetail" component={ProductDetailView}/>
                 <Route path="/typeProductView" component={TypeProductListView}/>
                 <Route path="/my" component={MyView}/>
+                <Route path="/addressList" component={AddressListView} />
             </Switch>
         </div>
     </BrowserRouter>

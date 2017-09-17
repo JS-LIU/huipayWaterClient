@@ -20,7 +20,7 @@ import {observer,inject} from 'mobx-react';
     render(){
         return (
             <View >
-                <Link to='/receiveAddressList'
+                <Link to='/addressList'
                       className={activeAddressStyle.headLocation}>
                     <span className={activeAddressStyle.profile}>收货地址：</span>
                     <div id="container" className={autoMapStyle.map_hide} />
