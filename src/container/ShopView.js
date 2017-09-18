@@ -35,7 +35,7 @@ import {observer,inject} from 'mobx-react';
         return (
             <View style={{maxHeight:maxHeight + "px",overflow:"hidden"}}>
                 {this.props.shoppingList.show?<View className={shopStyle.shadow}/>:''}
-                <ReceiveAddressView current={this.props.location.pathname}/>
+                <ReceiveAddressView />
                 <HeadShopInfoView />
                 {/*<Text className={shopStyle.notice}>喜腾山泉品牌水票在本平台所有水站通用</Text>*/}
                 <ul className={shopStyle.nav_link}>

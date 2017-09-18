@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import View from '../components/View';
+import Text from '../components/Text';
 import {Link} from 'react-router-dom';
 
 //  MobX
 import {observer,inject} from 'mobx-react';
 import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
 @inject (['addressList'])
-@inject (['historyPath'])
+@inject (['customAddress'])
+@inject (['activeAddress'])
+
 @observer class ReceiveAddressListView extends Component{
     constructor(props){
         super(props);
@@ -23,13 +26,12 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
     }
     remove(item){
         return ()=>{
-            console.log('删除');
             this.props.addressList.remove(item);
         }
     }
     choose(item){
         return ()=>{
-            this.props.addressList.selected(item)
+            this.props.activeAddress.selectedCurrentAddress(item)
         }
     }
     render(){
@@ -38,24 +40,25 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
                 <li className={receiveAddressListStyle.address_nodes} key={index}>
                     <Link to="/shop" onClick = {this.choose(item)}>
                         <View className={receiveAddressListStyle.receiver_info}>
-                            <p className={receiveAddressListStyle.consignee}>{item.receiveName}</p >
+                            <p className={receiveAddressListStyle.consignee}>{item.name}</p >
                             <p className={receiveAddressListStyle.telephone}>{item.phoneNum}</p >
-                            <p className={receiveAddressListStyle.address_label}>学校</p >
+                            <p className={receiveAddressListStyle.address_label}>{item.addressTagName}</p >
                         </View>
                         <p className={receiveAddressListStyle.location}>
-                            {item.receiveAddress}
+                            <Text>{item.address.cityName}</Text>
+                            <Text>{item.address.mapAddress + (item.address.appendingAddress||"")}</Text>
                         </p >
                     </Link>
-                    <View className={receiveAddressListStyle.operate}>
-                        <p className={receiveAddressListStyle.operate_amend}>
-                            <Link to = {{pathname:'/inputAddress',state:{action:'edit'}}}
-                                  onClick={this.edit(item)}
-                                  className={receiveAddressListStyle.operate_edit}>
-                                编辑
-                            </Link>
-                            <span onClick={this.remove(item)} className={receiveAddressListStyle.operate_delete}>删除</span>
-                        </p>
-                    </View>
+                    {/*<View className={receiveAddressListStyle.operate}>*/}
+                        {/*<p className={receiveAddressListStyle.operate_amend}>*/}
+                            {/*<Link to = {{pathname:'/inputAddress',state:{action:'edit'}}}*/}
+                                  {/*onClick={this.edit(item)}*/}
+                                  {/*className={receiveAddressListStyle.operate_edit}>*/}
+                                {/*编辑*/}
+                            {/*</Link>*/}
+                            {/*<span onClick={this.remove(item)} className={receiveAddressListStyle.operate_delete}>删除</span>*/}
+                        {/*</p>*/}
+                    {/*</View>*/}
                 </li>
             )
         });

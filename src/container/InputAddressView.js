@@ -8,42 +8,28 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
 
 @inject (['autoMap'])
 @inject (['addressList'])
-@inject (['historyPath'])
+@inject (['customAddress'])
 
 @observer class InputAddressView extends Component{
     constructor(props){
         super(props);
-        this.setName = this.setName.bind(this);
-        this.setPhoneNum = this.setPhoneNum.bind(this);
-        this.setSpecificAddress = this.setSpecificAddress.bind(this);
-    }
-    componentWillMount(){
-        //  当前地址
-        let pathname = this.props.location.pathname;
-        //  推入历史
-        this.props.historyPath.put(pathname);
-
-    }
-    componentDidMount(){
-        this.refs.myName.value = this.props.addressList.inputInfo.receiveName;
-        this.refs.myPhoneNum.value =  this.props.addressList.inputInfo.phoneNum;
-        this.refs.specificAddress.value = this.props.addressList.inputInfo.specificAddress;
     }
     setName(){
-        this.props.addressList.inputInfo.receiveName = this.refs.myName.value;
+        this.props.customAddress.setName(this.refs.myName.value);
     }
     setPhoneNum(){
-        this.props.addressList.inputInfo.phoneNum = this.refs.myPhoneNum.value;
+        this.props.customAddress.setNum(this.refs.myPhoneNum.value);
     }
     setSpecificAddress(){
-        this.props.addressList.inputInfo.specificAddress = this.refs.specificAddress.value;
+        this.props.customAddress.setSpeAddress(this.refs.specificAddress.value)
     }
     createAddress(){
-        this.props.addressList.create();
+
+        this.props.addressList.create(this.props.customAddress.info,this.props.autoMap.showLocationInfo);
     }
     render(){
         return (
-            <View className={inputAddressStyle.new_box}>
+            <View className={inputAddressStyle.input_box}>
                 <ul className={inputAddressStyle.new_build_address}>
                     <li className={inputAddressStyle.address_info}>
                         <span className={inputAddressStyle.info_desc}>收货人：</span>
@@ -51,8 +37,9 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                             type="text"
                             className={inputAddressStyle.info_input}
                             ref="myName"
-                            onBlur={this.setName}
+                            onBlur={this.setName.bind(this)}
                             placeholder="收货人姓名"
+                            defaultValue={this.props.customAddress.info.name}
                         />
                     </li>
                     <li className={inputAddressStyle.address_info}>
@@ -60,8 +47,9 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                         <input type="text"
                                className={inputAddressStyle.info_input}
                                ref="myPhoneNum"
-                               onBlur={this.setPhoneNum}
+                               onBlur={this.setPhoneNum.bind(this)}
                                placeholder="收货人电话"
+                               defaultValue={this.props.customAddress.info.num}
                         />
                     </li>
                     <li className={inputAddressStyle.address_info_area}>
@@ -77,8 +65,9 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                         <input type="text"
                                className={inputAddressStyle.info_input}
                                ref="specificAddress"
-                               onBlur={this.setSpecificAddress}
+                               onBlur={this.setSpecificAddress.bind(this)}
                                placeholder="具体地址"
+                               defaultValue={this.props.customAddress.info.speAddress}
                         />
                     </li>
                     <li className={inputAddressStyle.address_info_label}>

@@ -1,5 +1,4 @@
-.new_box{
-    min-height: 13.33rem;
+.input_box{
     composes:bgColor from '../Util/base.css';
 }
 .new_build_address{

@@ -34,6 +34,7 @@ import AddressListView from './container/AddressListView';
 import Login from './MobX/domain/Login';
 import AutoMap from './MobX/domain/AutoMap';
 import AddressList from './MobX/domain/location/AddressList';
+import CustomAddress from './MobX/domain/location/CustomAddress';
 import ActiveAddress from './MobX/domain/location/ActiveAddress';
 import ShoppingList from './MobX/domain/shop/ShoppingList';
 import ShopInfo from './MobX/domain/ShopInfo';
@@ -84,8 +85,8 @@ const login = new Login();
 const shoppingList = new ShoppingList(rem2pxRate,login);
 const shopInfo = new ShopInfo(login);
 const addressList = new AddressList(login,autoMap);
-const activeAddress = new ActiveAddress(addressList,autoMap);
-
+const activeAddress = new ActiveAddress(autoMap);
+const customAddress = new CustomAddress();
 
 // const shopDetail = new ShopDetail(login);
 const productList = new ProductList(login);
@@ -106,7 +107,8 @@ const stores = {
     order,
     historyPath,
     shoppingList,
-    shopInfo
+    shopInfo,
+    customAddress
 };
 
 ReactDom.render(

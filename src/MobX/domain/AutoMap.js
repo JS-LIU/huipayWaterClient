@@ -18,12 +18,26 @@ class AutoMap{
         longitude : "",
         latitude : "",
         pcode: "",
+        province:"",
         citycode:"",
-        districtcode:"",
+        city:"",
+        adcode:"",
         receiveAddress : "正在定位",
     };
-    @observable city = "";
-    @observable searchAddressList = [];
+    @observable _showAddressList = false;
+    @action hideNearAddressList(){
+        this._showAddressList = false;
+    }
+    @action showNearAddressList(){
+        this._showAddressList = true;
+    }
+    @computed get showAddressList(){
+        return this._showAddressList;
+    }
+    @observable _searchAddressList = [];
+    @computed get searchAddressList(){
+        return this._searchAddressList;
+    }
 
     constructor(){
         this.map = new AMap.Map('container', {
@@ -53,8 +67,10 @@ class AutoMap{
             self.showLocationInfo.longitude = data.position.getLng();
             self.showLocationInfo.latitude = data.position.getLat();
             self.showLocationInfo.pcode = data.addressComponent.citycode.substring(0,2)+"0000";
+            self.showLocationInfo.province = data.addressComponent.province;
             self.showLocationInfo.citycode = data.addressComponent.citycode;
-            self.showLocationInfo.districtcode = data.addressComponent.adcode;
+            self.showLocationInfo.city = data.addressComponent.district;
+            self.showLocationInfo.adcode = data.addressComponent.adcode;
 
             self.showLocationInfo.receiveAddress = data.formattedAddress;
 
@@ -69,7 +85,7 @@ class AutoMap{
         auto.search(str, function(status, result){
             if (status === 'complete' && result.info === 'OK') {
                 console.log(result);
-                self.searchAddressList = result.tips;
+                self._searchAddressList = result.tips;
             }
         });
     }
@@ -90,8 +106,10 @@ class AutoMap{
             self.showLocationInfo.longitude = poiInfo.location.getLng();
             self.showLocationInfo.latitude = poiInfo.location.getLat();
             self.showLocationInfo.pcode = poiInfo.pcode;
+            self.showLocationInfo.province = poiInfo.pname;
             self.showLocationInfo.citycode = poiInfo.citycode;
-            self.showLocationInfo.districtcode = poiInfo.adcode;
+            self.showLocationInfo.city = poiInfo.cityname;
+            self.showLocationInfo.adcode = poiInfo.adcode;
             self.showLocationInfo.receiveAddress = poiInfo.name;
 
             self.city = poiInfo.cityname;

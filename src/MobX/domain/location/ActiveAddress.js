@@ -7,7 +7,7 @@ import loginService from '../../service/loginService';
 
 class ActiveAddress{
     constructor(autoMap){
-        this.autpMap = autoMap;
+        this.autoMap = autoMap;
     }
     @observable _info = {};
     //  首页显示地址

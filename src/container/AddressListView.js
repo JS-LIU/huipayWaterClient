@@ -19,7 +19,7 @@ import {observer,inject} from 'mobx-react';
     render(){
         return (
             <View>
-                <AutoCompleteAddressView />
+                <AutoCompleteAddressView url={this.props.location.state.last}/>
                 <ReceiveAddressListView />
             </View>
         )

@@ -1,19 +1,23 @@
 .auto_complete_address{
-    min-height: 13.33rem;
     background: #EEEFF3;
 }
-.hand_input{
+.head_input{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 0.94rem;
+    height: 0.9rem;
 }
-.hand_input_address{
+.head_input_address{
     display: flex;
     align-items: center;
     width: 92%;
     height: 0.6rem;
     background: #FFFFFF;
+}
+.cancel{
+    composes:f26 from '../Util/huipayWaterBase.css';
+    color:#333;
+    padding-right:0.2rem;
 }
 .auto_city{
     padding-right: 0.2rem;
@@ -33,8 +37,10 @@ textarea::-webkit-input-placeholder {
 }
 .address_input{
     flex:1;
-    outline: none;
     margin: 0 0.2rem;
+    padding-left:0.2rem;
+    height:0.6rem;
+    outline: none;
     composes:h f24 from '../Util/base.css'
 }
 .address_node{

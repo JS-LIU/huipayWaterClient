@@ -11,28 +11,6 @@ class AddressOperator{
         this.login = login;
         this.addressList = new AddressList(login);
 
-        this.createAddress = function(postData){
-            return _h.ajax.resource("/location/client/deliveryAddress/:action")
-                .save({action:"createAddress"},postData)
-        }.before((postData)=>{
-            postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
-            postData.userId = self.login.postDataAccessInfo.user_id;
-        });
-
-        this.removeAddress = function(postData){
-            return _h.ajax.resource("/location/client/deliveryAddress/:action")
-                .save({action:"deleteAddress"},postData)
-        }.before(((postData)=>{
-            postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
-        }));
-        this.editAddress = function(postData){
-            return _h.ajax.resource("/location/client/deliveryAddress/:action")
-                .save({action:"updataAddress"},postData)
-        }.before(((postData)=>{
-            postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
-            postData.userId = self.login.postDataAccessInfo.user_id;
-            postData.userType = "client";
-        }));
     }
 
     //  地址列表
@@ -51,21 +29,7 @@ class AddressOperator{
     @action setInputInfo(addressInfo){
         return this._inputInfo = addressInfo;
     }
-    @action create(){
-        let postData = {
-            pcode:this.autoMap.showLocationInfo.pcode,
-            citycode:this.autoMap.showLocationInfo.citycode,
-            districtcode:this.autoMap.showLocationInfo.districtcode,
-            latitude:this.autoMap.showLocationInfo.latitude,
-            longitude:this.autoMap.showLocationInfo.longitude,
-            phoneNum:this.inputInfo.phoneNum,
-            receiveAddress:this.autoMap.showLocationInfo.receiveAddress + this.inputInfo.specificAddress,
-            receiveName:this.inputInfo.receiveName
-        };
-        this.createAddress(postData).then((data)=>{
-            console.log(data);
-        })
-    }
+
     @action remove(item){
         let deliveryAddressId = item.id;
         this.removeAddress({
