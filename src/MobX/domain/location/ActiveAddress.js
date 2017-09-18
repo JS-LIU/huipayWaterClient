@@ -15,15 +15,16 @@ class ActiveAddress{
         return this.resetCurrentAddress || this.current;
     }
     //  当前地址
-    @observable _current = "正在获取当前位置...";
+    @observable _current = {};
     @computed get current(){
-        if(this._current === "正在获取当前位置..."){
+        if(!this._current.receiveAddress){
             this.getCurrentAddress();
         }
         return this._current;
     }
     //  获取当前地址
     @action getCurrentAddress(){
+        this._current.receiveAddress = "正在获取当前位置...";
         //  获取当前地址
         this.autoMap.getCurrentLocation();
         this._current = this.autoMap.showLocationInfo;

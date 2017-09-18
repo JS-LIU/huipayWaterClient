@@ -9,7 +9,7 @@ import autoCompleteAddressStyle from '../css/autoCompleteAddressStyle.css';
 import {observer,inject} from 'mobx-react';
 
 @inject (['autoMap'])
-
+@inject (['activeAddress'])
 @observer class AutoCompleteAddressView extends Component{
     constructor(props){
         super(props);
@@ -21,7 +21,7 @@ import {observer,inject} from 'mobx-react';
     choose(name){
         return ()=>{
             this.props.autoMap.searchAddressDetail(name);
-            this.refs.addressName.value = name;
+            this.props.activeAddress.selectedCurrentAddress(this.props.autoMap.showLocationInfo);
         }
     }
     cancel(){

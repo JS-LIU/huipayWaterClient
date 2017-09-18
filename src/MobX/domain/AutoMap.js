@@ -22,7 +22,7 @@ class AutoMap{
         citycode:"",
         city:"",
         adcode:"",
-        receiveAddress : "正在定位",
+        receiveAddress : "正在获取当前位置...",
     };
     @observable _showAddressList = false;
     @action hideNearAddressList(){
@@ -47,7 +47,7 @@ class AutoMap{
     getCurrentLocation(){
         let geolocation;
         let self = this;
-        let pcode = "",citycode = '',districtcode = '',formattedAddress = '正在定位';
+        let pcode = "",citycode = '',districtcode = '',formattedAddress = '正在获取当前位置...';
         this.map.plugin('AMap.Geolocation', function() {
             geolocation = new AMap.Geolocation({
                 enableHighAccuracy: true,               //是否使用高精度定位，默认:true
@@ -77,6 +77,7 @@ class AutoMap{
         }
         function onError(data) {
             console.log('============定位失败');
+            self.showLocationInfo.receiveAddress = '定位失败';
         }
     }
     @action autoComplete(str){

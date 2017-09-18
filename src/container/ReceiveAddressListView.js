@@ -67,10 +67,10 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
                 <ul className={receiveAddressListStyle.address_list}>
                     {addressNodes}
                 </ul>
-                <Link to={{pathname:'/inputAddress',state:{action:'create'}}}
-                      className={receiveAddressListStyle.address_btn}>
-                    新建地址
-                </Link>
+                {/*<Link to={{pathname:'/inputAddress',state:{action:'create'}}}*/}
+                      {/*className={receiveAddressListStyle.address_btn}>*/}
+                    {/*新建地址*/}
+                {/*</Link>*/}
             </View>
         )
     }

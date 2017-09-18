@@ -1,9 +1,7 @@
 .receive_address_list{
-    min-height: 13.33rem;
     composes:bgColor from '../Util/base.css';
 }
 .address_list{
-    padding-bottom: 1.3rem;
 }
 .address_nodes{
     display:flex;
