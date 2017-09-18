@@ -27,7 +27,7 @@ import {observer,inject} from 'mobx-react';
                 <View className={addressListStyle.receive_address_title}>
                     <Text className={addressListStyle.address_title}>收货地址</Text>
                     <Link to={{pathname:'/inputAddress',state:{action:'create'}}}
-                          className={addressListStyle.create_btn}>新建地址</Link>
+                          className={addressListStyle.create_btn}>新建</Link>
                 </View>
                 <ReceiveAddressListView />
             </View>

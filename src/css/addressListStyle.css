@@ -47,6 +47,8 @@
     composes: f28 from '../Util/huipayWaterBase.css';
     padding:0 0.2rem 0 0.35rem;
     color:#399cfe;
-    line-height:0.8rem;
-    background:url("../images/receive-address-location-Icon@2x.png") no-repeat left center;
+    line-height:0.7rem;
+    background:url("../images/Newly-added@2x.png") no-repeat left center;
+    -webkit-background-size: 0.3rem;
+    background-size: 0.3rem;
 }
