@@ -26,6 +26,10 @@
     line-height:0.8rem;
     composes: f28 from '../Util/huipayWaterBase.css';
     color:#333;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    flex:1;
 }
 .current_address_reset{
     padding:0 0.2rem 0 0.35rem;
@@ -45,10 +49,10 @@
 }
 .create_btn{
     composes: f28 from '../Util/huipayWaterBase.css';
-    padding:0 0.2rem 0 0.35rem;
+    padding:0 0.2rem 0 0.37rem;
     color:#399cfe;
     line-height:0.7rem;
     background:url("../images/Newly-added@2x.png") no-repeat left center;
-    -webkit-background-size: 0.3rem;
-    background-size: 0.3rem;
+    -webkit-background-size: 0.32rem;
+    background-size: 0.32rem;
 }

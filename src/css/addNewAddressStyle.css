@@ -1,43 +1,60 @@
 .add_new_address{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:0.3rem;
     background:#FFFFFF url("../../src/images/line.png") no-repeat center bottom;
     background-size: 7.5rem 0.04rem;
-    height:2rem;
-}
-.address_detail{
-    background: url('../../src/images/address-05.png') no-repeat 0.3rem center;
-    background-size: 0.3rem;
-    font-size: 0.30rem;
-    padding-left: 0.7rem;
-    color: #333333;
-}
-.delivery_message{
-    background: #ffffff url("../../src/images/line.png") no-repeat center bottom;
-    background-size: 7.5rem 0.04rem;
-    composes: pt30 from '../Util/base.css';
-}
-.delivery_person{
-    margin-left: 0.7rem;
-    composes:pr30 from '../Util/base.css';
-}
-.consignee{
-    display: inline-block;
-    margin-right: 0.5rem;
-}
-.delivery_address{
-    height: 0.8rem;
-    background: url("../../src/images/address-05.png") no-repeat left top;
-    background-size: 0.3rem;
-    margin: 0.2rem 0 0 0.3rem;
-    composes: pl40 from '../Util/base.css';
-}
-.delivery_address span{
-    display: inline-block;
-    float: left;
     height:1rem;
 }
+.address_detail{
+    margin-left:0.68rem;
+    padding-left:0.5rem;
+    background: url('../../src/images/address-05.png') no-repeat left center;
+    background-size: 0.3rem;
+    font-size: 0.3rem;
+    color: #333333;
+}
+.address_info{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    margin-top:0.3rem;
+    height:1.8rem;
+    background: #ffffff url("../../src/images/line.png") no-repeat center bottom;
+    background-size: 7.5rem 0.04rem;
+}
+.delivery_person{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:0 0.68rem;
+    composes:pr30 from '../Util/base.css';
+}
+.name{
+    margin-right: 0.5rem;
+}
+.name_title{
+    composes: f30 from '../Util/huipayWaterBase.css';
+}
+.name_text{
+    composes: f26 from '../Util/huipayWaterBase.css';
+}
+.phone_num{
+    composes: f26 from '../Util/huipayWaterBase.css';
+}
+.delivery_address{
+    display:flex;
+    flex-direction: row;
+    margin: 0.2rem 0.68rem 0 0.28rem;
+}
+.delivery_address_text{
+    composes: f30 from '../Util/huipayWaterBase.css';
+    background: url("../../src/images/address-05.png") no-repeat left top;
+    background-size: 0.3rem;
+    padding-left:0.4rem;
+}
 .address{
-    width:73%;
+    flex:1;
     composes:f26 from '../Util/base.css';
 }

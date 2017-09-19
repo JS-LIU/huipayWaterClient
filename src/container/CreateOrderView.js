@@ -4,10 +4,12 @@
 
 //  react
 import React, {Component} from 'react';
+
 import {Link} from 'react-router-dom';
 
 //  components
 import View from '../components/View';
+import Text from '../components/Text';
 import ConfirmReceiveAddressView from './ConfirmReceiveAddressView';
 
 import createOrderStyle from '../css/createOrderStyle.css';
@@ -15,23 +17,18 @@ import createOrderStyle from '../css/createOrderStyle.css';
 //  MobX
 import {observer,inject} from 'mobx-react';
 
-
-@inject (['historyPath'])
 @observer class CreateOrderView extends Component{
     constructor(props){
         super(props);
     }
-    componentWillMount(){
-        //  当前地址
-        let pathname = this.props.location.pathname;
-        //  推入历史
-        this.props.historyPath.put(pathname);
-
-    }
     render(){
         return (
-            <View style={createorderStyle}>
+            <View className={createOrderStyle.wrap}>
                 <ConfirmReceiveAddressView/>
+                <View className={createOrderStyle.pay_way}>
+                    <Text className={createOrderStyle.pay_way_title}>支付方式</Text>
+                    <Text className={createOrderStyle.pay_way_selected}>货到付款</Text>
+                </View>
                 <OrderListView/>
                 <OrderFooterView/>
             </View>
@@ -45,55 +42,39 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     render(){
-        let shopNodes = this.props.order.settleInfo.list.map((shop,index)=>{
-            let productNodes = shop.productList.map((product,index)=>{
-                return (
-                    <li className={createOrderStyle.product_nodes} key={index}>
-                        <p className={createOrderStyle.product_pic_box}>
-                            <img src={product.picUrl} alt="" className={createOrderStyle.product_pic}/>
-                        </p>
-                        <div className={createOrderStyle.product_detail}>
-                            <p className={createOrderStyle.product_name}>{product.productName}resr</p>
-                            <p className={createOrderStyle.product_volume}>{product.specification}</p>
-                            <p className={createOrderStyle.product_price}>
-                                ￥<span className={createOrderStyle.product_sale}>{product.price}</span> * {product.count}</p>
-                        </div>
-                    </li>
-                )
-            });
-
+        let productNodes = this.props.order.orderInfo.productItemModels.map((productItem,index)=>{
             return (
-                <li key = {index} className={createOrderStyle.shop_nodes}>
-                    <ul>
-                        <li>
-                            <ul>
-                                {productNodes}
-                            </ul>
-                        </li>
-                        <li className={createOrderStyle.charge}>
-                            <span className={createOrderStyle.charge_title}>快递费用</span>
-                            <span>{shop.expressFee}元</span>
-                        </li>
-                        <li className={createOrderStyle.charge}>
-                            <span className={createOrderStyle.charge_title}>水票抵用</span>
-                            <span className={createOrderStyle.purpose}>{shop.ticketPayCount}</span>
-                        </li>
-                        <li className={createOrderStyle.cost}>
-                            <p className={createOrderStyle.cost_descript}>
-                                <span>共{shop.shopTotalProductCount}件商品，</span>
-                                <span>合计</span>
-                                <span className={createOrderStyle.cost_unit}>￥</span>
-                                <span className={createOrderStyle.const_money}>{shop.shopTotalPrice}</span>
-                            </p>
-                        </li>
-                    </ul>
+                <li className={createOrderStyle.product_nodes} key={index}>
+                    <View className={createOrderStyle.product_pic_box}>
+                        <img src={productItem.productImage} alt="" className={createOrderStyle.product_pic}/>
+                    </View>
+                    <View className={createOrderStyle.product_detail}>
+                        <Text className={createOrderStyle.product_name}>{productItem.name}</Text>
+                        <View className={createOrderStyle.product_price}>
+                            <Text className={createOrderStyle.product_price_title}>￥</Text>
+                            <Text className={createOrderStyle.price}>{productItem.currentPrice}</Text>
+                            <Text className={createOrderStyle.count}>* {productItem.selectCount}</Text>
+                        </View>
+                    </View>
                 </li>
             )
         });
+
         return (
-            <ul className={createOrderStyle.shop_nodes_list}>
-                {shopNodes}
-            </ul>
+            <View className={createOrderStyle.order}>
+                <View className={createOrderStyle.shop_name}>
+                    <Text className={createOrderStyle.name}>{this.props.order.shopName}</Text>
+                </View>
+
+                <ul className={createOrderStyle.shop_nodes_list}>
+                    {productNodes}
+                </ul>
+                <View className={createOrderStyle.water_ticket_list}>
+                    <Text className={createOrderStyle.water_ticket_title}>水漂抵用</Text>
+                    <Text className={createOrderStyle.water_ticket_used}>{this.props.order.totalUsedTicket}张</Text>
+                </View>
+            </View>
+
         )
     }
 }
@@ -107,12 +88,14 @@ import {observer,inject} from 'mobx-react';
     render(){
         return (
             <View className={createOrderStyle.confirm_footer}>
-                <p className={createOrderStyle.statistics}>
-                    <span>共{this.props.order.settleInfo.totalProductCount}件商品</span>
-                    <span className={createOrderStyle.payable}>实付款￥</span>
-                    <span>{this.props.order.settleInfo.totalPrice}</span>
-                </p>
-                <Link to="www.baidu.com" className={createOrderStyle.submit_order}>确认支付</Link>
+                <View className={createOrderStyle.statistics}>
+                    <Text>共{this.props.order.orderInfo.totalCount}件商品</Text>
+                    <Text className={createOrderStyle.pay_title}>实付款</Text>
+                    <Text className={createOrderStyle.total_price}>￥{this.props.order.orderInfo.totalPrice}</Text>
+                </View>
+                <Link to="www.baidu.com" className={createOrderStyle.submit_order}>
+                    <Text className={createOrderStyle.pay}>立即下单</Text>
+                </Link>
             </View>
         )
     }
@@ -120,7 +103,3 @@ import {observer,inject} from 'mobx-react';
 
 
 module.exports = CreateOrderView;
-const createorderStyle={
-    background:'#EEEFF3',
-    minHeight:'13.33rem',
-};

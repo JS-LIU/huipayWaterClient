@@ -1,5 +1,6 @@
 //  react
 import React, {Component} from 'react';
+import Text from '../components/Text';
 import {Link} from 'react-router-dom';
 
 //  components
@@ -17,7 +18,7 @@ import {observer,inject} from 'mobx-react';
     render(){
         return (
             <View>
-                {this.props.activeAddress.address.state === "currentPos"?<CreateAddressView />:<ActiveAddressView />}
+                {this.props.activeAddress.deliverAddress?<ActiveAddressView />:<CreateAddressView />}
             </View>
         )
     }
@@ -28,13 +29,9 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     render(){
-        let hasList = this.props.addressList.hasList;
-        let url = hasList?'/receiveAddressList':'/inputAddress';
         return (
-            <Link to={{pathname:url,state:{action:'create',from:'/createOrder'}}} className={addNewAddressStyle.add_new_address}>
-                <p className={addNewAddressStyle.address_detail}>
-                    {hasList?'选择':'新增'}地址
-                </p >
+            <Link to='/receiveAddressList' className={addNewAddressStyle.add_new_address}>
+                <Text className={addNewAddressStyle.address_detail}>新增地址</Text >
             </Link>
         )
     }
@@ -47,17 +44,19 @@ import {observer,inject} from 'mobx-react';
     }
     render(){
         return (
-            <Link to={{pathname:'/receiveAddressList',state:{from:'/createOrder'}}} >
-                <ul className={addNewAddressStyle.delivery_message}>
-                    <li className={addNewAddressStyle.delivery_person}>
-                        <span className={addNewAddressStyle.consignee}>收货人：{this.props.activeAddress.address.info.receiveName}</span>
-                        <span className={addNewAddressStyle.connect}>{this.props.activeAddress.address.info.phoneNum}</span>
-                    </li>
-                    <li className={addNewAddressStyle.delivery_address}>
-                        <span>送货地址：</span>
-                        <span className={addNewAddressStyle.address}>{this.props.activeAddress.address.info.receiveAddress}</span>
-                    </li>
-                </ul>
+            <Link to="/receiveAddressList" className={addNewAddressStyle.address_info}>
+                <View className={addNewAddressStyle.delivery_person}>
+                    <View>
+                        <Text className={addNewAddressStyle.name_title}>收货人：</Text>
+                        <Text className={addNewAddressStyle.name_text}>{this.props.activeAddress.deliverAddress.name}</Text>
+                    </View>
+
+                    <Text className={addNewAddressStyle.phone_num}>{this.props.activeAddress.deliverAddress.phoneNum}</Text>
+                </View>
+                <View className={addNewAddressStyle.delivery_address}>
+                    <Text className={addNewAddressStyle.delivery_address_text}>送货地址：</Text>
+                    <Text className={addNewAddressStyle.address}>{this.props.activeAddress.deliverAddress.receiveAddress}</Text>
+                </View>
             </Link>
         )
     }

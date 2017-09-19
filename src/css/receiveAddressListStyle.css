@@ -1,5 +1,10 @@
 .receive_address_list{
-    composes:bgColor from '../Util/base.css';
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background:#F3F5F7;
 }
 .address_list{
 }
@@ -83,15 +88,22 @@
 }
 .address_btn{
     position: fixed;
-    bottom: 0.5rem;
-    margin: 0 0.3rem;
-    height: 0.8rem;
-    line-height: 0.8rem;
-    border-radius: 0.1rem;
-    width: 92%;
-    color: #ffffff;
-    background: #4dc0ff;
-    composes:tc f36 from '../Util/base.css';
+    left:0;
+    right:0;
+    bottom: 0;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    composes:tc from '../Util/base.css';
+    background: #FFF;
+}
+.address_btn_text{
+    color: #399cfe;
+    composes:f36 from '../Util/huipayWaterBase.css';
+    line-height: 0.96rem;
+    background:url('../images/Newly-added@2x.png') no-repeat left center;
+    -webkit-background-size: 0.32rem;
+    background-size: 0.32rem;
+    padding-left:0.4rem;
 }
 .dialog{
     position: fixed;

@@ -17,9 +17,7 @@ class ActiveAddress{
     //  当前地址
     @observable _current = {};
     @computed get current(){
-        if(!this._current.receiveAddress){
-            this.getCurrentAddress();
-        }
+        this.getCurrentAddress();
         return this._current;
     }
     //  获取当前地址
@@ -36,7 +34,19 @@ class ActiveAddress{
     }
     //  选择首页地址
     @action selectedCurrentAddress(addressInfo){
+        if(addressInfo.id){
+            this._deliverAddress = addressInfo;
+        }
         this._resetCurrentAddress = addressInfo;
+    }
+
+    //  实际送货地址
+    @observable _deliverAddress = false;
+    @computed get deliverAddress(){
+        return this._deliverAddress;
+    }
+    @action selectedDeliverAddress(addressInfo){
+        this._deliverAddress = addressInfo;
     }
 }
 module.exports = ActiveAddress;

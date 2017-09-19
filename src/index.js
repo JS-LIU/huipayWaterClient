@@ -28,7 +28,8 @@ import TypeProductListView from './container/TypeProductListView';
 import MyView from './container/MyView';
 import LoginView from './container/LoginView';
 import AddressListView from './container/AddressListView';
-
+import HomePageCreateAddressView from './container/HomePageCreateAddressView';
+import ConfirmOrderCreateAddressView from './container/ConfirmOrderCreateAddressView';
 
 //  MobX
 import Login from './MobX/domain/Login';
@@ -65,8 +66,9 @@ const App = ()=>(
                 <Route path='/shop' component={ShopView} />
                 <Route path='/shopDetail' component={ShopDetailView} />
                 <Route path='/shoppingCart' component={ShoppingCartView}/>
-                <Route path="/createOrder" component={CreateOrderView}/>
-                <Route path="/inputAddress" component={InputAddressView}/>
+                <Route path="/confirmOrder" component={CreateOrderView}/>
+                <Route path="/homePageCreateAddress" component={HomePageCreateAddressView}/>
+                <Route path="/confirmOrderCreateAddress" component={ConfirmOrderCreateAddressView}/>
                 <Route path="/autoCompleteAddress" component={AutoCompleteAddressView}/>
                 <Route path="/receiveAddressList" component={ReceiveAddressListView}/>
                 <Route path="/productDetail" component={ProductDetailView}/>
