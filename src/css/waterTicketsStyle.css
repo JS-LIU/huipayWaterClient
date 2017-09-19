@@ -1,0 +1,45 @@
+.water_ticket{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin:0.2rem;
+    height:1.4rem;
+
+}
+.water_ticket_left{
+    height:1.4rem;
+    flex:138;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.count{
+    font-size:0.66rem;
+    color:#399cfe;
+    font-weight: bold;
+}
+.unit{
+    composes: f24 from '../Util/huipayWaterBase.css';
+    color:#399cfe;
+}
+.water_ticket_right{
+    height:1.4rem;
+    flex:385;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.name{
+    composes:f36 from '../Util/huipayWaterBase.css';
+    padding-left:0.28rem;
+    line-height: 1.4rem;
+    font-weight: bold;
+    color:#333;
+}
+.restDay{
+    composes:f24 from '../Util/huipayWaterBase.css';
+    padding-right:0.34rem;
+    line-height: 1.4rem;
+    color:#399cfe;
+}

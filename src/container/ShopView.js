@@ -13,6 +13,7 @@ import ReceiveAddressView from './ReceiveAddressView';
 import HeadShopInfoView from './HeadShopInfoView'
 import ProductListDialogView from './ProductListDialogView';
 
+import myStyle from '../css/myStyle.css';
 import shopStyle from '../css/shopStyle.css';
 import _h from '../Util/HB';
 //  MobX
@@ -45,6 +46,7 @@ import {observer,inject} from 'mobx-react';
                     <TypeList />
                     <ProductList />
                 </View>
+                <Link to="/my" className={myStyle.link_my}/>
                 <ShopFooter />
                 {this.props.shoppingList.show?<ShoppingCart />:''}
                 {this.props.shoppingList.activeProductItem.show?<ProductListDialogView waterTicket={this.props.shoppingList.activeProductItem}/>:""}

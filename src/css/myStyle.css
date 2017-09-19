@@ -1,3 +1,117 @@
+.wrap{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#F3F5F7;
+}
+
+.link_my{
+    position: fixed;
+    bottom:1.6rem;
+    right:0.3rem;
+    background:#FFF url("../images/mine@2x.png") no-repeat center;
+    -webkit-background-size: 0.35rem 0.4rem;
+    background-size: 0.35rem 0.4rem;
+    width:0.9rem;
+    height:0.9rem;
+    -webkit-border-radius: 0.9rem;
+    -moz-border-radius: 0.9rem;
+    border-radius: 0.9rem;
+    -webkit-box-shadow: 0 0 0.15rem 0.05rem #e5e5e5;
+    -moz-box-shadow: 0 0 0.15rem 0.05rem #e5e5e5;
+    box-shadow: 0 0 0.15rem 0.05rem #e5e5e5;
+}
+
+.header{
+    display:flex;
+    flex-direction: row;
+    height:1.6rem;
+    background:#FFF;
+}
+.user_img_protect{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:0.2rem;
+    width:1.2rem;
+    height:1.2rem;
+    overflow: hidden;
+    background:url("../images/head_def.png") no-repeat center center;
+    -webkit-background-size: 1.2rem auto;
+    background-size: 1.2rem auto;
+
+}
+.user_img{
+    width:100%;
+}
+.user_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex:1;
+    margin-top:0.35rem;
+    height:0.9rem;
+}
+.user_name{
+    font-size:0.32rem;
+    color:#333;
+}
+.user_phoneNum{
+    padding-left:0.25rem;
+    background:url("../images/phone@2x.png") no-repeat left center;
+    -webkit-background-size: 0.22rem;
+    background-size: 0.22rem;
+    font-size:0.22rem;
+    color:#666;
+}
+.list{
+    margin-top:0.3rem;
+}
+.water_ticket{
+    background:#FFF;
+    height:1rem;
+    border-bottom:0.01rem solid #D7D7D7;
+    display: flex;
+    padding-left:0.2rem;
+    line-height:1rem;
+}
+.water_ticket_title{
+    flex:1;
+    line-height:1rem;
+    font-size:0.32rem;
+    color:#333;
+    padding-left:0.7rem;
+    background:url("../images/me_icon_shuipiao@2x.png") no-repeat left center;
+    -webkit-background-size: 0.38rem auto;
+    background-size: 0.38rem auto;
+}
+.call{
+    background:#FFF;
+    height:1rem;
+    border-bottom:0.01rem solid #D7D7D7;
+    display: flex;
+    padding-left:0.2rem;
+    line-height:1rem;
+}
+.call_title{
+    line-height:1rem;
+    font-size:0.32rem;
+    color:#333;
+    padding-left:0.7rem;
+    background:url("../images/me_icon_service@2x.png") no-repeat left center;
+    -webkit-background-size: 0.38rem auto;
+    background-size: 0.38rem auto;
+}
+
+
+
+
+
+
+
+
 .order_list{
 
 }
