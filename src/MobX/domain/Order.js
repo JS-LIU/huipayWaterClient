@@ -10,67 +10,34 @@ class Order {
         this.login = login;
         let self = this;
         this.settleOrder = function(postInfo){
-            return _h.ajax.resource('/order/client/order/:action')
-                .save({action:"settleOrderInfo"},postInfo)
+            return _h.ajax.resource('/order/confirmOrderInfo/:action')
+                .save({action:"init"},postInfo)
         }.before(function(postInfo){
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
-            postInfo.userId = self.login.postDataAccessInfo.user_id;
-            postInfo.clientType = "web";
         });
     }
-    @observable _settleInfo = {
-        list:[{
-            productList:[]
-        }],
-        totalPrice:0,
-        totalProductCount:0
-    };
-    @computed get settleInfo(){
-        return this._settleInfo;
+    @observable _orderInfo = {productItemModels:[]};
+    @computed get orderInfo(){
+        return this._orderInfo;
     }
-    @action getSettleOrder(list){
-        let settleList = this.toSettleList(list);
-
-        let postInfo = {
-            list:settleList
-        };
-
-        this.settleOrder(postInfo).then((data)=>{
-            this._settleInfo = data;
+    @computed get totalUsedTicket(){
+        return this._totalUsedTicket;
+    }
+    @observable _totalUsedTicket;
+    @observable _shopName = "";
+    @action getSettleOrder(shopId){
+        this.settleOrder({
+            shopId:shopId
+        }).then((data)=>{
+            this._orderInfo = data.orderProductInfo;
+            this._ticketList = data.orderTicketInfo.userTicketModels;
+            this._totalUsedTicket = data.orderTicketInfo.totalUsed;
+            this._shopName = data.shopName;
         })
+
     }
-    toSettleList(product){
-
-        if(Array.isArray(product)){
-            let productList = [];
-            for(let i = 0,len = product.length;i < len;i++){
-                productList.push({
-                    count:product[i].count,
-                    distributeProductId:product[i].distributeProductId,
-                    selfProductId:product[i].selfProductId,
-                    purchaseProductType:product[i].purchaseProductType
-                })
-            }
-            return [{
-                provideShopId:product[0].provideShopId,
-                saleShopId:product[0].saleShopId,
-                productList:productList
-            }]
-
-        }else{
-            let basicInfo = product.showProduct.productBasicInfo;
-            let settleProduct = {
-                count:product.count,
-                distributeProductId:basicInfo.distributeProductId,
-                selfProductId:basicInfo.selfProductId,
-                purchaseProductType:basicInfo.purchaseProductType
-            };
-            return [{
-                provideShopId:basicInfo.provideShopId,
-                saleShopId:basicInfo.saleShopId,
-                productList:[settleProduct]
-            }];
-        }
+    @computed get shopName(){
+        return this._shopName;
     }
 }
 module.exports = Order;

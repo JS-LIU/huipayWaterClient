@@ -1,5 +1,10 @@
 .input_box{
-    composes:bgColor from '../Util/base.css';
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#F3F5F7;
 }
 .new_build_address{
    composes:bgColorF from '../Util/base.css';
@@ -28,8 +33,12 @@
 }
 .area_choose{
     flex:1;
+    padding-right:0.5rem;
     background:url("../../src/images/btn_right_arrow@2x.png") no-repeat 5.3rem center;
     background-size: 0.18rem 0.3rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .address_info_label{
     display: flex;

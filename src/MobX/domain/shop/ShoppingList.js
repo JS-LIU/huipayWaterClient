@@ -55,7 +55,7 @@ class ShoppingList {
 
                     let productItem = list.find(hasProductItem);
                     if (!productItem) {
-                        productItem = new Product(productList[j].name,productList[j].type, productList[j].imageUrl, product[k]);
+                        productItem = new Product(productList[j].name,productList[j].type, productList[j].imageUrl, product[k],this.login);
                         list.push(productItem);
                     }
                 }

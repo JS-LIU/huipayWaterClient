@@ -8,7 +8,7 @@ import Button from '../components/Button';
 import Text from '../components/Text';
 
 import AutoCompleteAddressView from './AutoCompleteAddressView';
-import ReceiveAddressListView from './ReceiveAddressListView';
+import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
 import addressListStyle from '../css/addressListStyle.css';
 
 import {observer,inject} from 'mobx-react';
@@ -20,16 +20,17 @@ import {observer,inject} from 'mobx-react';
     render(){
         return (
             <View className={addressListStyle.wrap}>
-                <AutoCompleteAddressView url={this.props.location.state.last}/>
+                <AutoCompleteAddressView url={this.props.location.pathname}/>
 
                 <View className={addressListStyle.address_title}>当前地址</View>
                 <CurrentAddress />
                 <View className={addressListStyle.receive_address_title}>
                     <Text className={addressListStyle.address_title}>收货地址</Text>
-                    <Link to={{pathname:'/inputAddress',state:{action:'create'}}}
+                    <Link to='/homePageCreateAddress'
                           className={addressListStyle.create_btn}>新建地址</Link>
                 </View>
                 <ReceiveAddressListView />
+
             </View>
         )
     }
@@ -56,5 +57,48 @@ import {observer,inject} from 'mobx-react';
     }
 
 }
+
+
+@inject (['addressList'])
+@inject (['activeAddress'])
+
+@observer class ReceiveAddressListView extends Component{
+    constructor(props){
+        super(props);
+    }
+    componentWillMount(){
+        this.props.addressList.getAddressList();
+    }
+    choose(item){
+        return ()=>{
+            this.props.activeAddress.selectedCurrentAddress(item);
+        }
+    }
+    render(){
+        let addressNodes = this.props.addressList.list.map((item,index)=>{
+            return (
+                <li className={receiveAddressListStyle.address_nodes} key={index}>
+                    <Link to="/shop" onClick = {this.choose(item)}>
+                        <View className={receiveAddressListStyle.receiver_info}>
+                            <p >{item.name}</p >
+                            <p className={receiveAddressListStyle.telephone}>{item.phoneNum}</p >
+                            <p className={receiveAddressListStyle.address_label}>{item.addressTagName}</p >
+                        </View>
+                        <p className={receiveAddressListStyle.location}>
+                            <Text>{item.address.cityName}</Text>
+                            <Text>{item.address.mapAddress + (item.address.appendingAddress||"")}</Text>
+                        </p >
+                    </Link>
+                </li>
+            )
+        });
+        return (
+            <ul className={receiveAddressListStyle.address_list}>
+                {addressNodes}
+            </ul>
+        )
+    }
+}
+
 
 module.exports = AddressListView;

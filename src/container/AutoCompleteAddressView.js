@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import View from '../components/View';
 import Button from '../components/Button';
 import Text from '../components/Text';
-import {Link} from 'react-router-dom';
 
 import autoCompleteAddressStyle from '../css/autoCompleteAddressStyle.css';
 //  MobX
@@ -21,6 +21,7 @@ import {observer,inject} from 'mobx-react';
     choose(name){
         return ()=>{
             this.props.autoMap.searchAddressDetail(name);
+            this.props.autoMap.hideNearAddressList();
             this.props.activeAddress.selectedCurrentAddress(this.props.autoMap.showLocationInfo);
         }
     }
@@ -33,12 +34,13 @@ import {observer,inject} from 'mobx-react';
         this.props.autoMap.showNearAddressList();
     }
     render(){
+        let url = this.props.url||this.props.location.state.last;
         let addressNodes = this.props.autoMap.searchAddressList.map((item,index)=>{
             return (
                 <li key={index}
                     className={autoCompleteAddressStyle.address_node}
                     onClick={this.choose(item.name)} >
-                    <Link to={this.props.url} replace>
+                    <Link to={url} replace>
                         <p className={autoCompleteAddressStyle.consignee_address}>
                             {item.name}
                         </p>

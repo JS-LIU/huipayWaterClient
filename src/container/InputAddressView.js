@@ -23,13 +23,10 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
     setSpecificAddress(){
         this.props.customAddress.setSpeAddress(this.refs.specificAddress.value)
     }
-    createAddress(){
 
-        this.props.addressList.create(this.props.customAddress.info,this.props.autoMap.showLocationInfo);
-    }
     render(){
         return (
-            <View className={inputAddressStyle.input_box}>
+            <View>
                 <ul className={inputAddressStyle.new_build_address}>
                     <li className={inputAddressStyle.address_info}>
                         <span className={inputAddressStyle.info_desc}>收货人：</span>
@@ -54,7 +51,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                     </li>
                     <li className={inputAddressStyle.address_info_area}>
                         <span className={inputAddressStyle.info_desc_area}>所在区域：</span>
-                        <Link to="/autoCompleteAddress"
+                        <Link to={{pathname: "/autoCompleteAddress", state: { last: this.props.url }}}
                               replace
                               className={inputAddressStyle.area_choose}>
                             {this.props.autoMap.showLocationInfo.receiveAddress}
@@ -77,7 +74,6 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                         <p className={inputAddressStyle.label_choose}>学校</p>
                     </li>
                 </ul>
-                <Link to="/receiveAddressList" replace className={inputAddressStyle.save_new_address} onClick={this.createAddress.bind(this)}>保存</Link>
             </View>
         )
     }

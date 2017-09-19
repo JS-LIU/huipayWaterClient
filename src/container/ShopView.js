@@ -15,7 +15,6 @@ import ProductListDialogView from './ProductListDialogView';
 
 import shopStyle from '../css/shopStyle.css';
 import _h from '../Util/HB';
-
 //  MobX
 import {observer,inject} from 'mobx-react';
 @inject(['shoppingList'])
@@ -69,7 +68,7 @@ import {observer,inject} from 'mobx-react';
         let typeNodes = this.props.shoppingList.tagModelList.map((typeItem,index)=>{
             return (
                 <li key={index} className={shopStyle.type_item} style={typeItem.selected?selectedBg:{}} onClick={this.selectedType(typeItem)}>
-                    <View className={shopStyle.product_list_total_count}>{typeItem.selectCount}</View>
+                    {typeItem.selectCount === 0?"":<View className={shopStyle.product_list_total_count}>{typeItem.selectCount}</View>}
                     <Text className={shopStyle.type_item_title} style={typeItem.selected?selectedColor:{}}>{typeItem.name}</Text>
                 </li>
             )
@@ -257,12 +256,16 @@ import {observer,inject} from 'mobx-react';
 }
 
 @inject(['shoppingList'])
+@inject (['order'])
 @observer class ShopFooter extends Component{
     constructor(props){
         super(props);
     }
     showShoppingCart(){
         this.props.shoppingList.showShoppingCart();
+    }
+    confirmOrder(){
+        this.props.order.getSettleOrder(1);
     }
     render(){
         return (
@@ -277,7 +280,7 @@ import {observer,inject} from 'mobx-react';
                         <li className={shopStyle.shopping_cart_info_total_price}>{this.props.shoppingList.totalPrice}</li>
                     </ul>
                 </View>
-                <Link to='/confirmOrder' className={shopStyle.confirm_order_btn}>去结算</Link>
+                <Link to='/confirmOrder' className={shopStyle.confirm_order_btn} onClick={this.confirmOrder.bind(this)}>去结算</Link>
             </View>
         )
     }

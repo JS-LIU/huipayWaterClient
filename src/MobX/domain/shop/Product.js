@@ -2,8 +2,9 @@
  * Created by LDQ on 2017/9/11
  */
 import {observable, computed,action,autorun} from "mobx";
+import _h from '../../../Util/HB';
 class Product{
-    constructor(productName,productType,productImageUrl,itemModel){
+    constructor(productName,productType,productImageUrl,itemModel,login){
         this.imageUrl = productImageUrl;
         this.productName = productName;
         this.type = productType;
@@ -13,16 +14,51 @@ class Product{
         this.currentPrice = itemModel.currentPrice;
         this.saleMount = itemModel.saleMount;
         this._selectCount = itemModel.selectCount;
+        this.login = login;
+        let self = this;
+
+        let ajax = _h.ajax.resource('/shop/shoppingcart/:action');
+        this.increaseProduct = function (postInfo) {
+            return ajax.save({action: "increase"}, postInfo)
+        }.before(function (postInfo) {
+            postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
+        });
+        this.decreaseProduct = function (postInfo) {
+            return ajax.save({action: "decrease"}, postInfo)
+        }.before(function (postInfo) {
+            postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
+        });
     }
     @observable _selectCount;
     @computed get selectCount(){
         return this._selectCount;
     }
-
+    //  todo shopId 默认是1
     @action increase(){
         this._selectCount++;
+        let postData = {
+            productItemId:this.productItemId,
+            productType:this.type,
+            shopId:1
+        };
+        this.increaseProduct(postData).then(()=>{
+
+        }).catch(()=>{
+            alert('呀，网络不好')
+        })
+
     }
     @action reduce(){
+        let postData = {
+            productItemId:this.productItemId,
+            productType:this.type,
+            shopId:1
+        };
+        this.decreaseProduct(postData).then(()=>{
+
+        }).catch(()=>{
+            alert('呀，网络不好')
+        });
         this._selectCount--;
     }
     @observable _selected = false;
