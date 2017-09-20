@@ -183,6 +183,13 @@
     text-align: center;
     composes:linear_red_bg from '../Util/huipayWaterBase.css';
 }
+.cant_submit_order{
+    width: 2.2rem;
+    height:0.96rem;
+    line-height: 0.96rem;
+    text-align: center;
+    background:#999;
+}
 .pay{
     color: #ffffff;
     composes:f36 from '../Util/huipayWaterBase.css';

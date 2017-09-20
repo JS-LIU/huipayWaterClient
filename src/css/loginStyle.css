@@ -23,6 +23,7 @@
 .input_box{
     flex:1;
     outline:none;
+    line-heigh:normal;
 }
 input::-webkit-input-placeholder{
     font-size:0.3rem;

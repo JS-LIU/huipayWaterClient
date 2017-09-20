@@ -27,6 +27,10 @@ import {observer,inject} from 'mobx-react';
     getCheckCode(){
         this.props.login.getCheckCode();
     }
+    inputCheckCode(){
+        let val = this.refs.checkCode.value;
+        this.props.login.setCheckCode(val);
+    }
     login(){
         let historyPath = this.props.history;
         this.props.login.clientLogin(historyPath);
@@ -56,6 +60,8 @@ import {observer,inject} from 'mobx-react';
                         <input type="text"
                                className={loginStyle.input_box}
                                placeholder="验证码"
+                               ref="checkCode"
+                               onChange={this.inputCheckCode.bind(this)}
                         />
                     </li>
                 </ul>

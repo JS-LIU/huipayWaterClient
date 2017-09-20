@@ -31,6 +31,8 @@ import AddressListView from './container/AddressListView';
 import HomePageCreateAddressView from './container/HomePageCreateAddressView';
 import ConfirmOrderCreateAddressView from './container/ConfirmOrderCreateAddressView';
 import WaterTicketsView from './container/WaterTicketsView';
+import PaySuccessView from './container/PaySuccessView';
+
 //  MobX
 import Login from './MobX/domain/Login';
 import AutoMap from './MobX/domain/AutoMap';
@@ -78,6 +80,7 @@ const App = ()=>(
                 <Route path="/my" component={MyView}/>
                 <Route path="/addressList" component={AddressListView} />
                 <Route path="/waterTickets" component={WaterTicketsView} />
+                <Route path="/paySuccess" component={PaySuccessView} />
             </Switch>
         </div>
     </BrowserRouter>

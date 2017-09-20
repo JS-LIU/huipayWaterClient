@@ -8,7 +8,7 @@ import waterTicketsStyle from '../css/waterTicketsStyle.css';
 import {observer,inject} from 'mobx-react';
 
 @inject(['my'])
-class WaterTicketsView extends Component{
+@observer class WaterTicketsView extends Component{
     constructor(props){
         super(props);
     }
@@ -20,7 +20,7 @@ class WaterTicketsView extends Component{
             return (
                 <li key={index} className={waterTicketsStyle.water_ticket}>
                     <View className={waterTicketsStyle.water_ticket_left}>
-                        <View>
+                        <View className={waterTicketsStyle.water_ticket_count}>
                             <Text className={waterTicketsStyle.count}>{waterTicket.count}</Text>
                             <Text className={waterTicketsStyle.unit}>张</Text>
                         </View>
@@ -34,9 +34,12 @@ class WaterTicketsView extends Component{
             )
         });
         return (
-            <ul>
-                {waterTicketNodes}
-            </ul>
+            <View className={waterTicketsStyle.wrap}>
+                <ul>
+                    {waterTicketNodes}
+                </ul>
+            </View>
+
         )
     }
 }

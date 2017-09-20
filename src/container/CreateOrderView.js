@@ -10,6 +10,7 @@ import {Link} from 'react-router-dom';
 //  components
 import View from '../components/View';
 import Text from '../components/Text';
+import Button from '../components/Button';
 import ConfirmReceiveAddressView from './ConfirmReceiveAddressView';
 
 import createOrderStyle from '../css/createOrderStyle.css';
@@ -81,9 +82,13 @@ import {observer,inject} from 'mobx-react';
 
 
 @inject(['order'])
+@inject(['activeAddress'])
 @observer class OrderFooterView extends Component{
     constructor(props){
         super(props);
+    }
+    createOrder(){
+        this.props.order.createOrderId(this.props.activeAddress.deliverAddress.id,"",1);
     }
     render(){
         return (
@@ -93,9 +98,12 @@ import {observer,inject} from 'mobx-react';
                     <Text className={createOrderStyle.pay_title}>实付款</Text>
                     <Text className={createOrderStyle.total_price}>￥{this.props.order.orderInfo.totalPrice}</Text>
                 </View>
-                <Link to="www.baidu.com" className={createOrderStyle.submit_order}>
+                {this.props.activeAddress.deliverAddress?<Link to="/paySuccess" replace className={createOrderStyle.submit_order} onClick={this.createOrder.bind(this)}>
                     <Text className={createOrderStyle.pay}>立即下单</Text>
-                </Link>
+                </Link>:<Button className={createOrderStyle.cant_submit_order}>
+                    <Text className={createOrderStyle.pay}>立即下单</Text>
+                </Button>}
+
             </View>
         )
     }

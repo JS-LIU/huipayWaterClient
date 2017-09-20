@@ -30,6 +30,7 @@ class Login{
     @observable _sex = "男";
     @observable _phoneNum;
 
+    @observable _checkCode = "";
     @computed get headImg(){
         return this._headImg;
     }
@@ -42,7 +43,9 @@ class Login{
     @computed get phoneNum(){
         return this._phoneNum;
     }
-
+    @computed get checkCode(){
+        return this._checkCode;
+    }
     @observable _isLogin = false;
     @computed get isLogin(){
         return this._isLogin;
@@ -143,8 +146,10 @@ class Login{
             accessInfo:{
                 app_key:this._app_key
             },
-            phoneNum:this._phoneNum
+            phoneNum:this._phoneNum,
+            checkCode:this._checkCode
         };
+        console.log(postData);
         _h.ajax.resource('/login').save({},postData).then((loginInfo)=>{
             console.log(loginInfo);
             this._access_secret = loginInfo.access_secret;
@@ -157,6 +162,7 @@ class Login{
             console.log(data);
             alert('验证码错误');
         })
+
     }
 
     //  倒计时按钮文字
@@ -169,7 +175,13 @@ class Login{
         if(this.canGetCheckCode){
             //  开始倒计时
             this.countDown.start();
-            //  todo 获取验证码
+            //  获取验证码
+            _h.ajax.resource('/checkCode/login').save({},{phoneNum:this.phoneNum}).then((data)=>{
+            }).catch((data)=>{
+                console.log(data);
+                alert('验证码获取失败，请检查网络');
+            })
+
         }
     }
     //  设置电话号码
@@ -178,6 +190,9 @@ class Login{
         if(num.length <= 11){
             this._phoneNum = num;
         }
+    }
+    @action setCheckCode(checkCode){
+        this._checkCode = checkCode;
     }
 
     //  是否可以点击获取验证码

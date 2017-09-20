@@ -15,6 +15,12 @@ class Order {
         }.before(function(postInfo){
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
         });
+        this.createOrder = function(postInfo){
+            return _h.ajax.resource('/order/:action')
+                .save({action:"create"},postInfo)
+        }.before(function(postInfo){
+            postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
+        });
     }
     @observable _orderInfo = {productItemModels:[]};
     @computed get orderInfo(){
@@ -39,5 +45,20 @@ class Order {
     @computed get shopName(){
         return this._shopName;
     }
+    @action createOrderId(addressId,payType,shopId){
+        let postData = {
+            deliveryAddressId:addressId,
+            payType:payType,
+            shopId:shopId
+        };
+        this.createOrder(postData).then((data)=>{
+            this._info = data;
+        })
+    }
+    @observable _info = {};
+    @computed get info(){
+        return this._info;
+    }
+
 }
 module.exports = Order;
