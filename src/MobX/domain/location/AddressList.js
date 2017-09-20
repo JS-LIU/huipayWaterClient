@@ -24,8 +24,8 @@ class AddressList{
         });
 
         this.removeAddress = function(postData){
-            return _h.ajax.resource("/location/client/deliveryAddress/:action")
-                .save({action:"deleteAddress"},postData)
+            return _h.ajax.resource("/delivery/:action")
+                .save({action:"delete"},postData)
         }.before(((postData)=>{
             postData.accessInfo = self.login.postDataAccessInfo.accessInfo;
         }));
@@ -44,9 +44,9 @@ class AddressList{
             this._list = list;
         })
     }
-    @action create(customInfo,mapInfo){
+    @action create(customInfo,tagId,mapInfo){
         let postData = {
-            addressTagId:customInfo.addressTagId,
+            addressTagId:tagId,
             name:customInfo.name,
             phone:customInfo.num,
             createAddressModel:{
@@ -61,10 +61,22 @@ class AddressList{
                 pName:mapInfo.province
             }
         };
+        console.log(postData);
         this.createAddress({createAddressModel:postData}).then((data)=>{
             console.log(data);
         })
     }
+    @action remove(item){
+        this.removeAddress({
+            deliveryAddressId:item.id
+        }).then(()=>{
+        }).catch(()=>{
+            console.log("删除失败")
+        });
+    }
+
+
+
     @observable _list = [];
     @computed get list(){
         for(let i = 0;i < this._list.length;i++){

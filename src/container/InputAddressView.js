@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import View from '../components/View';
+import Text from '../components/Text';
 import {Link} from 'react-router-dom';
 
 //  MobX
@@ -9,10 +10,13 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
 @inject (['autoMap'])
 @inject (['addressList'])
 @inject (['customAddress'])
-
+@inject (['addressTagList'])
 @observer class InputAddressView extends Component{
     constructor(props){
         super(props);
+    }
+    componentWillMount(){
+        this.props.addressTagList.getTagList();
     }
     setName(){
         this.props.customAddress.setName(this.refs.myName.value);
@@ -23,13 +27,28 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
     setSpecificAddress(){
         this.props.customAddress.setSpeAddress(this.refs.specificAddress.value)
     }
-
+    selectedTag(tag){
+        return ()=>{
+            this.props.addressTagList.selected(tag);
+            this.props.customAddress.setTag(tag);
+        }
+    }
     render(){
+        let tagNodes = this.props.addressTagList.tagList.map((tag,index)=>{
+            return (
+                <li key={index}
+                    className={inputAddressStyle.label_choose}
+                    style={tag.selected?selectedTag:{}}
+                    onClick={this.selectedTag(tag)}>
+                        {tag.name}
+                </li>
+            )
+        });
         return (
             <View>
                 <ul className={inputAddressStyle.new_build_address}>
                     <li className={inputAddressStyle.address_info}>
-                        <span className={inputAddressStyle.info_desc}>收货人：</span>
+                        <Text className={inputAddressStyle.info_desc}>收货人：</Text>
                         <input
                             type="text"
                             className={inputAddressStyle.info_input}
@@ -40,7 +59,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                         />
                     </li>
                     <li className={inputAddressStyle.address_info}>
-                        <span className={inputAddressStyle.info_desc}>联系方式：</span>
+                        <Text className={inputAddressStyle.info_desc}>联系方式：</Text>
                         <input type="text"
                                className={inputAddressStyle.info_input}
                                ref="myPhoneNum"
@@ -50,7 +69,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                         />
                     </li>
                     <li className={inputAddressStyle.address_info_area}>
-                        <span className={inputAddressStyle.info_desc_area}>所在区域：</span>
+                        <Text className={inputAddressStyle.info_desc_area}>所在区域：</Text>
                         <Link to={{pathname: "/autoCompleteAddress", state: { last: this.props.url }}}
                               replace
                               className={inputAddressStyle.area_choose}>
@@ -58,7 +77,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                         </Link>
                     </li>
                     <li className={inputAddressStyle.address_info}>
-                        <span className={inputAddressStyle.info_desc}>详细地址：</span>
+                        <Text className={inputAddressStyle.info_desc}>详细地址：</Text>
                         <input type="text"
                                className={inputAddressStyle.info_input}
                                ref="specificAddress"
@@ -68,10 +87,10 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                         />
                     </li>
                     <li className={inputAddressStyle.address_info_label}>
-                        <p className={inputAddressStyle.info_desc}>标签：</p>
-                        <p className={inputAddressStyle.label_choose}>家</p>
-                        <p className={inputAddressStyle.label_choose}>公司</p>
-                        <p className={inputAddressStyle.label_choose}>学校</p>
+                        <Text className={inputAddressStyle.info_desc}>标签：</Text>
+                        <ul className={inputAddressStyle.tag_list}>
+                            {tagNodes}
+                        </ul>
                     </li>
                 </ul>
             </View>
@@ -79,3 +98,8 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
     }
 }
 module.exports = InputAddressView;
+
+const selectedTag = {
+    border:"0.01rem solid #399cfe",
+    color:"#399cfe"
+};

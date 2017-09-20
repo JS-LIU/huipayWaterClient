@@ -5,6 +5,7 @@
 import React, {Component} from 'react';
 import View from '../components/View';
 import {Link} from 'react-router-dom';
+import Button from '../components/Button';
 import InputAddressView from './InputAddressView';
 import inputAddressStyle from '../css/inputAddressStyle.css';
 //  MobX
@@ -18,8 +19,9 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     createAddress(){
-
-        this.props.addressList.create(this.props.customAddress.info,this.props.autoMap.showLocationInfo);
+        let info = this.props.customAddress.info;
+        let tagId = this.props.customAddress.tag.id;
+        this.props.addressList.create(info,tagId,this.props.autoMap.showLocationInfo);
     }
     render(){
         return (

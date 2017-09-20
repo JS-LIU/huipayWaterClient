@@ -10,13 +10,25 @@
 }
 .address_nodes{
     display:flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     height:1.2rem;
     composes:bgColorF from '../Util/base.css';
     border-bottom:0.01rem solid #D7D7D7;
 }
-
+.address_info{
+    flex:1;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.delete_address_btn{
+    width:1rem;
+    height:1.2rem;
+    line-height:1.2rem;
+    text-align: center;
+}
 .receiver_info{
     display:flex;
     flex-direction: row;

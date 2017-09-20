@@ -19,12 +19,14 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     createAddress(){
-        this.props.addressList.create(this.props.customAddress.info,this.props.autoMap.showLocationInfo);
+        let info = this.props.customAddress.info;
+        let tagId = this.props.customAddress.tag.id;
+        this.props.addressList.create(info,tagId,this.props.autoMap.showLocationInfo);
     }
     render(){
         return (
             <View className={inputAddressStyle.input_box}>
-                <InputAddressView url={this.props.location.pathname}/>
+                <InputAddressView />
                 <Link to="/receiveAddressList" replace className={inputAddressStyle.save_new_address} onClick={this.createAddress.bind(this)}>保存</Link>
             </View>
         )

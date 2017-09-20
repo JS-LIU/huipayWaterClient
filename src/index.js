@@ -10,7 +10,6 @@ import {
     Redirect,
     Link
 } from 'react-router-dom'
-
 import { Provider } from 'mobx-react';
 import _h from '../src/Util/HB';
 
@@ -42,7 +41,7 @@ import ActiveAddress from './MobX/domain/location/ActiveAddress';
 import ShoppingList from './MobX/domain/shop/ShoppingList';
 import ShopInfo from './MobX/domain/ShopInfo';
 import My from './MobX/domain/My';
-
+import AddressTagList from './MobX/domain/location/AddressTagList';
 
 import ShopDetail from './MobX/domain/ShopDetail';
 import ProductList from './MobX/domain/ProductList';
@@ -59,11 +58,20 @@ _h.ui.setBaseFontSize(750,100);
 
 let rem2pxRate = _h.ui.parsePx();
 
+//  获取cookie中的登录信息
+
+let access_secret = localStorage.access_secret;
+let access_token = localStorage.access_token;
+let firstUrl = access_secret?"/shop":'/login';
+
+
+
+
 //  Router
 const App = ()=>(
     <BrowserRouter>
         <div>
-            <Redirect to="/login"/>
+            <Redirect to={firstUrl}/>
             <Switch>
                 <Route path='/login' component={LoginView} />
                 <Route path='/water' component={WaterView} />
@@ -89,13 +97,14 @@ const App = ()=>(
 
 const historyPath = new HistoryPath();
 const autoMap = new AutoMap();
-const login = new Login();
+const login = new Login(access_secret,access_token);
 const shoppingList = new ShoppingList(rem2pxRate,login);
 const shopInfo = new ShopInfo(login);
 const addressList = new AddressList(login,autoMap);
 const activeAddress = new ActiveAddress(autoMap);
 const customAddress = new CustomAddress();
 const my = new My(login);
+const addressTagList = new AddressTagList();
 
 // const shopDetail = new ShopDetail(login);
 const productList = new ProductList(login);
@@ -118,7 +127,8 @@ const stores = {
     shoppingList,
     shopInfo,
     customAddress,
-    my
+    my,
+    addressTagList
 };
 
 ReactDom.render(

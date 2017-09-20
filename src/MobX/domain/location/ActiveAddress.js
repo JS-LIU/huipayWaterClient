@@ -27,7 +27,7 @@ class ActiveAddress{
         this.autoMap.getCurrentLocation();
         this._current = this.autoMap.showLocationInfo;
     }
-    //  用户选择地址
+    //  用户选择首页地址
     @observable _resetCurrentAddress;
     @computed get resetCurrentAddress(){
         return this._resetCurrentAddress;

@@ -7,10 +7,9 @@ import View from '../components/View';
 import Button from '../components/Button';
 import Text from '../components/Text';
 
-import AutoCompleteAddressView from './AutoCompleteAddressView';
 import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
 import addressListStyle from '../css/addressListStyle.css';
-
+import autoCompleteAddressStyle from '../css/autoCompleteAddressStyle.css';
 import {observer,inject} from 'mobx-react';
 
 @observer class AddressListView extends Component{
@@ -74,21 +73,28 @@ import {observer,inject} from 'mobx-react';
             this.props.activeAddress.selectedCurrentAddress(item);
         }
     }
+    removeAddress(item){
+        return ()=>{
+            console.log(item);
+            this.props.addressList.remove(item);
+        }
+    }
     render(){
         let addressNodes = this.props.addressList.list.map((item,index)=>{
             return (
                 <li className={receiveAddressListStyle.address_nodes} key={index}>
-                    <Link to="/shop" onClick = {this.choose(item)}>
+                    <Link to="/shop" onClick = {this.choose(item)} className={receiveAddressListStyle.address_info}>
                         <View className={receiveAddressListStyle.receiver_info}>
                             <p >{item.name}</p >
                             <p className={receiveAddressListStyle.telephone}>{item.phoneNum}</p >
-                            <p className={receiveAddressListStyle.address_label}>{item.addressTagName}</p >
+                            {item.addressTagName?<p className={receiveAddressListStyle.address_label}>{item.addressTagName}</p>:""}
                         </View>
                         <p className={receiveAddressListStyle.location}>
                             <Text>{item.address.cityName}</Text>
                             <Text>{item.address.mapAddress + (item.address.appendingAddress||"")}</Text>
-                        </p >
+                        </p>
                     </Link>
+                    <Button className={receiveAddressListStyle.delete_address_btn} onClick={this.removeAddress(item)}>删除</Button>
                 </li>
             )
         });
@@ -99,6 +105,64 @@ import {observer,inject} from 'mobx-react';
         )
     }
 }
-
+@inject (['autoMap'])
+@inject (['activeAddress'])
+@observer class AutoCompleteAddressView extends Component{
+    constructor(props){
+        super(props);
+        this.searchAddress = this.searchAddress.bind(this);
+    }
+    searchAddress(){
+        this.props.autoMap.autoComplete(this.refs.addressName.value);
+    }
+    choose(name){
+        return ()=>{
+            this.props.autoMap.searchAddressDetail(name);
+            this.props.autoMap.hideNearAddressList();
+            this.props.activeAddress.selectedCurrentAddress(this.props.autoMap.showLocationInfo);
+        }
+    }
+    cancel(){
+        this.props.autoMap.searchAddressDetail("");
+        this.refs.addressName.value = "";
+        this.props.autoMap.hideNearAddressList();
+    }
+    show(){
+        this.props.autoMap.showNearAddressList();
+    }
+    render(){
+        let addressNodes = this.props.autoMap.searchAddressList.map((item,index)=>{
+            return (
+                <li key={index}
+                    className={autoCompleteAddressStyle.address_node}
+                    onClick={this.choose(item.name)} >
+                    <Link to="/shop" replace>
+                        <p className={autoCompleteAddressStyle.consignee_address}>
+                            {item.name}
+                        </p>
+                        <p className={autoCompleteAddressStyle.consignee_location}>
+                            {item.district}
+                        </p>
+                    </Link>
+                </li>
+            )
+        });
+        return (
+            <View className={autoCompleteAddressStyle.auto_complete_address}>
+                <View className={autoCompleteAddressStyle.head_input}>
+                    <input type="text"
+                           placeholder="输入搜索地址"
+                           ref="addressName"
+                           onKeyUp={this.searchAddress}
+                           className={autoCompleteAddressStyle.address_input} onFocus={this.show.bind(this)}/>
+                    <Button className={autoCompleteAddressStyle.cancel} onClick={this.cancel.bind(this)}>取消</Button>
+                </View>
+                {this.props.autoMap.showAddressList?<ul>
+                    {addressNodes}
+                </ul>:""}
+            </View>
+        )
+    }
+}
 
 module.exports = AddressListView;

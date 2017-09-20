@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import View from '../components/View';
 import Text from '../components/Text';
+import Button from '../components/Button';
 import {Link} from 'react-router-dom';
 
 //  MobX
@@ -21,6 +22,12 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
             this.props.activeAddress.selectedDeliverAddress(item);
         }
     }
+    removeAddress(item){
+        return ()=>{
+            console.log(item);
+            this.props.addressList.remove(item);
+        }
+    }
     render(){
         let addressNodes = this.props.addressList.list.map((item,index)=>{
             return (
@@ -36,6 +43,7 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
                             <Text>{item.address.mapAddress + (item.address.appendingAddress||"")}</Text>
                         </p >
                     </Link>
+                    <Button className={receiveAddressListStyle.delete_address_btn} onClick={this.removeAddress(item)}>删除</Button>
                 </li>
             )
         });
