@@ -34,13 +34,14 @@ import {observer,inject} from 'mobx-react';
         this.props.autoMap.showNearAddressList();
     }
     render(){
-        let url = this.props.url||this.props.location.state.last;
+        // let url = this.props.url||this.props.location.state.last;
+        // console.log(url);
         let addressNodes = this.props.autoMap.searchAddressList.map((item,index)=>{
             return (
                 <li key={index}
                     className={autoCompleteAddressStyle.address_node}
                     onClick={this.choose(item.name)} >
-                    <Link to={url} replace>
+                    <Link to="/confirmOrderCreateAddress" replace>
                         <p className={autoCompleteAddressStyle.consignee_address}>
                             {item.name}
                         </p>

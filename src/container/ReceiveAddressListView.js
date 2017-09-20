@@ -9,7 +9,6 @@ import {observer,inject} from 'mobx-react';
 import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
 @inject (['addressList'])
 @inject (['activeAddress'])
-
 @observer class ReceiveAddressListView extends Component{
     constructor(props){
         super(props);
@@ -36,7 +35,7 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
                         <View className={receiveAddressListStyle.receiver_info}>
                             <p >{item.name}</p >
                             <p className={receiveAddressListStyle.telephone}>{item.phoneNum}</p >
-                            <p className={receiveAddressListStyle.address_label}>{item.addressTagName}</p >
+                            {item.addressTagName?<p className={receiveAddressListStyle.address_label}>{item.addressTagName}</p>:""}
                         </View>
                         <p className={receiveAddressListStyle.location}>
                             <Text>{item.address.cityName}</Text>
