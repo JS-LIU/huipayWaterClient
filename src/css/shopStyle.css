@@ -128,7 +128,7 @@
     line-height:1.1rem;
     composes:tc from '../Util/base.css';
     composes:f28 from '../Util/huipayWaterBase.css';
-    border-bottom:0.01rem solid #D7D7D7;
+    border-bottom:0.01rem solid #e6e6e6;
 }
 .product_list_total_count{
     position: absolute;
@@ -164,8 +164,8 @@
     margin-top:-0.01rem;
     height:0.6rem;
     line-height:0.6rem;
-    border-bottom:0.01rem solid #D7D7D7;
-    border-top:0.01rem solid #D7D7D7;
+    border-bottom:0.01rem solid #f0f0f0;
+    border-top:0.01rem solid #f0f0f0;
     color:#666;
     composes:f28 from '../Util/huipayWaterBase.css';
 }
@@ -254,7 +254,7 @@
     margin-left: 0.2rem;
     padding:0.3rem 0;
     height:1.8rem;
-    border-bottom:0.01rem solid #D7D7D7;
+    border-bottom:0.01rem solid #f0f0f0;
 }
 .product_item_name{
     color:#333;
@@ -385,5 +385,14 @@
     color:#FFF;
     composes: tc from '../Util/base.css';
     composes: linear_red_bg from '../Util/huipayWaterBase.css';
+    composes: f36 from '../Util/huipayWaterBase.css';
+}
+.cant_confirm_order_btn{
+    width:2.22rem;
+    height:0.9rem;
+    line-height:0.9rem;
+    color:#FFF;
+    composes: tc from '../Util/base.css';
+    background:#999;
     composes: f36 from '../Util/huipayWaterBase.css';
 }

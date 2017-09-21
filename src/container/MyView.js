@@ -21,6 +21,9 @@ import {observer,inject} from 'mobx-react';
     componentWillMount(){
         this.props.my.getUserInfo();
     }
+    logOut(){
+        localStorage.clear();
+    }
     render(){
         return (
             <View className={myStyle.wrap}>
@@ -37,8 +40,14 @@ import {observer,inject} from 'mobx-react';
                     <li className={myStyle.water_ticket}>
                         <Link to="/waterTickets" className={myStyle.water_ticket_title}>水票</Link>
                     </li>
+                    <li className={myStyle.order_list}>
+                        <Link to='/orderList' className={myStyle.order_list_title}>订单</Link>
+                    </li>
                     <li className={myStyle.call}>
-                        <a href="tel://1381234567" className={myStyle.call_title}>客服</a>
+                        <a href="tel:4006078300" className={myStyle.call_title}>客服</a>
+                    </li>
+                    <li className={myStyle.logout}>
+                        <Link to="/login" className={myStyle.logout_btn} onClick={this.logOut.bind(this)}>退出</Link>
                     </li>
                 </ul>
             </View>

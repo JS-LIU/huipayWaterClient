@@ -14,7 +14,7 @@ class Login{
         this._phoneNum = "";
         this._app_key = "b5958b665e0b4d8cae77d28e1ad3f521";
         this.countDownTextInit = "获取验证码";
-        this.countDown = new CountDown(3,0,-1,this.countDownTextInit);
+        this.countDown = new CountDown(60,0,-1,this.countDownTextInit);
         this._access_secret = access_secret;
         this._access_token = access_token;
 

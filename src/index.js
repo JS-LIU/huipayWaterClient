@@ -31,6 +31,7 @@ import HomePageCreateAddressView from './container/HomePageCreateAddressView';
 import ConfirmOrderCreateAddressView from './container/ConfirmOrderCreateAddressView';
 import WaterTicketsView from './container/WaterTicketsView';
 import PaySuccessView from './container/PaySuccessView';
+import OrderListView from './container/OrderListView';
 
 //  MobX
 import Login from './MobX/domain/Login';
@@ -42,6 +43,7 @@ import ShoppingList from './MobX/domain/shop/ShoppingList';
 import ShopInfo from './MobX/domain/ShopInfo';
 import My from './MobX/domain/My';
 import AddressTagList from './MobX/domain/location/AddressTagList';
+import OrderList from './MobX/domain/OrderList';
 
 import ShopDetail from './MobX/domain/ShopDetail';
 import ProductList from './MobX/domain/ProductList';
@@ -89,6 +91,7 @@ const App = ()=>(
                 <Route path="/addressList" component={AddressListView} />
                 <Route path="/waterTickets" component={WaterTicketsView} />
                 <Route path="/paySuccess" component={PaySuccessView} />
+                <Route path="/orderList" component={OrderListView}/>
             </Switch>
         </div>
     </BrowserRouter>
@@ -105,6 +108,7 @@ const activeAddress = new ActiveAddress(autoMap);
 const customAddress = new CustomAddress();
 const my = new My(login);
 const addressTagList = new AddressTagList();
+const orderList = new OrderList(login);
 
 // const shopDetail = new ShopDetail(login);
 const productList = new ProductList(login);
@@ -128,7 +132,8 @@ const stores = {
     shopInfo,
     customAddress,
     my,
-    addressTagList
+    addressTagList,
+    orderList
 };
 
 ReactDom.render(

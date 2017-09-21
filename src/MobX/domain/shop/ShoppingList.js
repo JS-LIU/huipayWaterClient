@@ -69,12 +69,11 @@ class ShoppingList {
     @computed get tagModelList() {
         let list = [];
         for (let i = 0, len = this._tagModelList.length; i < len; i++) {
-            if(i === 0){
-                list.push(new TypeItem(this._tagModelList[i], this.noRepeatProductList,true));
+            if(this._tagModelList[i].name === "水票"){
+                list.unshift(new TypeItem(this._tagModelList[i], this.noRepeatProductList,true));
             }else{
                 list.push(new TypeItem(this._tagModelList[i], this.noRepeatProductList,false));
             }
-
         }
         return list;
     }

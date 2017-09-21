@@ -20,7 +20,7 @@ class ShopInfo{
         this.shopInfo({
             shopId:shopId,
             cityName: "北京",
-            latitude: 39.92868,
+            latitude: 39.92867,
             longtitude: 116.35091
         }).then((info)=>{
             this._info = info;

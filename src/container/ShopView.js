@@ -27,6 +27,9 @@ import {observer,inject} from 'mobx-react';
     componentWillMount(){
         this.props.shoppingList.getList(1);
     }
+    showShoppingCart(){
+        this.props.shoppingList.showShoppingCart();
+    }
     render(){
         let clientHeight = document.body.clientHeight;
         let remRate = _h.ui.parsePx();
@@ -34,7 +37,7 @@ import {observer,inject} from 'mobx-react';
         let shoppingMaxHeight = clientHeight - 0.8 * remRate;
         return (
             <View style={{maxHeight:maxHeight + "px",overflow:"hidden"}}>
-                {this.props.shoppingList.show?<View className={shopStyle.shadow}/>:''}
+                {this.props.shoppingList.show?<Button onClick={this.showShoppingCart.bind(this)}  className={shopStyle.shadow}/>:''}
                 <ReceiveAddressView />
                 <HeadShopInfoView />
                 {/*<Text className={shopStyle.notice}>喜腾山泉品牌水票在本平台所有水站通用</Text>*/}
@@ -184,7 +187,7 @@ import {observer,inject} from 'mobx-react';
                     <View className={shopStyle.product_item_info_count}>
                         <View>
                             <Text className={shopStyle.rmb}>￥</Text>
-                            <Text className={shopStyle.price}>{this.props.productItem.currentPrice}</Text>
+                            <Text className={shopStyle.price}>{this.props.productItem.currentPrice / 100}</Text>
                         </View>
                         <View className={shopStyle.product_item_ctrl}>
                             {this.props.productItem.selectCount > 0?
@@ -228,7 +231,7 @@ import {observer,inject} from 'mobx-react';
                         {productItem.type === "waterTicket"?<Text className={shopStyle.shopping_cart_product_specification}>{productItem.productName}</Text>:''}
                         <View className={shopStyle.shopping_cart_product_price}>
                             <Text>￥</Text>
-                            <Text className={shopStyle.shopping_cart_product_total_price}>{productItem.currentPrice}</Text>
+                            <Text className={shopStyle.shopping_cart_product_total_price}>{productItem.currentPrice / 100}</Text>
                         </View>
                     </View>
                     <View className={shopStyle.product_item_ctrl}>
@@ -279,10 +282,10 @@ import {observer,inject} from 'mobx-react';
                     <ul className={shopStyle.shopping_cart_info_total}>
                         <li className={shopStyle.shopping_cart_info_total_price_title}>共</li>
                         <li className={shopStyle.shopping_cart_info_total_price_rmb}>￥</li>
-                        <li className={shopStyle.shopping_cart_info_total_price}>{this.props.shoppingList.totalPrice}</li>
+                        <li className={shopStyle.shopping_cart_info_total_price}>{this.props.shoppingList.totalPrice / 100}</li>
                     </ul>
                 </View>
-                <Link to='/confirmOrder' className={shopStyle.confirm_order_btn} onClick={this.confirmOrder.bind(this)}>去结算</Link>
+                {this.props.shoppingList.shoppingCart.length > 0?<Link to='/confirmOrder' className={shopStyle.confirm_order_btn} onClick={this.confirmOrder.bind(this)}>去结算</Link>:<View className={shopStyle.cant_confirm_order_btn}>去结算</View>}
             </View>
         )
     }

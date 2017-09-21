@@ -9,7 +9,7 @@
 
 .link_my{
     position: fixed;
-    bottom:1.6rem;
+    bottom:2rem;
     right:0.3rem;
     background:#FFF url("../images/mine@2x.png") no-repeat center;
     -webkit-background-size: 0.35rem 0.4rem;
@@ -88,6 +88,7 @@
     background-size: 0.38rem auto;
 }
 .call{
+    margin-top:0.3rem;
     background:#FFF;
     height:1rem;
     border-bottom:0.01rem solid #D7D7D7;
@@ -103,67 +104,40 @@
     background:url("../images/me_icon_service@2x.png") no-repeat left center;
     -webkit-background-size: 0.38rem auto;
     background-size: 0.38rem auto;
+    flex:1;
 }
-
-
-
-
-
-
-
-
 .order_list{
-
+    background:#FFF;
+    height:1rem;
+    border-bottom:0.01rem solid #D7D7D7;
+    display: flex;
+    padding-left:0.2rem;
+    line-height:1rem;
 }
-.order_list_header{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height:0.7rem;
-    line-height:0.7rem;
-    padding-right:0.3rem;
-    border-bottom:0.01rem solid #E2E2E2;
-}
-.order_list_header_order_text{
+.order_list_title{
+    line-height:1rem;
     font-size:0.32rem;
-    background:#FFF url('../images/me_icon_order.png') no-repeat 0.3rem center;
-    -webkit-background-size: 0.35rem;
-    background-size: 0.35rem;
-    padding-left:0.8rem;
     color:#333;
+    padding-left:0.7rem;
+    background:url("../images/order-click@2x.png") no-repeat left center;
+    -webkit-background-size: 0.38rem auto;
+    background-size: 0.38rem auto;
+    flex:1;
 }
-.order_list_header_more{
-    font-size: 0.24rem;
-    color:#999;
-    padding-right:0.35rem;
-    background:#FFF url('../images/btn_right_arrow@2x.png') no-repeat right center;
-    -webkit-background-size: 0.18rem;
-    background-size: 0.18rem;
+.logout{
+    margin-top:0.3rem;
+    background:#FFF;
+    height:1rem;
+    border-bottom:0.01rem solid #D7D7D7;
+    line-height:1rem;
 }
-.order_types{
-    display:flex;
+.logout_btn{
+    line-height:1rem;
+    font-size:0.32rem;
+    color:#399cfe;
+    flex:1;
+    display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    height:1.3rem;
-    border-bottom:0.01rem solid #E2E2E2;
-}
-.wait_pay{
-    display:flex;
-    flex-direction: column;
     justify-content: center;
-}
-.wait_pay_icon{
-    padding-top:0.49rem;
-    background:#FFF url("../images/me_order_pending-payment.png") no-repeat center top;
-    -webkit-background-size: 0.33rem;
-    background-size: 0.33rem;
-    font-size:0.24rem;
-}
-
-.wait_receive{
-
-}
-.wait_comment{
-
 }
 

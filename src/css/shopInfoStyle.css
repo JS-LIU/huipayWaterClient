@@ -134,6 +134,7 @@
 .shop_detail_distance{
     padding-right:0.2rem;
     margin-top:1.14rem;
+    flex:1;
 }
 
 .shop_distance{

@@ -6,6 +6,7 @@
     height:100%;
     background:#F3F5F7;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 .pay_way{
     display: flex;
