@@ -57,7 +57,7 @@ import {observer,inject} from 'mobx-react';
                     <View className={productListDialogStyle.footer}>
                         <View className={productListDialogStyle.price}>
                             <Text className={productListDialogStyle.price_title}>￥</Text>
-                            <Text className={productListDialogStyle.price_real}>{this.props.waterTicket.findSelectedProductItem().currentPrice}</Text>
+                            <Text className={productListDialogStyle.price_real}>{this.props.waterTicket.findSelectedProductItem().currentPrice / 100}</Text>
                         </View>
 
                         <Button>

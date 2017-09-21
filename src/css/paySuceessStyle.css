@@ -36,3 +36,15 @@
     color:#333;
     composes: f30 from '../Util/huipayWaterBase.css';
 }
+.order_back{
+    height:0.88rem;
+    background:#FFF;
+    line-height:0.88rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size:0.3rem;
+    color:#399cfe;
+    margin-top:0.3rem;
+}

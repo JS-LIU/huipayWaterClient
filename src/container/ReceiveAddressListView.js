@@ -31,7 +31,7 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
         let addressNodes = this.props.addressList.list.map((item,index)=>{
             return (
                 <li className={receiveAddressListStyle.address_nodes} key={index}>
-                    <Link to="/confirmOrder" onClick = {this.choose(item)}>
+                    <Link to="/confirmOrder" className={receiveAddressListStyle.selected_address} address_nodes onClick = {this.choose(item)}>
                         <View className={receiveAddressListStyle.receiver_info}>
                             <p >{item.name}</p >
                             <p className={receiveAddressListStyle.telephone}>{item.phoneNum}</p >
@@ -42,7 +42,6 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
                             <Text>{item.address.mapAddress + (item.address.appendingAddress||"")}</Text>
                         </p >
                     </Link>
-                    <Button className={receiveAddressListStyle.delete_address_btn} onClick={this.removeAddress(item)}>删除</Button>
                 </li>
             )
         });
