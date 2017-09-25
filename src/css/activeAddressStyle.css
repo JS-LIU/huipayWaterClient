@@ -2,9 +2,7 @@
     display: flex;
     height:0.9rem;
     line-height: 0.9rem;
-    background:#EEEFF3 url("../images/line.png") no-repeat center bottom;
-    background-size:7.5rem 0.04rem;
-    composes:pl30 pr30 f30 c333 from '../Util/base.css';
+    composes: linear_blue_bg from '../Util/huipayWaterBase.css';
 }
 .profile{
     background: url("../images/address-05.png") no-repeat left center;

@@ -44,6 +44,7 @@ import ShopInfo from './MobX/domain/ShopInfo';
 import My from './MobX/domain/My';
 import AddressTagList from './MobX/domain/location/AddressTagList';
 import OrderList from './MobX/domain/OrderList';
+import Location from './MobX/domain/location/Location';
 
 import ShopDetail from './MobX/domain/ShopDetail';
 import ProductList from './MobX/domain/ProductList';
@@ -109,7 +110,7 @@ const customAddress = new CustomAddress();
 const my = new My(login);
 const addressTagList = new AddressTagList();
 const orderList = new OrderList(login);
-
+const location = new Location();
 // const shopDetail = new ShopDetail(login);
 const productList = new ProductList(login);
 const productDetail = new ProductDetail(login);
@@ -120,6 +121,12 @@ const shoppingCart = new ShoppingCart();
 
 const stores = {
     login,
+    location,
+    shopInfo,
+    shoppingList,
+    my,
+    addressTagList,
+    orderList,
     autoMap,
     addressList,
     activeAddress,
@@ -128,12 +135,7 @@ const stores = {
     productDetail,
     order,
     historyPath,
-    shoppingList,
-    shopInfo,
-    customAddress,
-    my,
-    addressTagList,
-    orderList
+    customAddress
 };
 
 ReactDom.render(
