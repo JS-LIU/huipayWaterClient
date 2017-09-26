@@ -11,19 +11,31 @@ class Location{
     }
     @observable _current = {};
     @action getCurrentMap(){
+        this._current.receiveAddress = "正在定位...";
         this.currentMap.getCurrentLocation();
         this._current = this.currentMap.showLocationInfo;
     }
     @computed get current(){
-        if(!this._current){
+        if(!this._current.adcode){
             this.getCurrentMap()
         }
         return this._current;
     }
-    @action selectedHomeAddress(str){
-        this.searchMap.searchAddressDetail(str);
-        this._homeSelectedAddress = this.searchMap.showLocationInfo;
+    @action selectedHomeAddress(address){
+        if(typeof address === "string"){
+            this.searchMap.searchAddressDetail(address);
+            this._homeSelectedAddress = this.searchMap.showLocationInfo;
+        }else{
+            this._homeSelectedAddress = address;
+        }
     }
+
+    @computed get nearAddressList(){
+        this.currentMap.searchNearAddress([this._current.longitude,this._current.latitude]);
+        return this.currentMap.searchAddressList;
+    }
+
+
     @observable _homeSelectedAddress;
     @computed get homePageAddress(){
         if(this._homeSelectedAddress){

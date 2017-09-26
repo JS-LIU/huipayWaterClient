@@ -1,25 +1,10 @@
-.receive_address_list{
-    position:fixed;
-    top:0;
-    left:0;
-    height:100%;
-    width:100%;
-    background:#F3F5F7;
-}
-.address_list{
-}
 .address_nodes{
     display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     height:1.2rem;
-    flex:1;
     composes:bgColorF from '../Util/base.css';
     border-bottom:0.01rem solid #D7D7D7;
-}
-.selected_address{
-    flex:1;
 }
 .address_info{
     flex:1;
@@ -36,6 +21,7 @@
 .receiver_info{
     display:flex;
     flex-direction: row;
+    align-items: baseline;
     padding-left:0.3rem;
     composes:f30 c333 from '../Util/base.css';
 }
@@ -43,18 +29,21 @@
     margin-left: 0.5rem;
 }
 .address_label{
-    color: #4dc0ff;
-    padding: 0 0.15rem;
-    margin-left: 0.5rem;
+    margin-right: 0.1rem;
+    width:0.9rem;
+    text-align: center;
+    color: #399cfe;
     border-radius: 0.05rem;
-    border: 0.01rem solid #4dc0ff;
-    composes:f24 from '../Util/base.css';
+    border: 0.01rem solid #399cfe;
+    composes: f24 from '../Util/huipayWaterBase.css';
 }
 .location{
+    padding:0.1rem 0.3rem;
+    font-size:0.22rem;
+    color:#666;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
-    composes:pl30 pr30 from '../Util/base.css';
 }
 .operate{
     display:flex;
@@ -120,54 +109,4 @@
     -webkit-background-size: 0.32rem;
     background-size: 0.32rem;
     padding-left:0.4rem;
-}
-.dialog{
-    position: fixed;
-    bottom: 0;
-    z-index: 11;
-    composes: bgColorF from '../Util/base.css';
-}
-.delete_dialog_body{
-    position:fixed;
-    bottom:1.5rem;
-    margin:0 calc((100% - 6.9rem)/2);
-    width: 6.9rem;
-    height:1.94rem;
-    background:#FFF;
-    -webkit-border-radius: 0.1rem;
-    -moz-border-radius: 0.1rem;
-    border-radius: 0.1rem;
-}
-.dialog_body_text{
-    height: 0.94rem;
-    line-height: 0.94rem;
-    border-bottom: 0.01rem solid #EEEFF3;
-    composes:f28 c666 tc from '../Util/base.css';
-}
-.dialog_body_delete{
-    height: 1rem;
-    line-height: 1rem;
-    color: #FF4243;
-    composes:f36  tc from '../Util/base.css';
-}
-.dialog_cancel{
-    position:fixed;
-    bottom: 0.2rem;
-    margin:0 calc((100% - 6.9rem)/2);
-    height: 1.16rem;
-    line-height: 1.16rem;
-    width: 6.9rem;
-    color: #4dc0ff;
-    -webkit-border-radius: 0.1rem;
-    -moz-border-radius: 0.1rem;
-    border-radius: 0.1rem;
-    composes:f36 tc bgColorF from '../Util/base.css';
-}
-.dialog_mask{
-    position: fixed;
-    z-index: 9;
-    background: #000;
-    opacity: 0.3;
-    bottom: 0;
-    composes: w h from '../Util/base.css';
 }

@@ -76,11 +76,48 @@ class AutoMap{
         let auto = new AMap.Autocomplete();
         auto.search(str, function(status, result){
             if (status === 'complete' && result.info === 'OK') {
-                console.log(result);
-                self._searchAddressList = result.tips;
+                let list = [];
+                for(let i = 0;i <  result.tips.length;i++){
+                    list.push({
+                        longitude : result.tips[i].location.lng,
+                        latitude : result.tips[i].location.lat,
+                        adcode:result.tips[i].adcode,
+                        receiveAddress : result.tips[i].name,
+                        district:result.tips[i].district
+                    })
+                }
+                self._searchAddressList = list;
             }
         });
     }
+    @action searchNearAddress(lnglat){
+        let self = this;
+        let placeSearch = new AMap.PlaceSearch({
+            extensions:'all'
+        });
+        placeSearch.searchNearBy('', lnglat, 200, function(status, result) {
+            if (status === 'complete' && result.info === 'OK') {
+                let poiList = result.poiList.pois;
+                let list = [];
+                for(let i = 0;i < result.poiList.pois.length;i++){
+                    list.push({
+                        longitude : poiList[i].location.lng,
+                        latitude : poiList[i].location.lat,
+                        pcode: poiList[i].pcode,
+                        province:poiList[i].pname,
+                        citycode:poiList[i].citycode,
+                        city:poiList[i].cityname,
+                        adcode:poiList[i].adcode,
+                        receiveAddress : poiList[i].name,
+                    });
+                }
+                self._searchAddressList = list;
+            }
+        });
+    }
+
+
+
     @action searchAddressDetail(str){
         let self = this;
         let placeSearch = new AMap.PlaceSearch({

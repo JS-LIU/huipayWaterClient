@@ -9,7 +9,7 @@ import autoCompleteAddressStyle from '../css/autoCompleteAddressStyle.css';
 import {observer,inject} from 'mobx-react';
 
 @inject (['autoMap'])
-@inject (['activeAddress'])
+@inject (['location'])
 @observer class AutoCompleteAddressView extends Component{
     constructor(props){
         super(props);
@@ -20,9 +20,9 @@ import {observer,inject} from 'mobx-react';
     }
     choose(name){
         return ()=>{
-            this.props.autoMap.searchAddressDetail(name);
             this.props.autoMap.hideNearAddressList();
-            this.props.activeAddress.selectedCurrentAddress(this.props.autoMap.showLocationInfo);
+            this.props.history.goBack();
+            this.props.location.selectedHomeAddress(name);
         }
     }
     cancel(){
@@ -34,21 +34,19 @@ import {observer,inject} from 'mobx-react';
         this.props.autoMap.showNearAddressList();
     }
     render(){
-        // let url = this.props.url||this.props.location.state.last;
-        // console.log(url);
         let addressNodes = this.props.autoMap.searchAddressList.map((item,index)=>{
             return (
                 <li key={index}
                     className={autoCompleteAddressStyle.address_node}
-                    onClick={this.choose(item.name)} >
-                    <Link to="/confirmOrderCreateAddress" replace>
+                    onClick={this.choose(item.receiveName)} >
+                    <View>
                         <p className={autoCompleteAddressStyle.consignee_address}>
-                            {item.name}
+                            {item.receiveName}
                         </p>
                         <p className={autoCompleteAddressStyle.consignee_location}>
                             {item.district}
                         </p>
-                    </Link>
+                    </View>
                 </li>
             )
         });
