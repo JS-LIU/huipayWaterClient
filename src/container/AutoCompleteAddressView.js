@@ -8,44 +8,42 @@ import autoCompleteAddressStyle from '../css/autoCompleteAddressStyle.css';
 //  MobX
 import {observer,inject} from 'mobx-react';
 
-@inject (['autoMap'])
 @inject (['location'])
 @observer class AutoCompleteAddressView extends Component{
     constructor(props){
         super(props);
-        this.searchAddress = this.searchAddress.bind(this);
     }
     searchAddress(){
-        this.props.autoMap.autoComplete(this.refs.addressName.value);
+        this.props.location.searchAddressList(this.refs.addressName.value);
     }
     choose(name){
         return ()=>{
-            this.props.autoMap.hideNearAddressList();
-            this.props.history.goBack();
+            this.props.location.hideAutoCompleteList();
             this.props.location.selectedHomeAddress(name);
+            this.props.history.goBack();
         }
     }
     cancel(){
-        this.props.autoMap.searchAddressDetail("");
         this.refs.addressName.value = "";
-        this.props.autoMap.hideNearAddressList();
+        this.props.location.hideAutoCompleteList();
     }
     show(){
-        this.props.autoMap.showNearAddressList();
+        this.props.location.showAutoCompleteList();
     }
     render(){
-        let addressNodes = this.props.autoMap.searchAddressList.map((item,index)=>{
+        console.log(this.props.location.autoCompleteList);
+        let addressNodes = this.props.location.autoCompleteList.map((item,index)=>{
             return (
                 <li key={index}
                     className={autoCompleteAddressStyle.address_node}
-                    onClick={this.choose(item.receiveName)} >
+                    onClick={this.choose(item.receiveAddress)} >
                     <View>
-                        <p className={autoCompleteAddressStyle.consignee_address}>
-                            {item.receiveName}
-                        </p>
-                        <p className={autoCompleteAddressStyle.consignee_location}>
+                        <Text className={autoCompleteAddressStyle.consignee_address}>
+                            {item.receiveAddress}
+                        </Text>
+                        <Text className={autoCompleteAddressStyle.consignee_location}>
                             {item.district}
-                        </p>
+                        </Text>
                     </View>
                 </li>
             )
@@ -56,11 +54,11 @@ import {observer,inject} from 'mobx-react';
                     <input type="text"
                            placeholder="输入搜索地址"
                            ref="addressName"
-                           onKeyUp={this.searchAddress}
+                           onKeyUpCapture={this.searchAddress.bind(this)}
                            className={autoCompleteAddressStyle.address_input} onFocus={this.show.bind(this)}/>
                     <Button className={autoCompleteAddressStyle.cancel} onClick={this.cancel.bind(this)}>取消</Button>
                 </View>
-                {this.props.autoMap.showAddressList?<ul>
+                {this.props.location.isShowAutoCompleteList?<ul>
                     {addressNodes}
                 </ul>:""}
             </View>

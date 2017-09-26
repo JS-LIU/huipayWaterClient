@@ -6,21 +6,27 @@ import AutoMap from './AutoMap';
 
 class Location{
     constructor(){
-        this.currentMap = new AutoMap();
-        this.searchMap = new AutoMap();
+        this.currentMap = new AutoMap();    //  当前地址相关的地图
+        this.searchMap = new AutoMap(); //  用户搜索的地图
     }
-    @observable _current = {};
+    //  重新定位当前地址
     @action getCurrentMap(){
         this._current.receiveAddress = "正在定位...";
         this.currentMap.getCurrentLocation();
         this._current = this.currentMap.showLocationInfo;
     }
+    //  当前地址
+    @observable _current = {};
+    //  当前地址
     @computed get current(){
         if(!this._current.adcode){
             this.getCurrentMap()
         }
         return this._current;
     }
+
+
+    //  选择首页地址
     @action selectedHomeAddress(address){
         if(typeof address === "string"){
             this.searchMap.searchAddressDetail(address);
@@ -29,14 +35,45 @@ class Location{
             this._homeSelectedAddress = address;
         }
     }
+    //  自主选择的首页地址
+    @observable _homeSelectedAddress;
 
+
+    //  搜索地址
+    @action searchAddressList(str){
+        this.searchMap.autoComplete(str);
+        this._autoCompleteList = this.searchMap._searchAddressList;
+    }
+    //  搜索地址列表
+    @observable _autoCompleteList = [];
+    //  搜索地址列表
+    @computed get autoCompleteList(){
+        return this._autoCompleteList;
+    }
+    //  隐藏搜索地址列表
+    @action hideAutoCompleteList(){
+        this._isShowAutoCompleteList = false;
+    }
+    //  显示搜索地址列表
+    @action showAutoCompleteList(){
+        this._isShowAutoCompleteList = true;
+    }
+    //  是否显示搜索地址列表
+    @observable _isShowAutoCompleteList = false;
+    //  是否显示搜索地址列表
+    @computed get isShowAutoCompleteList(){
+        return this._isShowAutoCompleteList;
+    }
+
+
+    //  附近地址
     @computed get nearAddressList(){
         this.currentMap.searchNearAddress([this._current.longitude,this._current.latitude]);
         return this.currentMap.searchAddressList;
     }
 
 
-    @observable _homeSelectedAddress;
+    //  实际的首页地址
     @computed get homePageAddress(){
         if(this._homeSelectedAddress){
             return this._homeSelectedAddress;

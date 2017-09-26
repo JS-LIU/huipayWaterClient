@@ -15,16 +15,7 @@ class AutoMap{
         adcode:"",
         receiveAddress : "正在获取当前位置...",
     };
-    @observable _showAddressList = false;
-    @action hideNearAddressList(){
-        this._showAddressList = false;
-    }
-    @action showNearAddressList(){
-        this._showAddressList = true;
-    }
-    @computed get showAddressList(){
-        return this._showAddressList;
-    }
+
     @observable _searchAddressList = [];
     @computed get searchAddressList(){
         return this._searchAddressList;
@@ -60,7 +51,7 @@ class AutoMap{
             self.showLocationInfo.pcode = data.addressComponent.citycode.substring(0,2)+"0000";
             self.showLocationInfo.province = data.addressComponent.province;
             self.showLocationInfo.citycode = data.addressComponent.citycode;
-            self.showLocationInfo.city = data.addressComponent.district;
+            self.showLocationInfo.city = data.addressComponent.city;
             self.showLocationInfo.adcode = data.addressComponent.adcode;
 
             self.showLocationInfo.receiveAddress = data.formattedAddress;
@@ -77,15 +68,17 @@ class AutoMap{
         auto.search(str, function(status, result){
             if (status === 'complete' && result.info === 'OK') {
                 let list = [];
-                for(let i = 0;i <  result.tips.length;i++){
+                let tips = result.tips;
+                for(let i = 0;i <  tips.length;i++){
                     list.push({
-                        longitude : result.tips[i].location.lng,
-                        latitude : result.tips[i].location.lat,
-                        adcode:result.tips[i].adcode,
-                        receiveAddress : result.tips[i].name,
-                        district:result.tips[i].district
+                        longitude : tips[i].location.lng,
+                        latitude : tips[i].location.lat,
+                        adcode: tips[i].adcode,
+                        receiveAddress : tips[i].name,
+                        district: tips[i].district
                     })
                 }
+                console.log('a:',list);
                 self._searchAddressList = list;
             }
         });

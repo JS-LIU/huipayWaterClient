@@ -8,7 +8,7 @@ import Button from '../components/Button';
 import {Link} from 'react-router-dom';
 
 import ReceiveAddressListView from './ReceiveAddressListView';
-import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
+import receiverListStyle from '../css/receiverListStyle.css';
 //  MobX
 import {observer,inject} from 'mobx-react';
 
@@ -20,10 +20,10 @@ import {observer,inject} from 'mobx-react';
     }
     render(){
         return (
-            <View>
+            <View className={receiverListStyle.wrap}>
                 <ReceiveAddressListView />
                 <View>
-                    <Text>添加地址</Text>
+                    <Link to="/input">添加地址</Link>
                 </View>
             </View>
         )

@@ -30,7 +30,9 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
     render(){
         let addressNodes = this.props.addressList.list.map((item,index)=>{
             return (
-                <li className={receiveAddressListStyle.address_nodes} key={index} onClick={this.choose(item)}>
+                <li className={receiveAddressListStyle.address_nodes}
+                    key={index}
+                    onClick={this.choose(item)}>
                     <View className={receiveAddressListStyle.receiver_info}>
                         {item.addressTagName?<Text className={receiveAddressListStyle.address_label}>{item.addressTagName}</Text>:""}
                         <Text>{item.name}</Text>

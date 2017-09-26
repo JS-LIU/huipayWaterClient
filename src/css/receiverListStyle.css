@@ -1,0 +1,10 @@
+.wrap{
+    position:fixed;
+    width:100%;
+    left:0;
+    top:0;
+    height:100%;
+    background:#F3F5F7;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
