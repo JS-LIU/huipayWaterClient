@@ -21,7 +21,7 @@ import {observer,inject} from 'mobx-react';
     render(){
         return (
             <View className={receiverListStyle.wrap}>
-                <ReceiveAddressListView />
+                <ReceiveAddressListView history={this.props.history}/>
                 <View>
                     <Link to="/input">添加地址</Link>
                 </View>

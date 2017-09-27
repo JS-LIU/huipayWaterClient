@@ -8,31 +8,31 @@ import autoCompleteAddressStyle from '../css/autoCompleteAddressStyle.css';
 //  MobX
 import {observer,inject} from 'mobx-react';
 
-@inject (['location'])
+@inject (['position'])
 @observer class AutoCompleteAddressView extends Component{
     constructor(props){
         super(props);
     }
     searchAddress(){
-        this.props.location.searchAddressList(this.refs.addressName.value);
+        this.props.position.searchAddressList(this.refs.addressName.value);
     }
     choose(name){
         return ()=>{
-            this.props.location.hideAutoCompleteList();
-            this.props.location.selectedHomeAddress(name);
+            this.props.position.hideAutoCompleteList();
+            this.props.position.selectedHomeAddress(name);
             this.props.history.goBack();
         }
     }
     cancel(){
         this.refs.addressName.value = "";
-        this.props.location.hideAutoCompleteList();
+        this.props.position.hideAutoCompleteList();
     }
     show(){
-        this.props.location.showAutoCompleteList();
+        this.props.position.showAutoCompleteList();
     }
     render(){
-        console.log(this.props.location.autoCompleteList);
-        let addressNodes = this.props.location.autoCompleteList.map((item,index)=>{
+        console.log(this.props.position.autoCompleteList);
+        let addressNodes = this.props.position.autoCompleteList.map((item,index)=>{
             return (
                 <li key={index}
                     className={autoCompleteAddressStyle.address_node}
@@ -58,7 +58,7 @@ import {observer,inject} from 'mobx-react';
                            className={autoCompleteAddressStyle.address_input} onFocus={this.show.bind(this)}/>
                     <Button className={autoCompleteAddressStyle.cancel} onClick={this.cancel.bind(this)}>取消</Button>
                 </View>
-                {this.props.location.isShowAutoCompleteList?<ul>
+                {this.props.position.isShowAutoCompleteList?<ul>
                     {addressNodes}
                 </ul>:""}
             </View>

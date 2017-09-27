@@ -32,6 +32,7 @@ import ConfirmOrderCreateAddressView from './container/ConfirmOrderCreateAddress
 import WaterTicketsView from './container/WaterTicketsView';
 import PaySuccessView from './container/PaySuccessView';
 import OrderListView from './container/OrderListView';
+import MapView from './container/MapView';
 
 //  MobX
 import Login from './MobX/domain/Login';
@@ -44,7 +45,7 @@ import ShopInfo from './MobX/domain/ShopInfo';
 import My from './MobX/domain/My';
 import AddressTagList from './MobX/domain/location/AddressTagList';
 import OrderList from './MobX/domain/OrderList';
-import Location from './MobX/domain/location/Location';
+import Position from './MobX/domain/location/Position';
 
 import ShopDetail from './MobX/domain/ShopDetail';
 import ProductList from './MobX/domain/ProductList';
@@ -93,6 +94,8 @@ const App = ()=>(
                 <Route path="/waterTickets" component={WaterTicketsView} />
                 <Route path="/paySuccess" component={PaySuccessView} />
                 <Route path="/orderList" component={OrderListView}/>
+                <Route path="/map" component={MapView}/>
+                <Route path="/inputAddress" component={InputAddressView} />
             </Switch>
         </div>
     </BrowserRouter>
@@ -106,11 +109,11 @@ const shoppingList = new ShoppingList(rem2pxRate,login);
 const shopInfo = new ShopInfo(login);
 const addressList = new AddressList(login,autoMap);
 const activeAddress = new ActiveAddress(autoMap);
-const customAddress = new CustomAddress();
+const position = new Position();
+const customAddress = new CustomAddress(position);
 const my = new My(login);
 const addressTagList = new AddressTagList();
 const orderList = new OrderList(login);
-const location = new Location();
 // const shopDetail = new ShopDetail(login);
 const productList = new ProductList(login);
 const productDetail = new ProductDetail(login);
@@ -121,7 +124,7 @@ const shoppingCart = new ShoppingCart();
 
 const stores = {
     login,
-    location,
+    position,
     shopInfo,
     shoppingList,
     my,

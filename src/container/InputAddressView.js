@@ -7,10 +7,8 @@ import {Link} from 'react-router-dom';
 import {observer,inject} from 'mobx-react';
 import inputAddressStyle from '../css/inputAddressStyle.css';
 
-@inject (['autoMap'])
-@inject (['addressList'])
-@inject (['customAddress'])
 @inject (['addressTagList'])
+@inject (['customAddress'])
 @observer class InputAddressView extends Component{
     constructor(props){
         super(props);
@@ -30,7 +28,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
     selectedTag(tag){
         return ()=>{
             this.props.addressTagList.selected(tag);
-            this.props.customAddress.setTag(tag);
+            this.props.editAddressInfo.setTag(tag);
         }
     }
     render(){
@@ -45,55 +43,52 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
             )
         });
         return (
-            <View>
-                <ul className={inputAddressStyle.new_build_address}>
-                    <li className={inputAddressStyle.address_info}>
-                        <Text className={inputAddressStyle.info_desc}>收货人：</Text>
-                        <input
-                            type="text"
-                            className={inputAddressStyle.info_input}
-                            ref="myName"
-                            onBlur={this.setName.bind(this)}
-                            placeholder="收货人姓名"
-                            defaultValue={this.props.customAddress.info.name}
-                        />
-                    </li>
-                    <li className={inputAddressStyle.address_info}>
-                        <Text className={inputAddressStyle.info_desc}>联系方式：</Text>
-                        <input type="text"
-                               className={inputAddressStyle.info_input}
-                               ref="myPhoneNum"
-                               onBlur={this.setPhoneNum.bind(this)}
-                               placeholder="收货人电话"
-                               defaultValue={this.props.customAddress.info.num}
-                        />
-                    </li>
-                    <li className={inputAddressStyle.address_info_area}>
-                        <Text className={inputAddressStyle.info_desc_area}>所在区域：</Text>
-                        <Link to={{pathname: "/autoCompleteAddress", state: { last: this.props.url }}}
-                              replace
-                              className={inputAddressStyle.area_choose}>
-                            {this.props.autoMap.showLocationInfo.receiveAddress}
-                        </Link>
-                    </li>
-                    <li className={inputAddressStyle.address_info}>
-                        <Text className={inputAddressStyle.info_desc}>详细地址：</Text>
-                        <input type="text"
-                               className={inputAddressStyle.info_input}
-                               ref="specificAddress"
-                               onBlur={this.setSpecificAddress.bind(this)}
-                               placeholder="具体地址"
-                               defaultValue={this.props.customAddress.info.speAddress}
-                        />
-                    </li>
-                    <li className={inputAddressStyle.address_info_label}>
-                        <Text className={inputAddressStyle.info_desc}>标签：</Text>
-                        <ul className={inputAddressStyle.tag_list}>
-                            {tagNodes}
-                        </ul>
-                    </li>
-                </ul>
-            </View>
+            <ul className={inputAddressStyle.new_build_address}>
+                <li className={inputAddressStyle.address_info}>
+                    <Text className={inputAddressStyle.info_desc}>收货人：</Text>
+                    <input
+                        type="text"
+                        className={inputAddressStyle.info_input}
+                        ref="myName"
+                        onBlur={this.setName.bind(this)}
+                        placeholder="收货人姓名"
+                        defaultValue={this.props.customAddress.userInfo.name}
+                    />
+                </li>
+                <li className={inputAddressStyle.address_info}>
+                    <Text className={inputAddressStyle.info_desc}>联系方式：</Text>
+                    <input type="text"
+                           className={inputAddressStyle.info_input}
+                           ref="myPhoneNum"
+                           onBlur={this.setPhoneNum.bind(this)}
+                           placeholder="收货人电话"
+                           defaultValue={this.props.customAddress.userInfo.phoneNum}
+                    />
+                </li>
+                <li className={inputAddressStyle.address_info_area}>
+                    <Text className={inputAddressStyle.info_desc_area}>所在区域：</Text>
+                    <Link to="/map"
+                          replace
+                          className={inputAddressStyle.area_choose}>
+                    </Link>
+                </li>
+                <li className={inputAddressStyle.address_info}>
+                    <Text className={inputAddressStyle.info_desc}>详细地址：</Text>
+                    <input type="text"
+                           className={inputAddressStyle.info_input}
+                           ref="specificAddress"
+                           onBlur={this.setSpecificAddress.bind(this)}
+                           placeholder="具体地址"
+                           defaultValue={this.props.customAddress.speAddress}
+                    />
+                </li>
+                <li className={inputAddressStyle.address_info_label}>
+                    <Text className={inputAddressStyle.info_desc}>标签：</Text>
+                    <ul className={inputAddressStyle.tag_list}>
+                        {tagNodes}
+                    </ul>
+                </li>
+            </ul>
         )
     }
 }

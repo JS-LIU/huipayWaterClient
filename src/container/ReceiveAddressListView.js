@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 import {observer,inject} from 'mobx-react';
 import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
 @inject (['addressList'])
-@inject (['location'])
+@inject (['position'])
 @observer class ReceiveAddressListView extends Component{
     constructor(props){
         super(props);
@@ -19,7 +19,7 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
     choose(item){
         return ()=>{
             this.props.history.goBack();
-            this.props.location.selectedHomeAddress(item);
+            this.props.position.selectedHomeAddress(item);
         }
     }
     removeAddress(item){

@@ -21,10 +21,12 @@ class AutoMap{
         return this._searchAddressList;
     }
 
-    constructor(){
-        this.map = new AMap.Map('container', {
-            resizeEnable: true
-        });
+    constructor(mapInfo){
+        let baseInfo = {
+            resizeEnable:true
+        };
+        let mapObj = Object.assign(baseInfo,mapInfo);
+        this.map = new AMap.Map('container', mapObj);
     }
     @action getCurrentLocation(){
         let geolocation;
@@ -138,7 +140,7 @@ class AutoMap{
         }
     }
 
-    dragSiteSelection(){
+    @action dragSiteSelection(){
         let self = this;
         AMapUI.loadUI(['misc/PositionPicker'], function(PositionPicker) {
             let positionPicker = new PositionPicker({
@@ -147,27 +149,22 @@ class AutoMap{
                 iconStyle: { //自定义外观
                     url: '//webapi.amap.com/ui/1.0/assets/position-picker2.png',
                     ancher: [24, 40],
-                    size: [48, 48]
+                    size: [32, 32]
                 }
             });
             positionPicker.start();
             positionPicker.on('success', function(positionResult) {
+                console.log("positionResult:",positionResult);
                 let regeocode = positionResult.regeocode;
-                console.log("省："+regeocode.addressComponent.province);
-                console.log("市："+regeocode.addressComponent.city);
-                console.log("区："+regeocode.addressComponent.district);
-                console.log("乡镇："+regeocode.addressComponent.township);
-                console.log("街道："+regeocode.addressComponent.street);
-                console.log("门牌号："+regeocode.addressComponent.streetNumber);
-                console.log("所在社区："+regeocode.addressComponent.neighborhood);
-                console.log("社区类型："+regeocode.addressComponent.neighborhoodType);
-                console.log("所在大楼："+regeocode.addressComponent.building);
-                console.log("楼类型："+regeocode.addressComponent.buildingType);
 
-                console.log("经度："+positionResult.position.getLng());
-                console.log("纬度："+positionResult.position.getLat());
-
-                console.log(positionResult.address);
+                self.showLocationInfo.longitude = positionResult.position.getLng();
+                self.showLocationInfo.latitude = positionResult.position.getLat();
+                self.showLocationInfo.pcode = regeocode.addressComponent.pcode;
+                self.showLocationInfo.province = regeocode.addressComponent.province;
+                self.showLocationInfo.citycode = regeocode.addressComponent.citycode;
+                self.showLocationInfo.city = regeocode.addressComponent.city;
+                self.showLocationInfo.adcode = regeocode.addressComponent.adcode;
+                self.showLocationInfo.receiveAddress = positionResult.address;
             });
 
         });

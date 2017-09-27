@@ -4,7 +4,7 @@
 import {observable, computed,action,autorun} from "mobx";
 import AutoMap from './AutoMap';
 
-class Location{
+class Position{
     constructor(){
         this.currentMap = new AutoMap();    //  当前地址相关的地图
         this.searchMap = new AutoMap(); //  用户搜索的地图
@@ -83,4 +83,4 @@ class Location{
         return this._current;
     }
 }
-module.exports = Location;
+module.exports = Position;
