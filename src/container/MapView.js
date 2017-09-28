@@ -14,15 +14,14 @@ import AutoMap from '../MobX/domain/location/AutoMap';
 import {observer,inject} from 'mobx-react';
 
 
-@inject (['position'])
 @inject (['customAddress'])
 @observer class MapView extends Component{
     constructor(props){
         super(props);
     }
     componentDidMount(){
-        let homePageAddress = this.props.position.homePageAddress;
-        let center = [homePageAddress.longitude,homePageAddress.latitude];
+        let addressInfo = this.props.customAddress.addressInfo;
+        let center = [addressInfo.longitude,addressInfo.latitude];
         this.props.customAddress.createMap({zoom:16, center: center});
         this.props.customAddress.dragMap();
     }
@@ -30,11 +29,10 @@ import {observer,inject} from 'mobx-react';
         return (
             <View>
                 <div id="container"/>
-                <View />
                 <View className={selectedAddressMapStyle.map_address_info}>
-                    <View className={selectedAddressMapStyle.map_name}>
+                    <Link to="/autoCompleteAddress" replace className={selectedAddressMapStyle.map_name}>
                         <Text className={selectedAddressMapStyle.map_name_bg}>{this.props.customAddress.addressInfo.receiveAddress}</Text>
-                    </View>
+                    </Link>
                     <Button className={selectedAddressMapStyle.confirm}>确定</Button>
                 </View>
             </View>

@@ -67,7 +67,7 @@ import {observer,inject} from 'mobx-react';
     }
     choose(item){
         return ()=>{
-            this.props.position.selectedHomeAddress(item);
+            this.props.position.selected(item);
             this.props.history.goBack();
         }
     }
@@ -92,4 +92,7 @@ import {observer,inject} from 'mobx-react';
         )
     }
 }
+
+
+
 module.exports = AddressListView;

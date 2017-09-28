@@ -68,8 +68,8 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                 <li className={inputAddressStyle.address_info_area}>
                     <Text className={inputAddressStyle.info_desc_area}>所在区域：</Text>
                     <Link to="/map"
-                          replace
                           className={inputAddressStyle.area_choose}>
+                        {this.props.customAddress.addressInfo.receiveAddress}
                     </Link>
                 </li>
                 <li className={inputAddressStyle.address_info}>

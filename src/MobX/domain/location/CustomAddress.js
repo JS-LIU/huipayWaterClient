@@ -48,10 +48,26 @@ class CustomAddress{
     @computed get autoCompleteList(){
         return this._autoCompleteList;
     }
+    //  隐藏搜索地址列表
+    @action hideAutoCompleteList(){
+        this._isShowAutoCompleteList = false;
+    }
+    //  显示搜索地址列表
+    @action showAutoCompleteList(){
+        this._isShowAutoCompleteList = true;
+    }
+    //  是否显示搜索地址列表
+    @observable _isShowAutoCompleteList = true;
+    //  是否显示搜索地址列表
+    @computed get isShowAutoCompleteList(){
+        return this._isShowAutoCompleteList;
+    }
+
+
 
 
     //  主动选择地址
-    @action selectedInputAddress(address){
+    @action selected(address){
         if(typeof address === "string"){
             this._map.searchAddressDetail(address);
             this._selectedAddress = this._map.showLocationInfo;

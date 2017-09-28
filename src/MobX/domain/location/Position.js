@@ -27,7 +27,7 @@ class Position{
 
 
     //  选择首页地址
-    @action selectedHomeAddress(address){
+    @action selected(address){
         if(typeof address === "string"){
             this.searchMap.searchAddressDetail(address);
             this._homeSelectedAddress = this.searchMap.showLocationInfo;

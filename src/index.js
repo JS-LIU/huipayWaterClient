@@ -46,6 +46,7 @@ import My from './MobX/domain/My';
 import AddressTagList from './MobX/domain/location/AddressTagList';
 import OrderList from './MobX/domain/OrderList';
 import Position from './MobX/domain/location/Position';
+import AutoComplete from './MobX/domain/location/AutoComplete';
 
 import ShopDetail from './MobX/domain/ShopDetail';
 import ProductList from './MobX/domain/ProductList';
@@ -111,6 +112,7 @@ const addressList = new AddressList(login,autoMap);
 const activeAddress = new ActiveAddress(autoMap);
 const position = new Position();
 const customAddress = new CustomAddress(position);
+const autoComplete = new AutoComplete(position,customAddress);
 const my = new My(login);
 const addressTagList = new AddressTagList();
 const orderList = new OrderList(login);
@@ -138,7 +140,8 @@ const stores = {
     productDetail,
     order,
     historyPath,
-    customAddress
+    customAddress,
+    autoComplete
 };
 
 ReactDom.render(
