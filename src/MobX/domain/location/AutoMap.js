@@ -23,6 +23,7 @@ class AutoMap{
 
     constructor(mapInfo){
         let baseInfo = {
+            center: [116.397428, 39.90923],
             resizeEnable:true
         };
         let mapObj = Object.assign(baseInfo,mapInfo);

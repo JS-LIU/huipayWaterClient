@@ -25,6 +25,9 @@ import {observer,inject} from 'mobx-react';
         this.props.customAddress.createMap({zoom:16, center: center});
         this.props.customAddress.dragMap();
     }
+    confirmAndGoBack(){
+        this.props.history.goBack();
+    }
     render(){
         return (
             <View>
@@ -33,7 +36,7 @@ import {observer,inject} from 'mobx-react';
                     <Link to="/autoCompleteAddress" replace className={selectedAddressMapStyle.map_name}>
                         <Text className={selectedAddressMapStyle.map_name_bg}>{this.props.customAddress.addressInfo.receiveAddress}</Text>
                     </Link>
-                    <Button className={selectedAddressMapStyle.confirm}>确定</Button>
+                    <Button className={selectedAddressMapStyle.confirm} onClick={this.confirmAndGoBack.bind(this)}>确定</Button>
                 </View>
             </View>
         )

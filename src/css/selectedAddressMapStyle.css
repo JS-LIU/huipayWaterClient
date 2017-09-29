@@ -24,6 +24,9 @@
     border:0.01rem solid #D7D7D7;
     color:#333;
     font-size:0.3rem;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 .map_name_bg{
 }
@@ -33,4 +36,6 @@
     background:#399cfe;
     color:#FFF;
     font-size:0.3rem;
+    line-height:0.9rem;
+    text-align: center;
 }

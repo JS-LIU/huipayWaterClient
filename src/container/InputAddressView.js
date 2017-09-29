@@ -51,34 +51,34 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                         className={inputAddressStyle.info_input}
                         ref="myName"
                         onBlur={this.setName.bind(this)}
-                        placeholder="收货人姓名"
+                        placeholder="姓名"
                         defaultValue={this.props.customAddress.userInfo.name}
                     />
                 </li>
                 <li className={inputAddressStyle.address_info}>
-                    <Text className={inputAddressStyle.info_desc}>联系方式：</Text>
+                    <Text className={inputAddressStyle.info_desc}>电话：</Text>
                     <input type="text"
                            className={inputAddressStyle.info_input}
                            ref="myPhoneNum"
                            onBlur={this.setPhoneNum.bind(this)}
-                           placeholder="收货人电话"
+                           placeholder="手机号码"
                            defaultValue={this.props.customAddress.userInfo.phoneNum}
                     />
                 </li>
                 <li className={inputAddressStyle.address_info_area}>
-                    <Text className={inputAddressStyle.info_desc_area}>所在区域：</Text>
+                    <Text className={inputAddressStyle.info_desc_area}>地址：</Text>
                     <Link to="/map"
                           className={inputAddressStyle.area_choose}>
                         {this.props.customAddress.addressInfo.receiveAddress}
                     </Link>
                 </li>
                 <li className={inputAddressStyle.address_info}>
-                    <Text className={inputAddressStyle.info_desc}>详细地址：</Text>
+                    <Text className={inputAddressStyle.info_desc}>门牌号：</Text>
                     <input type="text"
                            className={inputAddressStyle.info_input}
                            ref="specificAddress"
                            onBlur={this.setSpecificAddress.bind(this)}
-                           placeholder="具体地址"
+                           placeholder="例：11号楼302室"
                            defaultValue={this.props.customAddress.speAddress}
                     />
                 </li>
