@@ -16,7 +16,6 @@ import shopInfoStyle from '../css/shopInfoStyle.css';
 import {observer,inject} from 'mobx-react';
 @inject(['shopInfo'])
 
-@inject(['activeAddress'])
 @observer class HeadShopInfoView extends Component{
     constructor(props){
         super(props);
