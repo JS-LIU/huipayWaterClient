@@ -11,5 +11,10 @@
     height:0.8rem;
     background:#399cfe;
     color:#FFF;
-
+}
+.cant_save_btn{
+    margin:0.8rem 0.3rem 0;
+    height:0.8rem;
+    background:#999;
+    color:#FFF;
 }

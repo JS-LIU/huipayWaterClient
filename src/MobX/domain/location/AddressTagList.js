@@ -33,4 +33,5 @@ class AddressTagList{
         }
     }
 }
+
 module.exports = AddressTagList;

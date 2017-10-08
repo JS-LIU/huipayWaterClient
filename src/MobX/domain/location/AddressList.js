@@ -44,14 +44,14 @@ class AddressList{
             this._list = list;
         })
     }
-    @action create(customInfo,tagId,mapInfo){
+    @action create(userInfo,tagId,mapInfo){
         let postData = {
             addressTagId:tagId,
-            name:customInfo.name,
-            phone:customInfo.num,
+            name:userInfo.name,
+            phone:userInfo.phoneNum,
             createAddressModel:{
                 adCode:mapInfo.adcode,
-                appendAddress:customInfo.speAddress,
+                appendAddress:mapInfo.speAddress,
                 cityCode:mapInfo.citycode,
                 cityName:mapInfo.city,
                 latitude:mapInfo.latitude,

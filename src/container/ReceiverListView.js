@@ -16,14 +16,12 @@ import {observer,inject} from 'mobx-react';
     constructor(props){
         super(props);
     }
-    componentWillMount(){
-    }
     render(){
         return (
             <View className={receiverListStyle.wrap}>
                 <ReceiveAddressListView history={this.props.history}/>
                 <View>
-                    <Link to="/input">添加地址</Link>
+                    <Link to="/createOrEditAddress">添加地址</Link>
                 </View>
             </View>
         )

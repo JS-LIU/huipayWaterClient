@@ -13,9 +13,6 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
     constructor(props){
         super(props);
     }
-    componentWillMount(){
-        this.props.addressTagList.getTagList();
-    }
     setName(){
         this.props.customAddress.setName(this.refs.myName.value);
     }
@@ -28,7 +25,6 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
     selectedTag(tag){
         return ()=>{
             this.props.addressTagList.selected(tag);
-            this.props.editAddressInfo.setTag(tag);
         }
     }
     render(){
@@ -50,7 +46,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                         type="text"
                         className={inputAddressStyle.info_input}
                         ref="myName"
-                        onBlur={this.setName.bind(this)}
+                        onChange={this.setName.bind(this)}
                         placeholder="姓名"
                         defaultValue={this.props.customAddress.userInfo.name}
                     />
@@ -60,7 +56,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                     <input type="text"
                            className={inputAddressStyle.info_input}
                            ref="myPhoneNum"
-                           onBlur={this.setPhoneNum.bind(this)}
+                           onChange={this.setPhoneNum.bind(this)}
                            placeholder="手机号码"
                            defaultValue={this.props.customAddress.userInfo.phoneNum}
                     />

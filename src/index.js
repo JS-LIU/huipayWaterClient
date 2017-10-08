@@ -33,7 +33,7 @@ import WaterTicketsView from './container/WaterTicketsView';
 import PaySuccessView from './container/PaySuccessView';
 import OrderListView from './container/OrderListView';
 import MapView from './container/MapView';
-
+import CreateOrEditAddressView from './container/CreateOrEditAddressView';
 //  MobX
 import Login from './MobX/domain/Login';
 import AutoMap from './MobX/domain/AutoMap';
@@ -96,7 +96,7 @@ const App = ()=>(
                 <Route path="/paySuccess" component={PaySuccessView} />
                 <Route path="/orderList" component={OrderListView}/>
                 <Route path="/map" component={MapView}/>
-                <Route path="/inputAddress" component={InputAddressView} />
+                <Route path="/createOrEditAddress" component={CreateOrEditAddressView} />
             </Switch>
         </div>
     </BrowserRouter>
@@ -111,10 +111,10 @@ const shopInfo = new ShopInfo(login);
 const addressList = new AddressList(login,autoMap);
 const activeAddress = new ActiveAddress(autoMap);
 const position = new Position();
-const customAddress = new CustomAddress(position);
+const addressTagList = new AddressTagList();
+const customAddress = new CustomAddress(position,addressTagList);
 const autoComplete = new AutoComplete(position,customAddress);
 const my = new My(login);
-const addressTagList = new AddressTagList();
 const orderList = new OrderList(login);
 // const shopDetail = new ShopDetail(login);
 const productList = new ProductList(login);

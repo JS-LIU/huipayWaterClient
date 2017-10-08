@@ -14,17 +14,23 @@ class Position{
         this._current.receiveAddress = "正在定位...";
         this.currentMap.getCurrentLocation();
         this._current = this.currentMap.showLocationInfo;
+        this.currentMap.searchNearAddress([this._current.longitude,this._current.latitude]);
     }
     //  当前地址
     @observable _current = {};
     //  当前地址
     @computed get current(){
         if(!this._current.adcode){
-            this.getCurrentMap()
+            this.getCurrentMap();
         }
+        this.currentMap.searchNearAddress([this._current.longitude,this._current.latitude]);
         return this._current;
     }
 
+    //  附近地址
+    @computed get nearAddressList(){
+        return this.currentMap.addressList;
+    }
 
     //  选择首页地址
     @action selected(address){
@@ -42,7 +48,7 @@ class Position{
     //  搜索地址
     @action searchAddressList(str){
         this.searchMap.autoComplete(str);
-        this._autoCompleteList = this.searchMap._searchAddressList;
+        this._autoCompleteList = this.searchMap.addressList;
     }
     //  搜索地址列表
     @observable _autoCompleteList = [];
@@ -64,14 +70,6 @@ class Position{
     @computed get isShowAutoCompleteList(){
         return this._isShowAutoCompleteList;
     }
-
-
-    //  附近地址
-    @computed get nearAddressList(){
-        this.currentMap.searchNearAddress([this._current.longitude,this._current.latitude]);
-        return this.currentMap.searchAddressList;
-    }
-
 
     //  实际的首页地址
     @computed get homePageAddress(){

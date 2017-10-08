@@ -16,9 +16,9 @@ class AutoMap{
         receiveAddress : "正在获取当前位置...",
     };
 
-    @observable _searchAddressList = [];
-    @computed get searchAddressList(){
-        return this._searchAddressList;
+    @observable _addressList = [];
+    @computed get addressList(){
+        return this._addressList;
     }
 
     constructor(mapInfo){
@@ -81,8 +81,7 @@ class AutoMap{
                         district: tips[i].district
                     })
                 }
-                console.log('a:',list);
-                self._searchAddressList = list;
+                self._addressList = list;
             }
         });
     }
@@ -107,7 +106,7 @@ class AutoMap{
                         receiveAddress : poiList[i].name,
                     });
                 }
-                self._searchAddressList = list;
+                self._addressList = list;
             }
         });
     }

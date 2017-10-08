@@ -7,8 +7,10 @@ import AutoMap from './AutoMap';
 
 class CustomAddress{
 
-    constructor(position){
+    constructor(position,tagList){
         this.position = position;
+        this.tagList = tagList;
+        this.tagList.getTagList();
     }
     @action createMap(mapObj){
         this._map = new AutoMap(mapObj);
@@ -42,7 +44,7 @@ class CustomAddress{
     //  搜索地址的展示列表
     @action searchAddressList(str){
         this._map.autoComplete(str);
-        this._autoCompleteList = this._map._searchAddressList;
+        this._autoCompleteList = this._map.addressList;
     }
     @observable _autoCompleteList = [];
     @computed get autoCompleteList(){
@@ -98,7 +100,7 @@ class CustomAddress{
 
 
 
-    @observable _userInfo = {};
+    @observable _userInfo = {name:"",phoneNum:""};
     @computed get userInfo(){
         return this._userInfo;
     }
@@ -126,15 +128,15 @@ class CustomAddress{
 
     //  设置 标签
     @action setTag(tag){
-        if(tag.selected){
-            this._tag = tag;
-        }else{
-            this._tag = {};
-        }
-
+        this.tagList.selected(tag);
     }
-    @computed get tag(){
-        return this._tag;
+
+    @observable _canSave = false;
+    @computed get canSave(){
+        if(this._userInfo.name!="" && this._userInfo.phoneNum){
+            return true;
+        }
+        return false;
     }
 }
 
