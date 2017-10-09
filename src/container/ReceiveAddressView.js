@@ -23,8 +23,8 @@ import {observer,inject} from 'mobx-react';
         return (
             <View >
                 <Link to='/addressList'
-                      className={activeAddressStyle.headLocation}>
-                    <span className={activeAddressStyle.profile}>收货地址：</span>
+                      className={activeAddressStyle.head_location}>
+                    <span className={activeAddressStyle.location_icon} />
                     <p className={activeAddressStyle.detail_address}>
                         {this.props.position.homePageAddress.receiveAddress}
                     </p>

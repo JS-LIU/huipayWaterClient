@@ -15,6 +15,7 @@ class AutoComplete{
         }
         if(lastUrl === "/autoCompleteAddress"){
             this._store = this.customAddress;
+            this.showAutoCompleteList();
             this._currentAddress = this._store.addressInfo;
         }
     }
@@ -42,6 +43,9 @@ class AutoComplete{
 
     @action searchAddressList(name){
         this._store.searchAddressList(name);
+    }
+    @action searchNearAddress(lnglat){
+        this._store.searchNearAddress(lnglat);
     }
     @computed get autoCompleteList(){
         return this._store.autoCompleteList;

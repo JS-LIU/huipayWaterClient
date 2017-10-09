@@ -11,10 +11,16 @@
     height:0.8rem;
     background:#399cfe;
     color:#FFF;
+    text-align: center;
+    line-height: 0.8rem;
+    composes:f30 from '../Util/huipayWaterBase.css';
 }
 .cant_save_btn{
     margin:0.8rem 0.3rem 0;
     height:0.8rem;
     background:#999;
     color:#FFF;
+    text-align: center;
+    line-height: 0.8rem;
+    composes:f30 from '../Util/huipayWaterBase.css';
 }

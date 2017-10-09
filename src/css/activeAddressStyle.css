@@ -1,19 +1,21 @@
-.headLocation{
+.head_location{
     display: flex;
     height:0.9rem;
     line-height: 0.9rem;
     composes: linear_blue_bg from '../Util/huipayWaterBase.css';
+    padding:0 0.35rem;
+    color:#FFF;
+    composes: f30 from '../Util/huipayWaterBase.css';
 }
-.profile{
-    background: url("../images/address-05.png") no-repeat left center;
-    background-size: 0.24rem 0.29rem;
+.location_icon{
+    background: url("../images/Location-Icon@2x.png") no-repeat left center;
+    background-size: 0.26rem 0.31rem;
     composes:pl35 from '../Util/base.css';
 }
 .detail_address{
-    flex:1;
     overflow: hidden;
-    background: url("../images/btn_right_arrow@2x.png") no-repeat right center;
-    background-size: 0.18rem 0.3rem;
+    background: url("../images/Drop-triangle@2x.png") no-repeat right center;
+    background-size: 0.25rem auto;
     composes:pr30 from '../Util/base.css';
     text-overflow: ellipsis;
     white-space:nowrap;

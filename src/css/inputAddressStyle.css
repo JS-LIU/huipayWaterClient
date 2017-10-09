@@ -19,7 +19,7 @@
 .tag_list{
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex:1;
 }
 .info_input{
     flex:1;
@@ -52,7 +52,7 @@
     height: 0.5rem;
     line-height: 0.5rem;
     width: 1.5rem;
-    margin-left: 0.3rem;
+    margin-right: 0.3rem;
     composes:tc from '../Util/base.css'
 }
 .save_new_address{

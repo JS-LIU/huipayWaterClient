@@ -18,17 +18,24 @@
 }
 .map_name{
     margin:0 0.2rem;
+    padding:0 0.2rem;
     height:0.9rem;
     line-height:0.9rem;
     background:#FFF;
-    border:0.01rem solid #D7D7D7;
     color:#333;
     font-size:0.3rem;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
+    -webkit-box-shadow: 0 0 0.15rem 0.05rem #e5e5e5;
+    -moz-box-shadow: 0 0 0.15rem 0.05rem #e5e5e5;
+    box-shadow: 0 0 0.15rem 0.05rem #e5e5e5;
 }
 .map_name_bg{
+    background: url("../images/location_icon.png") no-repeat left center;
+    -webkit-background-size: 0.24rem 0.29rem;
+    background-size: 0.24rem 0.29rem;
+    padding-left:0.3rem;
 }
 .confirm{
     margin:0.2rem 0.2rem 0;

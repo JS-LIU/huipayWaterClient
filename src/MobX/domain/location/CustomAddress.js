@@ -44,11 +44,9 @@ class CustomAddress{
     //  搜索地址的展示列表
     @action searchAddressList(str){
         this._map.autoComplete(str);
-        this._autoCompleteList = this._map.addressList;
     }
-    @observable _autoCompleteList = [];
     @computed get autoCompleteList(){
-        return this._autoCompleteList;
+        return this._map._addressList;
     }
     //  隐藏搜索地址列表
     @action hideAutoCompleteList(){
@@ -56,6 +54,9 @@ class CustomAddress{
     }
     //  显示搜索地址列表
     @action showAutoCompleteList(){
+        if(this._map.addressList.length === 0){
+            this._map.searchNearAddress([this._selectedAddress.longitude,this._selectedAddress.latitude]);
+        }
         this._isShowAutoCompleteList = true;
     }
     //  是否显示搜索地址列表
@@ -115,17 +116,13 @@ class CustomAddress{
         this._userInfo.phoneNum = phoneNum;
     }
 
-
-    @observable _tag = {};
-
-
     //  设置地址
     @action setSpeAddress(address){
         this.speAddress = address;
     }
 
 
-
+    @observable _tag = {};
     //  设置 标签
     @action setTag(tag){
         this.tagList.selected(tag);

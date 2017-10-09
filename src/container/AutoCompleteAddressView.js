@@ -8,7 +8,6 @@ import autoCompleteAddressStyle from '../css/autoCompleteAddressStyle.css';
 //  MobX
 import {observer,inject} from 'mobx-react';
 
-// @inject (['position'])
 @inject (['autoComplete'])
 @observer class AutoCompleteAddressView extends Component{
     constructor(props){
@@ -17,7 +16,6 @@ import {observer,inject} from 'mobx-react';
     componentWillMount(){
         let url = this.props.history.location.pathname;
         this.props.autoComplete.setStore(url);
-        this.props.autoComplete.searchAddressList(this.props.autoComplete.currentAddress.receiveAddress);
     }
     searchAddress(){
         this.props.autoComplete.searchAddressList(this.refs.addressName.value);
