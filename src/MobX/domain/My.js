@@ -18,9 +18,12 @@ class My{
         });
     }
 
-    @action getUserInfo(){
+    @action getUserInfo(history){
         this.getInfo({}).then((data)=>{
             this._userInfo = data;
+        }).catch((data)=>{
+            console.log(data);
+            history.push('/login');
         })
     }
     @observable _userInfo = {};

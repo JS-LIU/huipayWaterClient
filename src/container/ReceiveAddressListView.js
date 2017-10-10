@@ -19,7 +19,7 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
     choose(item){
         return ()=>{
             this.props.history.goBack();
-            this.props.position.selectedHomeAddress(item);
+            this.props.position.selected(item);
         }
     }
     removeAddress(item){

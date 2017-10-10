@@ -118,14 +118,20 @@ class CustomAddress{
 
     //  设置地址
     @action setSpeAddress(address){
-        this.speAddress = address;
+        this._speAddress = address;
+    }
+    @observable _speAddress = "";
+    @computed get speAddress(){
+        return this._speAddress;
     }
 
-
     @observable _tag = {};
-    //  设置 标签
+    @computed get tagId(){
+        return this._tag.id;
+    }
+    //  存储标签
     @action setTag(tag){
-        this.tagList.selected(tag);
+        this._tag = tag;
     }
 
     @observable _canSave = false;

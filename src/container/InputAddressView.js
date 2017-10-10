@@ -24,6 +24,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
     }
     selectedTag(tag){
         return ()=>{
+            this.props.customAddress.setTag(tag);
             this.props.addressTagList.selected(tag);
         }
     }

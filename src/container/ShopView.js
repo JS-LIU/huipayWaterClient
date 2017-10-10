@@ -19,7 +19,6 @@ import _h from '../Util/HB';
 //  MobX
 import {observer,inject} from 'mobx-react';
 @inject(['shoppingList'])
-
 @observer class ShopView extends Component{
     constructor(props){
         super(props);
@@ -40,7 +39,6 @@ import {observer,inject} from 'mobx-react';
                 {this.props.shoppingList.show?<Button onClick={this.showShoppingCart.bind(this)}  className={shopStyle.shadow}/>:''}
                 <ReceiveAddressView />
                 <HeadShopInfoView />
-                {/*<Text className={shopStyle.notice}>喜腾山泉品牌水票在本平台所有水站通用</Text>*/}
                 <ul className={shopStyle.nav_link}>
                     <li className={shopStyle.nav_link_product_text}>商品</li>
                     <li>评价</li>
@@ -50,7 +48,7 @@ import {observer,inject} from 'mobx-react';
                     <ProductList />
                 </View>
                 <Link to="/my" className={myStyle.link_my}/>
-                <ShopFooter />
+                <ShopFooter history={this.props.history}/>
                 {this.props.shoppingList.show?<ShoppingCart />:''}
                 {this.props.shoppingList.activeProductItem.show?<ProductListDialogView waterTicket={this.props.shoppingList.activeProductItem}/>:""}
             </View>
@@ -270,7 +268,7 @@ import {observer,inject} from 'mobx-react';
         this.props.shoppingList.showShoppingCart();
     }
     confirmOrder(){
-        this.props.order.getSettleOrder(1);
+        this.props.order.getSettleOrder(1,this.props.history);
     }
     render(){
         return (

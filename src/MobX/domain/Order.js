@@ -31,7 +31,7 @@ class Order {
     }
     @observable _totalUsedTicket;
     @observable _shopName = "";
-    @action getSettleOrder(shopId){
+    @action getSettleOrder(shopId,history){
         this.settleOrder({
             shopId:shopId
         }).then((data)=>{
@@ -39,6 +39,9 @@ class Order {
             this._ticketList = data.orderTicketInfo.userTicketModels;
             this._totalUsedTicket = data.orderTicketInfo.totalUsed;
             this._shopName = data.shopName;
+        }).catch((data)=>{
+            console.log(data);
+            history.push('/login');
         })
 
     }

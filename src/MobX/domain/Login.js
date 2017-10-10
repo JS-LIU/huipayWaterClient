@@ -1,13 +1,10 @@
 /**
  * Created by LDQ on 2017/7/4.
  */
-import {observable, computed,action} from "mobx";
+import {observable, computed,action,autorun} from "mobx";
 import CountDown from './CountDown';
-import {hex_md5} from '../../Util/md5';
-import {HB_uuid} from '../../Util/uuid';
 import _h from '../../Util/HB';
 
-import loginService from '../service/loginService';
 class Login{
     constructor(access_secret,access_token){
 
@@ -61,17 +58,18 @@ class Login{
     @observable _isRegister = false;
 
 
-    //  手机号登录接口
+    //  登录接口
     @action clientLogin(history){
         let postData = {
             accessInfo:{
-                app_key:this._app_key
+                app_key:this._app_key,
+                access_token:this._access_token,
+                access_secret:this._access_secret
             },
             phoneNum:this._phoneNum,
             checkCode:this._checkCode
         };
-        console.log(postData);
-        _h.ajax.resource('/login').save({},postData).then((loginInfo)=>{
+        _h.ajax.resource('/login/user').save({},postData).then((loginInfo)=>{
             console.log(loginInfo);
             this._access_secret = loginInfo.access_secret;
             this._access_token = loginInfo.access_token;
@@ -87,6 +85,24 @@ class Login{
             alert('验证码错误');
         })
 
+    }
+    //  自动登录
+    @action autoLogin(history){
+        let postData = {
+            regTouristLoginMsg:{}
+        };
+        _h.ajax.resource('/login/tourist').save({},postData,false).then((loginInfo)=>{
+            console.log(loginInfo);
+            this._access_secret = loginInfo.access_secret;
+            this._access_token = loginInfo.access_token;
+            this._isLogin = true;
+            localStorage.access_secret=this._access_secret;
+            localStorage.access_token = this._access_token;
+            history.replace('/shop');
+        }).catch((data)=>{
+            console.log(data);
+            alert('验证码错误');
+        })
     }
 
     //  倒计时按钮文字

@@ -16,9 +16,15 @@ import createOrEditStyle from '../css/createOrEditStyle.css';
 import {observer,inject} from 'mobx-react';
 
 @inject(['customAddress'])
+@inject(['addressList'])
 @observer class CreateOrEditAddressView extends Component{
     constructor(props){
         super(props);
+    }
+    saveAddress(){
+        let customAddress = this.props.customAddress;
+        this.props.addressList.create(customAddress.userInfo,customAddress.tagId,customAddress.addressInfo);
+        this.props.history.goBack();
     }
     render(){
         return (
@@ -26,7 +32,7 @@ import {observer,inject} from 'mobx-react';
                 <InputAddressView />
                 {
                     this.props.customAddress.canSave?
-                    <Button className={createOrEditStyle.save_btn}>保存</Button>:
+                    <Button className={createOrEditStyle.save_btn} onClick={this.saveAddress.bind(this)}>保存</Button>:
                     <View className={createOrEditStyle.cant_save_btn}>保存</View>
                 }
             </View>

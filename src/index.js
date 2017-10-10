@@ -11,6 +11,7 @@ import {
     Link
 } from 'react-router-dom'
 import { Provider } from 'mobx-react';
+import {observer,inject} from 'mobx-react';
 import _h from '../src/Util/HB';
 
 //  Views
@@ -34,6 +35,7 @@ import PaySuccessView from './container/PaySuccessView';
 import OrderListView from './container/OrderListView';
 import MapView from './container/MapView';
 import CreateOrEditAddressView from './container/CreateOrEditAddressView';
+import PrepareView from './container/PrepareView';
 //  MobX
 import Login from './MobX/domain/Login';
 import AutoMap from './MobX/domain/AutoMap';
@@ -67,8 +69,7 @@ let rem2pxRate = _h.ui.parsePx();
 
 let access_secret = localStorage.access_secret;
 let access_token = localStorage.access_token;
-let firstUrl = access_secret?"/shop":'/login';
-
+let firstUrl = access_secret?"/shop":'/prepare';
 
 
 
@@ -78,9 +79,10 @@ const App = ()=>(
         <div>
             <Redirect to={firstUrl}/>
             <Switch>
+                <Route path='/prepare' component={PrepareView} />
+                <Route path='/shop' component={ShopView} />
                 <Route path='/login' component={LoginView} />
                 <Route path='/water' component={WaterView} />
-                <Route path='/shop' component={ShopView} />
                 <Route path='/shopDetail' component={ShopDetailView} />
                 <Route path='/shoppingCart' component={ShoppingCartView}/>
                 <Route path="/confirmOrder" component={CreateOrderView}/>
@@ -103,6 +105,7 @@ const App = ()=>(
 
 );
 
+
 const historyPath = new HistoryPath();
 const autoMap = new AutoMap();
 const login = new Login(access_secret,access_token);
@@ -122,7 +125,6 @@ const productDetail = new ProductDetail(login);
 const order = new Order(login);
 const shoppingCart = new ShoppingCart();
 // const addressOperator = new AddressOperator(autoMap,addressList);
-
 
 const stores = {
     login,

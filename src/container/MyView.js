@@ -19,7 +19,7 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     componentWillMount(){
-        this.props.my.getUserInfo();
+        this.props.my.getUserInfo(this.props.history);
     }
     logOut(){
         localStorage.clear();
