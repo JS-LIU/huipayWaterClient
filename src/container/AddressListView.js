@@ -13,9 +13,17 @@ import addressListStyle from '../css/addressListStyle.css';
 import autoCompleteAddressStyle from '../css/autoCompleteAddressStyle.css';
 import {observer,inject} from 'mobx-react';
 
+
+@inject (['addressList'])
+/**
+ * 首页地址 可更换地址列表
+ */
 @observer class AddressListView extends Component{
     constructor(props){
         super(props);
+    }
+    componentWillMount(){
+        this.props.addressList.setEdit(false);
     }
     render(){
         return (
@@ -46,7 +54,7 @@ import {observer,inject} from 'mobx-react';
     }
     choose(){
         this.props.history.goBack();
-        this.props.position.selectedHomeAddress(this.props.position.current);
+        this.props.position.selected(this.props.position.current);
     }
     render(){
         return (

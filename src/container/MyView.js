@@ -14,6 +14,7 @@ import myStyle from '../css/myStyle.css';
 import {observer,inject} from 'mobx-react';
 
 @inject (['my'])
+@inject (['addressList'])
 @observer class MyView extends Component{
     constructor(props){
         super(props);
@@ -23,6 +24,9 @@ import {observer,inject} from 'mobx-react';
     }
     logOut(){
         localStorage.clear();
+    }
+    editAddress(){
+        this.props.addressList.setEdit(true);
     }
     render(){
         return (
@@ -42,6 +46,9 @@ import {observer,inject} from 'mobx-react';
                     </li>
                     <li className={myStyle.order_list}>
                         <Link to='/orderList' className={myStyle.order_list_title}>订单</Link>
+                    </li>
+                    <li className={myStyle.order_list}>
+                        <Link to='/receiverList' className={myStyle.edit_list_title} onClick={this.editAddress.bind(this)}>地址管理</Link>
                     </li>
                     <li className={myStyle.call}>
                         <a href="tel:4006078300" className={myStyle.call_title}>客服</a>

@@ -36,6 +36,7 @@ import OrderListView from './container/OrderListView';
 import MapView from './container/MapView';
 import CreateOrEditAddressView from './container/CreateOrEditAddressView';
 import PrepareView from './container/PrepareView';
+import ReceiverListView from './container/ReceiverListView';
 //  MobX
 import Login from './MobX/domain/Login';
 import AutoMap from './MobX/domain/AutoMap';
@@ -79,26 +80,40 @@ const App = ()=>(
         <div>
             <Redirect to={firstUrl}/>
             <Switch>
+                {/*有用*/}
                 <Route path='/prepare' component={PrepareView} />
+                {/*有用*/}
                 <Route path='/shop' component={ShopView} />
+                {/*有用*/}
                 <Route path='/login' component={LoginView} />
+                {/*有用*/}
+                <Route path="/confirmOrder" component={CreateOrderView}/>
+                {/*有用*/}
+                <Route path="/my" component={MyView}/>
+                {/*有用*/}
+                <Route path="/addressList" component={AddressListView} />
+                {/*有用*/}
+                <Route path="/map" component={MapView}/>
+                {/*有用*/}
+                <Route path="/createOrEditAddress" component={CreateOrEditAddressView} />
+                {/*有用*/}
+                <Route path="/paySuccess" component={PaySuccessView} />
+                {/*有用*/}
+                <Route path="/receiverList" component={ReceiverListView} />
+
+
                 <Route path='/water' component={WaterView} />
                 <Route path='/shopDetail' component={ShopDetailView} />
                 <Route path='/shoppingCart' component={ShoppingCartView}/>
-                <Route path="/confirmOrder" component={CreateOrderView}/>
                 <Route path="/homePageCreateAddress" component={HomePageCreateAddressView}/>
                 <Route path="/confirmOrderCreateAddress" component={ConfirmOrderCreateAddressView}/>
                 <Route path="/autoCompleteAddress" component={AutoCompleteAddressView}/>
                 <Route path="/receiveAddressList" component={ReceiveAddressListView}/>
                 <Route path="/productDetail" component={ProductDetailView}/>
                 <Route path="/typeProductView" component={TypeProductListView}/>
-                <Route path="/my" component={MyView}/>
-                <Route path="/addressList" component={AddressListView} />
                 <Route path="/waterTickets" component={WaterTicketsView} />
-                <Route path="/paySuccess" component={PaySuccessView} />
                 <Route path="/orderList" component={OrderListView}/>
-                <Route path="/map" component={MapView}/>
-                <Route path="/createOrEditAddress" component={CreateOrEditAddressView} />
+
             </Switch>
         </div>
     </BrowserRouter>
@@ -111,11 +126,11 @@ const autoMap = new AutoMap();
 const login = new Login(access_secret,access_token);
 const shoppingList = new ShoppingList(rem2pxRate,login);
 const shopInfo = new ShopInfo(login);
-const addressList = new AddressList(login,autoMap);
 const activeAddress = new ActiveAddress(autoMap);
 const position = new Position();
 const addressTagList = new AddressTagList();
 const customAddress = new CustomAddress(position,addressTagList);
+const addressList = new AddressList(login,position);
 const autoComplete = new AutoComplete(position,customAddress);
 const my = new My(login);
 const orderList = new OrderList(login);

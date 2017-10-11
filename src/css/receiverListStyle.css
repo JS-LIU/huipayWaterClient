@@ -8,3 +8,23 @@
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
+.footer{
+    position:fixed;
+    bottom:0;
+    height:0.96rem;
+    background:#FFF;
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    composes:f36 from '../Util/huipayWaterBase.css';
+}
+.create_btn{
+    background:#FFF url("../images/Newly-added@2x.png") no-repeat left center;
+    -webkit-background-size: 0.32rem;
+    background-size: 0.32rem;
+    padding-left:0.35rem;
+    color: #399cfe;
+}
+

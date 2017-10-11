@@ -119,7 +119,17 @@
     font-size:0.32rem;
     color:#333;
     padding-left:0.7rem;
-    background:url("../images/order-click@2x.png") no-repeat left center;
+    background:url("../images/me_icon_order@2x.png") no-repeat left center;
+    -webkit-background-size: 0.38rem auto;
+    background-size: 0.38rem auto;
+    flex:1;
+}
+.edit_list_title{
+    line-height:1rem;
+    font-size:0.32rem;
+    color:#333;
+    padding-left:0.7rem;
+    background:url("../images/me_icon_Delivery-address@2x.png") no-repeat left center;
     -webkit-background-size: 0.38rem auto;
     background-size: 0.38rem auto;
     flex:1;

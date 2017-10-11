@@ -12,7 +12,9 @@ import {observer,inject} from 'mobx-react';
 
 @inject (['position'])
 
-
+/**
+ * 首页头部的 【收货地址】
+ */
 @observer class ReceiveAddressView extends Component{
     constructor(props){
         super(props);

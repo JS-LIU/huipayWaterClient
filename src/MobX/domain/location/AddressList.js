@@ -7,8 +7,9 @@ import _h from '../../../Util/HB';
 import CustomAddress from './CustomAddress';
 
 class AddressList{
-    constructor(login){
+    constructor(login,position){
         this.login = login;
+        this.position = position;
         let self = this;
         this.addressList = function(postInfo){
             return _h.ajax.resource('/delivery/:action')
@@ -61,7 +62,6 @@ class AddressList{
                 pName:mapInfo.province
             }
         };
-        console.log(postData);
         this.createAddress({createAddressModel:postData}).then((data)=>{
             console.log(data);
         })
@@ -76,7 +76,7 @@ class AddressList{
     }
 
 
-
+    //  地址列表（可配送+不可配送）
     @observable _list = [];
     @computed get list(){
         for(let i = 0;i < this._list.length;i++){
@@ -84,6 +84,31 @@ class AddressList{
         }
 
         return this._list;
+    }
+
+    //  地址列表是否可以编辑
+    @action setEdit(canEdit){
+        this._edit = canEdit;
+    }
+    @observable _edit = false;
+    @computed get edit(){
+        return this._edit;
+    }
+
+    //  可配送地址
+    //  不可配送地址
+
+    //  地址列表中被选中的地址
+    @observable _activeAddress;
+    @computed get activeAddress(){
+        for(let i = 0;i < this.list.length;i++){
+            if(this.list[i].id === this.position.homePageAddress.id){
+                console.log(this.list[i]);
+                return this.list[i];
+            }
+        }
+        return null;
+
     }
 
 

@@ -12,6 +12,7 @@ import receiverListStyle from '../css/receiverListStyle.css';
 //  MobX
 import {observer,inject} from 'mobx-react';
 
+
 @observer class ReceiverListView extends Component{
     constructor(props){
         super(props);
@@ -20,8 +21,8 @@ import {observer,inject} from 'mobx-react';
         return (
             <View className={receiverListStyle.wrap}>
                 <ReceiveAddressListView history={this.props.history}/>
-                <View>
-                    <Link to="/createOrEditAddress">添加地址</Link>
+                <View className={receiverListStyle.footer}>
+                    <Link to="/createOrEditAddress" className={receiverListStyle.create_btn}>添加地址</Link>
                 </View>
             </View>
         )

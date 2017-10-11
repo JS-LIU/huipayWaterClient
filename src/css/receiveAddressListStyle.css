@@ -1,10 +1,9 @@
 .address_nodes{
     display:flex;
-    flex-direction: column;
-    justify-content: center;
     height:1.2rem;
     composes:bgColorF from '../Util/base.css';
     border-bottom:0.01rem solid #D7D7D7;
+    position:relative;
 }
 .address_info{
     flex:1;
@@ -17,6 +16,21 @@
     height:1.2rem;
     line-height:1.2rem;
     text-align: center;
+}
+.receiver_box{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    position:relative;
+    width:100%;
+    z-index:1;
+}
+.receiver_info_box{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    flex: 1;
+    overflow: hidden;
 }
 .receiver_info{
     display:flex;
@@ -38,7 +52,7 @@
     composes: f24 from '../Util/huipayWaterBase.css';
 }
 .location{
-    padding:0.1rem 0.3rem;
+    margin:0.1rem 0.3rem;
     font-size:0.22rem;
     color:#666;
     overflow: hidden;
@@ -81,9 +95,9 @@
     display: flex;
 }
 .operate_edit{
-    background: url("../../src/images/address_btn_edit@2x.png") no-repeat left center;
+    width:1rem;
+    background: url("../../src/images/address_btn_edit@2x.png") no-repeat center;
     background-size: 0.35rem;
-    padding-left: 0.5rem;
 }
 .operate_delete{
     background: url("../../src/images/address_btn_delete@2x.png") no-repeat left center;
