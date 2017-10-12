@@ -19,8 +19,8 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
     setPhoneNum(){
         this.props.customAddress.setNum(this.refs.myPhoneNum.value);
     }
-    setSpecificAddress(){
-        this.props.customAddress.setSpeAddress(this.refs.specificAddress.value)
+    setAppendingAddress(){
+        this.props.customAddress.setAppendingAddress(this.refs.appendingAddress.value)
     }
     selectedTag(tag){
         return ()=>{
@@ -73,10 +73,10 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                     <Text className={inputAddressStyle.info_desc}>门牌号：</Text>
                     <input type="text"
                            className={inputAddressStyle.info_input}
-                           ref="specificAddress"
-                           onBlur={this.setSpecificAddress.bind(this)}
+                           ref="appendingAddress"
+                           onBlur={this.setAppendingAddress.bind(this)}
                            placeholder="例：11号楼302室"
-                           defaultValue={this.props.customAddress.speAddress}
+                           defaultValue={this.props.customAddress.appendingAddress}
                     />
                 </li>
                 <li className={inputAddressStyle.address_info_label}>

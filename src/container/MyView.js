@@ -26,7 +26,7 @@ import {observer,inject} from 'mobx-react';
         localStorage.clear();
     }
     editAddress(){
-        this.props.addressList.setEdit(true);
+        this.props.addressList.setCanEdit(true);
     }
     render(){
         return (

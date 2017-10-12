@@ -19,7 +19,7 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     componentWillMount(){
-        this.props.addressList.setEdit(false);
+        this.props.addressList.setCanEdit(false);
     }
     render(){
         return (

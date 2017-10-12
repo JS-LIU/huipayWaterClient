@@ -1,9 +1,10 @@
 .address_nodes{
+    position:relative;
     display:flex;
     height:1.2rem;
     composes:bgColorF from '../Util/base.css';
     border-bottom:0.01rem solid #D7D7D7;
-    position:relative;
+    background:#F3F5F7;
 }
 .address_info{
     flex:1;
@@ -12,10 +13,16 @@
     text-overflow:ellipsis;
 }
 .delete_address_btn{
-    width:1rem;
+    position:absolute;
+    right:0;
+    top:0;
+    color: #FFF;
+    width:75px;
     height:1.2rem;
     line-height:1.2rem;
+    background:#ff4c2f;
     text-align: center;
+    z-index: 0;
 }
 .receiver_box{
     display:flex;
@@ -24,6 +31,7 @@
     position:relative;
     width:100%;
     z-index:1;
+    background:#FFF;
 }
 .receiver_info_box{
     display:flex;

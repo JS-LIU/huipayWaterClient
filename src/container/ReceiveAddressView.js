@@ -19,8 +19,6 @@ import {observer,inject} from 'mobx-react';
     constructor(props){
         super(props);
     }
-    componentWillMount(){
-    }
     render(){
         return (
             <View >

@@ -23,9 +23,14 @@ import {observer,inject} from 'mobx-react';
     }
     saveAddress(){
         let customAddress = this.props.customAddress;
-        this.props.addressList.create(customAddress.userInfo,customAddress.tagId,customAddress.addressInfo);
+        if(this.props.addressList.operateStrategy === "edit"){
+            this.props.addressList.edit(customAddress.userInfo,customAddress.tagId,customAddress.addressInfo,customAddress.addressId);
+        }else{
+            this.props.addressList.create(customAddress.userInfo,customAddress.tagId,customAddress.addressInfo);
+        }
         this.props.history.goBack();
     }
+
     render(){
         return (
             <View className={createOrEditStyle.wrap}>

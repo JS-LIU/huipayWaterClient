@@ -67,8 +67,6 @@ class CustomAddress{
     }
 
 
-
-
     //  主动选择地址
     @action selected(address){
         if(typeof address === "string"){
@@ -97,9 +95,14 @@ class CustomAddress{
         return this.defCurrent;
     }
 
-
-
-
+    //  设置地址id
+    @observable _addressId;
+    @computed get addressId(){
+        return this._addressId;
+    }
+    @action setAddressId(id){
+        this._addressId = id;
+    }
 
     @observable _userInfo = {name:"",phoneNum:""};
     @computed get userInfo(){
@@ -117,12 +120,12 @@ class CustomAddress{
     }
 
     //  设置地址
-    @action setSpeAddress(address){
-        this._speAddress = address;
+    @action setAppendingAddress(address){
+        this._appendingAddress = address;
     }
-    @observable _speAddress = "";
-    @computed get speAddress(){
-        return this._speAddress;
+    @observable _appendingAddress = "";
+    @computed get appendingAddress(){
+        return this._appendingAddress;
     }
 
     @observable _tag = {};
@@ -134,12 +137,22 @@ class CustomAddress{
         this._tag = tag;
     }
 
+    //  是否可以保存
     @observable _canSave = false;
     @computed get canSave(){
-        if(this._userInfo.name!="" && this._userInfo.phoneNum){
+        if((this._userInfo.name!="") && (this._userInfo.phoneNum.length === 11)){
             return true;
         }
         return false;
+    }
+
+    @action clearSet(){
+        this.setName("");
+        this.setNum("");
+        this.setAddressId(undefined);
+        this.setBeforeAddress({});
+        this.setAppendingAddress("");
+        this.setTag({});
     }
 }
 

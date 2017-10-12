@@ -15,6 +15,7 @@ import {observer,inject} from 'mobx-react';
 
 
 @inject (['addressList'])
+@inject (['customAddress'])
 /**
  * 首页地址 可更换地址列表
  */
@@ -23,7 +24,11 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     componentWillMount(){
-        this.props.addressList.setEdit(false);
+        this.props.addressList.setCanEdit(false);
+    }
+    setOperateStrategy(){
+        this.props.addressList.setOperateStrategy('create');
+        this.props.customAddress.clearSet();
     }
     render(){
         return (
@@ -34,7 +39,8 @@ import {observer,inject} from 'mobx-react';
                 <View className={addressListStyle.receive_address_title}>
                     <Text className={addressListStyle.address_title}>收货地址</Text>
                     <Link to='/createOrEditAddress'
-                          className={addressListStyle.create_btn}>新建地址</Link>
+                          className={addressListStyle.create_btn}
+                          onClick={this.setOperateStrategy.bind(this)}>新建地址</Link>
                 </View>
                 <ReceiveAddressListView history={this.props.history}/>
                 <View className={addressListStyle.address_title}>附近地址</View>
