@@ -50,6 +50,8 @@ import AddressTagList from './MobX/domain/location/AddressTagList';
 import OrderList from './MobX/domain/OrderList';
 import Position from './MobX/domain/location/Position';
 import AutoComplete from './MobX/domain/location/AutoComplete';
+import UserWaterTicketList from './MobX/domain/UserWaterTicketList';
+
 
 import ShopDetail from './MobX/domain/ShopDetail';
 import ProductList from './MobX/domain/ProductList';
@@ -100,6 +102,8 @@ const App = ()=>(
                 <Route path="/paySuccess" component={PaySuccessView} />
                 {/*有用*/}
                 <Route path="/receiverList" component={ReceiverListView} />
+                {/*有用*/}
+                <Route path="/waterTickets" component={WaterTicketsView} />
 
 
                 <Route path='/water' component={WaterView} />
@@ -111,7 +115,6 @@ const App = ()=>(
                 <Route path="/receiveAddressList" component={ReceiveAddressListView}/>
                 <Route path="/productDetail" component={ProductDetailView}/>
                 <Route path="/typeProductView" component={TypeProductListView}/>
-                <Route path="/waterTickets" component={WaterTicketsView} />
                 <Route path="/orderList" component={OrderListView}/>
 
             </Switch>
@@ -134,6 +137,8 @@ const addressList = new AddressList(login,position);
 const autoComplete = new AutoComplete(position,customAddress);
 const my = new My(login);
 const orderList = new OrderList(login);
+const userWaterTicketList = new UserWaterTicketList(login);
+
 // const shopDetail = new ShopDetail(login);
 const productList = new ProductList(login);
 const productDetail = new ProductDetail(login);
@@ -147,6 +152,7 @@ const stores = {
     shopInfo,
     shoppingList,
     my,
+    userWaterTicketList,
     addressTagList,
     orderList,
     autoMap,

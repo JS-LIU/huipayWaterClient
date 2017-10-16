@@ -9,9 +9,9 @@ class Order {
     constructor(login) {
         this.login = login;
         let self = this;
-        this.settleOrder = function(postInfo){
+        this.settleOrder = function(action,postInfo){
             return _h.ajax.resource('/order/confirmOrderInfo/:action')
-                .save({action:"init"},postInfo)
+                .save({action:action},postInfo)
         }.before(function(postInfo){
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
         });
@@ -31,10 +31,8 @@ class Order {
     }
     @observable _totalUsedTicket;
     @observable _shopName = "";
-    @action getSettleOrder(shopId,history){
-        this.settleOrder({
-            shopId:shopId
-        }).then((data)=>{
+    @action getSettleOrder(action,postData,history){
+        this.settleOrder(postData).then((data)=>{
             this._orderInfo = data.orderProductInfo;
             this._ticketList = data.orderTicketInfo.userTicketModels;
             this._totalUsedTicket = data.orderTicketInfo.totalUsed;

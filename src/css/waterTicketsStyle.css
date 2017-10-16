@@ -57,9 +57,24 @@
     font-weight: bold;
     color:#333;
 }
-.restDay{
+.rest_day{
     composes:f24 from '../Util/huipayWaterBase.css';
-    padding-right:0.34rem;
-    line-height: 1.4rem;
     color:#399cfe;
+    text-align: center;
+}
+.use_box{
+    display:flex;
+    flex-direction: column;
+    padding-right:0.4rem;
+}
+.use_btn{
+    width:1.48rem;
+    height:0.58rem;
+    line-height:0.58rem;
+    text-align: center;
+    composes: linear_blue_bg from '../Util/huipayWaterBase.css';
+    -webkit-border-radius: 0.43rem;
+    -moz-border-radius: 0.43rem;
+    border-radius: 0.43rem;
+    color:#FFF;
 }
