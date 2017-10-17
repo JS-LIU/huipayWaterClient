@@ -42,12 +42,25 @@ import {observer,inject} from 'mobx-react';
     constructor(props){
         super(props);
     }
+    componentWillUnmount(){
+        this.props.order.clearList();
+    }
+    reduce(productItem){
+        return ()=>{
+
+        }
+    }
+    increase(productItem){
+        return ()=>{
+
+        }
+    }
     render(){
-        let productNodes = this.props.order.orderInfo.productItemModels.map((productItem,index)=>{
+        let productNodes = this.props.order.productList.map((productItem,index)=>{
             return (
                 <li className={createOrderStyle.product_nodes} key={index}>
                     <View className={createOrderStyle.product_pic_box}>
-                        <img src={productItem.productImage} alt="" className={createOrderStyle.product_pic}/>
+                        <img src={productItem.productImage[0]} alt="" className={createOrderStyle.product_pic}/>
                     </View>
                     <View className={createOrderStyle.product_detail}>
                         <Text className={createOrderStyle.product_name}>{productItem.name}</Text>
@@ -57,6 +70,11 @@ import {observer,inject} from 'mobx-react';
                             <Text className={createOrderStyle.count}>* {productItem.selectCount}</Text>
                         </View>
                     </View>
+                    {productItem.isCanOperate?<View className={createOrderStyle.product_item_ctrl}>
+                        <Button className={createOrderStyle.product_reduce} onClick={this.reduce(productItem)} />
+                        <Text className={createOrderStyle.product_count}>{productItem.selectCount}</Text>
+                        <Button className={createOrderStyle.product_increase} onClick={this.increase(productItem)} />
+                    </View>:""}
                 </li>
             )
         });
@@ -82,13 +100,12 @@ import {observer,inject} from 'mobx-react';
 
 
 @inject(['order'])
-@inject(['activeAddress'])
 @observer class OrderFooterView extends Component{
     constructor(props){
         super(props);
     }
     createOrder(){
-        this.props.order.createOrderId(this.props.activeAddress.deliverAddress.id,"",1);
+        // this.props.order.createOrderId(this.props.activeAddress.deliverAddress.id,"",1);
     }
     render(){
         return (
@@ -98,11 +115,12 @@ import {observer,inject} from 'mobx-react';
                     <Text className={createOrderStyle.pay_title}>实付款</Text>
                     <Text className={createOrderStyle.total_price}>￥{this.props.order.orderInfo.totalPayMount / 100}</Text>
                 </View>
-                {this.props.activeAddress.deliverAddress?<Link to="/paySuccess" replace className={createOrderStyle.submit_order} onClick={this.createOrder.bind(this)}>
+                {/*{this.props.activeAddress.deliverAddress?<Link to="/paySuccess" replace className={createOrderStyle.submit_order} onClick={this.createOrder.bind(this)}>*/}
+                    {/*<Text className={createOrderStyle.pay}>立即下单</Text>*/}
+                {/*</Link>:}*/}
+                <Button className={createOrderStyle.cant_submit_order}>
                     <Text className={createOrderStyle.pay}>立即下单</Text>
-                </Link>:<Button className={createOrderStyle.cant_submit_order}>
-                    <Text className={createOrderStyle.pay}>立即下单</Text>
-                </Button>}
+                </Button>
 
             </View>
         )

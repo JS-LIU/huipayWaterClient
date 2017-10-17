@@ -196,3 +196,33 @@
     color: #ffffff;
     composes:f36 from '../Util/huipayWaterBase.css';
 }
+.product_item_ctrl{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width:1.65rem;
+    line-height:0.42rem;
+}
+.product_reduce{
+    width:0.42rem;
+    height:0.42rem;
+    background: url("../images/reduce@2x.png") no-repeat center;
+    -webkit-background-size: 0.42rem;
+    background-size: 0.42rem;
+}
+.product_count{
+    margin-left:0.1rem;
+    width:0.55rem;
+    font-size:0.4rem;
+    composes: search_black from '../Util/huipayWaterBase.css';
+    composes: tc from '../Util/base.css';
+}
+.product_increase{
+    margin-left:0.1rem;
+    width:0.42rem;
+    height:0.42rem;
+    background: url("../images/increase@2x.png") no-repeat center;
+    -webkit-background-size: 0.42rem;
+    background-size: 0.42rem;
+}

@@ -129,7 +129,6 @@ const autoMap = new AutoMap();
 const login = new Login(access_secret,access_token);
 const shoppingList = new ShoppingList(rem2pxRate,login);
 const shopInfo = new ShopInfo(login);
-const activeAddress = new ActiveAddress(autoMap);
 const position = new Position();
 const addressTagList = new AddressTagList();
 const customAddress = new CustomAddress(position,addressTagList);
@@ -138,13 +137,14 @@ const autoComplete = new AutoComplete(position,customAddress);
 const my = new My(login);
 const orderList = new OrderList(login);
 const userWaterTicketList = new UserWaterTicketList(login);
+const order = new Order(login,shoppingList);
 
 // const shopDetail = new ShopDetail(login);
 const productList = new ProductList(login);
 const productDetail = new ProductDetail(login);
-const order = new Order(login);
 const shoppingCart = new ShoppingCart();
 // const addressOperator = new AddressOperator(autoMap,addressList);
+const activeAddress = new ActiveAddress(autoMap);
 
 const stores = {
     login,
@@ -157,7 +157,7 @@ const stores = {
     orderList,
     autoMap,
     addressList,
-    activeAddress,
+    // activeAddress,
     productList,
     shoppingCart,
     productDetail,

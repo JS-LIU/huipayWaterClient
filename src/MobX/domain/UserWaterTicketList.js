@@ -31,7 +31,13 @@ class UserWaterTicketList{
     @computed get list(){
         return this._list;
     }
-
+    @computed get activeTicket(){
+        return this._activeTicket;
+    }
+    @action setActiveTicket(waterTicket){
+        this._activeTicket = waterTicket;
+    }
+    @observable _activeTicket = {};
 
 
 }

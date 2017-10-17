@@ -20,8 +20,8 @@ import {observer,inject} from 'mobx-react';
     }
     useTicket(waterTicket){
         return ()=>{
-            waterTicket.useTicket(this.props.userWaterTicketList.list);
-            this.props.order.getSettleOrder("default",{userTicketId:waterTicket.id},this.props.history);
+            this.props.userWaterTicketList.setActiveTicket(waterTicket);
+            this.props.order.getSettleOrder({userTicketId:waterTicket.id},"default",this.props.history);
         }
     }
     render(){

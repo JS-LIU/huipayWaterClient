@@ -10,20 +10,14 @@ class Ticket extends Currency{
         super(ticketInfo.count,0);
         this.name = ticketInfo.brandName;
         this.restDay = ticketInfo.restDay;
-        this.id = ticketInfo.id;
+        this.id = ticketInfo.userTicketId;
         this.status = ticketInfo.status;
-        this._using = false;
+        this._canUsed = false;
     }
-    @observable _using = false;
-    @action useTicket(ticketList){
-        for(let i = 0,len = ticketList.length;i < len;i++){
-            ticketList[i]._using = false;
-        }
-        this._using = true;
-
+    @observable _canUsed = false;
+    @computed get canUsed(){
+        return this._canUsed;
     }
-
-
 }
 
 module.exports = Ticket;
