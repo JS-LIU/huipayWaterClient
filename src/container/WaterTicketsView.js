@@ -20,7 +20,6 @@ import {observer,inject} from 'mobx-react';
     }
     useTicket(waterTicket){
         return ()=>{
-            this.props.userWaterTicketList.setActiveTicket(waterTicket);
             this.props.order.getSettleOrder({userTicketId:waterTicket.id},"default",this.props.history);
         }
     }
@@ -30,13 +29,13 @@ import {observer,inject} from 'mobx-react';
                 <li key={index} className={waterTicketsStyle.water_ticket}>
                     <View className={waterTicketsStyle.water_ticket_left}>
                         <View className={waterTicketsStyle.water_ticket_count}>
-                            <Text className={waterTicketsStyle.count}>{waterTicket.max}</Text>
+                            <Text className={waterTicketsStyle.count}>{waterTicket.count}</Text>
                             <Text className={waterTicketsStyle.unit}>张</Text>
                         </View>
                     </View>
 
                     <View className={waterTicketsStyle.water_ticket_right}>
-                        <Text className={waterTicketsStyle.name}>{waterTicket.name}</Text>
+                        <Text className={waterTicketsStyle.name}>{waterTicket.productName}</Text>
                         <View className={waterTicketsStyle.use_box}>
                             <Text className={waterTicketsStyle.rest_day}>剩{waterTicket.restDay}</Text>
                             <Link to="/confirmOrder"

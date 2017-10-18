@@ -3,7 +3,6 @@
  */
 import {observable, computed,action} from "mobx";
 import _h from '../../Util/HB';
-import Ticket from './money/Ticket';
 
 class UserWaterTicketList{
     constructor(login){
@@ -20,25 +19,67 @@ class UserWaterTicketList{
     @action getList(){
         let list = [];
         this.getTicketList({}).then((data)=>{
-            for(let i = 0,len = data.userWaterTicketModelList.length;i < len;i++){
-                let ticketInfo = data.userWaterTicketModelList[i];
-                list.push(new Ticket(ticketInfo,this.login));
-            }
-            this._list = list;
+            this._list = data.userWaterTicketModelList;
         })
     }
     @observable _list = [];
+    //  水票列表
     @computed get list(){
         return this._list;
     }
-    @computed get activeTicket(){
-        return this._activeTicket;
-    }
-    @action setActiveTicket(waterTicket){
-        this._activeTicket = waterTicket;
-    }
-    @observable _activeTicket = {};
+    @action getUseTicket(useTicketList){
 
+
+        for(let i = 0; i < useTicketList.length; i++){
+            function canUseTicket(item){
+                if(item.userTicketId === useTicketList[i].ticketId){
+                    return item;
+                }
+            }
+            let ticket = this.list.find(canUseTicket);
+
+            if(ticket){
+                this._userTicket.push(new Ticket(ticket,true,useTicketList[i]));
+            }else{
+                this._userTicket.push(new Ticket(ticket,false));
+            }
+
+        }
+    }
+    @observable _userTicket = [];
+    //  使用水漂列表
+    @computed get userTicket(){
+        return this._userTicket;
+    }
 
 }
+class Ticket{
+    constructor(ticketInfo,isCanUse,useTicketInfo = {}){
+        this.isCanUse = isCanUse;
+
+        this.ticketId = ticketInfo.userTicketId;
+        this.totalCount = ticketInfo.count;
+        this.brandName = ticketInfo.brandName;
+        this.canUseCount = ticketInfo.canUseCount;
+
+
+        this.productItem = useTicketInfo.productItem;
+        this._selectUseCount = useTicketInfo.selectUseCount;
+    }
+    @observable _selectUseCount;
+    @computed get selectUseCount(){
+        return this._selectUseCount;
+    }
+    @action increase(){
+        if(this._selectUseCount < this.canUseCount){
+            this._selectUseCount++;
+        }
+    }
+    @action reduce(){
+        if(this._selectUseCount > 0){
+            this._selectUseCount--;
+        }
+    }
+}
+
 module.exports = UserWaterTicketList;

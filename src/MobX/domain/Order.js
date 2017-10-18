@@ -102,22 +102,22 @@ class OrderProduct{
         this.productImage = info.productImage;
         this.productItemId = info.productItemId;
         this.saleMount = info.saleMount;
-        this._selectMount = info.selectMount;
+        this._selectCount = info.selectCount;
         this.totalPayRmb = info.totalPayRmb;
         this.totalPrice = info.totalPrice;
         this.isCanOperate = isCanOperate;
     }
 
-    @observable _selectMount;
-    @computed get selectMount(){
-        return this._selectMount;
+    @observable _selectCount;
+    @computed get selectCount(){
+        return this._selectCount;
     }
     @action increase(){
-        this._selectMount++;
+        this._selectCount++;
     }
     @action reduce(){
-        if(this._selectMount > 1){
-            this._selectMount--;
+        if(this._selectCount > 1){
+            this._selectCount--;
         }
     }
 }

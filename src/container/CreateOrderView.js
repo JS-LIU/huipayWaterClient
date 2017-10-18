@@ -47,12 +47,12 @@ import {observer,inject} from 'mobx-react';
     }
     reduce(productItem){
         return ()=>{
-
+            productItem.reduce();
         }
     }
     increase(productItem){
         return ()=>{
-
+            productItem.increase();
         }
     }
     render(){
@@ -71,7 +71,7 @@ import {observer,inject} from 'mobx-react';
                         </View>
                     </View>
                     {productItem.isCanOperate?<View className={createOrderStyle.product_item_ctrl}>
-                        <Button className={createOrderStyle.product_reduce} onClick={this.reduce(productItem)} />
+                        {productItem.selectCount > 1?<Button className={createOrderStyle.product_reduce} onClick={this.reduce(productItem)} />:""}
                         <Text className={createOrderStyle.product_count}>{productItem.selectCount}</Text>
                         <Button className={createOrderStyle.product_increase} onClick={this.increase(productItem)} />
                     </View>:""}
