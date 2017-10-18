@@ -17,7 +17,6 @@ class UserWaterTicketList{
     }
 
     @action getList(){
-        let list = [];
         this.getTicketList({}).then((data)=>{
             this._list = data.userWaterTicketModelList;
         })
@@ -28,23 +27,27 @@ class UserWaterTicketList{
         return this._list;
     }
     @action getUseTicket(useTicketList){
-
-
-        for(let i = 0; i < useTicketList.length; i++){
-            function canUseTicket(item){
-                if(item.userTicketId === useTicketList[i].ticketId){
-                    return item;
+        /**
+         * 重新获取水票列表 防止水票列表有变化（被使用了 购买了等情况）
+         */
+        this.getTicketList({}).then((data)=>{
+            this._list = data.userWaterTicketModelList;
+            for(let i = 0; i < useTicketList.length; i++){
+                function canUseTicket(item){
+                    if(item.userTicketId === useTicketList[i].ticketId){
+                        return item;
+                    }
                 }
-            }
-            let ticket = this.list.find(canUseTicket);
+                let ticket = this.list.find(canUseTicket);
 
-            if(ticket){
-                this._userTicket.push(new Ticket(ticket,true,useTicketList[i]));
-            }else{
-                this._userTicket.push(new Ticket(ticket,false));
-            }
+                if(ticket){
+                    this._userTicket.push(new Ticket(ticket,true,useTicketList[i]));
+                }else{
+                    this._userTicket.push(new Ticket(ticket,false));
+                }
 
-        }
+            }
+        });
     }
     @observable _userTicket = [];
     //  使用水漂列表

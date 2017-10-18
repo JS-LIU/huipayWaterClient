@@ -7,21 +7,14 @@ import waterTicketsStyle from '../css/waterTicketsStyle.css';
 
 import {observer,inject} from 'mobx-react';
 
-// @inject (['my'])
 @inject (['userWaterTicketList'])
-@inject (['order'])
 
-@observer class WaterTicketsView extends Component{
+@observer class UseWaterTicketsView extends Component{
     constructor(props){
         super(props);
     }
     componentWillMount(){
-        this.props.userWaterTicketList.getList();
-    }
-    useTicket(waterTicket){
-        return ()=>{
-            this.props.order.getSettleOrder({userTicketId:waterTicket.userTicketId},"default",this.props.history);
-        }
+        this.props.userWaterTicketList.getUseTicket();
     }
     render(){
         let waterTicketNodes = this.props.userWaterTicketList.list.map((waterTicket,index)=>{
@@ -38,9 +31,6 @@ import {observer,inject} from 'mobx-react';
                         <Text className={waterTicketsStyle.name}>{waterTicket.productName}</Text>
                         <View className={waterTicketsStyle.use_box}>
                             <Text className={waterTicketsStyle.rest_day}>剩{waterTicket.restDay}</Text>
-                            <Link to="/confirmOrder"
-                                  className={waterTicketsStyle.use_btn}
-                                  onClick={this.useTicket(waterTicket)}>立即使用</Link>
                         </View>
                     </View>
                 </li>
@@ -57,4 +47,4 @@ import {observer,inject} from 'mobx-react';
     }
 }
 
-module.exports = WaterTicketsView;
+module.exports = UseWaterTicketsView;

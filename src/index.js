@@ -31,6 +31,7 @@ import AddressListView from './container/AddressListView';
 import HomePageCreateAddressView from './container/HomePageCreateAddressView';
 import ConfirmOrderCreateAddressView from './container/ConfirmOrderCreateAddressView';
 import WaterTicketsView from './container/WaterTicketsView';
+import UseWaterTicketsView from './container/UseWaterTicketsView';
 import PaySuccessView from './container/PaySuccessView';
 import OrderListView from './container/OrderListView';
 import MapView from './container/MapView';
@@ -104,6 +105,8 @@ const App = ()=>(
                 <Route path="/receiverList" component={ReceiverListView} />
                 {/*有用*/}
                 <Route path="/waterTickets" component={WaterTicketsView} />
+                {/*有用*/}
+                <Route path="/useWaterTickets" component={UseWaterTicketsView} />
 
 
                 <Route path='/water' component={WaterView} />
