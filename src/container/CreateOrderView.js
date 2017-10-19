@@ -43,7 +43,7 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     componentWillUnmount(){
-        this.props.order.clearList();
+        // this.props.order.clearList();
     }
     reduce(productItem){
         return ()=>{
@@ -88,10 +88,11 @@ import {observer,inject} from 'mobx-react';
                 <ul className={createOrderStyle.shop_nodes_list}>
                     {productNodes}
                 </ul>
-                <View className={createOrderStyle.water_ticket_list}>
+                <Link to="/useWaterTickets"
+                      className={createOrderStyle.water_ticket_list}>
                     <Text className={createOrderStyle.water_ticket_title}>水票抵用</Text>
-                    <Text className={createOrderStyle.water_ticket_used}>{this.props.order.totalUsedTicket}张</Text>
-                </View>
+                    <Text className={createOrderStyle.water_ticket_used}>-{this.props.order.totalUsedTicket}张</Text>
+                </Link>
             </View>
 
         )
@@ -111,9 +112,9 @@ import {observer,inject} from 'mobx-react';
         return (
             <View className={createOrderStyle.confirm_footer}>
                 <View className={createOrderStyle.statistics}>
-                    <Text>共{this.props.order.orderInfo.totalCount}件商品</Text>
+                    <Text>共{this.props.order.totalCount}件商品</Text>
                     <Text className={createOrderStyle.pay_title}>实付款</Text>
-                    <Text className={createOrderStyle.total_price}>￥{this.props.order.orderInfo.totalPayMount / 100}</Text>
+                    <Text className={createOrderStyle.total_price}>￥{this.props.order.totalPayMount / 100}</Text>
                 </View>
                 {/*{this.props.activeAddress.deliverAddress?<Link to="/paySuccess" replace className={createOrderStyle.submit_order} onClick={this.createOrder.bind(this)}>*/}
                     {/*<Text className={createOrderStyle.pay}>立即下单</Text>*/}

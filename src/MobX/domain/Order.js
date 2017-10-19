@@ -29,10 +29,17 @@ class Order {
     @observable _shopName = "";
     @action getSettleOrder(postData,action,history){
         this.settleOrder(postData,action).then((data)=>{
-            this._orderInfo = data.orderProductInfo;
-            this._ticketList = data.orderTicketInfo.userTicketModels;
             this._totalUsedTicket = data.orderTicketInfo.totalUsed;
             this._shopName = data.shopName;
+
+
+            //  使用的水票
+            this._ticketList = data.orderTicketInfo.userTicketModels;
+
+            let orderProductInfo = data.orderProductInfo;
+            this._totalCount =  orderProductInfo.totalCount;
+            this._totalPayMount = orderProductInfo.totalPayMount;
+            this._totalPrice = orderProductInfo.totalPrice;
 
             /***
              * productList实际应该是activeShoppingCart
@@ -40,10 +47,10 @@ class Order {
              * 如果直接用水票购买的返回值中有该商品是哪个店铺的哪个种类的话也可以没有这个tricky的方法
              */
             this._productList = [];
-            let list = data.orderProductInfo.productItemModels;
+            let list = orderProductInfo.productItemModels;
             for(let i = 0,len = list.length;i < len;i++){
 
-                if(action === "default"){
+                if(this.orderType.userTicketId){
                     this._productList.push(new OrderProduct(list[i],true));
                 }else{
                     this._productList.push(new OrderProduct(list[i]));
@@ -55,6 +62,15 @@ class Order {
         })
 
     }
+
+    @observable _orderType;
+    @action setOrderType(type){
+        this._orderType = type;
+    }
+    @computed get orderType(){
+        return this._orderType;
+    }
+
     //  结算商品列表
     @observable _productList = [];
     @computed get productList(){
@@ -86,13 +102,23 @@ class Order {
     @action clearList(){
         this._productList = [];
     }
-    //  todo 删除
-    @observable _orderInfo = {productItemModels:[]};
-    @computed get orderInfo(){
-        return this._orderInfo;
+
+    @observable _ticketList = [];
+    @computed get ticketList(){
+        return this._ticketList;
     }
-
-
+    @observable _totalCount;
+    @computed get totalCount(){
+        return this._totalCount;
+    }
+    @observable _totalPayMount;
+    @computed get totalPayMount(){
+        return this._totalPayMount;
+    }
+    @observable _totalPrice;
+    @computed get totalPrice(){
+        return this._totalPrice;
+    }
 }
 class OrderProduct{
     constructor(info,isCanOperate = false){

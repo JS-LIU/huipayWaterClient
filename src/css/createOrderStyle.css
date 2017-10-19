@@ -55,6 +55,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-right:0.2rem;
     height:0.88rem;
     line-height:0.88rem;
     background:#FFF;
@@ -65,9 +66,11 @@
     color:#666;
 }
 .water_ticket_used{
-    padding-right:0.2rem;
-    color:#ff2d2d;
+    padding-right:0.3rem;
     composes:f26 from '../Util/huipayWaterBase.css';
+    background:url("../images/me-arrow@2x.png") no-repeat right center;
+    -webkit-background-size: 0.18rem 0.3rem;
+    background-size: 0.18rem 0.3rem;
 }
 .shop_nodes{
     composes:bgColorF from '../Util/base.css';

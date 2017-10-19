@@ -268,6 +268,7 @@ import {observer,inject} from 'mobx-react';
         this.props.shoppingList.showShoppingCart();
     }
     confirmOrder(){
+        this.props.order.setOrderType({shopId:1});
         this.props.order.getSettleOrder({shopId:1},"init",this.props.history);
     }
     render(){

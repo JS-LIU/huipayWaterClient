@@ -20,6 +20,7 @@ import {observer,inject} from 'mobx-react';
     }
     useTicket(waterTicket){
         return ()=>{
+            this.props.order.setOrderType({userTicketId:waterTicket.userTicketId});
             this.props.order.getSettleOrder({userTicketId:waterTicket.userTicketId},"default",this.props.history);
         }
     }

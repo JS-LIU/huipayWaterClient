@@ -8,16 +8,31 @@ import waterTicketsStyle from '../css/waterTicketsStyle.css';
 import {observer,inject} from 'mobx-react';
 
 @inject (['userWaterTicketList'])
-
+@inject (['order'])
 @observer class UseWaterTicketsView extends Component{
     constructor(props){
         super(props);
     }
     componentWillMount(){
-        this.props.userWaterTicketList.getUseTicket();
+        this.props.userWaterTicketList.getUseTicket(this.props.order.ticketList);
+    }
+    reduce(waterTicket){
+        return ()=>{
+            waterTicket.reduce();
+        }
+    }
+    increase(waterTicket){
+        return ()=>{
+            waterTicket.increase();
+        }
+    }
+    refreshOrder(){
+        let history = this.props.history;
+        this.props.order.getSettleOrder(this.props.order.orderType,"refresh",history);
+        history.goBack();
     }
     render(){
-        let waterTicketNodes = this.props.userWaterTicketList.list.map((waterTicket,index)=>{
+        let waterTicketNodes = this.props.userWaterTicketList.userTicket.map((waterTicket,index)=>{
             return (
                 <li key={index} className={waterTicketsStyle.water_ticket}>
                     <View className={waterTicketsStyle.water_ticket_left}>
@@ -27,20 +42,28 @@ import {observer,inject} from 'mobx-react';
                         </View>
                     </View>
 
-                    <View className={waterTicketsStyle.water_ticket_right}>
-                        <Text className={waterTicketsStyle.name}>{waterTicket.productName}</Text>
+                    {waterTicket.isCanUse?<View className={waterTicketsStyle.water_ticket_right}>
+                        <Text className={waterTicketsStyle.name}>{waterTicket.brandName}</Text>
                         <View className={waterTicketsStyle.use_box}>
-                            <Text className={waterTicketsStyle.rest_day}>剩{waterTicket.restDay}</Text>
+                            <View className={waterTicketsStyle.product_item_ctrl}>
+                                {waterTicket.selectUseCount > 0?<Button className={waterTicketsStyle.product_reduce} onClick={this.reduce(waterTicket)} />:""}
+                                <Text className={waterTicketsStyle.product_count}>{waterTicket.selectUseCount}</Text>
+                                {waterTicket.canUseCount > waterTicket.selectUseCount?<Button className={waterTicketsStyle.product_increase} onClick={this.increase(waterTicket)} />:""}
+                            </View>
                         </View>
-                    </View>
+                    </View>:"不可用"}
                 </li>
             )
         });
         return (
             <View className={waterTicketsStyle.wrap}>
-                <ul>
+                <ul className={waterTicketsStyle.list}>
                     {waterTicketNodes}
                 </ul>
+                <Button className={waterTicketsStyle.footer}
+                        onClick={this.refreshOrder.bind(this)}>确定
+                </Button>
+
             </View>
 
         )
