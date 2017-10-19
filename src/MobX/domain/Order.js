@@ -51,9 +51,9 @@ class Order {
             for(let i = 0,len = list.length;i < len;i++){
 
                 if(this.orderType.userTicketId){
-                    this._productList.push(new OrderProduct(list[i],true));
+                    this._productList.push(new OrderProduct(this.login,list[i],true,this._orderType));
                 }else{
-                    this._productList.push(new OrderProduct(list[i]));
+                    this._productList.push(new OrderProduct(this.login,list[i]));
                 }
             }
         }).catch((data)=>{
@@ -121,7 +121,7 @@ class Order {
     }
 }
 class OrderProduct{
-    constructor(info,isCanOperate = false){
+    constructor(login,info,isCanOperate = false,orderType){
         this.name = info.name;
         this.currentPrice = info.currentPrice;
         this.originalPrice = info.originalPrice;
@@ -132,6 +132,27 @@ class OrderProduct{
         this.totalPayRmb = info.totalPayRmb;
         this.totalPrice = info.totalPrice;
         this.isCanOperate = isCanOperate;
+        this.orderType = orderType;
+
+        this.login = login;
+        let self = this;
+        let ajax = _h.ajax.resource('/shop/shoppingcart/:action');
+        this.increaseProduct = function (postInfo) {
+            return ajax.save({action: "increase"}, postInfo)
+        }.before(function (postInfo) {
+            postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
+        });
+        this.decreaseProduct = function (postInfo) {
+            return ajax.save({action: "decrease"}, postInfo)
+        }.before(function (postInfo) {
+            postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
+        });
+        this.settleOrder = function(postInfo,action){
+            return _h.ajax.resource('/order/confirmOrderInfo/:action')
+                .save({action:action},postInfo)
+        }.before(function(postInfo){
+            postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
+        });
     }
 
     @observable _selectCount;
@@ -140,11 +161,25 @@ class OrderProduct{
     }
     @action increase(){
         this._selectCount++;
+
+
+        this.increaseProduct({
+            shopId:1,           //  todo shopId始终为1
+            productItemId:this.productItemId
+        }).then((data)=>{
+            this.settleOrder(this.orderType,"default")
+        })
     }
     @action reduce(){
         if(this._selectCount > 1){
             this._selectCount--;
         }
+        this.decreaseProduct({
+            shopId:1,           //  todo shopId始终为1
+            productItemId:this.productItemId
+        }).then((data)=>{
+            this.settleOrder(this.orderType,"default")
+        })
     }
 }
 
