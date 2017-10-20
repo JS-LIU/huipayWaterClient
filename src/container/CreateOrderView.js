@@ -91,7 +91,7 @@ import {observer,inject} from 'mobx-react';
                 <Link to="/useWaterTickets"
                       className={createOrderStyle.water_ticket_list}>
                     <Text className={createOrderStyle.water_ticket_title}>水票抵用</Text>
-                    <Text className={createOrderStyle.water_ticket_used}>-{this.props.order.totalUsedTicket}张</Text>
+                    <Text className={createOrderStyle.water_ticket_used}>-{this.props.order.orderTicket.totalUsedTicket}张</Text>
                 </Link>
             </View>
 

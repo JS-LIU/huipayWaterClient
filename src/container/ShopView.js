@@ -269,7 +269,7 @@ import {observer,inject} from 'mobx-react';
     }
     confirmOrder(){
         this.props.order.setOrderType({shopId:1});
-        this.props.order.getSettleOrder({shopId:1},"init",this.props.history);
+        this.props.order.getSettleOrder({shopId:1},"default",this.props.history);
     }
     render(){
         return (

@@ -25,33 +25,27 @@ class Order {
     }
 
 
-    @observable _totalUsedTicket;
     @observable _shopName = "";
     @action getSettleOrder(postData,action,history){
         this.settleOrder(postData,action).then((data)=>{
-            this._totalUsedTicket = data.orderTicketInfo.totalUsed;
             this._shopName = data.shopName;
 
-
             //  使用的水票
-            this._ticketList = data.orderTicketInfo.userTicketModels;
+            this._orderTicket = new OrderTicket(data.orderTicketInfo);
 
             let orderProductInfo = data.orderProductInfo;
             this._totalCount =  orderProductInfo.totalCount;
             this._totalPayMount = orderProductInfo.totalPayMount;
             this._totalPrice = orderProductInfo.totalPrice;
 
-            /***
-             * productList实际应该是activeShoppingCart
-             * 如果没有直接用水票购买的话，可以没有这个tricky的方法
-             * 如果直接用水票购买的返回值中有该商品是哪个店铺的哪个种类的话也可以没有这个tricky的方法
-             */
+
+            //  要被结算的商品列表
             this._productList = [];
             let list = orderProductInfo.productItemModels;
             for(let i = 0,len = list.length;i < len;i++){
 
                 if(this.orderType.userTicketId){
-                    this._productList.push(new OrderProduct(this.login,list[i],true,this._orderType));
+                    this._productList.push(new OrderProduct(this.login,list[i],true,this._orderType,this._orderTicket));
                 }else{
                     this._productList.push(new OrderProduct(this.login,list[i]));
                 }
@@ -62,7 +56,11 @@ class Order {
         })
 
     }
-
+    @observable _orderTicket = {};
+    @computed get orderTicket(){
+        console.log(this._orderTicket);
+        return this._orderTicket;
+    }
     @observable _orderType;
     @action setOrderType(type){
         this._orderType = type;
@@ -75,9 +73,6 @@ class Order {
     @observable _productList = [];
     @computed get productList(){
         return this._productList;
-    }
-    @computed get totalUsedTicket(){
-        return this._totalUsedTicket;
     }
     @computed get shopName(){
         return this._shopName;
@@ -120,8 +115,25 @@ class Order {
         return this._totalPrice;
     }
 }
+
+
+class OrderTicket{
+    constructor(info){
+        this._totalUsedTicket = info.totalUsed;
+        this._list = info.userTicketModels;
+    }
+    @observable _totalUsedTicket;
+    @computed get totalUsedTicket(){
+        return this._totalUsedTicket;
+    }
+    @observable _list = [];
+    @computed get list(){
+        return this._list;
+    }
+}
+
 class OrderProduct{
-    constructor(login,info,isCanOperate = false,orderType){
+    constructor(login,info,isCanOperate = false,orderType,orderTicket){
         this.name = info.name;
         this.currentPrice = info.currentPrice;
         this.originalPrice = info.originalPrice;
@@ -133,6 +145,8 @@ class OrderProduct{
         this.totalPrice = info.totalPrice;
         this.isCanOperate = isCanOperate;
         this.orderType = orderType;
+        this.orderTicket = orderTicket;
+
 
         this.login = login;
         let self = this;
@@ -162,6 +176,9 @@ class OrderProduct{
     @action increase(){
         this._selectCount++;
 
+        if(this._selectCount <= this.orderTicket.list[0].totalCount){
+            this.orderTicket.list[0].canUseCount = this._selectCount;
+        }
 
         this.increaseProduct({
             shopId:1,           //  todo shopId始终为1
@@ -171,9 +188,16 @@ class OrderProduct{
         })
     }
     @action reduce(){
-        if(this._selectCount > 1){
-            this._selectCount--;
+        this._selectCount--;
+
+        //  todo 目前【使用水票】只能买一个商品 所以数组中只有一个商品不用匹配水票所以直接取0
+        if(this._selectCount < this.orderTicket.totalUsedTicket){
+            this.orderTicket._totalUsedTicket = this._selectCount;
+            this.orderTicket.list[0].canUseCount = this._selectCount;
+            this.orderTicket.list[0].selectUseCount = this._selectCount;
+
         }
+
         this.decreaseProduct({
             shopId:1,           //  todo shopId始终为1
             productItemId:this.productItemId
