@@ -184,7 +184,7 @@ class OrderProduct{
             shopId:1,           //  todo shopId始终为1
             productItemId:this.productItemId
         }).then((data)=>{
-            this.settleOrder(this.orderType,"default")
+            this.settleOrder(this.orderType,"refresh")
         })
     }
     @action reduce(){
@@ -195,14 +195,18 @@ class OrderProduct{
             this.orderTicket._totalUsedTicket = this._selectCount;
             this.orderTicket.list[0].canUseCount = this._selectCount;
             this.orderTicket.list[0].selectUseCount = this._selectCount;
-
         }
+        if(this._selectCount < this.orderTicket.list[0].canUseCount){
+            this.orderTicket.list[0].canUseCount = this._selectCount;
+            this.orderTicket.list[0].selectUseCount = this._selectCount;
+        }
+
 
         this.decreaseProduct({
             shopId:1,           //  todo shopId始终为1
             productItemId:this.productItemId
         }).then((data)=>{
-            this.settleOrder(this.orderType,"default")
+            this.settleOrder(this.orderType,"refresh")
         })
     }
 }

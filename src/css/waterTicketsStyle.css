@@ -111,6 +111,14 @@
     -webkit-background-size: 0.42rem;
     background-size: 0.42rem;
 }
+
+.cant_use{
+    width:1.16rem;
+    height:1.16rem;
+    background:#FFF url("../images/water_ticket_cant_use@2.png") no-repeat center;
+    -webkit-background-size: 1.16rem;
+    background-size: 1.16rem;
+}
 .footer{
     position:fixed;
     bottom:0;

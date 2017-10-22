@@ -33,7 +33,7 @@ import {observer,inject} from 'mobx-react';
         history.goBack();
     }
     render(){
-        let waterTicketNodes = this.props.userWaterTicketList.userTicket.map((waterTicket,index)=>{
+        let waterTicketNodes = this.props.userWaterTicketList.useTicket.map((waterTicket,index)=>{
             return (
                 <li key={index} className={waterTicketsStyle.water_ticket}>
                     <View className={waterTicketsStyle.water_ticket_left}>
@@ -43,16 +43,16 @@ import {observer,inject} from 'mobx-react';
                         </View>
                     </View>
 
-                    {waterTicket.isCanUse?<View className={waterTicketsStyle.water_ticket_right}>
+                    <View className={waterTicketsStyle.water_ticket_right}>
                         <Text className={waterTicketsStyle.name}>{waterTicket.brandName}</Text>
                         <View className={waterTicketsStyle.use_box}>
-                            <View className={waterTicketsStyle.product_item_ctrl}>
+                            {waterTicket.isCanUse?<View className={waterTicketsStyle.product_item_ctrl}>
                                 {waterTicket.selectUseCount > 0?<Button className={waterTicketsStyle.product_reduce} onClick={this.reduce(waterTicket)} />:""}
                                 <Text className={waterTicketsStyle.product_count}>{waterTicket.selectUseCount}</Text>
                                 {waterTicket.canUseCount > waterTicket.selectUseCount?<Button className={waterTicketsStyle.product_increase} onClick={this.increase(waterTicket)} />:""}
-                            </View>
+                            </View>:<View className={waterTicketsStyle.cant_use}/>}
                         </View>
-                    </View>:"不可用"}
+                    </View>
                 </li>
             )
         });

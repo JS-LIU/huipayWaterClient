@@ -30,30 +30,32 @@ class UserWaterTicketList{
         /**
          * 重新获取水票列表 防止水票列表有变化（被使用了 购买了等情况）
          */
-        this._userTicket = [];
+        this._useTicket = [];
         this.getTicketList({}).then((data)=>{
             this._list = data.userWaterTicketModelList;
-            for(let i = 0; i < useTicketList.length; i++){
+            for(let i = 0; i < this._list.length; i++){
+                let self = this;
                 function canUseTicket(item){
-                    if(item.userTicketId === useTicketList[i].ticketId){
+                    if(item.ticketId === self._list[i].userTicketId){
                         return item;
                     }
                 }
-                let ticket = this.list.find(canUseTicket);
+                let useTicket = useTicketList.find(canUseTicket);
 
-                if(ticket){
-                    this._userTicket.push(new Ticket(this.login,ticket,true,useTicketList[i]));
+                if(useTicket){
+                    this._useTicket.push(new Ticket(this.login,this._list[i],true,useTicket));
                 }else{
-                    this._userTicket.push(new Ticket(this.login,ticket,false));
+                    console.log(this._list[i]);
+                    this._useTicket.push(new Ticket(this.login,this._list[i],false));
                 }
 
             }
         });
     }
-    @observable _userTicket;
+    @observable _useTicket;
     //  使用水漂列表
-    @computed get userTicket(){
-        return this._userTicket;
+    @computed get useTicket(){
+        return this._useTicket;
     }
 
 }
