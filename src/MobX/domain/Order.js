@@ -6,9 +6,9 @@ import _h from '../../Util/HB';
 
 class Order {
 
-    constructor(login,shoppingList) {
+    constructor(login,shopInfo) {
         this.login = login;
-        this.shoppingList = shoppingList;
+        this.shopInfo = shopInfo;
         let self = this;
         this.settleOrder = function(postInfo,action){
             return _h.ajax.resource('/order/confirmOrderInfo/:action')
@@ -45,9 +45,9 @@ class Order {
             for(let i = 0,len = list.length;i < len;i++){
 
                 if(this.orderType.userTicketId){
-                    this._productList.push(new OrderProduct(this.login,list[i],true,this._orderType,this._orderTicket));
+                    this._productList.push(new OrderProduct(this.shopInfo,this.login,list[i],true,this._orderType,this._orderTicket));
                 }else{
-                    this._productList.push(new OrderProduct(this.login,list[i]));
+                    this._productList.push(new OrderProduct(this.shopInfo,this.login,list[i]));
                 }
             }
         }).catch((data)=>{
@@ -78,12 +78,13 @@ class Order {
         return this._shopName;
     }
 
-    @action createOrderId(addressId,payType,shopId){
-        let postData = {
+    @action createOrderId(addressId,payType,shopInfo){
+        let info = shopInfo || this.shopInfo;
+
+        let postData = Object.assign(info,{
             deliveryAddressId:addressId,
             payType:payType,
-            shopId:shopId
-        };
+        });
         this.createOrder(postData).then((data)=>{
             this._info = data;
         })
@@ -133,7 +134,7 @@ class OrderTicket{
 }
 
 class OrderProduct{
-    constructor(login,info,isCanOperate = false,orderType,orderTicket){
+    constructor(shopInfo,login,info,isCanOperate = false,orderType,orderTicket){
         this.name = info.name;
         this.currentPrice = info.currentPrice;
         this.originalPrice = info.originalPrice;
@@ -146,7 +147,7 @@ class OrderProduct{
         this.isCanOperate = isCanOperate;
         this.orderType = orderType;
         this.orderTicket = orderTicket;
-
+        this.shopInfo = shopInfo;
 
         this.login = login;
         let self = this;
@@ -176,37 +177,32 @@ class OrderProduct{
     @action increase(){
         this._selectCount++;
 
-        if(this._selectCount <= this.orderTicket.list[0].totalCount){
-            this.orderTicket.list[0].canUseCount = this._selectCount;
-        }
-
-        this.increaseProduct({
-            shopId:1,           //  todo shopId始终为1
-            productItemId:this.productItemId
-        }).then((data)=>{
-            this.settleOrder(this.orderType,"refresh")
-        })
-    }
-    @action reduce(){
-        this._selectCount--;
-
-        //  todo 目前【使用水票】只能买一个商品 所以数组中只有一个商品不用匹配水票所以直接取0
-        if(this._selectCount < this.orderTicket.totalUsedTicket){
+        if(this.selectCount <= this.orderTicket.list[0].totalCount){
             this.orderTicket._totalUsedTicket = this._selectCount;
             this.orderTicket.list[0].canUseCount = this._selectCount;
             this.orderTicket.list[0].selectUseCount = this._selectCount;
         }
-        if(this._selectCount < this.orderTicket.list[0].canUseCount){
+        console.log('shopInfo=======',this.shopInfo);
+        let postInfo = Object.assign(this.shopInfo,{
+            productItemId:this.productItemId
+        });
+        this.increaseProduct(postInfo).then((data)=>{
+            this.settleOrder(this.orderType,"default")
+        })
+    }
+    @action reduce(){
+        this._selectCount--;
+        if(this.selectCount <= this.orderTicket.list[0].totalCount){
+            this.orderTicket._totalUsedTicket = this._selectCount;
             this.orderTicket.list[0].canUseCount = this._selectCount;
             this.orderTicket.list[0].selectUseCount = this._selectCount;
         }
 
-
-        this.decreaseProduct({
-            shopId:1,           //  todo shopId始终为1
+        let postInfo = Object.assign(this.shopInfo,{
             productItemId:this.productItemId
-        }).then((data)=>{
-            this.settleOrder(this.orderType,"refresh")
+        });
+        this.decreaseProduct(postInfo).then((data)=>{
+            this.settleOrder(this.orderType,"default")
         })
     }
 }

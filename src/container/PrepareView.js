@@ -10,9 +10,18 @@ import {Link} from 'react-router-dom';
 //  MobX
 import {observer,inject} from 'mobx-react';
 @inject (['login'])
+@inject (['prepare'])
 @observer class PrepareView extends Component{
-    componentWillMount(props){
-        this.props.login.autoLogin(this.props.history);
+    componentWillMount(){
+        let pageUrl = this.props.prepare.pageUrl;
+
+        if(localStorage.access_secret){
+            this.props.history.replace(pageUrl);
+        }else{
+            this.props.login.autoLogin(()=>{
+                this.props.history.replace(pageUrl);
+            });
+        }
     }
     render(){
         return (

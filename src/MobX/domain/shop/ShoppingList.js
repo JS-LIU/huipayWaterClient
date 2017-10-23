@@ -9,9 +9,10 @@ import Product from './Product';
 
 
 class ShoppingList {
-    constructor(rem2pxRate, login) {
+    constructor(rem2pxRate, login,shopInfo) {
         this.rem2pxRate = rem2pxRate;
         this.login = login;
+        this.shopInfo = shopInfo;
         this._recordProductList = [];
         this.customerSelectedIndex = false;
         let self = this;
@@ -28,10 +29,9 @@ class ShoppingList {
         this.productListTitleHeight = this.rem2pxRate * 0.61;
     }
 
-    @action getList(shopId) {
-        this.getProductList({
-            shopId: shopId
-        }).then((list) => {
+    @action getList(shopInfo) {
+        let info = shopInfo || this.shopInfo;
+        this.getProductList(info).then((list) => {
             this._tagModelList = list.tagModelList;
         });
     }
@@ -55,7 +55,7 @@ class ShoppingList {
 
                     let productItem = list.find(hasProductItem);
                     if (!productItem) {
-                        productItem = new Product(productList[j].name,productList[j].type, productList[j].imageUrl, product[k],this.login);
+                        productItem = new Product(this.shopInfo,productList[j].name,productList[j].type, productList[j].imageUrl, product[k],this.login);
                         list.push(productItem);
                     }
                 }

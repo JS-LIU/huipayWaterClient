@@ -6,29 +6,34 @@ import {observable, computed,action,autorun} from "mobx";
 import _h from '../../Util/HB';
 
 class ShopInfo{
-    constructor(login,activeAddress){
+    constructor(login,position,shopInfo){
         this.login = login;
-        this.shopInfo = function(postInfo){
+        this.shopInfo = shopInfo;
+        this.shopHeadInfo = function(postInfo){
             return _h.ajax.resource('/shopinfo')
                 .save({},postInfo)
         }.before((postInfo)=>{
             postInfo.accessInfo = this.login.postDataAccessInfo.accessInfo;
         });
-        this.activeAddress = activeAddress;
+        this.position = position;
     }
-    @action getShopInfo(shopId){
-        this.shopInfo({
-            shopId:shopId,
-            cityName: "北京",
-            latitude: 39.92867,
-            longtitude: 116.35091
-        }).then((info)=>{
-            this._info = info;
-        })
-    }
+
+    @observable _homePageAddress = this.position.homePageAddress;
     @observable _info = {};
     @computed get info(){
-        return this._info;
+        let info = this.shopInfo;
+        let postData = Object.assign(info,{
+            cityName: this._homePageAddress.city,
+            latitude: this._homePageAddress.latitude,
+            longtitude: this._homePageAddress.longitude,
+        });
+        this.shopHeadInfo(postData).then((info)=>{
+            if(this._info.distance !== info.distance){
+                this._info = info;
+            }
+
+        });
+        return this._info
     }
 }
 module.exports = ShopInfo;

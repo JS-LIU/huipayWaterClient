@@ -7,7 +7,7 @@ import waterTicketsStyle from '../css/waterTicketsStyle.css';
 
 import {observer,inject} from 'mobx-react';
 
-@inject (['userWaterTicketList'])
+@inject (['useWaterTicketList'])
 @inject (['order'])
 @observer class UseWaterTicketsView extends Component{
     constructor(props){
@@ -15,7 +15,7 @@ import {observer,inject} from 'mobx-react';
     }
     componentWillMount(){
         console.log(this.props.order.orderTicket.list);
-        this.props.userWaterTicketList.getUseTicket(this.props.order.orderTicket.list);
+        this.props.useWaterTicketList.getUseTicket(this.props.order.orderTicket.list);
     }
     reduce(waterTicket){
         return ()=>{
@@ -33,7 +33,7 @@ import {observer,inject} from 'mobx-react';
         history.goBack();
     }
     render(){
-        let waterTicketNodes = this.props.userWaterTicketList.useTicket.map((waterTicket,index)=>{
+        let waterTicketNodes = this.props.useWaterTicketList.useTicket.map((waterTicket,index)=>{
             return (
                 <li key={index} className={waterTicketsStyle.water_ticket}>
                     <View className={waterTicketsStyle.water_ticket_left}>

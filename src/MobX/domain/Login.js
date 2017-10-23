@@ -55,9 +55,6 @@ class Login{
         return this._isLogin;
     }
 
-    @observable _isRegister = false;
-
-
     //  登录接口
     @action clientLogin(history){
         let postData = {
@@ -87,7 +84,7 @@ class Login{
 
     }
     //  自动登录
-    @action autoLogin(history){
+    @action autoLogin(goUrl){
         let postData = {
             regTouristLoginMsg:{}
         };
@@ -98,7 +95,7 @@ class Login{
             this._isLogin = true;
             localStorage.access_secret=this._access_secret;
             localStorage.access_token = this._access_token;
-            history.replace('/shop');
+            goUrl();
         }).catch((data)=>{
             console.log(data);
             alert('验证码错误');

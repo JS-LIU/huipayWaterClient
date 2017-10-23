@@ -39,11 +39,11 @@ import CreateOrEditAddressView from './container/CreateOrEditAddressView';
 import PrepareView from './container/PrepareView';
 import ReceiverListView from './container/ReceiverListView';
 //  MobX
+import Prepare from './MobX/domain/Prepare';
 import Login from './MobX/domain/Login';
 import AutoMap from './MobX/domain/AutoMap';
 import AddressList from './MobX/domain/location/AddressList';
 import CustomAddress from './MobX/domain/location/CustomAddress';
-import ActiveAddress from './MobX/domain/location/ActiveAddress';
 import ShoppingList from './MobX/domain/shop/ShoppingList';
 import ShopInfo from './MobX/domain/ShopInfo';
 import My from './MobX/domain/My';
@@ -51,7 +51,7 @@ import AddressTagList from './MobX/domain/location/AddressTagList';
 import OrderList from './MobX/domain/OrderList';
 import Position from './MobX/domain/location/Position';
 import AutoComplete from './MobX/domain/location/AutoComplete';
-import UserWaterTicketList from './MobX/domain/UserWaterTicketList';
+import UseWaterTicketList from './MobX/domain/UseWaterTicketList';
 
 
 import ShopDetail from './MobX/domain/ShopDetail';
@@ -73,20 +73,18 @@ let rem2pxRate = _h.ui.parsePx();
 
 let access_secret = localStorage.access_secret;
 let access_token = localStorage.access_token;
-let firstUrl = access_secret?"/shop":'/prepare';
-
 
 
 //  Router
 const App = ()=>(
     <BrowserRouter>
         <div>
-            <Redirect to={firstUrl}/>
+            <Redirect to="/prepare"/>
             <Switch>
                 {/*有用*/}
                 <Route path='/prepare' component={PrepareView} />
                 {/*有用*/}
-                <Route path='/shop' component={ShopView} />
+                <Route path="/shop" component={ShopView} />
                 {/*有用*/}
                 <Route path='/login' component={LoginView} />
                 {/*有用*/}
@@ -127,43 +125,49 @@ const App = ()=>(
 );
 
 
+
+//  获取search
+function GetQueryString(name){
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)return  unescape(r[2]); return null;
+}
+let shopId = 2;
+
 const historyPath = new HistoryPath();
+
+
+const prepare = new Prepare();
 const autoMap = new AutoMap();
 const login = new Login(access_secret,access_token);
-const shoppingList = new ShoppingList(rem2pxRate,login);
-const shopInfo = new ShopInfo(login);
 const position = new Position();
 const addressTagList = new AddressTagList();
 const customAddress = new CustomAddress(position,addressTagList);
 const addressList = new AddressList(login,position);
 const autoComplete = new AutoComplete(position,customAddress);
+const shopInfo = new ShopInfo(login,position,{shopId:shopId});
+const shoppingList = new ShoppingList(rem2pxRate,login,{shopId:shopId});
+const shoppingCart = new ShoppingCart();
 const my = new My(login);
 const orderList = new OrderList(login);
-const userWaterTicketList = new UserWaterTicketList(login);
-const order = new Order(login,shoppingList);
+const useWaterTicketList = new UseWaterTicketList(login,{shopId:shopId});
+const order = new Order(login,{shopId:shopId});
 
-// const shopDetail = new ShopDetail(login);
-const productList = new ProductList(login);
-const productDetail = new ProductDetail(login);
-const shoppingCart = new ShoppingCart();
-// const addressOperator = new AddressOperator(autoMap,addressList);
-const activeAddress = new ActiveAddress(autoMap);
+
 
 const stores = {
+    prepare,
     login,
     position,
     shopInfo,
     shoppingList,
     my,
-    userWaterTicketList,
+    useWaterTicketList,
     addressTagList,
     orderList,
     autoMap,
     addressList,
-    // activeAddress,
-    productList,
     shoppingCart,
-    productDetail,
     order,
     historyPath,
     customAddress,

@@ -4,9 +4,10 @@
 import {observable, computed,action} from "mobx";
 import _h from '../../Util/HB';
 
-class UserWaterTicketList{
-    constructor(login){
+class UseWaterTicketList{
+    constructor(login,shopInfo){
         this.login = login;
+        this.shopInfo = shopInfo;
         let self = this;
         this.getTicketList = function(postInfo){
             return _h.ajax.resource('/user/:action')
@@ -43,10 +44,10 @@ class UserWaterTicketList{
                 let useTicket = useTicketList.find(canUseTicket);
 
                 if(useTicket){
-                    this._useTicket.push(new Ticket(this.login,this._list[i],true,useTicket));
+                    this._useTicket.push(new Ticket(this.shopInfo,this.login,this._list[i],true,useTicket));
                 }else{
                     console.log(this._list[i]);
-                    this._useTicket.push(new Ticket(this.login,this._list[i],false));
+                    this._useTicket.push(new Ticket(this.shopInfo,this.login,this._list[i],false));
                 }
 
             }
@@ -60,8 +61,8 @@ class UserWaterTicketList{
 
 }
 class Ticket{
-    constructor(login,ticketInfo,isCanUse,useTicketInfo = {}){
-
+    constructor(shopInfo,login,ticketInfo,isCanUse,useTicketInfo = {}){
+        this.shopInfo = shopInfo;
         this.ticketId = ticketInfo.userTicketId;
         this.count = ticketInfo.count;
         this.brandName = ticketInfo.brandName;
@@ -95,12 +96,14 @@ class Ticket{
 
     }
     @action increase(){
-        this._selectUseCount++;
-        this.increaseTicket({
+        let info = this.shopInfo;
+
+        let postInfo = Object.assign(info,{
             productItemId:this.productItemId,
             ticketId:this.ticketId,
-            shopId:1                //  todo shopId始终为1
-        }).then((data)=>{
+        });
+        this._selectUseCount++;
+        this.increaseTicket(postInfo).then((data)=>{
             console.log(data)
         }).catch((data)=>{
             console.log(data);
@@ -109,12 +112,15 @@ class Ticket{
 
 
     @action reduce(){
-        this._selectUseCount--;
-        this.reduceTicket({
+        let info = this.shopInfo;
+
+        let postInfo = Object.assign(info,{
             productItemId:this.productItemId,
             ticketId:this.ticketId,
-            shopId:1                //  todo shopId始终为1
-        }).then((data)=>{
+        });
+
+        this._selectUseCount--;
+        this.reduceTicket(postInfo).then((data)=>{
             console.log(data)
         }).catch((data)=>{
             console.log(data);
@@ -122,4 +128,4 @@ class Ticket{
     }
 }
 
-module.exports = UserWaterTicketList;
+module.exports = UseWaterTicketList;

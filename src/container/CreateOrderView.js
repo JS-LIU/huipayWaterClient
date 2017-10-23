@@ -106,7 +106,7 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     createOrder(){
-        // this.props.order.createOrderId(this.props.activeAddress.deliverAddress.id,"",1);
+        // this.props.order.createOrderId(this.props.activeAddress.deliverAddress.id,"");
     }
     render(){
         return (

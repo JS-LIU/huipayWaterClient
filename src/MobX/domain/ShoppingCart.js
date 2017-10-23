@@ -4,7 +4,6 @@
 
 import {observable, computed,action,autorun} from "mobx";
 import ShoppingCartProduct from './ShoppingCartProduct';
-import shoppingCartService from '../service/shoppingCartService';
 
 class ShoppingCart{
 

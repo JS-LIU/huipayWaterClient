@@ -4,7 +4,7 @@
 import {observable, computed,action,autorun} from "mobx";
 import _h from '../../../Util/HB';
 class Product{
-    constructor(productName,productType,productImageUrl,itemModel,login){
+    constructor(shopInfo,productName,productType,productImageUrl,itemModel,login){
         this.imageUrl = productImageUrl;
         this.productName = productName;
         this.type = productType;
@@ -15,6 +15,8 @@ class Product{
         this.saleMount = itemModel.saleMount;
         this._selectCount = itemModel.selectCount;
         this.login = login;
+        this.shopInfo = shopInfo;
+
         let self = this;
 
         let ajax = _h.ajax.resource('/shop/shoppingcart/:action');
@@ -33,14 +35,13 @@ class Product{
     @computed get selectCount(){
         return this._selectCount;
     }
-    //  todo shopId 默认是1
-    @action increase(){
+    @action increase(shopInfo){
+        let info = shopInfo || this.shopInfo;
         this._selectCount++;
-        let postData = {
+        let postData = Object.assign(info,{
             productItemId:this.productItemId,
-            productType:this.type,
-            shopId:1
-        };
+            productType:this.type
+        });
         this.increaseProduct(postData).then(()=>{
 
         }).catch(()=>{
@@ -48,12 +49,12 @@ class Product{
         })
 
     }
-    @action reduce(){
-        let postData = {
+    @action reduce(shopInfo){
+        let info = shopInfo || this.shopInfo;
+        let postData = Object.assign(info,{
             productItemId:this.productItemId,
-            productType:this.type,
-            shopId:1
-        };
+            productType:this.type
+        });
         this.decreaseProduct(postData).then(()=>{
 
         }).catch(()=>{

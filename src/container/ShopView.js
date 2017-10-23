@@ -24,7 +24,7 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     componentWillMount(){
-        this.props.shoppingList.getList(1);
+        this.props.shoppingList.getList();
     }
     showShoppingCart(){
         this.props.shoppingList.showShoppingCart();
@@ -268,8 +268,9 @@ import {observer,inject} from 'mobx-react';
         this.props.shoppingList.showShoppingCart();
     }
     confirmOrder(){
-        this.props.order.setOrderType({shopId:1});
-        this.props.order.getSettleOrder({shopId:1},"default",this.props.history);
+        console.log(this.props.order.shopInfo);
+        this.props.order.setOrderType(this.props.order.shopInfo);
+        this.props.order.getSettleOrder(this.props.order.shopInfo,"default",this.props.history);
     }
     render(){
         return (

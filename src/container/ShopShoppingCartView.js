@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import View from '../components/View';
 import {observer,inject} from 'mobx-react';
 import shopShoppingCartStyle from '../css/shopShoppingCartStyle.css';
-import ShopShoppingCart_mock from '../MobX/domain/ShopShoppingCart_mock';
 
 
 @inject(['productList_mock'])

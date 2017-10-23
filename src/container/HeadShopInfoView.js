@@ -21,7 +21,7 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     componentWillMount(){
-        this.props.shopInfo.getShopInfo(1);
+        // this.props.shopInfo.getShopInfo();
     }
     render(){
         return (
@@ -37,7 +37,7 @@ import {observer,inject} from 'mobx-react';
                         </View>
                     </li>
                     <li className={shopInfoStyle.shop_detail_distance}>
-                        <Text className={shopInfoStyle.shop_distance}>{this.props.shopInfo.info.distance}km | </Text>
+                        <Text className={shopInfoStyle.shop_distance}>{this.props.shopInfo.info.distance} | </Text>
                         <Text className={shopInfoStyle.shop_delivery_time}>{this.props.shopInfo.info.deliveryTime}分钟</Text>
                     </li>
                 </ul>
