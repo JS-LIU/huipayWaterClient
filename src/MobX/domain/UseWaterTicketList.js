@@ -7,7 +7,7 @@ import _h from '../../Util/HB';
 class UseWaterTicketList{
     constructor(login,shopInfo){
         this.login = login;
-        this.shopInfo = shopInfo;
+        this.shopId = shopInfo.shopId;
         let self = this;
         this.getTicketList = function(postInfo){
             return _h.ajax.resource('/user/:action')
@@ -44,10 +44,10 @@ class UseWaterTicketList{
                 let useTicket = useTicketList.find(canUseTicket);
 
                 if(useTicket){
-                    this._useTicket.push(new Ticket(this.shopInfo,this.login,this._list[i],true,useTicket));
+                    this._useTicket.push(new Ticket(this.shopId,this.login,this._list[i],true,useTicket));
                 }else{
                     console.log(this._list[i]);
-                    this._useTicket.push(new Ticket(this.shopInfo,this.login,this._list[i],false));
+                    this._useTicket.push(new Ticket(this.shopId,this.login,this._list[i],false));
                 }
 
             }
@@ -61,8 +61,8 @@ class UseWaterTicketList{
 
 }
 class Ticket{
-    constructor(shopInfo,login,ticketInfo,isCanUse,useTicketInfo = {}){
-        this.shopInfo = shopInfo;
+    constructor(shopId,login,ticketInfo,isCanUse,useTicketInfo = {}){
+        this.shopId = shopId;
         this.ticketId = ticketInfo.userTicketId;
         this.count = ticketInfo.count;
         this.brandName = ticketInfo.brandName;
@@ -96,12 +96,12 @@ class Ticket{
 
     }
     @action increase(){
-        let info = this.shopInfo;
 
-        let postInfo = Object.assign(info,{
+        let postInfo = {
+            shopId:this.shopId,
             productItemId:this.productItemId,
             ticketId:this.ticketId,
-        });
+        };
         this._selectUseCount++;
         this.increaseTicket(postInfo).then((data)=>{
             console.log(data)
@@ -112,12 +112,11 @@ class Ticket{
 
 
     @action reduce(){
-        let info = this.shopInfo;
-
-        let postInfo = Object.assign(info,{
+        let postInfo = {
+            shopId:this.shopId,
             productItemId:this.productItemId,
             ticketId:this.ticketId,
-        });
+        };
 
         this._selectUseCount--;
         this.reduceTicket(postInfo).then((data)=>{

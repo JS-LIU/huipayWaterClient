@@ -128,6 +128,7 @@ import {observer,inject} from 'mobx-react';
 
 
 @inject(['shoppingList'])
+@inject(['productDetail'])
 @observer class WaterTicket extends Component{
     constructor(props){
         super(props);
@@ -138,16 +139,21 @@ import {observer,inject} from 'mobx-react';
         //  默认选中第一个
         this.props.productItem.productItemModels[0].selectedItem();
     }
+    setActiveProduct(){
+        console.log(this.props.productItem.productItemModels[0].productItemId);
+        // this.props.productDetail.setProductId();
+    }
     render(){
         return (
             <li className={shopStyle.water_ticket}>
                 <View className={shopStyle.water_ticket_left_border_b}/>
-                <View className={shopStyle.ticket_left}>
+                <div to="/productDetail"
+                      className={shopStyle.ticket_left} onClick={this.setActiveProduct.bind(this)}>
                     <View className={shopStyle.water_ticket_img_product}>
                         <img src={this.props.productItem.imageUrl} alt="" className={shopStyle.water_ticket_img}/>
                     </View>
                     <Text className={shopStyle.water_ticket_name}>{this.props.productItem.name}</Text>
-                </View>
+                </div>
                 <View className={shopStyle.ticket_right}>
                     <Button className={shopStyle.select_product} onClick={this.selectedSpecification.bind(this)}>选套餐</Button>
                 </View>
@@ -156,6 +162,8 @@ import {observer,inject} from 'mobx-react';
         )
     }
 }
+
+@inject(['productDetail'])
 @observer class ProductItem extends Component{
     constructor(props){
         super(props);
@@ -170,12 +178,17 @@ import {observer,inject} from 'mobx-react';
             productItem.reduce();
         }
     }
+    setActiveProduct(){
+        this.props.productDetail.setProductId(this.props.productItem.productItemId);
+    }
     render(){
         return (
             <li className={shopStyle.product_item}>
-                <View className={shopStyle.product_item_img_protect}>
+                <Link to="/productDetail"
+                      className={shopStyle.product_item_img_protect}
+                      onClick={this.setActiveProduct.bind(this)}>
                     <img src={this.props.productItem.imageUrl} alt="" className={shopStyle.product_item_img}/>
-                </View>
+                </Link>
                 <View className={shopStyle.product_item_info}>
                     <Text className={shopStyle.product_item_name}>{this.props.productItem.name}</Text>
                     <View className={shopStyle.product_item_mount_sale}>
@@ -219,7 +232,9 @@ import {observer,inject} from 'mobx-react';
             productItem.reduce();
         }
     }
-
+    clearShoppingCart(){
+        this.props.shoppingList.clearShoppingCart()
+    }
     render(){
         let productNodes = this.props.shoppingList.shoppingCart.map((productItem,index)=>{
             return (
@@ -246,7 +261,10 @@ import {observer,inject} from 'mobx-react';
                 <ul className={shopStyle.shopping_cart_title}>
                     <li className={shopStyle.shopping_cart_title_text}>已选商品</li>
                     <li>
-                        <Button className={shopStyle.shopping_cart_clear_all}>清空</Button>
+                        <Button
+                            className={shopStyle.shopping_cart_clear_all}
+                            onClick={this.clearShoppingCart.bind(this)}
+                        >清空</Button>
                     </li>
                 </ul>
                 <ul className={shopStyle.shopping_cart_list}>
@@ -258,8 +276,9 @@ import {observer,inject} from 'mobx-react';
     }
 }
 
-@inject(['shoppingList'])
+@inject (['shoppingList'])
 @inject (['order'])
+@inject (['shopInfo'])
 @observer class ShopFooter extends Component{
     constructor(props){
         super(props);
@@ -268,9 +287,8 @@ import {observer,inject} from 'mobx-react';
         this.props.shoppingList.showShoppingCart();
     }
     confirmOrder(){
-        console.log(this.props.order.shopInfo);
-        this.props.order.setOrderType(this.props.order.shopInfo);
-        this.props.order.getSettleOrder(this.props.order.shopInfo,"default",this.props.history);
+        this.props.order.setOrderType({shopId:this.props.shopInfo.shopId});
+        this.props.order.getSettleOrder({shopId:this.props.shopInfo.shopId},"default",this.props.history);
     }
     render(){
         return (

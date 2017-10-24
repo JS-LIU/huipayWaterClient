@@ -5,6 +5,7 @@ import {observable, computed,action,autorun} from "mobx";
 
 class WaterTicket{
     constructor(productName,productType,productImageUrl,itemModel){
+        // this.productItemId = productItemId;
         this.name = productName;
         this.imageUrl = productImageUrl;
         this.type = productType;

@@ -12,7 +12,7 @@ class ShoppingList {
     constructor(rem2pxRate, login,shopInfo) {
         this.rem2pxRate = rem2pxRate;
         this.login = login;
-        this.shopInfo = shopInfo;
+        this.shopId = shopInfo.shopId;
         this._recordProductList = [];
         this.customerSelectedIndex = false;
         let self = this;
@@ -24,20 +24,24 @@ class ShoppingList {
         }.before(function (postInfo) {
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
         });
+        this.clearProductList = function (postInfo) {
+            return ajax.save({action: "clear"}, postInfo)
+        }.before(function (postInfo) {
+            postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
+        });
+
         this.productItemHeight = this.rem2pxRate * 2.41;
         this.waterTicketHeight = this.rem2pxRate * 1.76;
         this.productListTitleHeight = this.rem2pxRate * 0.61;
     }
 
-    @action getList(shopInfo) {
-        let info = shopInfo || this.shopInfo;
-        this.getProductList(info).then((list) => {
+    @action getList() {
+        this.getProductList({shopId:this.shopId}).then((list) => {
             this._tagModelList = list.tagModelList;
         });
     }
 
     //  去除重复的 商品列表
-    @observable _noRepeatProductList;
     @computed get noRepeatProductList() {
         let list = [];
         for (let i = 0; i < this._tagModelList.length; i++) {       //  tag
@@ -55,7 +59,7 @@ class ShoppingList {
 
                     let productItem = list.find(hasProductItem);
                     if (!productItem) {
-                        productItem = new Product(this.shopInfo,productList[j].name,productList[j].type, productList[j].imageUrl, product[k],this.login);
+                        productItem = new Product(this.shopId,productList[j].name,productList[j].type, productList[j].imageUrl, product[k],this.login);
                         list.push(productItem);
                     }
                 }
@@ -206,6 +210,16 @@ class ShoppingList {
     }
     @computed get show(){
         return this._show;
+    }
+    @action clearShoppingCart(){
+        for(let i = 0;i < this.noRepeatProductList.length;i++){
+            this.noRepeatProductList[i]._selectCount = 0;
+        }
+        this.clearProductList({shopId:this.shopId}).then((data)=>{
+            console.log(data);
+        });
+
+        this._show = false;
     }
 }
 module.exports = ShoppingList;

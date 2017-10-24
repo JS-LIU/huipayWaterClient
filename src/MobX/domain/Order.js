@@ -6,9 +6,8 @@ import _h from '../../Util/HB';
 
 class Order {
 
-    constructor(login,shopInfo) {
+    constructor(login) {
         this.login = login;
-        this.shopInfo = shopInfo;
         let self = this;
         this.settleOrder = function(postInfo,action){
             return _h.ajax.resource('/order/confirmOrderInfo/:action')
@@ -24,7 +23,10 @@ class Order {
         });
     }
 
-
+    @observable _shopId = "";
+    @computed get shopId(){
+        return this._shopId;
+    }
     @observable _shopName = "";
     @action getSettleOrder(postData,action,history){
         this.settleOrder(postData,action).then((data)=>{
@@ -38,16 +40,16 @@ class Order {
             this._totalPayMount = orderProductInfo.totalPayMount;
             this._totalPrice = orderProductInfo.totalPrice;
 
-
+            this._shopId = data.shopId;
             //  要被结算的商品列表
             this._productList = [];
             let list = orderProductInfo.productItemModels;
             for(let i = 0,len = list.length;i < len;i++){
 
                 if(this.orderType.userTicketId){
-                    this._productList.push(new OrderProduct(this.shopInfo,this.login,list[i],true,this._orderType,this._orderTicket));
+                    this._productList.push(new OrderProduct(this.shopId,this.login,list[i],true,this._orderType,this._orderTicket));
                 }else{
-                    this._productList.push(new OrderProduct(this.shopInfo,this.login,list[i]));
+                    this._productList.push(new OrderProduct(this.shopId,this.login,list[i]));
                 }
             }
         }).catch((data)=>{
@@ -78,13 +80,13 @@ class Order {
         return this._shopName;
     }
 
-    @action createOrderId(addressId,payType,shopInfo){
-        let info = shopInfo || this.shopInfo;
+    @action createOrderId(addressId,payType,shopId){
 
-        let postData = Object.assign(info,{
+        let postData = {
+            shopId:shopId,
             deliveryAddressId:addressId,
             payType:payType,
-        });
+        };
         this.createOrder(postData).then((data)=>{
             this._info = data;
         })
@@ -134,7 +136,7 @@ class OrderTicket{
 }
 
 class OrderProduct{
-    constructor(shopInfo,login,info,isCanOperate = false,orderType,orderTicket){
+    constructor(shopId,login,info,isCanOperate = false,orderType,orderTicket){
         this.name = info.name;
         this.currentPrice = info.currentPrice;
         this.originalPrice = info.originalPrice;
@@ -147,7 +149,7 @@ class OrderProduct{
         this.isCanOperate = isCanOperate;
         this.orderType = orderType;
         this.orderTicket = orderTicket;
-        this.shopInfo = shopInfo;
+        this.shopId = shopId;
 
         this.login = login;
         let self = this;
@@ -182,10 +184,10 @@ class OrderProduct{
             this.orderTicket.list[0].canUseCount = this._selectCount;
             this.orderTicket.list[0].selectUseCount = this._selectCount;
         }
-        console.log('shopInfo=======',this.shopInfo);
-        let postInfo = Object.assign(this.shopInfo,{
+        let postInfo = {
+            shopId:this.shopId,
             productItemId:this.productItemId
-        });
+        };
         this.increaseProduct(postInfo).then((data)=>{
             this.settleOrder(this.orderType,"default")
         })
@@ -198,9 +200,10 @@ class OrderProduct{
             this.orderTicket.list[0].selectUseCount = this._selectCount;
         }
 
-        let postInfo = Object.assign(this.shopInfo,{
+        let postInfo = {
+            shopId:this.shopId,
             productItemId:this.productItemId
-        });
+        };
         this.decreaseProduct(postInfo).then((data)=>{
             this.settleOrder(this.orderType,"default")
         })

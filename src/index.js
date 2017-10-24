@@ -15,21 +15,14 @@ import {observer,inject} from 'mobx-react';
 import _h from '../src/Util/HB';
 
 //  Views
-import WaterView from './container/WaterView';
 import ShopView from './container/ShopView';
-import ShopDetailView from './container/ShopDetailView';
-import ShoppingCartView from './container/ShoppingCartView';
 import CreateOrderView from './container/CreateOrderView';
-import InputAddressView from './container/InputAddressView';
 import AutoCompleteAddressView from './container/AutoCompleteAddressView';
 import ReceiveAddressListView from './container/ReceiveAddressListView';
 import ProductDetailView from './container/ProductDetailView';
-import TypeProductListView from './container/TypeProductListView';
 import MyView from './container/MyView';
 import LoginView from './container/LoginView';
 import AddressListView from './container/AddressListView';
-import HomePageCreateAddressView from './container/HomePageCreateAddressView';
-import ConfirmOrderCreateAddressView from './container/ConfirmOrderCreateAddressView';
 import WaterTicketsView from './container/WaterTicketsView';
 import UseWaterTicketsView from './container/UseWaterTicketsView';
 import PaySuccessView from './container/PaySuccessView';
@@ -38,10 +31,10 @@ import MapView from './container/MapView';
 import CreateOrEditAddressView from './container/CreateOrEditAddressView';
 import PrepareView from './container/PrepareView';
 import ReceiverListView from './container/ReceiverListView';
+
 //  MobX
 import Prepare from './MobX/domain/Prepare';
 import Login from './MobX/domain/Login';
-import AutoMap from './MobX/domain/AutoMap';
 import AddressList from './MobX/domain/location/AddressList';
 import CustomAddress from './MobX/domain/location/CustomAddress';
 import ShoppingList from './MobX/domain/shop/ShoppingList';
@@ -52,11 +45,6 @@ import OrderList from './MobX/domain/OrderList';
 import Position from './MobX/domain/location/Position';
 import AutoComplete from './MobX/domain/location/AutoComplete';
 import UseWaterTicketList from './MobX/domain/UseWaterTicketList';
-
-
-import ShopDetail from './MobX/domain/ShopDetail';
-import ProductList from './MobX/domain/ProductList';
-import ShoppingCart from './MobX/domain/ShoppingCart';
 import ProductDetail from './MobX/domain/ProductDetail';
 
 
@@ -105,18 +93,15 @@ const App = ()=>(
                 <Route path="/waterTickets" component={WaterTicketsView} />
                 {/*有用*/}
                 <Route path="/useWaterTickets" component={UseWaterTicketsView} />
-
-
-                <Route path='/water' component={WaterView} />
-                <Route path='/shopDetail' component={ShopDetailView} />
-                <Route path='/shoppingCart' component={ShoppingCartView}/>
-                <Route path="/homePageCreateAddress" component={HomePageCreateAddressView}/>
-                <Route path="/confirmOrderCreateAddress" component={ConfirmOrderCreateAddressView}/>
+                {/*有用*/}
                 <Route path="/autoCompleteAddress" component={AutoCompleteAddressView}/>
+                {/*有用*/}
                 <Route path="/receiveAddressList" component={ReceiveAddressListView}/>
-                <Route path="/productDetail" component={ProductDetailView}/>
-                <Route path="/typeProductView" component={TypeProductListView}/>
+                {/*有用*/}
                 <Route path="/orderList" component={OrderListView}/>
+
+                <Route path="/productDetail" component={ProductDetailView}/>
+
 
             </Switch>
         </div>
@@ -132,26 +117,28 @@ function GetQueryString(name){
     var r = window.location.search.substr(1).match(reg);
     if(r!=null)return  unescape(r[2]); return null;
 }
-let shopId = 2;
+let shopId = 3;
 
 const historyPath = new HistoryPath();
 
 
 const prepare = new Prepare();
-const autoMap = new AutoMap();
 const login = new Login(access_secret,access_token);
+
 const position = new Position();
 const addressTagList = new AddressTagList();
 const customAddress = new CustomAddress(position,addressTagList);
 const addressList = new AddressList(login,position);
 const autoComplete = new AutoComplete(position,customAddress);
-const shopInfo = new ShopInfo(login,position,{shopId:shopId});
-const shoppingList = new ShoppingList(rem2pxRate,login,{shopId:shopId});
-const shoppingCart = new ShoppingCart();
+
 const my = new My(login);
 const orderList = new OrderList(login);
-const useWaterTicketList = new UseWaterTicketList(login,{shopId:shopId});
-const order = new Order(login,{shopId:shopId});
+
+const shopInfo = new ShopInfo(login,position,shopId);
+const shoppingList = new ShoppingList(rem2pxRate,login,shopInfo);
+const useWaterTicketList = new UseWaterTicketList(login,shopInfo);
+const order = new Order(login,shopInfo);
+const productDetail = new ProductDetail(login,shopInfo);
 
 
 
@@ -165,13 +152,12 @@ const stores = {
     useWaterTicketList,
     addressTagList,
     orderList,
-    autoMap,
     addressList,
-    shoppingCart,
     order,
     historyPath,
     customAddress,
-    autoComplete
+    autoComplete,
+    productDetail,
 };
 
 ReactDom.render(

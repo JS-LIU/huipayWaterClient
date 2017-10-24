@@ -33,6 +33,7 @@ class ProductList{
             }
 
             if(product.type === "waterTicket"){
+                console.log("waterTicket:",product);
                 productItem = new WaterTicket(product.name,product.type,product.imageUrl,productItemModels);
             }
             return productItem;

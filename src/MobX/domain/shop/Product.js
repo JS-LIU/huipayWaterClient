@@ -4,7 +4,7 @@
 import {observable, computed,action,autorun} from "mobx";
 import _h from '../../../Util/HB';
 class Product{
-    constructor(shopInfo,productName,productType,productImageUrl,itemModel,login){
+    constructor(shopId,productName,productType,productImageUrl,itemModel,login){
         this.imageUrl = productImageUrl;
         this.productName = productName;
         this.type = productType;
@@ -15,7 +15,7 @@ class Product{
         this.saleMount = itemModel.saleMount;
         this._selectCount = itemModel.selectCount;
         this.login = login;
-        this.shopInfo = shopInfo;
+        this.shopId = shopId;
 
         let self = this;
 
@@ -35,13 +35,13 @@ class Product{
     @computed get selectCount(){
         return this._selectCount;
     }
-    @action increase(shopInfo){
-        let info = shopInfo || this.shopInfo;
+    @action increase(){
         this._selectCount++;
-        let postData = Object.assign(info,{
+        let postData ={
+            shopId:this.shopId,
             productItemId:this.productItemId,
             productType:this.type
-        });
+        };
         this.increaseProduct(postData).then(()=>{
 
         }).catch(()=>{
@@ -49,12 +49,12 @@ class Product{
         })
 
     }
-    @action reduce(shopInfo){
-        let info = shopInfo || this.shopInfo;
-        let postData = Object.assign(info,{
+    @action reduce(){
+        let postData ={
+            shopId:this.shopId,
             productItemId:this.productItemId,
             productType:this.type
-        });
+        };
         this.decreaseProduct(postData).then(()=>{
 
         }).catch(()=>{
