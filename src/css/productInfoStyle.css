@@ -1,77 +1,76 @@
-.product_info{
-
+.wrap{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#F3F5F7;
 }
 .product_pic_box{
-    height:5.6rem;
+    height:7.5rem;
     overflow: hidden;
 }
-.info_intro{
+.product_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left:0.2rem;
     height:2rem;
-    padding-left: 0.3rem;
-    border-bottom: 0.01rem solid #eeeeee;
-    composes:bgColorF from '../Util/base.css';
+    background:#FFF;
+    border-top:0.01rem solid #D7D7D7;
+    border-bottom:0.01rem solid #D7D7D7;
 }
-.brand_name{
-    padding:0.22rem 0 0.12rem 0;
-    composes:f32 c333 from '../Util/base.css';
+.product_name{
+    color:#333;
+    font-size:0.32rem;
 }
-.sub_brand{
-    margin-bottom: 0.1rem;
-    color:#999999;
-    composes:f30 from '../Util/base.css';
+.product_sale_num{
+    font-size:0.2rem;
+    color:#666;
 }
-.price{
-    color: #777777;
-    composes:f26 from '../Util/base.css';
+.product_money_box{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right:0.3rem;
 }
-.price_Unit{
-    color: #ff4342;
-    composes:f26 from '../Util/base.css';
+.current_money{
+    color:#ff4c2f;
+    font-size:0.32rem;
 }
-.price_num{
-    color: #ff4342;
-    margin-right:0.2rem;
-    composes:f34 from '../Util/base.css';
+.original_money_title{
+    padding-left:0.3rem;
+    font-size:0.26rem;
 }
-.original_price{
+.original_money{
+    font-size:0.26rem;
     text-decoration: line-through;
 }
-.sale{
-    float: right;
-    margin-top: 0.08rem;
-    margin-right: 0.3rem;
-}
-.promote{
+.product_item_ctrl{
     display: flex;
-    height: 0.9rem;
-    line-height: 0.9rem;
-    padding-left: 0.3rem;
-    margin: 0.3rem 0;
-    border-bottom: 0.01rem solid #eeeff3;
-    composes:f32 bgColorF from '../Util/base.css';
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width:1.65rem;
+    line-height:0.42rem;
 }
-.promote_title{
-    color: #999999;
-    margin-right: 0.1rem;
-    composes:f32 from '../Util/base.css';
+.product_increase{
+    margin-left:0.1rem;
+    width:0.42rem;
+    height:0.42rem;
+    background: url("../images/increase@2x.png") no-repeat center;
+    -webkit-background-size: 0.42rem;
+    background-size: 0.42rem;
 }
-.capacity{
-    width:5.8rem;
-    background: url("../../src/images/btn_right_arrow@2x.png") no-repeat right center;
-    background-size: 0.18rem 0.3rem;
+.product_count{
+    margin-left:0.1rem;
+    width:0.55rem;
+    font-size:0.4rem;
+    composes: search_black from '../Util/huipayWaterBase.css';
+    composes: tc from '../Util/base.css';
 }
-.service{
-    margin-bottom: 0.3rem;
-}
-.pledge{
-    display: flex;
-    line-height: 0.5rem;
-    margin-top: -0.29rem;
-    padding:0.2rem 0.3rem;
-    border-bottom: 0.01rem solid #EEEFF3;
-    composes:f26 bgColorF from '../Util/base.css';
-}
-.service_describe{
-    width:5.8rem;
-    composes:c333 from '../Util/base.css';
+.product_reduce{
+    width:0.42rem;
+    height:0.42rem;
+    background: url("../images/reduce@2x.png") no-repeat center;
+    -webkit-background-size: 0.42rem;
+    background-size: 0.42rem;
 }

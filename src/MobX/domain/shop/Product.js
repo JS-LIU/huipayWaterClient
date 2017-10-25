@@ -16,6 +16,8 @@ class Product{
         this._selectCount = itemModel.selectCount;
         this.login = login;
         this.shopId = shopId;
+        this.productImages = itemModel.productImage;
+
 
         let self = this;
 

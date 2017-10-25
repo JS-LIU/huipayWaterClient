@@ -3,32 +3,94 @@
  */
 import {observable, computed,action,autorun} from "mobx";
 import _h from '../../Util/HB';
-
 class ProductDetail {
-    constructor(login,shopInfo){
+    constructor(login,shoppingList,shopInfo,){
         this.login = login;
+        this.shoppingList = shoppingList;
         this.shopId = shopInfo.shopId;
 
+
+        this.setProductImages = function(imgList){
+            let list = [];
+            for(let i = 0;i < imgList.length;i++){
+                list.push({
+                    img:imgList[i]
+                })
+            }
+            return list;
+        };
+        let self = this;
         this.getProductDetail = function (postInfo) {
-            return _h.ajax.resource('/shop/shoppingcart/:action')
-                .save({action: "increase"}, postInfo)
+            return _h.ajax.resource('/shop/:action')
+                .save({action: "productItem"}, postInfo)
         }.before(function (postInfo) {
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
         });
     }
-    @action getDetail(id){
+    @action getDetail(){
+
         this.getProductDetail({
-            productItemId:id,
+            productItemId:this.productId,
             shopId:this.shopId
         }).then((data)=>{
-            this._detail = data;
+            this._commonModels = data.commonModels;
+            this._info = data.productModel;
+
+            if(this.shoppingList.tagModelList.length === 0){
+                this.shoppingList.getList();
+            }
         });
 
     }
-    @observable _detail = {};
-    @computed get detail(){
-        return this._detail;
+    @observable _commonModels = [];
+    @computed get commonModels(){
+        return this._commonModels;
     }
+    @observable _info = {
+        productItemModels:[{}]
+    };
+    @computed get info(){
+        return this._info;
+    }
+
+    @computed get productList(){
+        let list = [];
+
+
+        for(let i = 0;i < this._info.productItemModels.length;i++){
+            let productId = this._info.productItemModels[i].productItemId;
+            function findProduct(item){
+                if(item.productItemId === productId){
+                    return item;
+                }
+            }
+            let product = this.shoppingList.noRepeatProductList.find(findProduct);
+            list.push(product);
+        }
+        return list;
+    }
+
+    @computed get product(){
+        let self = this;
+        function findProduct(item){
+            if(item.productItemId === self.productId){
+                return item;
+            }
+        }
+        return this.shoppingList.noRepeatProductList.find(findProduct)||{productImages:[""]}
+    }
+    @computed get productImages(){
+        let list = [];
+        console.log(this.product);
+        for(let i = 0 ;i < this.product.productImages.length;i++){
+            list.push({
+                img:this.product.productImages[i]
+            })
+        }
+        return list;
+    }
+
+
 
     @action setProductId(id){
         this._productId = id;

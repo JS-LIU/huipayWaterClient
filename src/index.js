@@ -46,10 +46,9 @@ import Position from './MobX/domain/location/Position';
 import AutoComplete from './MobX/domain/location/AutoComplete';
 import UseWaterTicketList from './MobX/domain/UseWaterTicketList';
 import ProductDetail from './MobX/domain/ProductDetail';
-
-
 import Order from './MobX/domain/Order';
-//  RR辅助类
+
+//  todo 删除RR辅助类
 import HistoryPath from './MobX/domain/HistoryPath';
 
 //  resetFontSize
@@ -57,7 +56,6 @@ _h.ui.setBaseFontSize(750,100);
 
 let rem2pxRate = _h.ui.parsePx();
 
-//  获取cookie中的登录信息
 
 let access_secret = localStorage.access_secret;
 let access_token = localStorage.access_token;
@@ -99,7 +97,7 @@ const App = ()=>(
                 <Route path="/receiveAddressList" component={ReceiveAddressListView}/>
                 {/*有用*/}
                 <Route path="/orderList" component={OrderListView}/>
-
+                {/*有用*/}
                 <Route path="/productDetail" component={ProductDetailView}/>
 
 
@@ -138,7 +136,7 @@ const shopInfo = new ShopInfo(login,position,shopId);
 const shoppingList = new ShoppingList(rem2pxRate,login,shopInfo);
 const useWaterTicketList = new UseWaterTicketList(login,shopInfo);
 const order = new Order(login,shopInfo);
-const productDetail = new ProductDetail(login,shopInfo);
+const productDetail = new ProductDetail(login,shoppingList,shopInfo);
 
 
 

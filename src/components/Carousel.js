@@ -76,7 +76,7 @@ class Carousel extends React.Component {
             flexDirection:'column',
             justifyContent:'center',
             height:'100%',
-            width:window_w+'px'
+            flex:1
         };
         //  实际轮播的列表
         let carouselList = [...this.props.list];
@@ -87,7 +87,7 @@ class Carousel extends React.Component {
         let carouselNodes = carouselList.map((item,index)=>{
             return (
                 <li key={index} style={carouselNodeStyle}>
-                    <img src={item.img} alt="" className="w"/>
+                    <img src={item.img} alt="" style={{width:window_w+"px"}}/>
                 </li>
             )
         });
@@ -96,13 +96,10 @@ class Carousel extends React.Component {
             <div
                 style={this.props.style}
                 className={this.props.className}
-                onClick={this.props.onClick}
-            >
+                onClick={this.props.onClick}>
                 <ul style={this.state.carouselListStyle}>
                     {carouselNodes}
                 </ul>
-
-
             </div>
         );
     }

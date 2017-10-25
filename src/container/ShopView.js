@@ -135,25 +135,27 @@ import {observer,inject} from 'mobx-react';
     }
     selectedSpecification(){
         this.props.productItem.showProductList();
+        console.log(this.props.productItem);
         this.props.shoppingList.selectedProductItem(this.props.productItem);
+
+        this.props.productItem.unSelectedAll();
         //  默认选中第一个
         this.props.productItem.productItemModels[0].selectedItem();
     }
     setActiveProduct(){
-        console.log(this.props.productItem.productItemModels[0].productItemId);
-        // this.props.productDetail.setProductId();
+        this.props.productDetail.setProductId(this.props.productItem.productItemModels[0].productItemId);
     }
     render(){
         return (
             <li className={shopStyle.water_ticket}>
                 <View className={shopStyle.water_ticket_left_border_b}/>
-                <div to="/productDetail"
+                <Link to="/productDetail"
                       className={shopStyle.ticket_left} onClick={this.setActiveProduct.bind(this)}>
                     <View className={shopStyle.water_ticket_img_product}>
                         <img src={this.props.productItem.imageUrl} alt="" className={shopStyle.water_ticket_img}/>
                     </View>
                     <Text className={shopStyle.water_ticket_name}>{this.props.productItem.name}</Text>
-                </div>
+                </Link>
                 <View className={shopStyle.ticket_right}>
                     <Button className={shopStyle.select_product} onClick={this.selectedSpecification.bind(this)}>选套餐</Button>
                 </View>
@@ -179,6 +181,7 @@ import {observer,inject} from 'mobx-react';
         }
     }
     setActiveProduct(){
+        console.log(this.props.productItem);
         this.props.productDetail.setProductId(this.props.productItem.productItemId);
     }
     render(){
