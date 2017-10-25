@@ -32,9 +32,10 @@ import productInfoStyle from '../css/productInfoStyle.css';
     reduce(){
         this.props.productDetail.product.reduce();
     }
-    showProductList(){
+    showWaterTickets(){
         this.props.productDetail.showWaterTickets();
         this.props.productDetail.waterTicket.productItemModels[0].selectedItem();
+        this.props.productDetail.setProductId(this.props.productDetail.waterTicket.findSelectedProductItem().productItemId);
     }
     render(){
         return (
@@ -62,7 +63,7 @@ import productInfoStyle from '../css/productInfoStyle.css';
                             {this.props.productDetail.product.selectCount > 0?
                                 <Text className={productInfoStyle.product_count}>{this.props.productDetail.product.selectCount}</Text>:""}
                             <Button className={productInfoStyle.product_increase} onClick={this.increase.bind(this)} />
-                        </View>:<Button onClick={this.showProductList.bind(this)}>加入购物车</Button>}
+                        </View>:<Button onClick={this.showWaterTickets.bind(this)}>加入购物车</Button>}
                     </View>
                 </View>
 

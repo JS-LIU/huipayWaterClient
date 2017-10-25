@@ -10,12 +10,15 @@ import productListDialogStyle from '../css/productListDialogStyle.css';
 import shopStyle from '../css/shopStyle.css';
 import {observer,inject} from 'mobx-react';
 
+@inject(['productDetail'])
+
 @observer class ProductListDialogView extends Component{
     constructor(props){
         super(props)
     }
     selected(productItem){
         return ()=>{
+            this.props.productDetail.setProductId(productItem.productItemId);
             this.props.waterTicket.unSelectedAll();
             productItem.selectedItem();
         }
