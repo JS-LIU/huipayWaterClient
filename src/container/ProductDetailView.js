@@ -12,6 +12,8 @@ import Button from '../components/Button';
 import Carousel from '../components/Carousel';
 import {Link} from 'react-router-dom';
 
+import ProductListDialogView from './ProductListDialogView';
+
 import productInfoStyle from '../css/productInfoStyle.css';
 
 
@@ -31,7 +33,8 @@ import productInfoStyle from '../css/productInfoStyle.css';
         this.props.productDetail.product.reduce();
     }
     showProductList(){
-        console.log(this.props.productDetail.productList);
+        this.props.productDetail.showWaterTickets();
+        this.props.productDetail.waterTicket.productItemModels[0].selectedItem();
     }
     render(){
         return (
@@ -63,7 +66,7 @@ import productInfoStyle from '../css/productInfoStyle.css';
                     </View>
                 </View>
 
-                {/*<ProductListDialogView waterTicket={this.props.productDetail.activeProductItem}/>*/}
+                {this.props.productDetail.showDialog?<ProductListDialogView waterTicket={this.props.productDetail.waterTicket}/>:""}
 
             </View>
         )

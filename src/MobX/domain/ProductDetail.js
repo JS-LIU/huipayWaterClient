@@ -2,6 +2,7 @@
  * Created by LDQ on 2017/7/31.
  */
 import {observable, computed,action,autorun} from "mobx";
+import WaterTicket from '../domain/shop/WaterTicket';
 import _h from '../../Util/HB';
 class ProductDetail {
     constructor(login,shoppingList,shopInfo,){
@@ -53,10 +54,19 @@ class ProductDetail {
         return this._info;
     }
 
-    @computed get productList(){
+    @observable _showDialog  = false;
+    @computed get showDialog(){
+        return this._showDialog;
+    }
+    @action showWaterTickets(){
+        this._showDialog = true;
+    }
+    @action closeWaterTickets(){
+        this._showDialog = false;
+    }
+
+    @computed get waterTicket(){
         let list = [];
-
-
         for(let i = 0;i < this._info.productItemModels.length;i++){
             let productId = this._info.productItemModels[i].productItemId;
             function findProduct(item){
@@ -67,9 +77,8 @@ class ProductDetail {
             let product = this.shoppingList.noRepeatProductList.find(findProduct);
             list.push(product);
         }
-        return list;
+        return new WaterTicket(this._info.name,this._info.type,this._info.imageUrl,list)
     }
-
     @computed get product(){
         let self = this;
         function findProduct(item){
