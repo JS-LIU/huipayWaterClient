@@ -96,14 +96,18 @@ import commentStyle from '../css/commentStyle.css';
         let commentNodes = this.props.productDetail.commonModels.map((commentItem,index)=>{
             let picNodes = commentItem.imageUrlList.map((imgItem,index)=>{
                 return (
-                    <li className={commentStyle.comment_img_protect}>
+                    <li className={commentStyle.comment_img_protect} key={index}>
                         <img src={imgItem} alt="" className={commentStyle.comment_img}/>
                     </li>
                 )
             });
-
+            let starNodes = commentItem.starList.map((url,index)=>{
+                return (
+                    <img src={url} alt="" className={commentStyle.star} key={index}/>
+                )
+            });
             return (
-                <li className={commentStyle.comment_box}>
+                <li className={commentStyle.comment_box} key={index}>
                     <View className={commentStyle.comment_user}>
                         <View className={commentStyle.comment_user_info}>
                             <View className={commentStyle.comment_user_head_protect}>
@@ -111,10 +115,12 @@ import commentStyle from '../css/commentStyle.css';
                             </View>
                             <View className={commentStyle.user_name_score}>
                                 <Text>{commentItem.userName}</Text>
-                                <Text>{commentItem.score}</Text>
+                                <View className={commentStyle.star_list}>
+                                    {starNodes}
+                                </View>
                             </View>
                         </View>
-                        <Text className={commentStyle.comment_time}>{commentItem.commentTime}</Text>
+                        <Text className={commentStyle.comment_time}>{commentItem.commentTime.substring(0,10)}</Text>
                     </View>
                     <View className={commentStyle.comment_text}>
                         {commentItem.comment}
@@ -139,6 +145,8 @@ import commentStyle from '../css/commentStyle.css';
         )
     }
 }
+
+
 
 
 module.exports = ProductDetailView;

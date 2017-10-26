@@ -4,21 +4,32 @@
 import {observable, computed,action,autorun} from "mobx";
 import WaterTicket from '../domain/shop/WaterTicket';
 import _h from '../../Util/HB';
+
+import star from '../../images/star-5@2x.png';
+import star_half from '../../images/star-6@2x.png';
+import star_empty from '../../images/star-7@2x.png';
+
 class ProductDetail {
     constructor(login,shoppingList,shopInfo,){
         this.login = login;
         this.shoppingList = shoppingList;
         this.shopId = shopInfo.shopId;
 
-
-        this.setProductImages = function(imgList){
+        this.setStarList = function(score){
             let list = [];
-            for(let i = 0;i < imgList.length;i++){
-                list.push({
-                    img:imgList[i]
-                })
+            let starNum = parseInt(score / 2 );
+            let starEmptyNum = parseInt(parseInt(10 - score) / 2);
+            for(let i = 0;i < starNum;i++){
+                list.push(star);
+            }
+            if(score % 2){
+                list.push(star_half);
+            }
+            for(let i = 0;i < starEmptyNum;i++){
+                list.push(star_empty);
             }
             return list;
+
         };
         let self = this;
         this.getProductDetail = function (postInfo) {
@@ -27,6 +38,9 @@ class ProductDetail {
         }.before(function (postInfo) {
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
         });
+
+
+
     }
     @action getDetail(){
 
@@ -34,7 +48,11 @@ class ProductDetail {
             productItemId:this.productId,
             shopId:this.shopId
         }).then((data)=>{
+            for(let i = 0;i < data.commonModels.length;i++){
+                data.commonModels[i].starList = this.setStarList(data.commonModels[i].score);
+            }
             this._commonModels = data.commonModels;
+
             this._info = data.productModel;
         });
 

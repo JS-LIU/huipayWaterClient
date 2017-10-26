@@ -12,7 +12,6 @@ import shopStyle from '../css/shopStyle.css';
 //  MobX
 import {observer,inject} from 'mobx-react';
 
-
 @inject (['shoppingList'])
 @inject (['order'])
 @inject (['shopInfo'])
@@ -40,7 +39,11 @@ import {observer,inject} from 'mobx-react';
                         <li className={shopStyle.shopping_cart_info_total_price}>{this.props.shoppingList.totalPrice / 100}</li>
                     </ul>
                 </View>
-                {this.props.shoppingList.shoppingCart.length > 0?<Link to='/confirmOrder' className={shopStyle.confirm_order_btn} onClick={this.confirmOrder.bind(this)}>去结算</Link>:<View className={shopStyle.cant_confirm_order_btn}>去结算</View>}
+                {this.props.shoppingList.shoppingCart.length > 0 ?
+                    <Link to='/confirmOrder'
+                          className={shopStyle.confirm_order_btn}
+                          onClick={this.confirmOrder.bind(this)}>去结算</Link>:
+                    <View className={shopStyle.cant_confirm_order_btn}>去结算</View>}
             </View>
         )
     }
