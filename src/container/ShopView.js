@@ -140,7 +140,6 @@ import {observer,inject} from 'mobx-react';
     }
     selectedSpecification(){
         this.props.productItem.showProductList();
-        console.log(this.props.productItem);
         this.props.shoppingList.selectedProductItem(this.props.productItem);
 
         this.props.productItem.unSelectedAll();

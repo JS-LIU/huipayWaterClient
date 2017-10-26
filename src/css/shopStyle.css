@@ -206,6 +206,7 @@
     width:100%;
 }
 .water_ticket_name{
+    padding-left:0.8rem;
     font-size:0.32rem;
     font-weight: bold;
 }

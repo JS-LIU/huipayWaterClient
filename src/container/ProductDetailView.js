@@ -17,6 +17,8 @@ import ShopFooterView from './ShopFooterView';
 import ShoppingCartView from './ShoppingCartView';
 import productInfoStyle from '../css/productInfoStyle.css';
 import shopStyle from '../css/shopStyle.css';
+import commentStyle from '../css/commentStyle.css';
+
 
 @inject (['productDetail'])
 @inject (['shoppingList'])
@@ -71,10 +73,11 @@ import shopStyle from '../css/shopStyle.css';
                             {this.props.productDetail.product.selectCount > 0?
                                 <Text className={productInfoStyle.product_count}>{this.props.productDetail.product.selectCount}</Text>:""}
                             <Button className={productInfoStyle.product_increase} onClick={this.increase.bind(this)} />
-                        </View>:<Button onClick={this.showWaterTickets.bind(this)}>加入购物车</Button>}
+                        </View>:<Button className={productInfoStyle.add_btn} onClick={this.showWaterTickets.bind(this)}>加入购物车</Button>}
                     </View>
                 </View>
 
+                <Comment />
                 {this.props.productDetail.waterTicket.show?<ProductListDialogView waterTicket={this.props.productDetail.waterTicket}/>:""}
                 {this.props.shoppingList.show?<ShoppingCartView />:''}
                 <ShopFooterView history={this.props.history}/>
@@ -84,6 +87,58 @@ import shopStyle from '../css/shopStyle.css';
 }
 
 
+@inject(['productDetail'])
+@observer class Comment extends Component{
+    constructor(props){
+        super(props);
+    }
+    render(){
+        let commentNodes = this.props.productDetail.commonModels.map((commentItem,index)=>{
+            let picNodes = commentItem.imageUrlList.map((imgItem,index)=>{
+                return (
+                    <li className={commentStyle.comment_img_protect}>
+                        <img src={imgItem} alt="" className={commentStyle.comment_img}/>
+                    </li>
+                )
+            });
+
+            return (
+                <li className={commentStyle.comment_box}>
+                    <View className={commentStyle.comment_user}>
+                        <View className={commentStyle.comment_user_info}>
+                            <View className={commentStyle.comment_user_head_protect}>
+                                <img src={commentItem.userIconUrl} alt="" className={commentStyle.comment_user_head_img}/>
+                            </View>
+                            <View className={commentStyle.user_name_score}>
+                                <Text>{commentItem.userName}</Text>
+                                <Text>{commentItem.score}</Text>
+                            </View>
+                        </View>
+                        <Text className={commentStyle.comment_time}>{commentItem.commentTime}</Text>
+                    </View>
+                    <View className={commentStyle.comment_text}>
+                        {commentItem.comment}
+                    </View>
+                    <ul className={commentStyle.pic_list}>
+                        {picNodes}
+                    </ul>
+                </li>
+            )
+        });
+
+        return (
+            <View className={commentStyle.comment_bg}>
+                <View className={commentStyle.title}>
+                    <Text>商品评价</Text>
+                    <Text>({this.props.productDetail.commonModels.length})</Text>
+                </View>
+                <ul>
+                    {commentNodes}
+                </ul>
+            </View>
+        )
+    }
+}
 
 
 module.exports = ProductDetailView;

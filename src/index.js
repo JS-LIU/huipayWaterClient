@@ -115,7 +115,7 @@ function GetQueryString(name){
     var r = window.location.search.substr(1).match(reg);
     if(r!=null)return  unescape(r[2]); return null;
 }
-let shopId = 3;
+let shopId = 1;
 
 const historyPath = new HistoryPath();
 

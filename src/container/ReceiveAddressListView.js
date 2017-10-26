@@ -31,7 +31,7 @@ import receiveAddressListStyle from '../css/receiveAddressListStyle.css';
     }
     removeAddress(item){
         return ()=>{
-            this.props.addressList.remove(item);
+            this.props.addressList.removeItem(item);
         }
     }
     editAddress(item){

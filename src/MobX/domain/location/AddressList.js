@@ -88,7 +88,7 @@ class AddressList{
             console.log(data);
         });
     }
-    @action remove(item){
+    @action removeItem(item){
         this.removeAddress({
             deliveryAddressId:item.id
         }).then(()=>{
@@ -96,8 +96,8 @@ class AddressList{
                 return ele.id === item.id
             }
 
-            let index = this.list.findIndex(equalId);
-            this.list.splice(index,1);
+            let index = this._list.findIndex(equalId);
+            this._list.splice(index,1);
 
 
         }).catch(()=>{

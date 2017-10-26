@@ -50,17 +50,6 @@ class ProductDetail {
         return this._info;
     }
 
-    // @observable _showDialog  = false;
-    // @computed get showDialog(){
-    //     return this._showDialog;
-    // }
-    // @action showWaterTickets(){
-    //     this._showDialog = true;
-    // }
-    // @action closeWaterTickets(){
-    //     this._showDialog = false;
-    // }
-
     @computed get waterTicket(){
         let list = [];
         for(let i = 0;i < this._info.productItemModels.length;i++){
@@ -74,9 +63,7 @@ class ProductDetail {
             list.push(product);
         }
 
-        let waterTicket = new WaterTicket(this._info.name,this._info.type,this._info.imageUrl,list);
-        console.log(waterTicket);
-        return waterTicket;
+        return new WaterTicket(this._info.name,this._info.type,this._info.imageUrl,list);
     }
     @computed get product(){
         let self = this;

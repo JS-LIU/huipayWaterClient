@@ -101,12 +101,13 @@ import {observer,inject} from 'mobx-react';
 
 
 @inject(['order'])
+@inject(['addressList'])
 @observer class OrderFooterView extends Component{
     constructor(props){
         super(props);
     }
     createOrder(){
-        // this.props.order.createOrderId(this.props.activeAddress.deliverAddress.id,"");
+        this.props.order.createOrderId(this.props.addressList.activeAddress.id,"");
     }
     render(){
         return (
@@ -116,12 +117,15 @@ import {observer,inject} from 'mobx-react';
                     <Text className={createOrderStyle.pay_title}>实付款</Text>
                     <Text className={createOrderStyle.total_price}>￥{this.props.order.totalPayMount / 100}</Text>
                 </View>
-                {/*{this.props.activeAddress.deliverAddress?<Link to="/paySuccess" replace className={createOrderStyle.submit_order} onClick={this.createOrder.bind(this)}>*/}
-                    {/*<Text className={createOrderStyle.pay}>立即下单</Text>*/}
-                {/*</Link>:}*/}
-                <Button className={createOrderStyle.cant_submit_order}>
-                    <Text className={createOrderStyle.pay}>立即下单</Text>
-                </Button>
+                {this.props.addressList.activeAddress?
+                    <Link to="/paySuccess"
+                          replace
+                          className={createOrderStyle.submit_order}
+                          onClick={this.createOrder.bind(this)}>
+                        <Text className={createOrderStyle.pay}>立即下单</Text>
+                    </Link>:<Button className={createOrderStyle.cant_submit_order}>
+                        <Text className={createOrderStyle.pay}>立即下单</Text>
+                    </Button>}
 
             </View>
         )
