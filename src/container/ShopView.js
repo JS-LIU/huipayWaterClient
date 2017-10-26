@@ -12,10 +12,15 @@ import ScrollView from '../components/ScrollView';
 import ReceiveAddressView from './ReceiveAddressView';
 import HeadShopInfoView from './HeadShopInfoView'
 import ProductListDialogView from './ProductListDialogView';
+import ShopFooterView from './ShopFooterView';
+import ShoppingCartView from './ShoppingCartView';
 
 import myStyle from '../css/myStyle.css';
 import shopStyle from '../css/shopStyle.css';
 import _h from '../Util/HB';
+
+
+
 //  MobX
 import {observer,inject} from 'mobx-react';
 @inject(['shoppingList'])
@@ -48,8 +53,8 @@ import {observer,inject} from 'mobx-react';
                     <ProductList />
                 </View>
                 <Link to="/my" className={myStyle.link_my}/>
-                <ShopFooter history={this.props.history}/>
-                {this.props.shoppingList.show?<ShoppingCart />:''}
+                <ShopFooterView history={this.props.history}/>
+                {this.props.shoppingList.show?<ShoppingCartView />:''}
                 {this.props.shoppingList.activeProductItem.show?<ProductListDialogView waterTicket={this.props.shoppingList.activeProductItem}/>:""}
             </View>
         )
@@ -219,98 +224,6 @@ import {observer,inject} from 'mobx-react';
 }
 
 
-
-@inject(['shoppingList'])
-@observer class ShoppingCart extends Component{
-    constructor(props){
-        super(props)
-    }
-    increase(productItem){
-        return()=>{
-            productItem.increase();
-        }
-    }
-    reduce(productItem){
-        return ()=>{
-            productItem.reduce();
-        }
-    }
-    clearShoppingCart(){
-        this.props.shoppingList.clearShoppingCart()
-    }
-    render(){
-        let productNodes = this.props.shoppingList.shoppingCart.map((productItem,index)=>{
-            return (
-                <li key={index} className={shopStyle.shopping_cart_product}>
-                    <View className={shopStyle.shopping_cart_product_info}>
-                        <Text className={shopStyle.shopping_cart_product_name}>{productItem.name}</Text>
-                        {productItem.type === "waterTicket"?<Text className={shopStyle.shopping_cart_product_specification}>{productItem.productName}</Text>:''}
-                        <View className={shopStyle.shopping_cart_product_price}>
-                            <Text>￥</Text>
-                            <Text className={shopStyle.shopping_cart_product_total_price}>{productItem.currentPrice / 100}</Text>
-                        </View>
-                    </View>
-                    <View className={shopStyle.product_item_ctrl}>
-                        <Button className={shopStyle.product_reduce} onClick={this.reduce(productItem)} />
-                        <Text className={shopStyle.product_count}>{productItem.selectCount}</Text>
-                        <Button className={shopStyle.product_increase} onClick={this.increase(productItem)} />
-                    </View>
-                </li>
-            )
-
-        });
-        return (
-            <View className={shopStyle.shopping_cart}>
-                <ul className={shopStyle.shopping_cart_title}>
-                    <li className={shopStyle.shopping_cart_title_text}>已选商品</li>
-                    <li>
-                        <Button
-                            className={shopStyle.shopping_cart_clear_all}
-                            onClick={this.clearShoppingCart.bind(this)}
-                        >清空</Button>
-                    </li>
-                </ul>
-                <ul className={shopStyle.shopping_cart_list}>
-                    {productNodes}
-                </ul>
-            </View>
-
-        )
-    }
-}
-
-@inject (['shoppingList'])
-@inject (['order'])
-@inject (['shopInfo'])
-@observer class ShopFooter extends Component{
-    constructor(props){
-        super(props);
-    }
-    showShoppingCart(){
-        this.props.shoppingList.showShoppingCart();
-    }
-    confirmOrder(){
-        this.props.order.setOrderType({shopId:this.props.shopInfo.shopId});
-        this.props.order.getSettleOrder({shopId:this.props.shopInfo.shopId},"default",this.props.history);
-    }
-    render(){
-        return (
-            <View className={shopStyle.shop_footer}>
-                <View className={shopStyle.shopping_cart_info}>
-                    <Button className={shopStyle.shopping_cart_btn} onClick={this.showShoppingCart.bind(this)}>
-                        <View className={shopStyle.shopping_cart_total_count}>{this.props.shoppingList.totalCount}</View>
-                    </Button>
-                    <ul className={shopStyle.shopping_cart_info_total}>
-                        <li className={shopStyle.shopping_cart_info_total_price_title}>共</li>
-                        <li className={shopStyle.shopping_cart_info_total_price_rmb}>￥</li>
-                        <li className={shopStyle.shopping_cart_info_total_price}>{this.props.shoppingList.totalPrice / 100}</li>
-                    </ul>
-                </View>
-                {this.props.shoppingList.shoppingCart.length > 0?<Link to='/confirmOrder' className={shopStyle.confirm_order_btn} onClick={this.confirmOrder.bind(this)}>去结算</Link>:<View className={shopStyle.cant_confirm_order_btn}>去结算</View>}
-            </View>
-        )
-    }
-}
 module.exports = ShopView;
 const selectedColor = {
     color:"#399cfe",

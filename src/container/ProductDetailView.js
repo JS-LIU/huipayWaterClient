@@ -13,18 +13,24 @@ import Carousel from '../components/Carousel';
 import {Link} from 'react-router-dom';
 
 import ProductListDialogView from './ProductListDialogView';
-
+import ShopFooterView from './ShopFooterView';
+import ShoppingCartView from './ShoppingCartView';
 import productInfoStyle from '../css/productInfoStyle.css';
+import shopStyle from '../css/shopStyle.css';
 
-
-@inject(['productDetail'])
+@inject (['productDetail'])
+@inject (['shoppingList'])
 
 @observer class ProductDetailView extends Component{
     constructor(props){
         super(props);
     }
     componentWillMount(){
+        this.props.shoppingList.getList();
         this.props.productDetail.getDetail();
+    }
+    componentWillUnmount(){
+        this.props.productDetail.waterTicket.closeProductList();
     }
     increase(){
         this.props.productDetail.product.increase();
@@ -33,13 +39,15 @@ import productInfoStyle from '../css/productInfoStyle.css';
         this.props.productDetail.product.reduce();
     }
     showWaterTickets(){
-        this.props.productDetail.showWaterTickets();
+        this.props.productDetail.waterTicket.showProductList();
         this.props.productDetail.waterTicket.productItemModels[0].selectedItem();
         this.props.productDetail.setProductId(this.props.productDetail.waterTicket.findSelectedProductItem().productItemId);
     }
     render(){
         return (
             <View className={productInfoStyle.wrap}>
+                {this.props.shoppingList.show?<View className={shopStyle.shadow}/>:''}
+
                 <Carousel className={productInfoStyle.product_pic_box}
                           list={this.props.productDetail.productImages}/>
                 <View className={productInfoStyle.product_info}>
@@ -67,8 +75,9 @@ import productInfoStyle from '../css/productInfoStyle.css';
                     </View>
                 </View>
 
-                {this.props.productDetail.showDialog?<ProductListDialogView waterTicket={this.props.productDetail.waterTicket}/>:""}
-
+                {this.props.productDetail.waterTicket.show?<ProductListDialogView waterTicket={this.props.productDetail.waterTicket}/>:""}
+                {this.props.shoppingList.show?<ShoppingCartView />:''}
+                <ShopFooterView history={this.props.history}/>
             </View>
         )
     }

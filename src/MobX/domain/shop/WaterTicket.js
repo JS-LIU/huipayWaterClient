@@ -16,7 +16,6 @@ class WaterTicket{
     @computed get productItemModels(){
         return this._productItemModels;
     }
-
     @computed get selectCount(){
         let count = 0;
         for(let i = 0;i < this.productItemModels.length;i++){
@@ -48,7 +47,9 @@ class WaterTicket{
     }
     findSelectedProductItem(){
         let selectedProductItem = function(productItem){
-            return productItem.selected === true;
+            if(productItem.selected){
+                return productItem;
+            }
         };
         return this.productItemModels.find(selectedProductItem);
     }

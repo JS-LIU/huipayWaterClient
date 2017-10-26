@@ -36,10 +36,6 @@ class ProductDetail {
         }).then((data)=>{
             this._commonModels = data.commonModels;
             this._info = data.productModel;
-
-            if(this.shoppingList.tagModelList.length === 0){
-                this.shoppingList.getList();
-            }
         });
 
     }
@@ -54,16 +50,16 @@ class ProductDetail {
         return this._info;
     }
 
-    @observable _showDialog  = false;
-    @computed get showDialog(){
-        return this._showDialog;
-    }
-    @action showWaterTickets(){
-        this._showDialog = true;
-    }
-    @action closeWaterTickets(){
-        this._showDialog = false;
-    }
+    // @observable _showDialog  = false;
+    // @computed get showDialog(){
+    //     return this._showDialog;
+    // }
+    // @action showWaterTickets(){
+    //     this._showDialog = true;
+    // }
+    // @action closeWaterTickets(){
+    //     this._showDialog = false;
+    // }
 
     @computed get waterTicket(){
         let list = [];
@@ -77,7 +73,10 @@ class ProductDetail {
             let product = this.shoppingList.noRepeatProductList.find(findProduct);
             list.push(product);
         }
-        return new WaterTicket(this._info.name,this._info.type,this._info.imageUrl,list)
+
+        let waterTicket = new WaterTicket(this._info.name,this._info.type,this._info.imageUrl,list);
+        console.log(waterTicket);
+        return waterTicket;
     }
     @computed get product(){
         let self = this;
@@ -90,7 +89,6 @@ class ProductDetail {
     }
     @computed get productImages(){
         let list = [];
-        console.log(this.product);
         for(let i = 0 ;i < this.product.productImages.length;i++){
             list.push({
                 img:this.product.productImages[i]
