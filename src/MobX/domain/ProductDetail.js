@@ -10,10 +10,11 @@ import star_half from '../../images/star-6@2x.png';
 import star_empty from '../../images/star-7@2x.png';
 
 class ProductDetail {
-    constructor(login,shoppingList,shopInfo,){
+    constructor(login,shoppingList,shopInfo,productItemId){
         this.login = login;
         this.shoppingList = shoppingList;
         this.shopId = shopInfo.shopId;
+        this.productItemId = productItemId;
 
         this.setStarList = function(score){
             let list = [];
@@ -109,7 +110,7 @@ class ProductDetail {
     }
     @observable _productId;
     @computed get productId(){
-        return this._productId;
+        return this._productId || this.productItemId;
     }
 
 }

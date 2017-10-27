@@ -110,17 +110,26 @@ const App = ()=>(
 
 
 //  获取search
-function GetQueryString(name){
+function getQueryString(name){
     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);
     if(r!=null)return  unescape(r[2]); return null;
 }
-let shopId = 1;
+
+
+let searchInfo = (function(){
+    let shopId = getQueryString("shopId") || 1;
+    let productItemId = getQueryString("productItemId");
+    return {
+        shopId:shopId,
+        productItemId:productItemId
+    }
+})();
+
 
 const historyPath = new HistoryPath();
 
-
-const prepare = new Prepare();
+const prepare = new Prepare(searchInfo);
 const login = new Login(access_secret,access_token);
 
 const position = new Position();
@@ -132,7 +141,7 @@ const autoComplete = new AutoComplete(position,customAddress);
 const my = new My(login);
 const orderList = new OrderList(login);
 
-const shopInfo = new ShopInfo(login,position,shopId);
+const shopInfo = new ShopInfo(login,position,searchInfo.shopId);
 const shoppingList = new ShoppingList(rem2pxRate,login,shopInfo);
 const useWaterTicketList = new UseWaterTicketList(login,shopInfo);
 const order = new Order(login,shopInfo);
