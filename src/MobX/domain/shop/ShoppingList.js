@@ -8,6 +8,8 @@ import TypeItem from './TypeItem';
 import Product from './Product';
 
 
+
+
 class ShoppingList {
     constructor(rem2pxRate, login,shopInfo) {
         this.rem2pxRate = rem2pxRate;
@@ -24,6 +26,7 @@ class ShoppingList {
         }.before(function (postInfo) {
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
         });
+
         this.clearProductList = function (postInfo) {
             return ajax.save({action: "clear"}, postInfo)
         }.before(function (postInfo) {
@@ -35,9 +38,12 @@ class ShoppingList {
         this.productListTitleHeight = this.rem2pxRate * 0.61;
     }
 
-    @action getList() {
+    @action getList(history) {
         this.getProductList({shopId:this.shopId}).then((list) => {
             this._tagModelList = list.tagModelList;
+        }).catch(()=>{
+            localStorage.clear();
+            this.login.autoLogin(history)
         });
     }
 

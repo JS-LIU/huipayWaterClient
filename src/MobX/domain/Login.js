@@ -19,6 +19,12 @@ class Login{
     @observable _access_secret;
     @observable _access_token;
 
+
+    //  todo 重构
+    @computed get access_secret(){
+       return this._access_token;
+    }
+
     @computed get postDataAccessInfo(){
         return {
             accessInfo:{
@@ -67,7 +73,6 @@ class Login{
             checkCode:this._checkCode
         };
         _h.ajax.resource('/login/user').save({},postData).then((loginInfo)=>{
-            console.log(loginInfo);
             this._access_secret = loginInfo.access_secret;
             this._access_token = loginInfo.access_token;
             this._isLogin = true;
@@ -98,7 +103,6 @@ class Login{
             goUrl();
         }).catch((data)=>{
             console.log(data);
-            alert('验证码错误');
         })
     }
 

@@ -33,7 +33,7 @@ import {observer,inject} from 'mobx-react';
             <View className={myStyle.wrap}>
                 <View className={myStyle.header}>
                     <View className={myStyle.user_img_protect}>
-                        {/*<img src="http://localhost/images/head_def.gif" alt="" className={myStyle.user_img}/>*/}
+                        <img src={this.props.my.userInfo.userIconUrl} alt="" className={myStyle.user_img}/>
                     </View>
                     <View className={myStyle.user_info}>
                         <Text className={myStyle.user_name}>{this.props.my.userInfo.userName}</Text>

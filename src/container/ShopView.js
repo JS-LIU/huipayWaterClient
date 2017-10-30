@@ -24,17 +24,20 @@ import _h from '../Util/HB';
 //  MobX
 import {observer,inject} from 'mobx-react';
 @inject(['shoppingList'])
+@inject(['login'])
 @observer class ShopView extends Component{
     constructor(props){
         super(props);
     }
     componentWillMount(){
-        this.props.shoppingList.getList();
+        this.props.shoppingList.getList(this.props.history);
     }
     showShoppingCart(){
         this.props.shoppingList.showShoppingCart();
     }
     render(){
+        //  todo 跟login 一起重构
+        console.log(this.props.login.access_secret);
         let clientHeight = document.body.clientHeight;
         let remRate = _h.ui.parsePx();
         let maxHeight = clientHeight + (3 * remRate);

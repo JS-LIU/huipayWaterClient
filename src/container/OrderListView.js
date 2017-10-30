@@ -32,7 +32,7 @@ import {observer,inject} from 'mobx-react';
                  return (
                      <li key={index} className={orderListStyle.order_product_item}>
                          <View className={orderListStyle.order_product_img_protect}>
-                             <img src={productItem.productImage} alt="" className={orderListStyle.order_product_img}/>
+                             <img src={productItem.productImage[index]} alt="" className={orderListStyle.order_product_img}/>
                          </View>
                          <View className={orderListStyle.order_product_info}>
                              <Text className={orderListStyle.order_product_name}>{productItem.name}</Text>

@@ -17,12 +17,38 @@ class UseWaterTicketList{
         });
     }
 
-    @action getList(){
+    splitByStatus(waterTicketList){
+        for(let i = 0;i < waterTicketList.length;i++){
+            if(waterTicketList[i].status === "未使用"){
+                this._list.push(waterTicketList[i]);
+            }else{
+                this._cantUseList.push(waterTicketList[i]);
+            }
+        }
+    }
+
+
+    @action getList(func = ()=>{return null}){
         this.getTicketList({}).then((data)=>{
-            this._list = data.userWaterTicketModelList;
+
+            //  可以使用列表
+            this._list = [];
+
+            //  已经使用列表
+            this._cantUseList = [];
+            let waterTicketList = data.userWaterTicketModelList;
+            this.splitByStatus(waterTicketList);
+            func();
         })
     }
+    //  可使用
     @observable _list = [];
+
+    //  已经使用列表
+    @observable _cantUseList = [];
+    @computed get cantUseList(){
+        return this._cantUseList;
+    }
     //  水票列表
     @computed get list(){
         return this._list;
@@ -32,8 +58,7 @@ class UseWaterTicketList{
          * 重新获取水票列表 防止水票列表有变化（被使用了 购买了等情况）
          */
         this._useTicket = [];
-        this.getTicketList({}).then((data)=>{
-            this._list = data.userWaterTicketModelList;
+        this.getList(()=>{
             for(let i = 0; i < this._list.length; i++){
                 let self = this;
                 function canUseTicket(item){
@@ -46,7 +71,6 @@ class UseWaterTicketList{
                 if(useTicket){
                     this._useTicket.push(new Ticket(this.shopId,this.login,this._list[i],true,useTicket));
                 }else{
-                    console.log(this._list[i]);
                     this._useTicket.push(new Ticket(this.shopId,this.login,this._list[i],false));
                 }
 

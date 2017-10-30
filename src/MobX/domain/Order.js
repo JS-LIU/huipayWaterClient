@@ -46,18 +46,23 @@ class Order {
             let list = orderProductInfo.productItemModels;
             for(let i = 0,len = list.length;i < len;i++){
 
-                if(this.orderType.userTicketId){
+                if(this.orderType.userTicketId){    //  从水票列表结算单个商品
                     this._productList.push(new OrderProduct(this.shopId,this.login,list[i],true,this._orderType,this._orderTicket));
+                    this._productItemId = this._productList[0].productItemId;
                 }else{
                     this._productList.push(new OrderProduct(this.shopId,this.login,list[i]));
+                    this._productItemId = null;
                 }
             }
         }).catch((data)=>{
             console.log(data);
+            // g.checkError(data.message,history);
             history.push('/login');
         })
-
     }
+    //  从水票列表结算单个商品
+    @observable _productItemId = "";
+
     @observable _orderTicket = {};
     @computed get orderTicket(){
         console.log(this._orderTicket);
@@ -80,12 +85,13 @@ class Order {
         return this._shopName;
     }
 
-    @action createOrderId(addressId,payType,shopId){
+    @action createOrderId(addressId,payType){
 
         let postData = {
-            shopId:shopId,
+            shopId:this.shopId,
             deliveryAddressId:addressId,
             payType:payType,
+            productItemId:this._productItemId
         };
         this.createOrder(postData).then((data)=>{
             this._info = data;

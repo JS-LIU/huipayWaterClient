@@ -23,7 +23,10 @@ class My{
             this._userInfo = data;
         }).catch((data)=>{
             console.log(data);
-            history.push('/login');
+            if(data.responseJSON.message === "需要用户正式登录"){
+                history.push('/login');
+            }
+
         })
     }
     @observable _userInfo = {};

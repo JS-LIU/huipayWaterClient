@@ -14,7 +14,6 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     componentWillMount(){
-        console.log(this.props.order.orderTicket.list);
         this.props.useWaterTicketList.getUseTicket(this.props.order.orderTicket.list);
     }
     reduce(waterTicket){
