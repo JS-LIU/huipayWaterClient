@@ -28,7 +28,7 @@ import {observer,inject} from 'mobx-react';
                 <ConfirmReceiveAddressView/>
                 <View className={createOrderStyle.pay_way}>
                     <Text className={createOrderStyle.pay_way_title}>支付方式</Text>
-                    <Text className={createOrderStyle.pay_way_selected}>货到付款</Text>
+                    <Text>在线支付</Text>
                 </View>
                 <OrderListView/>
                 <OrderFooterView/>
@@ -41,9 +41,6 @@ import {observer,inject} from 'mobx-react';
 @observer class OrderListView extends Component{
     constructor(props){
         super(props);
-    }
-    componentWillUnmount(){
-        // this.props.order.clearList();
     }
     reduce(productItem){
         return ()=>{
@@ -107,7 +104,7 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     createOrder(){
-        this.props.order.createOrderId(this.props.addressList.activeAddress.id,"");
+        this.props.order.createOrderId(this.props.addressList.activeAddress.id);
     }
     render(){
         return (
@@ -118,7 +115,7 @@ import {observer,inject} from 'mobx-react';
                     <Text className={createOrderStyle.total_price}>￥{this.props.order.totalPayMount / 100}</Text>
                 </View>
                 {this.props.addressList.activeAddress?
-                    <Link to="/paySuccess"
+                    <Link to={this.props.totalPrice === 0?"/paySuccess":"/payWay"}
                           replace
                           className={createOrderStyle.submit_order}
                           onClick={this.createOrder.bind(this)}>

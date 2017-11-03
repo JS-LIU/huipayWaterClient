@@ -6,7 +6,6 @@ class Prepare{
         this.type = "shop";
         this.pageUrl = "/shop";
         if(searchInfo.shopId && searchInfo.productItemId){
-            console.log("/productDetail");
             this.pageUrl = "/productDetail";
         }else if(searchInfo.shopId){
             this.pageUrl = "/shop";

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1"/>
+    <meta name="Liudq" content="Administrator"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <script src="jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="src/css/payWayStyle.css">
+    <title>Title</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="pay_box">
+            <span class="pay_way_price_title">实付金额</span>
+            <span class="pay_way_price"></span>
+        </div>
+        <div class="pay_way_title">选择支付方式</div>
+        <div class="pay_way_wx">
+            <div class="pay_way_wx_box">
+                <span class="pay_way_pay_title">微信支付</span>
+                <span class="pay_way_pay_zs">由于微信单方面原因，在微信环境下只能使用微信支付</span>
+            </div>
+
+        </div>
+
+        <a class="pay_btn">
+            支付
+        </a>
+    </div>
+</body>
+</html>
+<script type="application/javascript">
+    const setBaseFontSize = function(designWidth,rem2px){
+        var d = window.document.createElement('div');
+        d.style.width = '1rem';
+        d.style.display = "none";
+        var head = window.document.getElementsByTagName('head')[0];
+        head.appendChild(d);
+        var defaultFontSize = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+        d.remove();
+        document.documentElement.style.fontSize = window.innerWidth / designWidth * rem2px / defaultFontSize * 100 + '%';
+        var st = document.createElement('style');
+        var portrait = "@media screen and (min-width: "+window.innerWidth+"px) {html{font-size:"+ ((window.innerWidth/(designWidth/rem2px)/defaultFontSize)*100) +"%;}}";
+        var landscape = "@media screen and (min-width: "+window.innerHeight+"px) {html{font-size:"+ ((window.innerHeight/(designWidth/rem2px)/defaultFontSize)*100) +"%;}}"
+        st.innerHTML = portrait + landscape;
+        head.appendChild(st);
+        return defaultFontSize
+    };
+    setBaseFontSize(750,100);
+
+    $('pay_way_price').html(localStorage.totalPrice);
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    var code = GetQueryString('code');
+    var url = document.location.href;
+    if(!code){
+        window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb405694f0dbfe6df&redirect_uri="+url+"&response_type=code&scope=snsapi_base&state=1#wechat_redirect";
+    }else{
+        code = GetQueryString('code');
+        (function pay(){
+            var data = {
+                payChannel:"WeixinJSPay",
+                orderId:localStorage.orderId,
+                accessInfo:{
+                    access_secret:localStorage.access_secret,
+                    access_token:localStorage.access_token,
+                    app_key:"b5958b665e0b4d8cae77d28e1ad3f521"
+                }
+            };
+
+            $.ajax({
+                type:"POST",
+                url:"http://www.huipay.com/huibeiwater/client/pay/confirm",
+                data:data,
+                contentType:'application/json; charset=utf-8',
+                async:false,
+            }).done((data)=>{
+                console.log("重定向成功，获取支付信息：",data);
+                function onBridgeReady(){
+                    WeixinJSBridge.invoke(
+                        'getBrandWCPayRequest', {
+                            "appId" : data.wexinSpec.appid,                                 //  公众号名称，由商户传入
+                            "timeStamp":data.wexinSpec.timestamp,                           //  时间戳，自1970年以来的秒数
+                            "nonceStr" : data.wexinSpec.noncestr,                           //  随机串
+                            "package" : data.wexinSpec.packageValue,
+                            "signType" : "MD5",                                             //  微信签名方式：
+                            "paySign" : data.wexinSpec.sign                                 //  微信签名
+                        },
+                        function(res){
+                            if(res.err_msg == "get_brand_wcpay_request:ok" ) {              //  使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+//                                var path = "pay/query";
+//
+//                                payPost.postData(queryOrderData.getData(),path).success(function(data){
+//                                    var data = JSON.stringify(data);
+//                                    window.location.href= "06-main.html";
+//                                }).error(function(errData){
+//                                    var errData = JSON.stringify(errData);
+//                                });
+                                window.location.href = "http://huipay.com/huibeiwater/huipayWaterClientWap/index.html?shopId="+localStorage.shopId;
+                            }
+                        }
+                    )
+                }
+                if (typeof WeixinJSBridge == "undefined"){
+                    if( document.addEventListener ){
+                        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                    }else if (document.attachEvent){
+                        document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                    }
+                }else{
+                    onBridgeReady();
+                }
+            });
+        })();
+    }
+
+</script>

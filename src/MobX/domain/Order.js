@@ -24,10 +24,63 @@ class Order {
     }
 
     @observable _shopId = "";
+    @observable _shopName = "";
+    @observable _orderTicket = {};
+    @observable _orderType;
+    @observable _productList = [];  //  结算商品列表
+    @observable _info = {};
+    @observable _ticketList = [];
+    @observable _totalCount;
+    @observable _totalPayMount;
+    @observable _totalPrice;
+    @observable _payType = "online";
+
+
+    @observable _productItemId = "";    //  从水票列表结算单个商品 内部使用
+
     @computed get shopId(){
         return this._shopId;
     }
-    @observable _shopName = "";
+    @computed get orderTicket(){
+        console.log(this._orderTicket);
+        return this._orderTicket;
+    }
+    @computed get orderType(){
+        return this._orderType;
+    }
+
+    @computed get productList(){
+        return this._productList;
+    }
+    @computed get shopName(){
+        return this._shopName;
+    }
+    @computed get info(){
+        return this._info;
+    }
+    @computed get ticketList(){
+        return this._ticketList;
+    }
+
+    @computed get totalCount(){
+        return this._totalCount;
+    }
+
+    @computed get totalPayMount(){
+        return this._totalPayMount;
+    }
+
+    @computed get totalPrice(){
+        return this._totalPrice;
+    }
+    @computed get payType(){
+        return this._payType;
+    }
+
+    @action setPayType(payType){
+        this._payType = payType;
+    }
+
     @action getSettleOrder(postData,action,history){
         this.settleOrder(postData,action).then((data)=>{
             this._shopName = data.shopName;
@@ -60,69 +113,31 @@ class Order {
             history.push('/login');
         })
     }
-    //  从水票列表结算单个商品
-    @observable _productItemId = "";
 
-    @observable _orderTicket = {};
-    @computed get orderTicket(){
-        console.log(this._orderTicket);
-        return this._orderTicket;
-    }
-    @observable _orderType;
     @action setOrderType(type){
         this._orderType = type;
     }
-    @computed get orderType(){
-        return this._orderType;
-    }
 
-    //  结算商品列表
-    @observable _productList = [];
-    @computed get productList(){
-        return this._productList;
-    }
-    @computed get shopName(){
-        return this._shopName;
-    }
-
-    @action createOrderId(addressId,payType){
+    @action createOrderId(addressId){
 
         let postData = {
             shopId:this.shopId,
             deliveryAddressId:addressId,
-            payType:payType,
+            payType:this.payType,
             productItemId:this._productItemId
         };
         this.createOrder(postData).then((data)=>{
+            localStorage.orderId = data.orderId;
+            localStorage.totalPrice = data.totalPrice;
             this._info = data;
         })
     }
-    @observable _info = {};
-    @computed get info(){
-        return this._info;
-    }
 
-    //  view销毁时 调用防止 再次结算出现闪屏现象
+    //  todo 暂时没用 view销毁时 调用防止 再次结算出现闪屏现象
     @action clearList(){
         this._productList = [];
     }
 
-    @observable _ticketList = [];
-    @computed get ticketList(){
-        return this._ticketList;
-    }
-    @observable _totalCount;
-    @computed get totalCount(){
-        return this._totalCount;
-    }
-    @observable _totalPayMount;
-    @computed get totalPayMount(){
-        return this._totalPayMount;
-    }
-    @observable _totalPrice;
-    @computed get totalPrice(){
-        return this._totalPrice;
-    }
 }
 
 

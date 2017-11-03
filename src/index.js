@@ -31,6 +31,8 @@ import MapView from './container/MapView';
 import CreateOrEditAddressView from './container/CreateOrEditAddressView';
 import PrepareView from './container/PrepareView';
 import ReceiverListView from './container/ReceiverListView';
+import PayWayView from './container/PayWayView';
+
 
 //  MobX
 import Prepare from './MobX/domain/Prepare';
@@ -48,9 +50,6 @@ import UseWaterTicketList from './MobX/domain/UseWaterTicketList';
 import ProductDetail from './MobX/domain/ProductDetail';
 import Order from './MobX/domain/Order';
 
-//  todo 删除RR辅助类
-import HistoryPath from './MobX/domain/HistoryPath';
-
 //  resetFontSize
 _h.ui.setBaseFontSize(750,100);
 
@@ -67,39 +66,23 @@ const App = ()=>(
         <div>
             <Redirect to="/prepare"/>
             <Switch>
-                {/*有用*/}
                 <Route path='/prepare' component={PrepareView} />
-                {/*有用*/}
                 <Route path="/shop" component={ShopView} />
-                {/*有用*/}
                 <Route path='/login' component={LoginView} />
-                {/*有用*/}
                 <Route path="/confirmOrder" component={CreateOrderView}/>
-                {/*有用*/}
                 <Route path="/my" component={MyView}/>
-                {/*有用*/}
                 <Route path="/addressList" component={AddressListView} />
-                {/*有用*/}
                 <Route path="/map" component={MapView}/>
-                {/*有用*/}
                 <Route path="/createOrEditAddress" component={CreateOrEditAddressView} />
-                {/*有用*/}
                 <Route path="/paySuccess" component={PaySuccessView} />
-                {/*有用*/}
                 <Route path="/receiverList" component={ReceiverListView} />
-                {/*有用*/}
                 <Route path="/waterTickets" component={WaterTicketsView} />
-                {/*有用*/}
                 <Route path="/useWaterTickets" component={UseWaterTicketsView} />
-                {/*有用*/}
                 <Route path="/autoCompleteAddress" component={AutoCompleteAddressView}/>
-                {/*有用*/}
                 <Route path="/receiveAddressList" component={ReceiveAddressListView}/>
-                {/*有用*/}
                 <Route path="/orderList" component={OrderListView}/>
-                {/*有用*/}
                 <Route path="/productDetail" component={ProductDetailView}/>
-
+                <Route paty="/payWay" component={PayWayView} />
 
             </Switch>
         </div>
@@ -111,14 +94,15 @@ const App = ()=>(
 
 //  获取search
 function getQueryString(name){
-    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-    var r = window.location.search.substr(1).match(reg);
-    if(r!=null)return  unescape(r[2]); return null;
+    let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    let r = window.location.search.substr(1).match(reg);
+    if(r!==null)return  unescape(r[2]); return null;
 }
 
 
 let searchInfo = (function(){
     let shopId = getQueryString("shopId") || 1;
+    localStorage.shopId = shopId;
     let productItemId = getQueryString("productItemId");
     return {
         shopId:shopId,
@@ -127,12 +111,11 @@ let searchInfo = (function(){
 })();
 
 
-const historyPath = new HistoryPath();
 
 const prepare = new Prepare(searchInfo);
-const login = new Login(access_secret,access_token);
+export const login = new Login(access_secret,access_token);
 
-const position = new Position();
+export const position = new Position();
 const addressTagList = new AddressTagList();
 const customAddress = new CustomAddress(position,addressTagList);
 const addressList = new AddressList(login,position);
@@ -161,7 +144,6 @@ const stores = {
     orderList,
     addressList,
     order,
-    historyPath,
     customAddress,
     autoComplete,
     productDetail,

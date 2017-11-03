@@ -46,7 +46,7 @@ module.exports = {
         disableHostCheck: true,
         proxy:{
             "**":{
-                target: 'http://123.57.161.212:9931/',
+                target: 'http://www.huipay.com:9931/',
                 // target: 'localhost:8080',
                 secure: false,
                 bypass: function (req, res, proxyOptions) {
