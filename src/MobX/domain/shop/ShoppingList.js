@@ -7,9 +7,6 @@ import _h from '../../../Util/HB';
 import TypeItem from './TypeItem';
 import Product from './Product';
 
-
-
-
 class ShoppingList {
     constructor(rem2pxRate, login,shopInfo) {
         this.rem2pxRate = rem2pxRate;

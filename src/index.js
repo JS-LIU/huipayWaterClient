@@ -113,9 +113,9 @@ let searchInfo = (function(){
 
 
 const prepare = new Prepare(searchInfo);
-export const login = new Login(access_secret,access_token);
+const login = new Login(access_secret,access_token);
 
-export const position = new Position();
+const position = new Position();
 const addressTagList = new AddressTagList();
 const customAddress = new CustomAddress(position,addressTagList);
 const addressList = new AddressList(login,position);

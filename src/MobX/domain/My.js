@@ -1,18 +1,18 @@
 import {observable, computed,action} from "mobx";
 import _h from '../../Util/HB';
+
 class My{
     constructor(login){
         this.login = login;
         let self = this;
+        let ajax = _h.ajax.resource('/user/:action');
         this.getInfo = function(postInfo){
-            return _h.ajax.resource('user/:action')
-                .save({action:"me"},postInfo)
+            return ajax.save({action:"me"},postInfo)
         }.before(function(postInfo){
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
         });
         this.getTicketList = function(postInfo){
-            return _h.ajax.resource('/user/:action')
-                .save({action:"watertickets"},postInfo)
+            return ajax.save({action:"watertickets"},postInfo)
         }.before(function(postInfo){
             postInfo.accessInfo = self.login.postDataAccessInfo.accessInfo;
         });

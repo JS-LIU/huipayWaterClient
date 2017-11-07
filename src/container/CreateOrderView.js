@@ -28,7 +28,7 @@ import {observer,inject} from 'mobx-react';
                 <ConfirmReceiveAddressView/>
                 <View className={createOrderStyle.pay_way}>
                     <Text className={createOrderStyle.pay_way_title}>支付方式</Text>
-                    <Text>在线支付</Text>
+                    <Text className={createOrderStyle.pay_way_online}>在线支付</Text>
                 </View>
                 <OrderListView/>
                 <OrderFooterView/>
