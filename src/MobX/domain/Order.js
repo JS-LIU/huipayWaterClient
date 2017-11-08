@@ -128,7 +128,7 @@ class Order {
         };
         this.createOrder(postData).then((data)=>{
             localStorage.orderId = data.orderId;
-            localStorage.totalPrice = data.totalPrice;
+            localStorage.totalPayMount = data.totalPayMount;
             this._info = data;
         })
     }

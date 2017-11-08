@@ -115,7 +115,7 @@ import {observer,inject} from 'mobx-react';
                     <Text className={createOrderStyle.total_price}>￥{this.props.order.totalPayMount / 100}</Text>
                 </View>
                 {this.props.addressList.activeAddress?
-                    <Link to={this.props.totalPrice === 0?"/paySuccess":"/payWay"}
+                    <Link to={this.props.order.totalPayMount === 0?"/paySuccess":"/payWay"}
                           replace
                           className={createOrderStyle.submit_order}
                           onClick={this.createOrder.bind(this)}>

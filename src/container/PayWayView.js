@@ -19,7 +19,7 @@ import payWayStyle from '../css/payWayStyle.css';
             <View className={payWayStyle.wrap}>
                 <View className={payWayStyle.pay_box}>
                     <Text className={payWayStyle.pay_way_price_title}>实付金额</Text>
-                    <Text className={payWayStyle.pay_way_price}>￥{this.props.order.totalPrice / 100}</Text>
+                    <Text className={payWayStyle.pay_way_price}>￥{this.props.order.totalPayMount / 100}</Text>
                 </View>
                 <View className={payWayStyle.pay_way_title}>选择支付方式</View>
                 <View className={payWayStyle.pay_way_wx}>
