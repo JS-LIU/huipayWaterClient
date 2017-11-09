@@ -128,7 +128,7 @@ const shopInfo = new ShopInfo(login,position,searchInfo.shopId);
 const shoppingList = new ShoppingList(rem2pxRate,login,shopInfo);
 const useWaterTicketList = new UseWaterTicketList(login,shopInfo);
 const order = new Order(login,shopInfo);
-const productDetail = new ProductDetail(login,shoppingList,shopInfo);
+const productDetail = new ProductDetail(login,shoppingList,shopInfo,searchInfo.productItemId);
 
 
 

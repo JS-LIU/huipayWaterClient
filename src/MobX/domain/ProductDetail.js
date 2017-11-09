@@ -14,7 +14,7 @@ class ProductDetail {
         this.login = login;
         this.shoppingList = shoppingList;
         this.shopId = shopInfo.shopId;
-        this.productItemId = productItemId;
+        this._productId = productItemId;
 
         this.setStarList = function(score){
             let list = [];
