@@ -104,6 +104,8 @@ let searchInfo = (function(){
     let shopId = getQueryString("shopId") || 1;
     localStorage.shopId = shopId;
     let productItemId = getQueryString("productItemId");
+    console.log(shopId);
+    console.log(productItemId);
     return {
         shopId:shopId,
         productItemId:productItemId
@@ -112,7 +114,6 @@ let searchInfo = (function(){
 
 
 
-const prepare = new Prepare(searchInfo);
 const login = new Login(access_secret,access_token);
 
 const position = new Position();
@@ -129,7 +130,7 @@ const shoppingList = new ShoppingList(rem2pxRate,login,shopInfo);
 const useWaterTicketList = new UseWaterTicketList(login,shopInfo);
 const order = new Order(login,shopInfo);
 const productDetail = new ProductDetail(login,shoppingList,shopInfo,searchInfo.productItemId);
-
+const prepare = new Prepare(searchInfo);
 
 
 const stores = {
