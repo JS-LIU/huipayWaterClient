@@ -27,7 +27,7 @@ import {observer,inject} from 'mobx-react';
                 <ul className={paySuccessStyle.order_info}>
                     <li className={paySuccessStyle.order_item}>交易单号：{this.props.order.info.orderNo}</li>
                     <li className={paySuccessStyle.order_item}>支付金额：{this.props.order.info.totalPrice / 100}元</li>
-                    <li className={paySuccessStyle.order_item}>支付方式：货到付款</li>
+                    <li className={paySuccessStyle.order_item}>支付方式：在线支付</li>
                 </ul>
                 <Link to="/shop" replace className={paySuccessStyle.order_back}>返回首页</Link>
             </View>

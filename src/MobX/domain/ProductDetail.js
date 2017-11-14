@@ -85,15 +85,12 @@ class ProductDetail {
         return new WaterTicket(this._info.name,this._info.type,this._info.imageUrl,list);
     }
     @computed get product(){
-        console.log(this.productId);
         let self = this;
         function findProduct(item){
-            console.log("item:",item);
             if(item.productItemId === self.productId){
                 return item;
             }
         }
-        console.log(this.shoppingList.noRepeatProductList);
         return this.shoppingList.noRepeatProductList.find(findProduct)||{productImages:[""]}
     }
     @computed get productImages(){

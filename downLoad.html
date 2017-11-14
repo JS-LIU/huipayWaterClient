@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1"/>
+    <meta name="Liudq" content="Administrator"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link rel="stylesheet" href="src/css/downLoadStyle.css">
+    <link rel="stylesheet" href="src/Util/base.css">
+    <title>汇贝下载</title>
+    <script type="application/javascript">
+        const setBaseFontSize = function(designWidth,rem2px){
+            var d = window.document.createElement('div');
+            d.style.width = '1rem';
+            d.style.display = "none";
+            var head = window.document.getElementsByTagName('head')[0];
+            head.appendChild(d);
+            var defaultFontSize = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+            d.remove();
+            document.documentElement.style.fontSize = window.innerWidth / designWidth * rem2px / defaultFontSize * 100 + '%';
+            var st = document.createElement('style');
+            var portrait = "@media screen and (min-width: "+window.innerWidth+"px) {html{font-size:"+ ((window.innerWidth/(designWidth/rem2px)/defaultFontSize)*100) +"%;}}";
+            var landscape = "@media screen and (min-width: "+window.innerHeight+"px) {html{font-size:"+ ((window.innerHeight/(designWidth/rem2px)/defaultFontSize)*100) +"%;}}"
+            st.innerHTML = portrait + landscape;
+            head.appendChild(st);
+            return defaultFontSize
+        };
+        setBaseFontSize(750,100);
+    </script>
+</head>
+<body>
+
+    <div>
+        <div class="huipay_title">
+            <img src="src/images/slogan@2x.png" class="huipay_down_img" alt="汇贝送水，极速送达">
+        </div>
+        <div class="huipay_body">
+            <img src="src/images/img_phone@2x.png" alt="" class="huipay_down_img">
+        </div>
+        <div class="huipay_describe">
+            汇贝是专业的订水O2O平台，主要目的是为了满足消费者对送水业务使用量越来越多的需求，让用户更便捷更简单的使用到优质的垂直电商产品。汇贝将通过资源整合，满足全国订水用户的送水上门的需求，力争做全国最大的饮用水资源调度平台。
+        </div>
+        <div class="download_btn">
+            <a href="https://itunes.apple.com/us/app/汇贝/id1241110545">
+                <span class="ios_link">iPhone下载</span>
+            </a>
+            <a href="http://m.pp.cn/detail.html?appid=7663582&ch_src=pp_dev&ch=default">
+                <span  class="android_link">Android下载</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

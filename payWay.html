@@ -6,29 +6,29 @@
     <meta name="Liudq" content="Administrator"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <script src="./jquery-1.11.3.min.js"></script>
-    <script src="./src/Util/md5.js"></script>
+    <script src="./md5.js"></script>
     <link rel="stylesheet" href="src/css/payWayStyle.css">
     <title>支付</title>
 </head>
 <body>
-    <div class="wrap">
-        <div class="pay_box">
-            <span class="pay_way_price_title">实付金额</span>
-            <span class="pay_way_price"></span>
-        </div>
-        <div class="pay_way_title">选择支付方式</div>
-        <div class="pay_way_wx">
-            <div class="pay_way_wx_box">
-                <span class="pay_way_pay_title">微信支付</span>
-                <span class="pay_way_pay_zs">由于微信单方面原因，在微信环境下只能使用微信支付</span>
-            </div>
-
-        </div>
-
-        <a class="pay_btn">
-            支付
-        </a>
+<div class="wrap">
+    <div class="pay_box">
+        <span class="pay_way_price_title">实付金额</span>
+        <span class="pay_way_price"></span>
     </div>
+    <div class="pay_way_title">选择支付方式</div>
+    <div class="pay_way_wx">
+        <div class="pay_way_wx_box">
+            <span class="pay_way_pay_title">微信支付</span>
+            <span class="pay_way_pay_zs">由于微信单方面原因，在微信环境下只能使用微信支付</span>
+        </div>
+
+    </div>
+
+    <a class="pay_btn">
+        支付
+    </a>
+</div>
 </body>
 </html>
 <script type="application/javascript">
@@ -50,14 +50,14 @@
     };
     setBaseFontSize(750,100);
 
-    $('pay_way_price').html(localStorage.totalPrice);
+    $('.pay_way_price').html("￥："+(localStorage.totalPayMount/100));
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
         if(r!=null)return  unescape(r[2]); return null;
     }
     var code = GetQueryString('code');
-    var url = encodeURIComponent(document.location.href);
+    var url = encodeURIComponent("http://huipay.com/huibeiwater/huipayWaterClientWap/payWay.html");
     if(!code){
         window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb405694f0dbfe6df&redirect_uri="+url+"&response_type=code&scope=snsapi_base&state=1#wechat_redirect";
     }else{
@@ -69,7 +69,7 @@
                 data:JSON.stringify({code:code}),
                 contentType:'application/json; charset=utf-8',
                 async:false,
-            }).done((info)=>{
+            }).done(function(info){
                 var data = {
                     payChannel:"WeixinJSPay",
                     orderId:localStorage.orderId,
@@ -80,14 +80,13 @@
                         app_key:"b5958b665e0b4d8cae77d28e1ad3f521"
                     }
                 };
-                console.log(data);
                 $.ajax({
                     type:"POST",
                     url:"http://huipay.com/huibeiwater/client/pay/confirm",
                     data:JSON.stringify(data),
                     contentType:'application/json; charset=utf-8',
                     async:false,
-                }).done((data)=>{
+                }).done(function(data){
                     function onBridgeReady(){
                         var sign = "appId="+data.wexinSpec.appid+"&nonceStr="+data.wexinSpec.noncestr+
                             "&package=prepay_id="+data.wexinSpec.prepay_id+"&signType=MD5&timeStamp="+
@@ -96,7 +95,7 @@
                         console.log(paySign);
                         WeixinJSBridge.invoke(
                             'getBrandWCPayRequest', {
-                                "appId" : data.wexinSpec.appid,                                 //  公众号名称，由商户传入
+                                "appId" : data.wexinSpec.appid,                                 //  公众号名称由商户传入
                                 "timeStamp":data.wexinSpec.timestamp,                           //  时间戳，自1970年以来的秒数
                                 "nonceStr" : data.wexinSpec.noncestr,                           //  随机串
                                 "package" : "prepay_id="+data.wexinSpec.prepay_id,

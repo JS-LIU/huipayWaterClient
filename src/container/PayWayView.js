@@ -30,7 +30,7 @@ import payWayStyle from '../css/payWayStyle.css';
 
                 </View>
 
-                <a href="http://www.huipay.com:9931/huibeiwater/huipayWaterClientWap/payWay.html" className={payWayStyle.pay_btn}>
+                <a href="http://huipay.com/huibeiwater/huipayWaterClientWap/payWay.html" className={payWayStyle.pay_btn}>
                     支付
                 </a>
             </View>
