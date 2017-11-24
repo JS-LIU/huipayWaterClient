@@ -51,7 +51,7 @@ import {observer,inject} from 'mobx-react';
                         <Link to='/receiverList' className={myStyle.edit_list_title} onClick={this.editAddress.bind(this)}>地址管理</Link>
                     </li>
                     <li className={myStyle.call}>
-                        <a href="tel:4006078300" className={myStyle.call_title}>客服</a>
+                        <a href="tel:400613229" className={myStyle.call_title}>客服</a>
                     </li>
                     <li className={myStyle.logout}>
                         <Link to="/login" className={myStyle.logout_btn} onClick={this.logOut.bind(this)}>退出</Link>

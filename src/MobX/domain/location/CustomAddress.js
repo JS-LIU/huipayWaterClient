@@ -72,6 +72,8 @@ class CustomAddress{
         if(typeof address === "string"){
             this._map.searchAddressDetail(address);
             this._selectedAddress = this._map.showLocationInfo;
+            //  用名字反查寻具体信息的的地址名字可能与使用的名字不同
+            this._selectedAddress.receiveAddress = address;
         }else{
             this._selectedAddress = address;
         }
