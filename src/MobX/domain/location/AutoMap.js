@@ -43,25 +43,23 @@ class AutoMap{
             });
             self.map.addControl(geolocation);
             geolocation.getCurrentPosition();
-            AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+            AMap.event.addListener(geolocation, 'complete', function(data){
+                console.log('============定位成功',data);
+
+                self.showLocationInfo.longitude = data.position.getLng();
+                self.showLocationInfo.latitude = data.position.getLat();
+                self.showLocationInfo.pcode = data.addressComponent.citycode.substring(0,2)+"0000";
+                self.showLocationInfo.province = data.addressComponent.province;
+                self.showLocationInfo.citycode = data.addressComponent.citycode;
+                self.showLocationInfo.city = data.addressComponent.city;
+                self.showLocationInfo.adcode = data.addressComponent.adcode;
+
+                self.showLocationInfo.receiveAddress = data.formattedAddress;
+            });//返回定位信息
             AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
         });
-        function onComplete(data) {
-            console.log('============定位成功',data);
-
-            self.showLocationInfo.longitude = data.position.getLng();
-            self.showLocationInfo.latitude = data.position.getLat();
-            self.showLocationInfo.pcode = data.addressComponent.citycode.substring(0,2)+"0000";
-            self.showLocationInfo.province = data.addressComponent.province;
-            self.showLocationInfo.citycode = data.addressComponent.citycode;
-            self.showLocationInfo.city = data.addressComponent.city;
-            self.showLocationInfo.adcode = data.addressComponent.adcode;
-
-            self.showLocationInfo.receiveAddress = data.formattedAddress;
-
-        }
         function onError(data) {
-            console.log('============定位失败');
+            console.log(data);
             self.showLocationInfo.receiveAddress = '定位失败';
         }
     }
