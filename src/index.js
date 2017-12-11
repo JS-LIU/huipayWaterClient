@@ -104,9 +104,11 @@ let searchInfo = (function(){
     let shopId = getQueryString("shopId") || 1;
     localStorage.shopId = shopId;
     let productItemId = getQueryString("productItemId");
+    let isToWaterTickets = get("isToWaterTickets");
     return {
         shopId:shopId,
-        productItemId:productItemId
+        productItemId:productItemId,
+        isToWaterTickets:isToWaterTickets
     }
 })();
 
