@@ -12,10 +12,6 @@
 </head>
 <body>
 <div class="wrap">
-    <div class="pay_box">
-        <span class="pay_way_price_title">实付金额</span>
-        <span class="pay_way_price"></span>
-    </div>
     <div class="pay_way_title">选择支付方式</div>
     <div class="pay_way_wx">
         <div class="pay_way_wx_box">
@@ -49,8 +45,6 @@
         return defaultFontSize
     };
     setBaseFontSize(750,100);
-
-    $('.pay_way_price').html("￥："+(localStorage.totalPayMount/100));
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
