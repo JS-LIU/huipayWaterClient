@@ -7,10 +7,10 @@ class Prepare{
         this.pageUrl = "/shop";
         if(searchInfo.shopId && searchInfo.productItemId){
             this.pageUrl = "/productDetail";
-        }else if(searchInfo.shopId){
-            this.pageUrl = "/shop";
         }else if(searchInfo.isToWaterTickets){
             this.pageUrl="/waterTickets";
+        }else if(searchInfo.shopId){
+            this.pageUrl = "/shop";
         }
     }
 }

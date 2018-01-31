@@ -16,7 +16,10 @@ import {observer,inject} from 'mobx-react';
         super(props);
     }
     componentWillMount(){
-        this.props.useWaterTicketList.getList();
+        this.props.useWaterTicketList.getList(
+           function(){
+               return null;
+           }, this.props.history);
     }
     useTicket(waterTicket){
         return ()=>{

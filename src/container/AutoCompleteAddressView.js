@@ -40,7 +40,7 @@ import {observer,inject} from 'mobx-react';
             return (
                 <li key={index}
                     className={autoCompleteAddressStyle.address_node}
-                    onClick={this.choose(item.receiveAddress)} >
+                    onClick={this.choose(item)} >
                     <View>
                         <Text className={autoCompleteAddressStyle.consignee_address}>
                             {item.receiveAddress}

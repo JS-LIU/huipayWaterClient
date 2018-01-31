@@ -26,7 +26,7 @@ import {observer,inject} from 'mobx-react';
                       className={activeAddressStyle.head_location}>
                     <span className={activeAddressStyle.location_icon} />
                     <p className={activeAddressStyle.detail_address}>
-                        {this.props.position.homePageAddress.receiveAddress}
+                        {this.props.position.homePageAddress.fullAddress}
                     </p>
                 </Link>
             </View>

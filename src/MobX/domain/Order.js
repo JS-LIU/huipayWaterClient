@@ -156,7 +156,16 @@ class OrderTicket{
     }
 }
 
+
 class OrderProduct{
+    /**
+     * @param shopId
+     * @param login
+     * @param info
+     * @param isCanOperate
+     * @param orderType
+     * @param orderTicket
+     */
     constructor(shopId,login,info,isCanOperate = false,orderType,orderTicket){
         this.name = info.name;
         this.currentPrice = info.currentPrice;

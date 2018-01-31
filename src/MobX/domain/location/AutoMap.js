@@ -5,6 +5,7 @@ import {observable, computed,action,autorun} from "mobx";
 
 
 class AutoMap{
+
     @observable showLocationInfo = {
         longitude : "",
         latitude : "",
@@ -13,7 +14,8 @@ class AutoMap{
         citycode:"",
         city:"",
         adcode:"",
-        receiveAddress : "正在获取当前位置...",
+        fullAddress:"正在获取当前位置...",
+        receiveAddress : "",
     };
 
     @observable _addressList = [];
@@ -53,7 +55,7 @@ class AutoMap{
                 self.showLocationInfo.citycode = data.addressComponent.citycode;
                 self.showLocationInfo.city = data.addressComponent.city;
                 self.showLocationInfo.adcode = data.addressComponent.adcode;
-
+                self.showLocationInfo.fullAddress = data.formattedAddress;
                 self.showLocationInfo.receiveAddress = data.formattedAddress;
             });//返回定位信息
             AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
@@ -76,7 +78,8 @@ class AutoMap{
                         latitude : tips[i].location.lat,
                         adcode: tips[i].adcode,
                         receiveAddress : tips[i].name,
-                        district: tips[i].district
+                        district: tips[i].district,
+                        fullAddress: tips[i].district +  tips[i].name
                     })
                 }
                 self._addressList = list;
@@ -90,6 +93,7 @@ class AutoMap{
         });
         placeSearch.searchNearBy('', lnglat, 200, function(status, result) {
             if (status === 'complete' && result.info === 'OK') {
+                console.log("searchNearAddress:",result);
                 let poiList = result.poiList.pois;
                 let list = [];
                 for(let i = 0;i < result.poiList.pois.length;i++){
@@ -102,6 +106,7 @@ class AutoMap{
                         city:poiList[i].cityname,
                         adcode:poiList[i].adcode,
                         receiveAddress : poiList[i].name,
+                        fullAddress : poiList[i].pname + poiList[i].adname + poiList[i].name,
                     });
                 }
                 self._addressList = list;
@@ -124,7 +129,7 @@ class AutoMap{
         });
         function placeSearch_CallBack(data){
             let poiInfo = data.poiList.pois[0];
-            console.log(poiInfo);
+            console.log("searchAddressDetail:",poiInfo);
             self.showLocationInfo.longitude = poiInfo.location.getLng();
             self.showLocationInfo.latitude = poiInfo.location.getLat();
             self.showLocationInfo.pcode = poiInfo.pcode;
@@ -133,7 +138,7 @@ class AutoMap{
             self.showLocationInfo.city = poiInfo.cityname;
             self.showLocationInfo.adcode = poiInfo.adcode;
             self.showLocationInfo.receiveAddress = poiInfo.name;
-
+            self.showLocationInfo.fullAddress = poiInfo.cityname + poiInfo.adname + poiInfo.name;
             self.city = poiInfo.cityname;
         }
     }
@@ -163,6 +168,7 @@ class AutoMap{
                 self.showLocationInfo.city = regeocode.addressComponent.city;
                 self.showLocationInfo.adcode = regeocode.addressComponent.adcode;
                 self.showLocationInfo.receiveAddress = positionResult.address;
+                self.showLocationInfo.fullAddress = positionResult.address;
             });
 
         });

@@ -28,7 +28,7 @@ class UseWaterTicketList{
     }
 
 
-    @action getList(func = ()=>{return null}){
+    @action getList(func = ()=>{return null},history){
         this.getTicketList({}).then((data)=>{
 
             //  可以使用列表
@@ -39,6 +39,10 @@ class UseWaterTicketList{
             let waterTicketList = data.userWaterTicketModelList;
             this.splitByStatus(waterTicketList);
             func();
+        }).catch((data)=>{
+            if(data.responseJSON.message === "需要用户正式登录"){
+                history.push('/login');
+            }
         })
     }
     //  可使用

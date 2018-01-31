@@ -73,7 +73,7 @@ class CustomAddress{
             this._map.searchAddressDetail(address);
             this._selectedAddress = this._map.showLocationInfo;
             //  用名字反查寻具体信息的的地址名字可能与使用的名字不同
-            this._selectedAddress.receiveAddress = address;
+            this._selectedAddress.fullAddress = address;
         }else{
             this._selectedAddress = address;
         }
@@ -87,10 +87,10 @@ class CustomAddress{
 
     //  显示的地址
     @computed get addressInfo(){
-        if(this._selectedAddress.receiveAddress){
+        if(this._selectedAddress.fullAddress){
             return this._selectedAddress;
         }
-        if(this._beforeAddress.receiveAddress){
+        if(this._beforeAddress.fullAddress){
             return this._beforeAddress;
         }
 

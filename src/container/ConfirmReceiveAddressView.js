@@ -61,7 +61,7 @@ import {observer,inject} from 'mobx-react';
                 </View>
                 <View className={addNewAddressStyle.delivery_address}>
                     <Text className={addNewAddressStyle.delivery_address_text}>送货地址：</Text>
-                    <Text className={addNewAddressStyle.address}>{this.props.addressList.activeAddress.receiveAddress}</Text>
+                    <Text className={addNewAddressStyle.address}>{this.props.addressList.activeAddress.fullAddress}</Text>
                 </View>
             </Link>
         )

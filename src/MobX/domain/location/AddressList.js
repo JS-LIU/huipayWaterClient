@@ -40,6 +40,7 @@ class AddressList{
 
     @action getAddressList(){
         this.addressList({}).done((list)=>{
+            console.log(list);
             this._list = list;
         })
     }
@@ -55,7 +56,7 @@ class AddressList{
                 cityName:mapInfo.city,
                 latitude:mapInfo.latitude,
                 longtitude:mapInfo.longitude,
-                mappingAddress:mapInfo.receiveAddress,
+                mappingAddress:mapInfo.fullAddress,
                 pCode:mapInfo.pcode,
                 pName:mapInfo.province
             }
@@ -77,7 +78,7 @@ class AddressList{
                     cityName:mapInfo.city,
                     latitude:mapInfo.latitude,
                     longtitude:mapInfo.longitude,
-                    mappingAddress:mapInfo.receiveAddress,
+                    mappingAddress:mapInfo.fullAddress,
                     pCode:mapInfo.pcode,
                     pName:mapInfo.province
                 },
@@ -110,7 +111,7 @@ class AddressList{
     @observable _list = [];
     @computed get list(){
         for(let i = 0;i < this._list.length;i++){
-            this._list[i].receiveAddress = this._list[i].address.mapAddress + (this._list[i].address.appendingAddress||"");
+            this._list[i].fullAddress = this._list[i].address.mapAddress + (this._list[i].address.appendingAddress||"");
         }
 
         return this._list;

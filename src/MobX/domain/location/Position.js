@@ -11,7 +11,7 @@ class Position{
     }
     //  重新定位当前地址
     @action getCurrentMap(){
-        this._current.receiveAddress = "正在定位...";
+        this._current.fullAddress = "正在定位...";
         this.currentMap.getCurrentLocation();
         this._current = this.currentMap.showLocationInfo;
         this.currentMap.searchNearAddress([this._current.longitude,this._current.latitude]);
@@ -41,6 +41,7 @@ class Position{
             this._homeSelectedAddress = address;
         }
     }
+
     //  自主选择的首页地址
     @observable _homeSelectedAddress;
 
@@ -78,6 +79,7 @@ class Position{
         }else if(!this._current.receiveAddress){
             this.getCurrentMap()
         }
+        console.log("_current:",this._current);
         return this._current;
     }
 }

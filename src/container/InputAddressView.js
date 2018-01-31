@@ -66,7 +66,7 @@ import inputAddressStyle from '../css/inputAddressStyle.css';
                     <Text className={inputAddressStyle.info_desc_area}>地址：</Text>
                     <Link to="/map"
                           className={inputAddressStyle.area_choose}>
-                        {this.props.customAddress.addressInfo.receiveAddress}
+                        {this.props.customAddress.addressInfo.fullAddress}
                     </Link>
                 </li>
                 <li className={inputAddressStyle.address_info}>
